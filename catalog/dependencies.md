@@ -12,6 +12,7 @@ Bu belge, cekirdek varliklar arasindaki bagimlilik iliskilerini ozetler. Adapter
 
 | Skill | Baglidir | Not |
 | --- | --- | --- |
+| `mh-skill-catalog-validator` | `mh-blueprint-catalog-validator` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-prompt-library-curator` | `mh-blueprint-prompt-library-curator` | Paketlenmis skill, kaynak blueprint bagini korur |
 
 ## Blueprints -> Masters / Modules / Blueprints
