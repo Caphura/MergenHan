@@ -1,0 +1,16 @@
+id: mh-skill-your-slug
+title: Your Skill Title
+type: skill
+status: stable
+version: 1.0.0
+summary: Paketlenmis skill'in ne yaptigini tek cumlede anlatin.
+tags:
+  - packaging
+  - workflow
+depends_on:
+  - mh-blueprint-your-slug
+last_reviewed: 2026-04-03
+source_blueprint: ../../prompts/skill-blueprints/your-slug.md
+input_contract: Skill'i tetikleyen talep tipi.
+output_contract: Skill tamamlandiginda beklenen sonuc.
+notes: `SKILL.md` sade tutulur; yonetisim bu dosyada yasar.
