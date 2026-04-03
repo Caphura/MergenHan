@@ -37,6 +37,7 @@ Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir.
 
 | Master | Bagimliliklar |
 | --- | --- |
+| `mh-master-nano-banana-image-prompt-composer` | `mh-module-collaborative-guidance`, `mh-module-action-summary` |
 | `mh-master-prompt-library-orchestrator` | `mh-module-context-audit`, `mh-module-repo-architecture`, `mh-module-collaborative-guidance`, `mh-module-no-sensitive-data`, `mh-module-action-summary` |
 | `mh-master-ultimate-game-development-strategist-core` | `mh-module-steam-market-validation`, `mh-module-mvp-scope-reduction`, `mh-module-production-risk-strategy`, `mh-module-full-concept-greenlight` |
 | `mh-master-ultimate-real-estate-market-and-valuation-strategist-core` | `mh-module-real-estate-market-data-validation`, `mh-module-real-estate-comparable-analysis`, `mh-module-real-estate-valuation-logic`, `mh-module-real-estate-risk-and-uncertainty`, `mh-module-real-estate-investment-decision-support`, `mh-module-real-estate-no-hallucination-governance` |
