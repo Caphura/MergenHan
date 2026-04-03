@@ -36,7 +36,7 @@ Eger talep runtime'a ozelse, bunu acikca adapter mapping olarak belirt.
 **Test girdisi:**
 
 ```text
-Kullanicidan daginik bir gorsel fikir alip kisa sorularla netlestiren ve en sonda image modeline uygun tek parca prompt veren yeni bir icerik yazmak istiyorum. Bunu repoda nereye koymaliyim?
+Kullanicidan daginik bir gorsel fikir alip kisa sorularla netlestiren ve en sonda image modeline uygun tek parca prompt veren ilk calisan promptu yazmak istiyorum. Henuz test edilmedi, paketlenmeye aday bir skill gibi dusunmuyorum; once cekirdek promptu dogru yere koymak istiyorum. Bunu repoda nereye koymaliyim?
 ```
 
 **Beklenen guclu davranis:**
@@ -163,13 +163,14 @@ Elimde hazir bir skill var. Bunu ChatGPT proje talimati olarak nasil kullanacagi
 **Test girdisi:**
 
 ```text
-Kullanicidan gelen talebe gore bazen yeni prompt yazmak, bazen mevcut bir blueprint'i skill yapmak, bazen de sadece katalog guncellemek gerekiyor. Bu tip isleri yonlendiren bir sey yazmak istiyorum. Nereye koymaliyim?
+Repo icinde tekrar tekrar kullanabilecegim, kendi basina calisan bir yonlendirme workflow'u tasarlamak istiyorum. Bu davranis, gelen istegin yeni prompt, blueprint, skill packaging, catalog bakimi veya adapter mapping olup olmadigini ayirsin. Amacim atomik bir yardimci davranis parcasi degil, standalone bir routing mantigini once dogru katmanda tutmak. Tek bir gorevi cozen prompt yazmiyorum ve henuz paketlenmis skill yapmak istemiyorum. Bunu repoda nereye koymaliyim?
 ```
 
 **Beklenen guclu davranis:**
 
 - `blueprint` veya guclu gerekceyle ileride `skill`e aday bir router mantigina yonelmeli
 - Talebin asil isinin yonlendirme oldugunu fark etmeli
+- Bunun atomik bir module degil, kendi basina calisan bir routing workflow'u oldugunu ayirt etmeli
 - Bagimlilik adayi olarak context audit, repo architecture ve action summary gibi parcalari gosterebilmeli
 
 **Kirmizi bayraklar:**
