@@ -25,6 +25,7 @@ Bu belge, izinli etiketleri ve klasor bazli anlamlari sabitler. Yeni etiket ekle
 | Etiket | Anlam |
 | --- | --- |
 | `analysis` | Durum tespiti, inceleme veya baglam toplama agirlikli icerik |
+| `apartment-analysis` | Apartman ve daire satis ilanlarini karsilastirma, eleme ve yatirim acisindan degerlendirme odakli icerik |
 | `collaboration` | Isbirligi, eslik etme ve destekleyici iletisim |
 | `composition` | Modullerin birlestirilmesi veya orkestrasyonu |
 | `discovery` | Mevcut durumu arastirma ve belgeleme |
@@ -37,6 +38,7 @@ Bu belge, izinli etiketleri ve klasor bazli anlamlari sabitler. Yeni etiket ekle
 | `image-generation` | Gorsel uretim modelleri, image prompt tasarimi veya gorsel ciktisi hedefleyen akislara ait icerik |
 | `legacy` | Yalnizca tarihsel referans icin saklanan icerik |
 | `library` | Prompt kutuphanesi ve ic organizasyonla ilgili icerik |
+| `investment` | Getiri, geri donus, pazarlik hassasiyeti ve satin alma mantigi etrafinda karar destekleyen icerik |
 | `nano-banana` | Nano Banana odakli prompt tasarimi, yonlendirme ve cikti hazirlama icerigi |
 | `output-format` | Cikti sekli, rapor bicimi ve sunum kontrati |
 | `packaging` | Blueprint'i skill paketine donusturme pratikleri |
