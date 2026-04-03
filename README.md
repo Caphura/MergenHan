@@ -71,6 +71,20 @@ MergenHan, tasinabilir bir AI prompt ve skill kutuphanesi olarak tasarlanmis; ok
 - Yasam dongusu: [`docs/lifecycle.md`](docs/lifecycle.md)
 - Birlestirme ve terfi akisi: [`docs/composition-guide.md`](docs/composition-guide.md)
 
+## Yeni Bir AI Ortaminda Baslangic
+
+1. Once cekirdek kaynagi secin: tekrar kullanilabilir davranis icin `skills/`, paketleme oncesi davranis icin `prompts/skill-blueprints/`, gorev orkestrasyonu icin `prompts/masters/`.
+2. Sonra uygun adapteri secin: runtime'a ozel kullanim notlari `adapters/` altinda yer alir.
+3. Yeni bir ortam ekleyecekseniz `adapters/<runtime>/` altinda en az bir `README.md` ve `mapping.md` olusturun; gerekiyorsa ornek dosya veya istege bagli ayar ornegi ekleyin.
+4. Core kimlikleri, bagimlilik sahipligini ve workflow mantigini adaptere tasimayin; adapter yalnizca calistirma bicimini aciklar.
+
+Pratik adapter ornekleri:
+
+- Claude Code ayar ornegi: [`adapters/claude-code/settings.example.json`](adapters/claude-code/settings.example.json)
+- ChatGPT proje talimati ornegi: [`adapters/chatgpt/project-instructions-example.md`](adapters/chatgpt/project-instructions-example.md)
+- Codex gorev paketi ornegi: [`adapters/codex/task-packet-example.md`](adapters/codex/task-packet-example.md)
+- Generic LLM minimum kullanim ornegi: [`adapters/generic-llm/minimal-usage-example.md`](adapters/generic-llm/minimal-usage-example.md)
+
 ## Icerik Tipleri
 
 - `master`: Birden fazla modulun belirli bir gorev icin birlestirilmis surumu

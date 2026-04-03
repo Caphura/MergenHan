@@ -1,4 +1,4 @@
-﻿# Codex Adapter
+# Codex Adapter
 
 Bu klasor, MergenHan cekirdek skill ve blueprint'lerini Codex tarafindan yurutulebilir repo gorev paketlerine cevirme notlarini tutar.
 
@@ -9,8 +9,11 @@ Bu klasor, MergenHan cekirdek skill ve blueprint'lerini Codex tarafindan yurutul
 - task packet veya repository-aware kullanim notlari
 - cekirdek davranisin Codex is akisina aktarimi
 
+## Ornekler
+
+- [`mapping.md`](./mapping.md): cekirdek varligin Codex tarafinda nasil temsil edilecegi
+- [`task-packet-example.md`](./task-packet-example.md): kisa gorev paketi ornegi
+
 ## Sinir
 
 Codex'e ozel tool convention, izin veya gorev paketleme dili cekirdekte yasamaz. Bunlar yalnizca bu adapter katmaninda belgelenir.
-
-Detayli temsil kurallari icin `mapping.md` dosyasina bakiniz.

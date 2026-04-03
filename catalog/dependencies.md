@@ -1,6 +1,12 @@
-﻿# Dependency Catalog
+# Dependency Catalog
 
 Bu belge, cekirdek varliklar arasindaki bagimlilik iliskilerini ozetler. Adapter dosyalari bu katalogda cekirdek bagimlilik olarak sayilmaz; onlar uyumluluk katmanidir.
+
+## Sahiplik Notu
+
+- Adapter mapping'leri cekirdek dependency sahipligini degistirmez.
+- Cekirdek ID'ler, blueprint kaynaklari ve `depends_on` zinciri `prompts/` ile `skills/` altinda sahiplenilmeye devam eder.
+- Adapterler bu cekirdek sahipligi referans alir; yeni runtime destegi eklemek cekirdekte yeni bagimlilik sahibi yaratmaz.
 
 ## Skills -> Blueprints
 

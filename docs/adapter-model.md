@@ -1,4 +1,4 @@
-﻿# Adapter Modeli
+# Adapter Modeli
 
 MergenHan AI-agnostik bir prompt ve skill kutuphanesidir. Bu repoda cekirdek icerik tek bir saglayiciya, tek bir runtime'a veya tek bir arac ailesine kilitlenmez.
 
@@ -47,6 +47,16 @@ Bir skill paketinin tek bir runtime karsiligi olmak zorunda degildir. Aksine, be
 - bu skill icin bir veya daha fazla adapter mapping'i yazilir
 - adapterler cekirdek davranisi degistirmez, sadece calistirma bicimini cevirir
 
+## Yeni Bir Adapter Eklerken
+
+Yeni bir runtime eklemek istediginizde asgari iskelet sunlardir:
+
+- `adapters/<runtime>/README.md`
+- `adapters/<runtime>/mapping.md`
+- gerekiyorsa kompakt kullanim ornekleri veya istege bagli ayar ornekleri
+
+Bu iskelet cekirdek sahipligi degistirmez; sadece yeni runtime'a gecis katmani ekler.
+
 ## Validation Katmani Neden Ayridir?
 
 Validation katmani zorunlu bir runtime degildir. Amaci:
@@ -63,4 +73,4 @@ Bu katman cekirdek icerigin yerini almaz; yalnizca repo disiplinini destekler.
 - Cekirdek icerik Claude Code veya baska tek bir provider'a kilitlenmez.
 - Runtime'a ozel komutlar, hook'lar, permission kurallari ve tool convention'lari adapter katmanina aittir.
 - Ayni skill birden fazla adapter mapping'ine sahip olabilir.
-
+- Adapter mapping'i cekirdek bagimlilik sahipligini degistirmez; adapterler cekirdek ID ve dependency zincirini referans alir.

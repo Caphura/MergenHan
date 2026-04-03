@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import re
 import sys
@@ -33,7 +33,16 @@ SKILL_META_REQUIRED = {
     "input_contract",
     "output_contract",
 }
+SKILL_FRONTMATTER_REQUIRED = {"name", "description"}
 RECOMMENDED = {"portability", "adapter_support", "runtime_dependencies", "tool_dependencies"}
+PORTABILITY_PRIORITY_PROMPT_IDS = {
+    "mh-master-prompt-library-orchestrator",
+    "mh-blueprint-prompt-library-curator",
+    "mh-blueprint-onboarding-router",
+    "mh-blueprint-catalog-validator",
+    "mh-blueprint-skill-packager",
+    "mh-blueprint-adapter-mapper",
+}
 
 
 def read_text(path: Path) -> str:
@@ -105,6 +114,18 @@ def parse_meta_yaml(path: Path) -> dict:
     return parse_simple_yaml_block(read_text(path))
 
 
+def portability_warning_targets_prompt(data: dict) -> bool:
+    return data.get("id") in PORTABILITY_PRIORITY_PROMPT_IDS
+
+
+def normalize_dep_list(value: object) -> list[str]:
+    if isinstance(value, list):
+        return [item for item in value if isinstance(item, str)]
+    if isinstance(value, str):
+        return [value] if value else []
+    return []
+
+
 def main() -> int:
     errors: list[str] = []
     warnings: list[str] = []
@@ -123,8 +144,9 @@ def main() -> int:
             errors.append(f"Invalid prompt type in {path.relative_to(ROOT)}: {data.get('type')}")
         if data.get("status") not in ALLOWED_STATUSES:
             errors.append(f"Invalid status in {path.relative_to(ROOT)}: {data.get('status')}")
-        for field in sorted(RECOMMENDED - data.keys()):
-            warnings.append(f"Recommended prompt field missing in {path.relative_to(ROOT)}: {field}")
+        if portability_warning_targets_prompt(data):
+            for field in sorted(RECOMMENDED - data.keys()):
+                warnings.append(f"Recommended prompt field missing in {path.relative_to(ROOT)}: {field}")
         item_id = data.get("id")
         if item_id:
             if item_id in all_ids:
@@ -156,21 +178,29 @@ def main() -> int:
             if not blueprint_path.exists():
                 errors.append(f"Broken source_blueprint in {path.relative_to(ROOT)}: {source_blueprint}")
 
+        skill_md = path.with_name("SKILL.md")
+        if not skill_md.exists():
+            errors.append(f"Missing SKILL.md next to {path.relative_to(ROOT)}")
+        else:
+            skill_data = parse_frontmatter(skill_md)
+            if not skill_data:
+                errors.append(f"Missing SKILL.md frontmatter: {skill_md.relative_to(ROOT)}")
+            else:
+                missing_skill_fields = sorted(SKILL_FRONTMATTER_REQUIRED - skill_data.keys())
+                if missing_skill_fields:
+                    errors.append(
+                        f"Missing SKILL.md fields in {skill_md.relative_to(ROOT)}: {', '.join(missing_skill_fields)}"
+                    )
+
     for path in prompt_files:
         data = parse_frontmatter(path)
-        deps = data.get("depends_on", [])
-        if isinstance(deps, str):
-            deps = [deps]
-        for dep in deps:
+        for dep in normalize_dep_list(data.get("depends_on", [])):
             if dep and dep not in all_ids:
                 errors.append(f"Broken depends_on in {path.relative_to(ROOT)}: {dep}")
 
     for path in skill_meta_files:
         data = parse_meta_yaml(path)
-        deps = data.get("depends_on", [])
-        if isinstance(deps, str):
-            deps = [deps]
-        for dep in deps:
+        for dep in normalize_dep_list(data.get("depends_on", [])):
             if dep and dep not in all_ids:
                 errors.append(f"Broken depends_on in {path.relative_to(ROOT)}: {dep}")
 

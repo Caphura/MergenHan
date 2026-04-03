@@ -1,4 +1,4 @@
-﻿# Skill Paket Spesifikasyonu
+# Skill Paket Spesifikasyonu
 
 Bu belge, MergenHan icindeki skill paketleri icin resmi klasor ve metadata standardini tanimlar.
 
@@ -114,6 +114,16 @@ Bir blueprint skill paketine terfi etmeye hazir kabul edilir eger:
 - Ayni skill birden fazla adapter mapping'i tarafindan temsil edilebilir.
 - `portability: universal` veya benzeri isaretler cekirdek niyeti gosterir; runtime gerceklemesi adapterler tarafindan yapilir.
 - `runtime_dependencies` ve `tool_dependencies` alani varsa, bunlar cekirdek skill'in calisabilmesi icin gerekli genel kosullari aciklar; provider'a ozel komut listesi yazmak icin kullanilmaz.
+- Adapter'e ait ayar ornekleri veya task packet notlari skill paketinin parcasina degil, adapter katmanina aittir.
+
+## Validation ile Uyumu
+
+Depodaki hafif validation katmani asagidaki beklentileri dogrulayabilir:
+
+- `skills/<skill-slug>/SKILL.md` dosyasinin varligi
+- `name` ve `description` frontmatter alanlari
+- eslesen `meta.yaml` dosyasi
+- `source_blueprint` baglantisinin cozulmesi
 
 ## Provider-Specific Davranis Kurali
 
