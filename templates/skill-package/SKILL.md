@@ -1,4 +1,4 @@
----
+﻿---
 name: your-skill-slug
 description: Use when this skill should be triggered. Keep this short and specific.
 ---
@@ -24,3 +24,7 @@ description: Use when this skill should be triggered. Keep this short and specif
 ## References
 
 - Gerekirse `references/` altindaki dosyalara isaret edin.
+
+## Portability Notes
+
+- Runtime'a ozel slash command, hook, permission, tool veya agent wiring detaylari bu dosyada degil `adapters/` katmaninda belgelenir.

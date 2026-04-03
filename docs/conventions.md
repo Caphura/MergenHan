@@ -1,6 +1,6 @@
-# Yazi ve Yapi Kurallari
+﻿# Yazi ve Yapi Kurallari
 
-Bu belge, prompt library icindeki dosyalarin nasil adlandirilacagini, hangi metadata alanlarini tasiyacagini ve ne zaman bir ust seviyeye terfi edecegini tanimlar.
+Bu belge, prompt library icindeki dosyalarin nasil adlandirilacagini, hangi metadata alanlarini tasiyacagini ve ne zaman bir ust seviyeye terfi edecegini tanimlar. Cekirdek icerik AI-agnostik tutulur; runtime'a ozel esleme kurallari `adapters/` katmaninda yasatilir.
 
 ## Adlandirma Kurallari
 
@@ -28,10 +28,14 @@ Ihtiyaca gore su alanlar eklenebilir:
 - `input_contract`
 - `output_contract`
 - `notes`
+- `portability`
+- `adapter_support`
+- `runtime_dependencies`
+- `tool_dependencies`
 
 ## Skill Paket Istisnasi
 
-Paketlenmis skill klasorlerindeki `SKILL.md` dosyalari Codex uyumlulugu icin sade tutulur ve yalnizca skill frontmatter'i (`name`, `description`) tasir.
+Paketlenmis skill klasorlerindeki `SKILL.md` dosyalari runtime-agnostik cekirdek calisma talimati olarak sade tutulur ve yalnizca skill frontmatter'i (`name`, `description`) tasir.
 
 Skill'e ait yonetisim verileri su dosyada tutulur:
 
@@ -42,6 +46,7 @@ Bu ayirim sayesinde:
 - `SKILL.md` calisma talimatlarina odaklanir
 - versiyon, durum, bagimlilik ve kaynak blueprint baglantisi kaybolmaz
 - skill paketleri repo genelindeki yonetisim kurallariyla uyumlu kalir
+- runtime'a ozel hook, komut, izin ve arac notlari cekirdek skill tanimina karismaz
 
 ## Durum Yasam Dongusu
 
@@ -52,6 +57,8 @@ Yalnizca asagidaki `status` degerleri kullanilir:
 - `stable`: Siklikla tekrar kullanilan ve davranisi oturmus
 - `deprecated`: Yerine daha iyi bir icerik gelmis, yeni kullanim icin onerilmez
 - `archived`: Tarihsel referans olarak saklanan surum
+
+Yasam dongusunun yapisal ve evrimsel aciklamasi icin `docs/lifecycle.md` belgesine bakiniz.
 
 ## Klasor Kullanim Kurallari
 
@@ -83,6 +90,12 @@ Yeni kategori eklemek yerine mevcut taksonomi icinde kalmaya oncelik verilir.
 - Gecici notlar veya arka plan dokumanlari buraya dagitilmaz.
 - Yardimci kaynaklar gerekiyorsa `references/`, `scripts/`, `assets/`, `agents/` altinda tutulur.
 
+### `adapters/`
+
+- Runtime'a ozel komut, hook, permission, tool ve agent wiring ayrintilari burada tutulur.
+- Cekirdek prompt veya skill tanimi provider syntax'i ile kirletilmez.
+- Ayni cekirdek varligin birden fazla adapter eslemesi olabilir.
+
 ## Terfi Kurallari
 
 Bir icerik `module` olarak ayrilmalidir eger:
@@ -101,9 +114,12 @@ Bir `blueprint` skill paketine terfi ettirilmelidir eger:
 - gorev akisi sabitlendi ise
 - gerekiyorsa referans veya asset ihtiyaci netlesmisse
 - katalog ve meta kayitlari guncellenmeye hazirsa
+- cekirdek tanim tek bir saglayicinin syntax'ina bagli degilse
 
 ## Katalog Bakim Kurali
 
 - `prompts/` altina yeni dosya eklendiginde `catalog/prompts.md` guncellenir.
 - `skills/` altina yeni paket eklendiginde `catalog/skills.md` guncellenir.
 - Yeni etiket turetmeden once `catalog/taxonomy.md` kontrol edilir.
+- Bagimlilik ozeti degisirse `catalog/dependencies.md` de guncellenir.
+- Skill paket standardi icin ayrintili kontrat `docs/skill-package-spec.md` icinde tutulur.

@@ -1,4 +1,4 @@
----
+﻿---
 id: mh-blueprint-your-slug
 title: Your Skill Blueprint Title
 type: blueprint
@@ -10,6 +10,14 @@ tags:
   - workflow
 depends_on: []
 last_reviewed: 2026-04-03
+portability: universal
+adapter_support:
+  claude-code: planned
+  chatgpt: planned
+  codex: planned
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
 input_contract: Skill'i tetikleyen talep turleri.
 output_contract: Skill'in uretmesi beklenen sonuc veya degisim.
 notes: Paketleme oncesi acik sorular veya riskler.
@@ -34,3 +42,4 @@ Bu blueprint'in ustlendigi ana sorumlulugu yazin.
 
 - Ne zaman `skills/` altina tasinmali?
 - Hangi yardimci klasorler gerekecek?
+- Hangi adapterlerde nasil temsil edilecegi cekirdek davranisi bozmadan aciklanabiliyor mu?

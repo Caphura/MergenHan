@@ -1,4 +1,4 @@
----
+﻿---
 id: mh-module-your-slug
 title: Your Module Title
 type: module
@@ -10,6 +10,14 @@ tags:
   - guidance
 depends_on: []
 last_reviewed: 2026-04-03
+portability: universal
+adapter_support:
+  claude-code: planned
+  chatgpt: planned
+  codex: planned
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
 input_contract: Modulu hangi baglamlarda cagirmak gerekir?
 output_contract: Modul etkinlestiginde ne degisir?
 notes: Bu modulun birlesim notlari.
@@ -27,3 +35,7 @@ Bu modulun tek sorumlulugunu anlatin.
 # Module Text
 
 Buraya tekrar kullanilabilir prompt parcasini yazin.
+
+# Portability Notes
+
+- Runtime'a ozel komut, arac veya izin beklentileri varsa bunlari adapter notlarina tasiyin.

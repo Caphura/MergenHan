@@ -1,6 +1,14 @@
-# Taxonomy
+﻿# Taxonomy
 
 Bu belge, izinli etiketleri ve klasor bazli anlamlari sabitler. Yeni etiket eklemeden once burada yer alan gruplardan biriyle ifade edilip edilemeyecegi kontrol edilmelidir.
+
+## Katmanlar
+
+| Katman | Anlam |
+| --- | --- |
+| `core` | Tasinabilir prompt, modul, blueprint, skill ve katalog icerigi |
+| `adapter` | Belirli bir runtime'a ozel esleme, komut ve otomasyon notlari |
+| `validation` | Repo butunlugu, metadata ve link dogrulama araclari |
 
 ## Modul Kategorileri
 
@@ -27,13 +35,16 @@ Bu belge, izinli etiketleri ve klasor bazli anlamlari sabitler. Yeni etiket ekle
 | `library` | Prompt kutuphanesi ve ic organizasyonla ilgili icerik |
 | `output-format` | Cikti sekli, rapor bicimi ve sunum kontrati |
 | `packaging` | Blueprint'i skill paketine donusturme pratikleri |
+| `portability` | Icerigin birden fazla runtime'da tasinabilirligini koruma hedefi |
 | `privacy` | Hassas veriyi koruma ve bilgi ayrimi |
 | `readability` | Acik, taranabilir ve anlasilir yazim hedefi |
+| `routing` | Talebi dogru varlik tipine veya akisa yonlendirme |
 | `repo-architecture` | Klasorleme, repo iskeleti ve dosya kontrati |
 | `repo-hygiene` | Temizlik, tutarlilik ve bakim kolayligi |
 | `safety` | Guvenli kullanim sinirlari ve zarar azaltma |
 | `summary` | Kisa sonuc, sonraki adim veya toparlama formatlari |
 | `tone` | Ton modulleri veya ses karakteri |
+| `validation` | Katalog, metadata, link veya bagimlilik tutarliligini denetleme |
 | `workflow` | Adim adim is akisina hizmet eden icerik |
 
 ## Etiketleme Kurali

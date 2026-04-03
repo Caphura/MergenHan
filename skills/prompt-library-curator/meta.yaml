@@ -1,4 +1,4 @@
-id: mh-skill-prompt-library-curator
+﻿id: mh-skill-prompt-library-curator
 title: Prompt Library Curator
 type: skill
 status: stable
@@ -12,6 +12,14 @@ depends_on:
   - mh-blueprint-prompt-library-curator
 last_reviewed: 2026-04-03
 source_blueprint: ../../prompts/skill-blueprints/prompt-library-curator.md
+portability: universal
+adapter_support:
+  claude-code: supported
+  chatgpt: supported
+  codex: supported
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
 input_contract: Prompt kutuphanesi icindeki icerikleri duzenleme, siniflandirma veya paketleme talepleri.
 output_contract: Guncel repo yapisi, katalog kayitlari ve gerekiyorsa terfi edilmis skill paketi.
 notes: Bu klasorde calisma talimatlari `SKILL.md` icinde, yonetisim ve izlenebilirlik verisi bu dosyada tutulur.

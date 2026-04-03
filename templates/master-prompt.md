@@ -1,4 +1,4 @@
----
+﻿---
 id: mh-master-your-slug
 title: Your Master Prompt Title
 type: master
@@ -10,6 +10,14 @@ tags:
   - workflow
 depends_on: []
 last_reviewed: 2026-04-03
+portability: universal
+adapter_support:
+  claude-code: planned
+  chatgpt: planned
+  codex: planned
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
 input_contract: Beklenen girdi tipi veya kullanim senaryosu.
 output_contract: Beklenen cikti bicimi veya karar sekli.
 notes: Istege bagli editor notlari.
@@ -32,3 +40,4 @@ Buraya gercek master prompt metnini yazin.
 
 - Hangi durumda moduller ayrilmali?
 - Ne zaman arsive tasinmali?
+- Runtime'a ozel notlari cekirdek prompta degil `adapters/` katmanina tasiyin.

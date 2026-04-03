@@ -1,4 +1,4 @@
----
+﻿---
 id: mh-master-prompt-library-orchestrator
 title: Prompt Library Orchestrator
 type: master
@@ -16,6 +16,14 @@ depends_on:
   - mh-module-no-sensitive-data
   - mh-module-action-summary
 last_reviewed: 2026-04-03
+portability: universal
+adapter_support:
+  claude-code: supported
+  chatgpt: supported
+  codex: supported
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
 input_contract: Var olan promptlari duzenleme, yeni prompt iskeleti kurma veya prompt library bakimi talepleri.
 output_contract: Net repo onerileri, gerekiyorsa dosya iskeleti ve kisa aksiyon ozeti.
 notes: Kutuphane duzeyinde orkestrasyon icin kullanilir; tek bir modulu aciklamak icin degil.
@@ -45,6 +53,7 @@ Karar alirken su ilkeleri koru:
 - Tek goreve ozel ama birden fazla modulu birlestiren akislari master prompt olarak tut.
 - Henuz paketlenmeye hazir olmayan skill davranislarini blueprint olarak sakla.
 - Yalnizca stabil ve tekrar kullanilabilir hale gelen davranislari skill paketine tasit.
+- Runtime'a ozel komut, arac veya izin notlarini cekirdek varliklardan ayirip adapter katmaninda belgelemeyi tercih et.
 - Hassas veri, gizli anahtar veya paylasilmamasi gereken musteri icerigini repoya dahil etme.
 
 Sonucu su sirayla sun:

@@ -1,4 +1,4 @@
----
+﻿---
 name: prompt-library-curator
 description: Use when organizing, packaging, or reviewing master prompts, prompt modules, and skill blueprints inside the MergenHan library.
 ---
@@ -28,3 +28,8 @@ description: Use when organizing, packaging, or reviewing master prompts, prompt
 ## References
 
 - Ayrintili gozden gecirme icin `references/review-checklist.md` dosyasina bak.
+
+## Portability Notes
+
+- Bu skill'in cekirdek davranisi provider-agnostiktir.
+- Runtime'a ozel slash command, arac, izin veya agent wiring bilgileri `adapters/` altindaki mapping belgelerinde tutulmalidir.
