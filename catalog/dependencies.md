@@ -29,6 +29,7 @@ Bu belge, cekirdek varliklar arasindaki bagimlilik iliskilerini ozetler. Adapter
 | `mh-blueprint-skill-packager` | `mh-blueprint-prompt-library-curator`, `mh-module-repo-architecture`, `mh-module-action-summary` |
 | `mh-blueprint-adapter-mapper` | `mh-module-context-audit`, `mh-module-repo-architecture`, `mh-module-action-summary` |
 | `mh-blueprint-feature-spec-composer` | `mh-module-context-audit`, `mh-module-collaborative-guidance`, `mh-module-action-summary` |
+| `mh-blueprint-apartment-investment-analyzer` | `mh-master-ultimate-real-estate-market-and-valuation-strategist-core`, `mh-module-real-estate-market-data-validation`, `mh-module-real-estate-comparable-analysis`, `mh-module-real-estate-valuation-logic`, `mh-module-real-estate-risk-and-uncertainty`, `mh-module-real-estate-investment-decision-support`, `mh-module-real-estate-no-hallucination-governance`, `mh-module-action-summary` |
 
 ## Masters -> Modules
 
