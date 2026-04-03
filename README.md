@@ -61,6 +61,12 @@ En kisa yol:
 4. Kataloglari yeniden uretin: `python scripts/generate_catalog.py`
 5. Dogrulama betiklerini calistirin.
 
+Elle kopyalamak istemezseniz:
+
+- `python scripts/new_prompt.py master your-slug`
+- `python scripts/new_prompt.py module your-slug --category capability`
+- `python scripts/new_prompt.py blueprint your-slug`
+
 Ilk eklemede yeterli olan zorunlu prompt alanlari:
 
 - `id`
@@ -166,6 +172,9 @@ Pratik adapter ornekleri:
 
 Kataloglari yeniden uretmek ve repo butunlugunu kontrol etmek icin `scripts/` altinda bagimsizliksiz yardimci betikler bulunur:
 
+- `python scripts/new_prompt.py master your-slug`
+- `python scripts/new_prompt.py module your-slug --category capability`
+- `python scripts/new_prompt.py blueprint your-slug`
 - `python scripts/generate_catalog.py`
 - `python scripts/validate_catalog.py`
 - `python scripts/validate_metadata.py`
