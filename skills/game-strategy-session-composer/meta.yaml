@@ -1,0 +1,26 @@
+id: mh-skill-game-strategy-session-composer
+title: Game Strategy Session Composer
+type: skill
+status: stable
+version: 1.0.0
+summary: Oyun fikri degerlendirme talepleri icin dogru stratejik session composition'ini secen ve kopyalanabilir oturum acilisi ureten paketlenmis beceri.
+tags:
+  - composition
+  - game-development
+  - workflow
+  - session
+depends_on:
+  - mh-blueprint-game-strategy-session-composer
+last_reviewed: 2026-04-04
+source_blueprint: ../../prompts/skill-blueprints/game-strategy-session-composer.md
+portability: universal
+adapter_support:
+  claude-code: supported
+  chatgpt: supported
+  codex: supported
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
+input_contract: Kullanicinin bir oyun fikrini belirli bir amacla degerlendirmek istemesi.
+output_contract: Uygun prompt kombinasyonu ve oturum icin kisa calistirma yonergesi.
+notes: Bu klasorde calisma talimatlari `SKILL.md` icinde, yonetisim ve izlenebilirlik verisi bu dosyada tutulur. Davranis test senaryolarinda dogru composition secimi ve copy-paste acilis kalitesi acisindan yeterli bulunmustur.

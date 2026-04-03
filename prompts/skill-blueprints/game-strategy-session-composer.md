@@ -19,7 +19,7 @@ depends_on:
 last_reviewed: 2026-04-03
 input_contract: Kullanicinin bir oyun fikrini belirli bir amacla degerlendirmek istemesi.
 output_contract: Uygun prompt kombinasyonu ve oturum icin kisa calistirma yonergesi.
-notes: Henuz paketlenmis bir skill degil; once kullanim kaliplari olgunlastirilmalidir.
+notes: Farkli AI ortamlarindaki testlerde gecer not almis, dogru session composition secimi ve copy-paste oturum acilisi uretimi acisindan paketlenmeye hazir kompozisyon taslagi.
 ---
 
 # Responsibility
