@@ -24,3 +24,8 @@
 - Promptun tek parca veya parca parca verilmesi
 - Project instruction, custom GPT veya manuel oturum kullanimi
 - Cikti biciminin ChatGPT arayuzundeki kullanim seklinde sunulmasi
+
+Kisa not:
+
+- Text-only image prompt composer turu skill'ler ChatGPT tarafinda `SKILL.md` uzerinden kolayca tasinabilir.
+- ChatGPT gorsel uretim yetenegine sahip olsa bile, varsayilan davranis metin tabanli prompt cikti vermek olabilir.

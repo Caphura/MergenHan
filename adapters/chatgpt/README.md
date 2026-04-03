@@ -13,6 +13,7 @@ Bu klasor, MergenHan cekirdek iceriginin ChatGPT projeleri, custom GPT benzeri i
 
 - [`mapping.md`](./mapping.md): cekirdek varligin ChatGPT tarafinda nasil temsil edilecegi
 - [`project-instructions-example.md`](./project-instructions-example.md): kisa proje talimati ornegi
+- [`nano-banana-project-instructions-example.md`](./nano-banana-project-instructions-example.md): text-only image prompt skill'i icin kisa oturum / proje talimati ornegi
 
 ## Sinir
 
