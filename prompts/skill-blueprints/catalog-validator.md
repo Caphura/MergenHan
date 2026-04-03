@@ -2,9 +2,9 @@
 id: mh-blueprint-catalog-validator
 title: Catalog Validator
 type: blueprint
-status: draft
-version: 0.1.0
-summary: Kataloglar, dosyalar, ID'ler ve goreli baglantilar arasindaki tutarliligi denetleyen evrensel validator taslagi.
+status: stable
+version: 1.0.0
+summary: Kataloglar, dosyalar, ID'ler ve goreli baglantilar arasindaki tutarliligi denetleyen dogrulanmis evrensel validator blueprint'i.
 tags:
   - validation
   - governance
@@ -13,7 +13,7 @@ depends_on:
   - mh-module-context-audit
   - mh-module-repo-architecture
   - mh-module-action-summary
-last_reviewed: 2026-04-03
+last_reviewed: 2026-04-04
 portability: universal
 adapter_support:
   claude-code: supported
@@ -24,7 +24,7 @@ runtime_dependencies: []
 tool_dependencies: []
 input_contract: Repo butunlugunu katalog, dosya, kimlik ve link acisindan denetleme talepleri.
 output_contract: Tespit edilen tutarsizliklar, eksik girdiler, duplicate ID'ler ve link sorunlari icin taranabilir rapor.
-notes: Bu blueprint runtime'a ozel validator syntax'i uretmez; cekirdek kontrol mantigini tanimlar.
+notes: Bu blueprint runtime'a ozel validator syntax'i uretmez; cekirdek kontrol mantigini tanimlar. Repo bakiminda tekrarli kullanim gordugu ve stable skill paketine kaynaklik ettigi icin stabilize edilmistir.
 ---
 
 # Responsibility
