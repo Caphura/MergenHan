@@ -16,6 +16,7 @@ Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir.
 | --- | --- | --- |
 | `mh-skill-adapter-mapper` | `mh-blueprint-adapter-mapper` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-catalog-validator` | `mh-blueprint-catalog-validator` | Paketlenmis skill, kaynak blueprint bagini korur |
+| `mh-skill-nano-banana-image-prompt-composer` | `mh-blueprint-nano-banana-image-prompt-composer` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-prompt-library-curator` | `mh-blueprint-prompt-library-curator` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-skill-packager` | `mh-blueprint-skill-packager` | Paketlenmis skill, kaynak blueprint bagini korur |
 
