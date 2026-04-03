@@ -2,9 +2,9 @@
 id: mh-blueprint-apartment-investment-analyzer
 title: Apartment Investment Analyzer
 type: blueprint
-status: draft
-version: 0.1.0
-summary: Apartman satis ilanlarini yatirim odakli, kanit ve belirsizlik ayrimini koruyan yapisal bir analiz formatina donusturen real estate taslagi.
+status: stable
+version: 1.0.0
+summary: Apartman satis ilanlarini yatirim odakli, kanit ve belirsizlik ayrimini koruyan yapisal bir analiz formatina donusturen dogrulanmis real estate blueprint'i.
 tags:
   - real-estate
   - apartment-analysis
@@ -19,7 +19,7 @@ depends_on:
   - mh-module-real-estate-investment-decision-support
   - mh-module-real-estate-no-hallucination-governance
   - mh-module-action-summary
-last_reviewed: 2026-04-03
+last_reviewed: 2026-04-04
 portability: universal
 adapter_support:
   claude-code: supported
@@ -30,7 +30,7 @@ runtime_dependencies: []
 tool_dependencies: []
 input_contract: Tek bir apartman ilani, birden fazla apartman satis ilani veya yatirim shortlist'i talebini kanit temelli ve karar odakli bicimde analiz etme istegi.
 output_contract: Scope Summary, Market Snapshot, Listing-by-Listing Analysis, Rental Potential, Payback / Yield Estimate, Risks and Unknowns, Top Candidates ve Recommended Next Checks bolumlerinden olusan taranabilir apartment investment analizi.
-notes: Bu blueprint apartman satis ilanlarini yatirim acisindan degerlendirmeye odaklanir; hukuki gorus, resmi ekspertiz, arsa / imar analizi, ticari gayrimenkul analizi veya finansman planlamasi uretmez.
+notes: Bu blueprint farkli AI ortamlarda test edilmis ve karar destekleyici cikti yapisi, risk/belirsizlik disiplini ve apartman ilani odagi acisindan yeterli bulunmustur. Hukuki gorus, resmi ekspertiz, arsa / imar analizi, ticari gayrimenkul analizi veya finansman planlamasi uretmez.
 ---
 
 # Responsibility

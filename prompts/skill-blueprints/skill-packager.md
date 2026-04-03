@@ -2,9 +2,9 @@
 id: mh-blueprint-skill-packager
 title: Skill Packager
 type: blueprint
-status: draft
-version: 0.1.0
-summary: Bir blueprint'in paketlenmis skill olmaya hazir olup olmadigini degerlendiren ve klasor yapisini hazirlayan evrensel taslak.
+status: stable
+version: 1.0.0
+summary: Bir blueprint'in paketlenmis skill olmaya hazir olup olmadigini degerlendiren ve klasor yapisini hazirlayan dogrulanmis evrensel packaging blueprint'i.
 tags:
   - packaging
   - workflow
@@ -13,7 +13,7 @@ depends_on:
   - mh-blueprint-prompt-library-curator
   - mh-module-repo-architecture
   - mh-module-action-summary
-last_reviewed: 2026-04-03
+last_reviewed: 2026-04-04
 portability: universal
 adapter_support:
   claude-code: supported
@@ -24,7 +24,7 @@ runtime_dependencies: []
 tool_dependencies: []
 input_contract: Belirli bir blueprint'in skill paketine terfi ettirilip ettirilmeyecegini ve nasil paketlenecegini degerlendirme talepleri.
 output_contract: Terfi karari, onerilen skill klasor yapisi, gerekli `SKILL.md` ve `meta.yaml` unsurlari.
-notes: Paketleme karari migration odaklidir; davranisi sifirdan yazmak yerine mevcut blueprint'i cekirdekte korur.
+notes: Paketleme karari migration odaklidir; davranisi sifirdan yazmak yerine mevcut blueprint'i cekirdekte korur. Repo icindeki skill terfi akislarinda tekrarli kullanim gordugu ve stable skill paketine kaynaklik ettigi icin stabilize edilmistir.
 ---
 
 # Responsibility

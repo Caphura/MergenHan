@@ -2,9 +2,9 @@
 id: mh-blueprint-adapter-mapper
 title: Adapter Mapper
 type: blueprint
-status: draft
-version: 0.1.0
-summary: Cekirdek prompt, skill veya blueprint'i Claude Code, ChatGPT, Codex ve generic LLM kullanimina esleyen evrensel mapper taslagi.
+status: stable
+version: 1.0.0
+summary: Cekirdek prompt, skill veya blueprint'i Claude Code, ChatGPT, Codex ve generic LLM kullanimina esleyen dogrulanmis evrensel mapper blueprint'i.
 tags:
   - portability
   - documentation
@@ -13,7 +13,7 @@ depends_on:
   - mh-module-context-audit
   - mh-module-repo-architecture
   - mh-module-action-summary
-last_reviewed: 2026-04-03
+last_reviewed: 2026-04-04
 portability: universal
 adapter_support:
   claude-code: supported
@@ -24,7 +24,7 @@ runtime_dependencies: []
 tool_dependencies: []
 input_contract: Bir cekirdek varligin farkli runtime'larda nasil temsil edilecegini aciklama talepleri.
 output_contract: Her adapter icin neyin degismeden kaldigi ve neyin runtime seviyesinde uyarlanabilecegi acik bir mapping ozeti.
-notes: Bu blueprint cekirdek davranisi cevirir; provider'a ozel uygulama ayrintilarini ilgili adapter belgelerine birakir.
+notes: Bu blueprint cekirdek davranisi cevirir; provider'a ozel uygulama ayrintilarini ilgili adapter belgelerine birakir. Repo icindeki adapter mapping akislarinda tekrarli kullanim gordugu ve stable skill paketine kaynaklik ettigi icin stabilize edilmistir.
 ---
 
 # Responsibility

@@ -10,18 +10,17 @@ tags:
   - workflow
 depends_on: []
 last_reviewed: 2026-04-03
-portability: universal
-adapter_support:
-  claude-code: planned
-  chatgpt: planned
-  codex: planned
-  generic-llm: supported
-runtime_dependencies: []
-tool_dependencies: []
-input_contract: Beklenen girdi tipi veya kullanim senaryosu.
-output_contract: Beklenen cikti bicimi veya karar sekli.
-notes: Istege bagli editor notlari.
 ---
+
+Opsiyonel metadata alanlari gerektikce eklenebilir:
+
+- `input_contract`
+- `output_contract`
+- `notes`
+- `portability`
+- `adapter_support`
+- `runtime_dependencies`
+- `tool_dependencies`
 
 # Goal
 

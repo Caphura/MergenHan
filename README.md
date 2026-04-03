@@ -51,22 +51,59 @@ MergenHan, tasinabilir bir AI prompt ve skill kutuphanesi olarak tasarlanmis; ok
     `-- skill-package/
 ```
 
+## 30 Saniyelik Baslangic
+
+En kisa yol:
+
+1. Ihtiyaciniza en yakin sablonu `templates/` altindan kopyalayin.
+2. Sadece zorunlu metadata alanlarini doldurun.
+3. Dosyayi `prompts/` altinda dogru yere koyun.
+4. Kataloglari yeniden uretin: `python scripts/generate_catalog.py`
+5. Dogrulama betiklerini calistirin.
+
+Elle kopyalamak istemezseniz:
+
+- `python scripts/new_prompt.py master your-slug`
+- `python scripts/new_prompt.py module your-slug --category capability`
+- `python scripts/new_prompt.py blueprint your-slug`
+
+Ilk eklemede yeterli olan zorunlu prompt alanlari:
+
+- `id`
+- `title`
+- `type`
+- `status`
+- `version`
+- `summary`
+- `tags`
+- `depends_on`
+- `last_reviewed`
+
+`input_contract`, `output_contract`, `notes`, `portability`, `adapter_support`, `runtime_dependencies` ve `tool_dependencies` gibi alanlar ihtiyac oldukca eklenir.
+
 ## Hizli Baslangic
 
 1. Yeni bir icerik baslatmak icin uygun sablonu `templates/` altindan kopyalayin.
 2. Icerigi once `prompts/` altinda dogru kategoriye yerlestirin.
-3. `catalog/prompts.md` veya `catalog/skills.md` icine yeni girdiyi ekleyin.
-4. Gerekirse bagli modulleri ve etiketleri `catalog/taxonomy.md` ile hizalayin.
+3. Yeni etiket uretiyorsaniz `catalog/taxonomy.md` ile hizalayin.
+4. Kataloglari elle duzenlemek yerine `python scripts/generate_catalog.py` calistirin.
 5. Skill davranisi stabil hale geldiginde `prompts/skill-blueprints/` altindaki taslagi `skills/<skill-slug>/` altina terfi ettirin.
 6. Runtime'a ozel notlar gerekiyorsa cekirdek icerigi degistirmek yerine ilgili adapter altinda mapping belgesi ekleyin.
 
 ## Nereden Baslamaliyim?
 
-- Guncel bir master prompt ornegi: [`prompts/masters/active/prompt-library-orchestrator.md`](prompts/masters/active/prompt-library-orchestrator.md)
+Okuma sirasini kisa tutmak isterseniz:
+
+1. Bu README
+2. Bir ornek prompt: [`prompts/masters/active/prompt-library-orchestrator.md`](prompts/masters/active/prompt-library-orchestrator.md)
+3. Gerekirse kurallar: [`docs/conventions.md`](docs/conventions.md)
+
+Derine inmek isterseniz:
+
 - Tekrar kullanilabilir bir modul ornegi: [`prompts/modules/capability/context-audit.md`](prompts/modules/capability/context-audit.md)
 - Paketlenmemis skill taslagi: [`prompts/skill-blueprints/prompt-library-curator.md`](prompts/skill-blueprints/prompt-library-curator.md)
 - Paketlenmis skill ornegi: [`skills/prompt-library-curator/SKILL.md`](skills/prompt-library-curator/SKILL.md)
-- Repo kurallari: [`docs/conventions.md`](docs/conventions.md)
+- Gorsel prompt odakli skill ornegi: [`skills/nano-banana-image-prompt-composer/SKILL.md`](skills/nano-banana-image-prompt-composer/SKILL.md)
 - Adapter modeli: [`docs/adapter-model.md`](docs/adapter-model.md)
 - Yasam dongusu: [`docs/lifecycle.md`](docs/lifecycle.md)
 - Birlestirme ve terfi akisi: [`docs/composition-guide.md`](docs/composition-guide.md)
@@ -124,7 +161,7 @@ Pratik adapter ornekleri:
 - Ana dokumantasyon Turkce yazilir.
 - Prompt icerikleri YAML frontmatter ile surumlenir.
 - Gizli anahtar, musteri verisi ve paylasilmamasi gereken varyantlar repoya girmez.
-- Okunabilirlik ve manuel bakim once gelir; otomasyon yalnizca hafif dogrulama scriptleriyle sinirli tutulur.
+- Okunabilirlik ve manuel bakim once gelir; otomasyon yalnizca hafif uretim ve dogrulama scriptleriyle sinirli tutulur.
 - Cekirdek icerik tek bir saglayicinin syntax veya runtime varsayimlarina baglanmaz.
 
 ## Ilk Ornek Akislar
@@ -132,12 +169,22 @@ Pratik adapter ornekleri:
 - Modulden master prompta gecis: [`examples/compositions/module-to-master.md`](examples/compositions/module-to-master.md)
 - Blueprint'ten skill paketine gecis: [`examples/compositions/blueprint-to-skill.md`](examples/compositions/blueprint-to-skill.md)
 
-## Hafif Dogrulama
+## Hafif Bakim ve Dogrulama
 
-Repo butunlugu icin `scripts/` altinda bagimsizliksiz calisan uc yardimci betik bulunur:
+Kataloglari yeniden uretmek ve repo butunlugunu kontrol etmek icin `scripts/` altinda bagimsizliksiz yardimci betikler bulunur:
 
+- `python scripts/new_prompt.py master your-slug`
+- `python scripts/new_prompt.py module your-slug --category capability`
+- `python scripts/new_prompt.py blueprint your-slug`
+- `python scripts/generate_catalog.py`
 - `python scripts/validate_catalog.py`
 - `python scripts/validate_metadata.py`
 - `python scripts/check_missing_links.py`
 
-Bu betikler CI zorunlulugu getirmez; katalog, metadata ve link sorunlarini manuel bakim akisini destekleyecek bicimde raporlar.
+Onerilen akis:
+
+1. Icerigi ekleyin veya guncelleyin.
+2. `python scripts/generate_catalog.py` calistirin.
+3. Diger betiklerle katalog, metadata ve link tutarliligini kontrol edin.
+
+Bu betikler CI zorunlulugu getirmez; repo bakimini hizlandirmak ve manuel hatalari azaltmak icin kullanilir.

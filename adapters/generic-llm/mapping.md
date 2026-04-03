@@ -23,3 +23,8 @@
 - Baglamin tek mesajda veya asamali verilmesi
 - Oturum acilis metninin kisaltilmasi veya genisletilmesi
 - Cikti sablonunun arayuze gore duzenlenmesi
+
+Kisa not:
+
+- Text-only image prompt composer turu skill'ler generic LLM tarafinda dogrudan `SKILL.md` uzerinden tasinabilir.
+- Gemini benzeri ortamlarda, gorsel araclari olsa bile varsayilan davranis metin cikti olarak korunmalidir.

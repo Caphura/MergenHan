@@ -118,8 +118,8 @@ Bir `blueprint` skill paketine terfi ettirilmelidir eger:
 
 ## Katalog Bakim Kurali
 
-- `prompts/` altina yeni dosya eklendiginde `catalog/prompts.md` guncellenir.
-- `skills/` altina yeni paket eklendiginde `catalog/skills.md` guncellenir.
+- `prompts/` veya `skills/` altina yeni dosya eklendiginde `python scripts/generate_catalog.py` calistirilir.
+- `catalog/prompts.md`, `catalog/skills.md` ve `catalog/dependencies.md` bu betik tarafindan yeniden uretilir.
 - Yeni etiket turetmeden once `catalog/taxonomy.md` kontrol edilir.
-- Bagimlilik ozeti degisirse `catalog/dependencies.md` de guncellenir.
+- Bagimlilik ozeti elle degil uretilen katalog uzerinden takip edilir.
 - Skill paket standardi icin ayrintili kontrat `docs/skill-package-spec.md` icinde tutulur.
