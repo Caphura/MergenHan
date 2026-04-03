@@ -31,11 +31,14 @@ Bu belge, izinli etiketleri ve klasor bazli anlamlari sabitler. Yeni etiket ekle
 | `documentation` | Repo belgeleri, aciklayici promptlar ve yazili standartlar |
 | `governance` | Surum, durum, yasam dongusu ve bakim disiplini |
 | `guidance` | Kullaniciyi yonlendiren veya karar netlestiren icerik |
+| `image-generation` | Gorsel uretim modelleri, image prompt tasarimi veya gorsel ciktisi hedefleyen akislara ait icerik |
 | `legacy` | Yalnizca tarihsel referans icin saklanan icerik |
 | `library` | Prompt kutuphanesi ve ic organizasyonla ilgili icerik |
+| `nano-banana` | Nano Banana odakli prompt tasarimi, yonlendirme ve cikti hazirlama icerigi |
 | `output-format` | Cikti sekli, rapor bicimi ve sunum kontrati |
 | `packaging` | Blueprint'i skill paketine donusturme pratikleri |
 | `portability` | Icerigin birden fazla runtime'da tasinabilirligini koruma hedefi |
+| `prompt-composition` | Ham fikri veya eksik tarifi hedef modele uygun, kopyalanabilir prompta donusturen icerik |
 | `privacy` | Hassas veriyi koruma ve bilgi ayrimi |
 | `readability` | Acik, taranabilir ve anlasilir yazim hedefi |
 | `routing` | Talebi dogru varlik tipine veya akisa yonlendirme |
@@ -45,6 +48,7 @@ Bu belge, izinli etiketleri ve klasor bazli anlamlari sabitler. Yeni etiket ekle
 | `summary` | Kisa sonuc, sonraki adim veya toparlama formatlari |
 | `tone` | Ton modulleri veya ses karakteri |
 | `validation` | Katalog, metadata, link veya bagimlilik tutarliligini denetleme |
+| `visual-direction` | Sahne, kompozisyon, isik, stil ve atmosfer netlestiren gorsel yonlendirme icerigi |
 | `workflow` | Adim adim is akisina hizmet eden icerik |
 
 ## Etiketleme Kurali

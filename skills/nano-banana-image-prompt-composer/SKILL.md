@@ -29,6 +29,10 @@ description: Use when a user has a rough visual idea and wants a short question 
 - Gereksiz tekrar, anlamsiz kalite sloganlari veya kopya artist listeleriyle sisirilmemeli.
 - Kullanici yalnizca prompt istiyorsa ek analiz uzatilmamali.
 
+## References
+
+- Kisa oturum ornegi icin `examples/session-example.md` dosyasina bak.
+
 ## Portability Notes
 
 - Bu skill'in cekirdek davranisi provider-agnostiktir.

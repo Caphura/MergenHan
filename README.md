@@ -103,6 +103,7 @@ Derine inmek isterseniz:
 - Tekrar kullanilabilir bir modul ornegi: [`prompts/modules/capability/context-audit.md`](prompts/modules/capability/context-audit.md)
 - Paketlenmemis skill taslagi: [`prompts/skill-blueprints/prompt-library-curator.md`](prompts/skill-blueprints/prompt-library-curator.md)
 - Paketlenmis skill ornegi: [`skills/prompt-library-curator/SKILL.md`](skills/prompt-library-curator/SKILL.md)
+- Gorsel prompt odakli skill ornegi: [`skills/nano-banana-image-prompt-composer/SKILL.md`](skills/nano-banana-image-prompt-composer/SKILL.md)
 - Adapter modeli: [`docs/adapter-model.md`](docs/adapter-model.md)
 - Yasam dongusu: [`docs/lifecycle.md`](docs/lifecycle.md)
 - Birlestirme ve terfi akisi: [`docs/composition-guide.md`](docs/composition-guide.md)
