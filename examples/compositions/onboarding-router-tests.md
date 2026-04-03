@@ -156,21 +156,43 @@ Elimde hazir bir skill var. Bunu ChatGPT proje talimati olarak nasil kullanacagi
 - Bunu `skill` veya `master` degisikligi gibi gormek
 - Adapter katmaninin amacini kacirmak
 
-### OR7 - Belirsiz talep, siniflandirma testi
+### OR7A - Standalone orchestrator ayrimi
 
-**Amaç:** Model, kullanici sadece "bunu nereye koyayim" dediginde yine de dogru ayrimi yapabiliyor mu?
+**Amaç:** Model, kendi basina calisan ama henuz ilk asamadaki bir yonlendirme orkestratorunu `master` olarak ayirabiliyor mu?
 
 **Test girdisi:**
 
 ```text
-Repo icinde tekrar tekrar kullanabilecegim, kendi basina calisan bir yonlendirme workflow'u tasarlamak istiyorum. Bu davranis, gelen istegin yeni prompt, blueprint, skill packaging, catalog bakimi veya adapter mapping olup olmadigini ayirsin. Amacim atomik bir yardimci davranis parcasi degil, standalone bir routing mantigini once dogru katmanda tutmak. Tek bir gorevi cozen prompt yazmiyorum ve henuz paketlenmis skill yapmak istemiyorum. Bunu repoda nereye koymaliyim?
+Repodaki farkli onboarding durumlarini yoneten ilk calisan orchestrator promptu yazmak istiyorum. Bu akisin gorevi, kullaniciya bazen yeni prompt yazdirma, bazen blueprint'ten skill'e terfi karari verme, bazen de katalog bakimina yonlendirme olacak. Henuz test edilmedi ve paketlenmeye aday reusable bir beceri olarak degil, once tek gorevlik bir orchestration promptu olarak dusunuyorum. Bunu repoda nereye koymaliyim?
 ```
 
 **Beklenen guclu davranis:**
 
-- `blueprint` veya guclu gerekceyle ileride `skill`e aday bir router mantigina yonelmeli
-- Talebin asil isinin yonlendirme oldugunu fark etmeli
-- Bunun atomik bir module degil, kendi basina calisan bir routing workflow'u oldugunu ayirt etmeli
+- `master` rotasini secmeli
+- Bunun once tek gorevlik orchestration promptu olarak okunmasi gerektigini aciklamali
+- Bagimlilik adayi olarak context audit, repo architecture ve action summary gibi parcalari gosterebilmeli
+
+**Kirmizi bayraklar:**
+
+- Bunu erken asamada `blueprint`e itmek
+- Talebi atomik bir `module`e indirgeyip kaybetmek
+- Paketlenmis `skill` gibi davranmak
+
+### OR7B - Reusable routing behavior ayrimi
+
+**Amaç:** Model, tekrar kullanilabilir ve skill-benzeri routing mantigini `blueprint` olarak ayirabiliyor mu?
+
+**Test girdisi:**
+
+```text
+Repo icinde tekrar tekrar kullanabilecegim bir yonlendirme davranisi tasarlamak istiyorum. Bu davranis, gelen istegin yeni prompt, blueprint, skill packaging, catalog bakimi veya adapter mapping olup olmadigini ayirsin. Amacim atomik bir yardimci davranis parcasi degil; farkli onboarding durumlarinda tekrar kullanabilecegim, ileride paketlenmeye aday bir routing mantigini once dogru katmanda tutmak. Simdilik bunu henuz skill olarak paketlemek istemiyorum. Bunu repoda nereye koymaliyim?
+```
+
+**Beklenen guclu davranis:**
+
+- `blueprint` rotasini secmeli
+- Bunun atomik bir `module` degil, tekrar kullanilabilir ve skill-benzeri bir routing mantigi oldugunu ayirt etmeli
+- Talebin asil isinin onboarding ve yonlendirme davranisi oldugunu fark etmeli
 - Bagimlilik adayi olarak context audit, repo architecture ve action summary gibi parcalari gosterebilmeli
 
 **Kirmizi bayraklar:**
@@ -187,9 +209,10 @@ Repo icinde tekrar tekrar kullanabilecegim, kendi basina calisan bir yonlendirme
 4. `OR4`
 5. `OR5`
 6. `OR6`
-7. `OR7`
+7. `OR7A`
+8. `OR7B`
 
-Bu sira, net varlik seciminden daha karmasik yonlendirme ve siniflandirma kararlarina dogru ilerler.
+Bu sira, net varlik seciminden daha karmasik yonlendirme ve siniflandirma kararlarina dogru ilerler. `OR7A` ve `OR7B`, benzer gorunen ama farkli katmanlara gitmesi gereken iki routing durumunu ayri ayri stresler.
 
 ## Puanlama Rubrigi
 

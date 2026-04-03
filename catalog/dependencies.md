@@ -20,6 +20,7 @@ Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir.
 | `mh-skill-feature-spec-composer` | `mh-blueprint-feature-spec-composer` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-game-strategy-session-composer` | `mh-blueprint-game-strategy-session-composer` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-nano-banana-image-prompt-composer` | `mh-blueprint-nano-banana-image-prompt-composer` | Paketlenmis skill, kaynak blueprint bagini korur |
+| `mh-skill-onboarding-router` | `mh-blueprint-onboarding-router` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-prompt-library-curator` | `mh-blueprint-prompt-library-curator` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-real-estate-valuation-session-composer` | `mh-blueprint-real-estate-valuation-session-composer` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-skill-packager` | `mh-blueprint-skill-packager` | Paketlenmis skill, kaynak blueprint bagini korur |

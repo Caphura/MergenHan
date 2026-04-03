@@ -1,0 +1,25 @@
+id: mh-skill-onboarding-router
+title: Onboarding Router
+type: skill
+status: stable
+version: 1.0.0
+summary: Repo veya prompt-library taleplerini dogru varlik tipine ya da bakim aksiyonuna yonlendiren paketlenmis onboarding becerisi.
+tags:
+  - routing
+  - workflow
+  - documentation
+depends_on:
+  - mh-blueprint-onboarding-router
+last_reviewed: 2026-04-04
+source_blueprint: ../../prompts/skill-blueprints/onboarding-router.md
+portability: universal
+adapter_support:
+  claude-code: supported
+  chatgpt: supported
+  codex: supported
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
+input_contract: Kullanicinin bir istegin hangi icerik tipine, klasore veya repo bakim aksiyonuna gitmesi gerektigini netlestirmek istemesi.
+output_contract: Routing Decision, Why This Route, Dependency Candidates ve Recommended Next Step bolumlerinden olusan taranabilir yonlendirme cevabi.
+notes: Bu klasorde calisma talimatlari `SKILL.md` icinde, yonetisim ve izlenebilirlik verisi bu dosyada tutulur. Davranis test paketinde `master`, `module`, `blueprint`, `packaging`, `catalog` ve `adapter mapping` ayrimlari acisindan yeterli bulunmustur.
