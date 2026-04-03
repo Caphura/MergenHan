@@ -28,6 +28,7 @@ Bu belge, cekirdek varliklar arasindaki bagimlilik iliskilerini ozetler. Adapter
 | `mh-blueprint-catalog-validator` | `mh-module-context-audit`, `mh-module-repo-architecture`, `mh-module-action-summary` |
 | `mh-blueprint-skill-packager` | `mh-blueprint-prompt-library-curator`, `mh-module-repo-architecture`, `mh-module-action-summary` |
 | `mh-blueprint-adapter-mapper` | `mh-module-context-audit`, `mh-module-repo-architecture`, `mh-module-action-summary` |
+| `mh-blueprint-feature-spec-composer` | `mh-module-context-audit`, `mh-module-collaborative-guidance`, `mh-module-action-summary` |
 
 ## Masters -> Modules
 

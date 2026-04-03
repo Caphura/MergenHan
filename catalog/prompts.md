@@ -1,4 +1,4 @@
-﻿# Prompt Catalog
+# Prompt Catalog
 
 Bu katalog, repodaki aktif ve tarihsel prompt varliklarini insan-okunur bir indeks halinde listeler.
 
@@ -44,3 +44,4 @@ Not: Bu katalog cekirdek prompt varliklarini listeler. Runtime'a ozel uyarlamala
 | `mh-blueprint-catalog-validator` | Catalog Validator | `draft` | `0.1.0` | `validation`, `governance`, `documentation` | `mh-module-context-audit`, `mh-module-repo-architecture`, `mh-module-action-summary` | [`prompts/skill-blueprints/catalog-validator.md`](../prompts/skill-blueprints/catalog-validator.md) |
 | `mh-blueprint-skill-packager` | Skill Packager | `draft` | `0.1.0` | `packaging`, `workflow`, `governance` | `mh-blueprint-prompt-library-curator`, `mh-module-repo-architecture`, `mh-module-action-summary` | [`prompts/skill-blueprints/skill-packager.md`](../prompts/skill-blueprints/skill-packager.md) |
 | `mh-blueprint-adapter-mapper` | Adapter Mapper | `draft` | `0.1.0` | `portability`, `documentation`, `workflow` | `mh-module-context-audit`, `mh-module-repo-architecture`, `mh-module-action-summary` | [`prompts/skill-blueprints/adapter-mapper.md`](../prompts/skill-blueprints/adapter-mapper.md) |
+| `mh-blueprint-feature-spec-composer` | Feature Spec Composer | `draft` | `0.1.0` | `game-design`, `feature-design`, `documentation`, `workflow` | `mh-module-context-audit`, `mh-module-collaborative-guidance`, `mh-module-action-summary` | [`prompts/skill-blueprints/feature-spec-composer.md`](../prompts/skill-blueprints/feature-spec-composer.md) |
