@@ -21,7 +21,7 @@ depends_on:
 last_reviewed: 2026-04-03
 input_contract: Kullanicinin bir gayrimenkul, ilan grubu veya bolge icin degerleme ya da piyasa yorumu istemesi.
 output_contract: Dogru prompt kombinasyonu ve oturum acilisi icin kopyalanabilir yonerge.
-notes: Henuz paketlenmis skill degildir; once kullanim kaliplari olgunlastirilmalidir.
+notes: Farkli AI ortamlari uzerindeki testlerde dogru session composition secimi, governance disiplini ve copy-paste oturum acilisi kalitesi acisindan yeterli bulunmustur; paketlenmeye hazirdir.
 ---
 
 # Responsibility

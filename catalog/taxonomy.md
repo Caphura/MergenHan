@@ -29,6 +29,7 @@ Bu belge, izinli etiketleri ve klasor bazli anlamlari sabitler. Yeni etiket ekle
 | `composition` | Modullerin birlestirilmesi veya orkestrasyonu |
 | `discovery` | Mevcut durumu arastirma ve belgeleme |
 | `documentation` | Repo belgeleri, aciklayici promptlar ve yazili standartlar |
+| `decision-support` | Analizi satin alma, satma, secme veya aksiyon kararina ceviren icerik |
 | `feature-design` | Belirli bir oyun ozelligini tanimlama, kurallastirma ve spec haline getirme odakli icerik |
 | `game-design` | Oyun sistemleri, mekanikler ve oyuncu deneyimi tasarimi odakli icerik |
 | `governance` | Surum, durum, yasam dongusu ve bakim disiplini |
@@ -43,12 +44,14 @@ Bu belge, izinli etiketleri ve klasor bazli anlamlari sabitler. Yeni etiket ekle
 | `prompt-composition` | Ham fikri veya eksik tarifi hedef modele uygun, kopyalanabilir prompta donusturen icerik |
 | `privacy` | Hassas veriyi koruma ve bilgi ayrimi |
 | `readability` | Acik, taranabilir ve anlasilir yazim hedefi |
+| `real-estate` | Gayrimenkul, ilan, piyasa, emsal ve degerleme odakli icerik |
 | `routing` | Talebi dogru varlik tipine veya akisa yonlendirme |
 | `repo-architecture` | Klasorleme, repo iskeleti ve dosya kontrati |
 | `repo-hygiene` | Temizlik, tutarlilik ve bakim kolayligi |
 | `safety` | Guvenli kullanim sinirlari ve zarar azaltma |
 | `summary` | Kisa sonuc, sonraki adim veya toparlama formatlari |
 | `tone` | Ton modulleri veya ses karakteri |
+| `valuation` | Deger araligi kurma, fiyat mantigi ve emsal temelli fiyat yorumlama odakli icerik |
 | `validation` | Katalog, metadata, link veya bagimlilik tutarliligini denetleme |
 | `visual-direction` | Sahne, kompozisyon, isik, stil ve atmosfer netlestiren gorsel yonlendirme icerigi |
 | `workflow` | Adim adim is akisina hizmet eden icerik |
