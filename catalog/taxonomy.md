@@ -29,6 +29,8 @@ Bu belge, izinli etiketleri ve klasor bazli anlamlari sabitler. Yeni etiket ekle
 | `composition` | Modullerin birlestirilmesi veya orkestrasyonu |
 | `discovery` | Mevcut durumu arastirma ve belgeleme |
 | `documentation` | Repo belgeleri, aciklayici promptlar ve yazili standartlar |
+| `feature-design` | Belirli bir oyun ozelligini tanimlama, kurallastirma ve spec haline getirme odakli icerik |
+| `game-design` | Oyun sistemleri, mekanikler ve oyuncu deneyimi tasarimi odakli icerik |
 | `governance` | Surum, durum, yasam dongusu ve bakim disiplini |
 | `guidance` | Kullaniciyi yonlendiren veya karar netlestiren icerik |
 | `image-generation` | Gorsel uretim modelleri, image prompt tasarimi veya gorsel ciktisi hedefleyen akislara ait icerik |

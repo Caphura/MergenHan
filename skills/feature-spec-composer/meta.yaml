@@ -1,0 +1,26 @@
+id: mh-skill-feature-spec-composer
+title: Feature Spec Composer
+type: skill
+status: stable
+version: 1.0.0
+summary: Daginik veya yari tanimli oyun ozelligi fikirlerini yapisal, taranabilir ve tekrar kullanilabilir feature specification formatina donusturen paketlenmis beceri.
+tags:
+  - game-design
+  - feature-design
+  - documentation
+  - workflow
+depends_on:
+  - mh-blueprint-feature-spec-composer
+last_reviewed: 2026-04-04
+source_blueprint: ../../prompts/skill-blueprints/feature-spec-composer.md
+portability: universal
+adapter_support:
+  claude-code: supported
+  chatgpt: supported
+  codex: supported
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
+input_contract: Ham, eksik veya yari tanimli bir oyun ozelligi fikrini aciklastirma ve bunu yapisal feature spec formatina donusturme istegi.
+output_contract: Feature Summary, Design Goals, Player Experience, Functional Description, Rules and Logic, UI / UX Notes, Technical / Implementation Notes, Edge Cases, Dependencies, Open Questions ve Acceptance Criteria bolumlerini iceren taranabilir feature specification.
+notes: Bu klasorde calisma talimatlari `SKILL.md` icinde, yonetisim ve izlenebilirlik verisi bu dosyada tutulur. Davranis farkli AI ortamlari uzerindeki denemelerde basarili bulunmustur.

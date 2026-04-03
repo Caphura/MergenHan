@@ -29,3 +29,4 @@ Kisa not:
 
 - Text-only image prompt composer turu skill'ler ChatGPT tarafinda `SKILL.md` uzerinden kolayca tasinabilir.
 - ChatGPT gorsel uretim yetenegine sahip olsa bile, varsayilan davranis metin tabanli prompt cikti vermek olabilir.
+- Feature specification odakli skill'ler de `SKILL.md` ve `meta.yaml` uzerinden proje talimati veya manuel oturum acilisi olarak tasinabilir.

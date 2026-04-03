@@ -2,8 +2,8 @@
 id: mh-blueprint-feature-spec-composer
 title: Feature Spec Composer
 type: blueprint
-status: draft
-version: 0.1.0
+status: stable
+version: 1.0.0
 summary: Daginik veya yari tanimli oyun ozelligi fikirlerini profesyonel, tekrar kullanilabilir ve acik feature specification yapisina donusturen game design odakli taslak.
 tags:
   - game-design
@@ -25,7 +25,7 @@ runtime_dependencies: []
 tool_dependencies: []
 input_contract: Ham, eksik veya yari tanimli bir oyun ozelligi fikrini aciklastirma ve bunu yapisal feature spec formatina donusturme istegi.
 output_contract: Feature Summary, Design Goals, Player Experience, Functional Description, Rules and Logic, UI / UX Notes, Technical / Implementation Notes, Edge Cases, Dependencies, Open Questions ve Acceptance Criteria bolumlerini iceren taranabilir feature specification.
-notes: Bu blueprint feature fikrini yapisal dokumantasyona donusturur; tam GDD, lore yazimi veya uygulama odakli teknik tasarim sistemi yerine net feature davranisina odaklanir.
+notes: Bu blueprint feature fikrini yapisal dokumantasyona donusturur; tam GDD, lore yazimi veya uygulama odakli teknik tasarim sistemi yerine net feature davranisina odaklanir. Farkli AI ortamlari uzerindeki denemelerde basarili sonuc vermistir ve paketlenmeye hazirdir.
 ---
 
 # Responsibility
