@@ -10,18 +10,17 @@ tags:
   - workflow
 depends_on: []
 last_reviewed: 2026-04-03
-portability: universal
-adapter_support:
-  claude-code: planned
-  chatgpt: planned
-  codex: planned
-  generic-llm: supported
-runtime_dependencies: []
-tool_dependencies: []
-input_contract: Skill'i tetikleyen talep turleri.
-output_contract: Skill'in uretmesi beklenen sonuc veya degisim.
-notes: Paketleme oncesi acik sorular veya riskler.
 ---
+
+Opsiyonel metadata alanlari gerektikce eklenebilir:
+
+- `input_contract`
+- `output_contract`
+- `notes`
+- `portability`
+- `adapter_support`
+- `runtime_dependencies`
+- `tool_dependencies`
 
 # Responsibility
 
