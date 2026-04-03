@@ -6,6 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
+TAXONOMY_PATH = ROOT / "catalog" / "taxonomy.md"
 ALLOWED_PROMPT_TYPES = {"master", "module", "blueprint"}
 ALLOWED_STATUSES = {"draft", "active", "stable", "deprecated", "archived"}
 PROMPT_REQUIRED = {
@@ -126,10 +127,28 @@ def normalize_dep_list(value: object) -> list[str]:
     return []
 
 
+def normalize_tag_list(value: object) -> list[str]:
+    if isinstance(value, list):
+        return [item.strip() for item in value if isinstance(item, str) and item.strip()]
+    if isinstance(value, str):
+        return [value.strip()] if value.strip() else []
+    return []
+
+
+def allowed_tags() -> set[str]:
+    tags: set[str] = set()
+    for line in read_text(TAXONOMY_PATH).splitlines():
+        match = re.match(r"^\| `([^`]+)` \|", line.strip())
+        if match:
+            tags.add(match.group(1))
+    return tags
+
+
 def main() -> int:
     errors: list[str] = []
     warnings: list[str] = []
     all_ids: dict[str, Path] = {}
+    taxonomy_tags = allowed_tags()
 
     prompt_files = list((ROOT / "prompts").rglob("*.md"))
     for path in prompt_files:
@@ -144,6 +163,9 @@ def main() -> int:
             errors.append(f"Invalid prompt type in {path.relative_to(ROOT)}: {data.get('type')}")
         if data.get("status") not in ALLOWED_STATUSES:
             errors.append(f"Invalid status in {path.relative_to(ROOT)}: {data.get('status')}")
+        for tag in normalize_tag_list(data.get("tags", [])):
+            if tag not in taxonomy_tags:
+                errors.append(f"Unknown tag in {path.relative_to(ROOT)}: {tag}")
         if portability_warning_targets_prompt(data):
             for field in sorted(RECOMMENDED - data.keys()):
                 warnings.append(f"Recommended prompt field missing in {path.relative_to(ROOT)}: {field}")
@@ -164,6 +186,9 @@ def main() -> int:
             errors.append(f"Invalid skill type in {path.relative_to(ROOT)}: {data.get('type')}")
         if data.get("status") not in ALLOWED_STATUSES:
             errors.append(f"Invalid status in {path.relative_to(ROOT)}: {data.get('status')}")
+        for tag in normalize_tag_list(data.get("tags", [])):
+            if tag not in taxonomy_tags:
+                errors.append(f"Unknown tag in {path.relative_to(ROOT)}: {tag}")
         for field in sorted(RECOMMENDED - data.keys()):
             warnings.append(f"Recommended skill field missing in {path.relative_to(ROOT)}: {field}")
         item_id = data.get("id")

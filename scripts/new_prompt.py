@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -26,6 +27,7 @@ DEFAULT_DESTINATIONS = {
     "blueprint": ROOT / "prompts" / "skill-blueprints",
 }
 MODULE_CATEGORIES = {"capability", "domain", "tone", "constraints", "output"}
+SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
 
 def title_from_slug(slug: str) -> str:
@@ -77,6 +79,8 @@ def validate_args(args: argparse.Namespace, parser: argparse.ArgumentParser) -> 
         parser.error("--category is required when kind is 'module'")
     if args.kind != "module" and args.category:
         parser.error("--category can only be used when kind is 'module'")
+    if not SLUG_RE.fullmatch(args.slug):
+        parser.error("slug must be kebab-case and contain only lowercase letters, numbers, and single hyphens")
 
 
 def main() -> int:
