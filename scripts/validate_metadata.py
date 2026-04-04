@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
+FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---(?:\n|$)", re.DOTALL)
 TAXONOMY_PATH = ROOT / "catalog" / "taxonomy.md"
 ALLOWED_PROMPT_TYPES = {"master", "module", "blueprint"}
 ALLOWED_STATUSES = {"draft", "active", "stable", "deprecated", "archived"}
@@ -105,7 +105,8 @@ def parse_simple_yaml_block(block: str) -> dict:
 
 
 def parse_frontmatter(path: Path) -> dict:
-    match = FRONTMATTER_RE.match(read_text(path))
+    text = read_text(path).replace("\r\n", "\n")
+    match = FRONTMATTER_RE.match(text)
     if not match:
         return {}
     return parse_simple_yaml_block(match.group(1))

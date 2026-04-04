@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PROMPT_CATALOG = ROOT / "catalog" / "prompts.md"
 SKILL_CATALOG = ROOT / "catalog" / "skills.md"
 DEPENDENCY_CATALOG = ROOT / "catalog" / "dependencies.md"
-FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
+FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---(?:\n|$)", re.DOTALL)
 STATUS_ORDER = {
     "active": 0,
     "stable": 1,
@@ -88,7 +88,8 @@ def parse_simple_yaml_block(block: str) -> dict:
 
 
 def parse_frontmatter(path: Path) -> dict:
-    match = FRONTMATTER_RE.match(read_text(path))
+    text = read_text(path).replace("\r\n", "\n")
+    match = FRONTMATTER_RE.match(text)
     if not match:
         return {}
     return parse_simple_yaml_block(match.group(1))
