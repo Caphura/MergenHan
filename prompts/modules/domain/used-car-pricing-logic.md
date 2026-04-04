@@ -2,8 +2,8 @@
 id: mh-module-used-car-pricing-logic
 title: Used Car Pricing Logic
 type: module
-status: draft
-version: 0.1.0
+status: active
+version: 1.0.0
 summary: Ikinci el arac fiyatlarini piyasa karsilastirmasi, firsat puanlama ve deger analizi ile degerlendiren modul.
 tags:
   - automotive

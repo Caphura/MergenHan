@@ -2,8 +2,8 @@
 id: mh-module-used-car-listing-red-flags
 title: Used Car Listing Red Flags
 type: module
-status: draft
-version: 0.1.0
+status: active
+version: 1.0.0
 summary: Ikinci el arac ilanlarindaki supheli ifadeleri, eksik bilgileri ve manipulasyon isaretlerini tespit eden modul.
 tags:
   - automotive

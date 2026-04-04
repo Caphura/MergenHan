@@ -2,8 +2,8 @@
 id: mh-module-used-car-no-hallucination-governance
 title: Used Car No Hallucination Governance
 type: module
-status: draft
-version: 0.1.0
+status: active
+version: 1.0.0
 summary: Kanitsiz arac gecmisi iddialarini, sahte tramer yorumlarini ve desteksiz fiyat kesinligini engelleyen zorunlu governance modulu.
 tags:
   - automotive

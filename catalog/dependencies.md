@@ -26,6 +26,7 @@ Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir.
 | `mh-skill-real-estate-valuation-session-composer` | `mh-blueprint-real-estate-valuation-session-composer` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-resume-composer` | `mh-blueprint-resume-composer` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-skill-packager` | `mh-blueprint-skill-packager` | Paketlenmis skill, kaynak blueprint bagini korur |
+| `mh-skill-used-car-scout` | `mh-blueprint-used-car-scout` | Paketlenmis skill, kaynak blueprint bagini korur |
 
 ## Blueprints -> Masters / Modules / Blueprints
 

@@ -2,8 +2,8 @@
 id: mh-blueprint-used-car-scout
 title: Used Car Scout
 type: blueprint
-status: draft
-version: 0.1.0
+status: stable
+version: 1.0.0
 summary: Belirlenen konum ve yaricapta ikinci el arac ilanlarini derinlemesine analiz ederek firsat araclarini ve uzak durulmasi gereken araclari ilan linki ile birlikte sunan blueprint.
 tags:
   - automotive

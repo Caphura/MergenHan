@@ -1,0 +1,29 @@
+id: mh-skill-used-car-scout
+title: Used Car Scout
+type: skill
+status: stable
+version: 1.0.0
+summary: Belirlenen konum ve yaricapta ikinci el arac ilanlarini tramer dogrulama, kirmizi bayrak taramasi ve fiyat karsilastirmasi ile analiz ederek firsat araclari ve uzak durulmasi gereken araclari ilan linki ile birlikte sunan paketlenmis beceri.
+tags:
+  - automotive
+  - used-car
+  - listing-analysis
+  - tramer
+  - decision-support
+  - risk
+  - pricing
+depends_on:
+  - mh-blueprint-used-car-scout
+last_reviewed: 2026-04-05
+source_blueprint: ../../prompts/skill-blueprints/used-car-scout.md
+portability: universal
+adapter_support:
+  claude-code: supported
+  chatgpt: supported
+  codex: supported
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
+input_contract: Konum, yaricap, butce araligi ve opsiyonel olarak marka/model/yil/km tercihleri ile birlikte ikinci el arac ilanlarini analiz etme istegi.
+output_contract: Firsat araclari ve uzak durulmasi gereken araclar listeleri; her birinde ilan linki, tramer degerlendirmesi, kirmizi bayraklar, fiyat konumlama ve onerilen sonraki adimlar.
+notes: Bu skill 8 farkli test senaryosunda basariyla dogrulanmistir. Tramer tutarsizlik tespiti, kirmizi bayrak taramasi, fiyat karsilastirmasi, galeri/sahip ayrimi ve governance disiplini test edilmistir. Fiziksel muayene, resmi ekspertiz veya hukuki danismanlik ikame edilmez.

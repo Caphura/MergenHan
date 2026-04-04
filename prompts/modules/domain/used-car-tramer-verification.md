@@ -2,8 +2,8 @@
 id: mh-module-used-car-tramer-verification
 title: Used Car Tramer Verification
 type: module
-status: draft
-version: 0.1.0
+status: active
+version: 1.0.0
 summary: Tramer kaydi dogrulama, ilan aciklamasiyla tutarsizlik tespiti ve yanlis girilmis hasar bilgisi ayiklama modulu.
 tags:
   - automotive
