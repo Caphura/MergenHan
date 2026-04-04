@@ -1,4 +1,4 @@
-﻿# Taxonomy
+# Taxonomy
 
 Bu belge, izinli etiketleri ve klasor bazli anlamlari sabitler. Yeni etiket eklemeden once burada yer alan gruplardan biriyle ifade edilip edilemeyecegi kontrol edilmelidir.
 
@@ -28,6 +28,7 @@ Bu belge, izinli etiketleri ve klasor bazli anlamlari sabitler. Yeni etiket ekle
 | `analysis` | Durum tespiti, inceleme veya baglam toplama agirlikli icerik |
 | `apartment-analysis` | Apartman ve daire satis ilanlarini karsilastirma, eleme ve yatirim acisindan degerlendirme odakli icerik |
 | `anti-hallucination` | Kanitsiz cikarimlari sinirlayan ve sahte kesinligi engelleyen koruyucu icerik |
+| `automotive` | Otomotiv alani, arac degerleme, ilan analizi ve ikinci el piyasa odakli icerik |
 | `catalog` | Repo indeksleri, listeler ve uretilen referans kataloglariyla ilgili icerik |
 | `collaboration` | Isbirligi, eslik etme ve destekleyici iletisim |
 | `commercial-viability` | Bir fikrin pazarda satin alinabilir veya satilabilir olma sansini degerlendiren icerik |
@@ -51,6 +52,7 @@ Bu belge, izinli etiketleri ve klasor bazli anlamlari sabitler. Yeni etiket ekle
 | `image-generation` | Gorsel uretim modelleri, image prompt tasarimi veya gorsel ciktisi hedefleyen akislara ait icerik |
 | `legacy` | Yalnizca tarihsel referans icin saklanan icerik |
 | `library` | Prompt kutuphanesi ve ic organizasyonla ilgili icerik |
+| `listing-analysis` | Ilan inceleme, kirmizi bayrak tespiti, aciklama analizi ve firsat degerlendirme odakli icerik |
 | `investment` | Getiri, geri donus, pazarlik hassasiyeti ve satin alma mantigi etrafinda karar destekleyen icerik |
 | `logic` | Sonuc uretme mantigi, kural akisi veya muhakeme yapisini belirginlestiren icerik |
 | `maintenance` | Surekli repo bakimi, guncelleme ve operasyonel tutarlilik odakli icerik |
@@ -86,7 +88,9 @@ Bu belge, izinli etiketleri ve klasor bazli anlamlari sabitler. Yeni etiket ekle
 | `strategy` | Yuksek seviyeli secim, yon tayini ve ticari / urunsel planlama odakli icerik |
 | `summary` | Kisa sonuc, sonraki adim veya toparlama formatlari |
 | `tone` | Ton modulleri veya ses karakteri |
+| `tramer` | Hasar kaydi dogrulama, tramer tutari tutarsizligi ve hasar gecmisi tespiti odakli icerik |
 | `uncertainty` | Bilinmeyenleri, veri bosluklarini ve karar belirsizligini aciklayan icerik |
+| `used-car` | Ikinci el arac alim-satim, piyasa taramasi ve arac degerlendirme odakli icerik |
 | `valuation` | Deger araligi kurma, fiyat mantigi ve emsal temelli fiyat yorumlama odakli icerik |
 | `validation` | Katalog, metadata, link veya bagimlilik tutarliligini denetleme |
 | `visual-direction` | Sahne, kompozisyon, isik, stil ve atmosfer netlestiren gorsel yonlendirme icerigi |
