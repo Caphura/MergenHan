@@ -24,7 +24,7 @@ runtime_dependencies: []
 tool_dependencies: []
 input_contract: Kullanici bir 3D asset, prop, silah, karakter, creature veya sahne objesi fikrini Meshy icin temiz ve kullanilabilir bir prompta cevirmek ister.
 output_contract: Kisa yonlendirici soru turleri, netlestirilmis asset ozeti, tek parca kopyalanabilir Meshy promptu ve gerekiyorsa kisa varyasyon yonleri.
-notes: Bu ilk versiyon Meshy icin text-first prompt composer olarak tasarlanmistir. Varsayilan gorev model uretmek degil, Meshy'ye verilecek promptu yazmaktir. Uretim kisitlari yalnizca kullanici bunlari ister veya gercekten gerektirirse eklenmelidir.
+notes: Bu ilk versiyon Meshy icin text-first prompt composer olarak tasarlanmistir. Varsayilan gorev model uretmek degil, Meshy'ye verilecek promptu yazmaktir. Meshy prompt metni 800 karakter siniri icinde tutulmalidir; gereksiz sifat ve tekrarlar temizlenmelidir. Uretim kisitlari yalnizca kullanici bunlari ister veya gercekten gerektirirse eklenmelidir.
 ---
 
 # Responsibility
@@ -47,14 +47,16 @@ Belirsiz veya yari tanimli 3D asset fikirlerini, kullaniciyi yormayan kisa bir n
 4. Yalnizca girdi zaten yeterince doluysa veya kullanici acikca "soru sorma, direkt prompt ver" dediyse hizli moda gec ve ayni cevapta nihai promptu ver.
 5. Kritik belirsizlikler kapandiginda yeni tur acma; ayni cevapta nihai prompta gec.
 6. Sonucu taranabilir duzende ver: kisa asset ozeti, Meshy promptu, gerekiyorsa production notlari ve istege bagli varyasyonlar.
-7. Ortam 3D uretim araci sunuyor olsa bile varsayilan davranisi metin cikti olarak koru; kullanici acikca istemedikce model uretme veya arac tetikleme.
-8. Kullanici teknik kisit istiyorsa bunlari gercekten bildigi kadar kullan; uydurma triangle count, topology vaadi veya PBR detaylari uretme.
+7. Meshy Prompt bolumundeki asil prompt metnini 800 karakter icinde tut; limit asiliyorsa once tekrar eden sifatlari, sonra dusuk etkili detaylari kisalt.
+8. Ortam 3D uretim araci sunuyor olsa bile varsayilan davranisi metin cikti olarak koru; kullanici acikca istemedikce model uretme veya arac tetikleme.
+9. Kullanici teknik kisit istiyorsa bunlari gercekten bildigi kadar kullan; uydurma triangle count, topology vaadi veya PBR detaylari uretme.
 
 # Output Expectations
 
 - Kullanicinin hedef varligini dogru anladigini gosteren kisa bir ozet olmali.
 - Yetersiz tanimli isteklerde nihai prompttan once en az bir kisa netlestirme turu beklenir; soru sormadan direkt prompt vermek varsayilan davranis olmamali.
 - Kod blogu icindeki prompt kismi dogrudan Meshy'ye kopyalanabilir olmali.
+- Meshy Prompt bolumundeki metin 800 karakteri asmamali; limit asiliyorsa daha kisa ama yogun bir formulasyona donusturulmeli.
 - Prompt; ana ozne, siluet, stil, malzeme, renk, kondisyon ve kullanim hissini tek akista birlestirmeli.
 - Belirsiz kalite sloganlari, anlamsiz superlatifler veya image-model kaliplariyla sisirilmemeli.
 - Game-ready veya production-ready gibi iddialar ancak kullanici acikca o yone gittiyse ve gerekli baglam verildiyse eklenmeli.

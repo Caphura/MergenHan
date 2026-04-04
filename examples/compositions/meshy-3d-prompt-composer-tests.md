@@ -14,7 +14,7 @@ Asagidaki 3D asset istegini Meshy icin prompta donustur. Ama hemen uzun prompt y
 3. Production Notes
 4. Optional Variations
 
-Varsayilan davranis text-only olsun. Modeli uretme, araci tetikleme veya sahte teknik garanti verme.
+Varsayilan davranis text-only olsun. Modeli uretme, araci tetikleme veya sahte teknik garanti verme. Meshy Prompt bolumundeki asil prompt metni 800 karakteri asmamali.
 ```
 
 ## Test Senaryolari
@@ -35,10 +35,12 @@ Meshy icin stylized bir health potion sisesi promptu istiyorum. Fantasy oyunu ic
 - Kisa ama yuksek etkili sorularla sise formu, renk hissi, malzeme ve kondisyonu netlestirmeli
 - Sonucu stylized game prop mantigiyla toparlamali
 - Prompt kismi kopyalanabilir olmali
+- Meshy Prompt metni 800 karakter siniri icinde kalmali
 
 **Kirmizi bayraklar:**
 
 - Bu kadar eksik girdide hic soru sormadan direkt prompt vermek
+- 800 karakteri asan, gereksiz sisirilmis prompt yazmak
 - Gereksiz uzun soru listesi acmak
 - Sadece "high quality, detailed, amazing" gibi bos kalite sloganlariyla prompt sisirmek
 
@@ -59,6 +61,7 @@ Production Notes
 
 - Eger istersen bunu daha cute, daha dark fantasy veya daha premium rare item yonune cekebilirim.
 - Bu versiyon bilincli olarak teknik garanti vermiyor; once form, stil ve okunaklilik tarafini temiz kuruyor.
+- Referans prompt uzunlugu: 493 karakter; yani Meshy limitinin icinde.
 
 Optional Variations
 
@@ -190,6 +193,7 @@ Bu sira, net ve kolay prop isteklerinden daha belirsiz netlestirme durumlarina v
 | Soru Disiplini | Yalnizca gerekli oldugunda az sayida yuksek etkili soru soruyor mu |
 | Prompt Kalitesi | Nihai prompt somut, kopyalanabilir ve Meshy kullanimina uygun mu |
 | Guardrail Disiplini | Model uretmeden, sahte teknik garanti vermeden text-first kaliyor mu |
+| Karakter Butcesi | Meshy Prompt metni 800 karakter siniri icinde kaliyor mu |
 | Eyleme Donukluk | Production Notes ve Optional Variations gercekten ise yariyor mu |
 
 ## Kisa Sonuc Formu
@@ -199,6 +203,7 @@ AI:
 Test ID:
 Soru sayisi dengeli miydi:
 Nihai prompt kopyalanabilir miydi:
+Meshy promptu 800 karakter icinde miydi:
 Guardrail disiplini korundu mu:
 En guclu yani:
 En zayif yani:
