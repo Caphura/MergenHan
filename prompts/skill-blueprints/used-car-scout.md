@@ -3,7 +3,7 @@ id: mh-blueprint-used-car-scout
 title: Used Car Scout
 type: blueprint
 status: stable
-version: 1.0.0
+version: 1.1.0
 summary: Belirlenen konum ve yaricapta ikinci el arac ilanlarini derinlemesine analiz ederek firsat araclarini ve uzak durulmasi gereken araclari ilan linki ile birlikte sunan blueprint.
 tags:
   - automotive
@@ -69,6 +69,11 @@ Belirlenen konum ve yaricap icinde ikinci el arac ilanlarini sistematik ve kanit
    - ilan tarihi ve guncelleme gecmisi
    - ilan linki (kullanici verdiyse veya gercek tarama ile bulunduysa)
    - ilan aciklama metni
+
+   Eksik veri kurtarma kurali: ilan platformlari (ozellikle arabam.com, sahibinden.com) fiyat, tramer ve detay bilgilerini JavaScript ile dinamik yukler. Arama sonuc sayfasinda fiyat veya diger kritik alanlar gorunmuyorsa:
+   - Once ilan detay sayfasini dogrudan ziyaret et; cogu bilgi detay sayfasinda mevcuttur.
+   - Detay sayfasinda da gorunemiyorsa bu alani "veri alinamadi" olarak isaretle ve kullaniciya sor.
+   - Fiyat, km veya tramer gibi kritik alanlari "bilinmiyor" olarak birakip analizi atlamaya calisma; once her yolu dene, son care kullanicidan iste.
 
 4. Tramer dogrulama katmanini calistir (mh-module-used-car-tramer-verification):
    - Tramer tutarinin ilan aciklamasiyla tutarliligini kontrol et

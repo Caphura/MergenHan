@@ -25,6 +25,11 @@ description: Use when a user wants second-hand car listings in a given location 
 
 3. Ilanlari topla ve normalize et: her ilan icin marka, model, paket, model yili, kilometre, yakit tipi, vites, fiyat, konum, tramer tutari ve detayi, boyali/degisen parca bilgisi, sahip sayisi, ilan tarihi, ilan linki (kullanici verdiyse veya gercek tarama ile bulunduysa) ve aciklama metnini ayristir.
 
+   Eksik veri kurtarma kurali: ilan platformlari (ozellikle arabam.com, sahibinden.com) fiyat, tramer ve detay bilgilerini JavaScript ile dinamik yukler. Arama sonuc sayfasinda fiyat veya diger kritik alanlar gorunmuyorsa:
+   - Once ilan detay sayfasini dogrudan ziyaret et; cogu bilgi detay sayfasinda mevcuttur.
+   - Detay sayfasinda da gorunemiyorsa bu alani "veri alinamadi" olarak isaretle ve kullaniciya sor: "Su ilanlarin fiyatlari benim tarafimda gorunmuyor, kontrol edip paylasir misiniz?"
+   - Fiyat, km veya tramer gibi kritik alanlari asla "bilinmiyor" olarak birakip analizi atlamaya calisma; once her yolu dene, son care kullanicidan iste.
+
 4. Tramer dogrulama katmanini calistir:
    - Tramer tutarinin ilan aciklamasiyla tutarliligini kontrol et.
    - "Tramersiz" iddialarinin makullugunu degerlendir.
@@ -76,6 +81,7 @@ description: Use when a user wants second-hand car listings in a given location 
 - Dogrulanmamis ilan URL'lerini gercek ilan linki gibi sunmak
 - "Hemen alin" gibi garanti tavsiye vermek
 - Boyali/degisen parca iddiasini tramer kaydiyla karsilastirmamak
+- Fiyat veya tramer bilgisini arama sayfasindan okuyamayinca "gorunmuyor" deyip analizi atlamak; ilan detay sayfasini ziyaret etmeli veya kullanicidan istemeli
 
 ## References
 
