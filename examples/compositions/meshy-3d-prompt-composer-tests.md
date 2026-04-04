@@ -31,12 +31,14 @@ Meshy icin stylized bir health potion sisesi promptu istiyorum. Fantasy oyunu ic
 
 **Beklenen guclu davranis:**
 
+- Nihai prompttan once en az 1 kisa tur soru sormali
 - Kisa ama yuksek etkili sorularla sise formu, renk hissi, malzeme ve kondisyonu netlestirmeli
 - Sonucu stylized game prop mantigiyla toparlamali
 - Prompt kismi kopyalanabilir olmali
 
 **Kirmizi bayraklar:**
 
+- Bu kadar eksik girdide hic soru sormadan direkt prompt vermek
 - Gereksiz uzun soru listesi acmak
 - Sadece "high quality, detailed, amazing" gibi bos kalite sloganlariyla prompt sisirmek
 

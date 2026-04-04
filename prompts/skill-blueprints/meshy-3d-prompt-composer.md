@@ -43,21 +43,23 @@ Belirsiz veya yari tanimli 3D asset fikirlerini, kullaniciyi yormayan kisa bir n
 
 1. Kullanicinin istedigi varligi kisa bicimde yeniden ifade et ve temel kullanim baglamini dogrula: oyun asset'i, concept model, collectible, stylized prop veya daha teknik bir 3D hedef olup olmadigini ayristir.
 2. Sonuca en cok etki edecek eksik alanlari ayikla: asset turu, ana siluet, stil yonu, malzeme yapisi, renk paleti, kondisyon, oran hissi, kullanim baglami ve varsa istenmeyen detaylar.
-3. Mumkun oldugunca 2-4 arasi yuksek etkili soru sor; gereksiz uzun anket acma.
-4. Kritik belirsizlikler kapandiginda yeni tur acma; ayni cevapta nihai prompta gec.
-5. Sonucu taranabilir duzende ver: kisa asset ozeti, Meshy promptu, gerekiyorsa production notlari ve istege bagli varyasyonlar.
-6. Ortam 3D uretim araci sunuyor olsa bile varsayilan davranisi metin cikti olarak koru; kullanici acikca istemedikce model uretme veya arac tetikleme.
-7. Kullanici teknik kisit istiyorsa bunlari gercekten bildigi kadar kullan; uydurma triangle count, topology vaadi veya PBR detaylari uretme.
+3. Eger kullanici yalnizca asset tipi + genel stil + baglam verdiyse, varsayilan olarak hemen prompta atlama; once 1 kisa turda 2-3 yuksek etkili soru sorarak stil yonu, rarity hissi, form dili veya kondisyon gibi fark yaratan kararleri sabitle.
+4. Yalnizca girdi zaten yeterince doluysa veya kullanici acikca "soru sorma, direkt prompt ver" dediyse hizli moda gec ve ayni cevapta nihai promptu ver.
+5. Kritik belirsizlikler kapandiginda yeni tur acma; ayni cevapta nihai prompta gec.
+6. Sonucu taranabilir duzende ver: kisa asset ozeti, Meshy promptu, gerekiyorsa production notlari ve istege bagli varyasyonlar.
+7. Ortam 3D uretim araci sunuyor olsa bile varsayilan davranisi metin cikti olarak koru; kullanici acikca istemedikce model uretme veya arac tetikleme.
+8. Kullanici teknik kisit istiyorsa bunlari gercekten bildigi kadar kullan; uydurma triangle count, topology vaadi veya PBR detaylari uretme.
 
 # Output Expectations
 
 - Kullanicinin hedef varligini dogru anladigini gosteren kisa bir ozet olmali.
+- Yetersiz tanimli isteklerde nihai prompttan once en az bir kisa netlestirme turu beklenir; soru sormadan direkt prompt vermek varsayilan davranis olmamali.
 - Kod blogu icindeki prompt kismi dogrudan Meshy'ye kopyalanabilir olmali.
 - Prompt; ana ozne, siluet, stil, malzeme, renk, kondisyon ve kullanim hissini tek akista birlestirmeli.
 - Belirsiz kalite sloganlari, anlamsiz superlatifler veya image-model kaliplariyla sisirilmemeli.
 - Game-ready veya production-ready gibi iddialar ancak kullanici acikca o yone gittiyse ve gerekli baglam verildiyse eklenmeli.
 - Teknik notlar kisa, gercekci ve kullanicinin ihtiyacina bagli olmali.
-- Kullanici yalnizca prompt istiyorsa ek analiz uzatilmamali.
+- Kullanici yalnizca prompt istiyorsa ek analiz uzatilmamali; ama bu, eksik girdilerde tek tur netlestirmeyi atlamak anlamina gelmemeli.
 
 # Promotion Criteria
 
