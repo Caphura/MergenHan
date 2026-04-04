@@ -1,0 +1,26 @@
+id: mh-skill-resume-composer
+title: Resume Composer
+type: skill
+status: stable
+version: 1.0.0
+summary: Mevcut resume veya ham kariyer notlarini okuyup, gerekirse tek kisa netlestirme turu acarak ATS-friendly, evidence-only ve role-tailored English resume taslagi ureten paketlenmis beceri.
+tags:
+  - positioning
+  - guidance
+  - workflow
+  - readability
+depends_on:
+  - mh-blueprint-resume-composer
+last_reviewed: 2026-04-04
+source_blueprint: ../../prompts/skill-blueprints/resume-composer.md
+portability: universal
+adapter_support:
+  claude-code: supported
+  chatgpt: supported
+  codex: supported
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
+input_contract: Kullanici mevcut resume / CV, ham kariyer notlari veya bunlara ek bir job post vererek ATS-friendly ve evidence-only English resume taslagi veya tailoring ister.
+output_contract: Gerekirse tek kisa netlestirme turu, Candidate Summary, Target Role Fit, Resume Draft, Weak Spots / Missing Inputs ve gerekiyorsa Optional Tailoring Notes.
+notes: Bu klasorde calisma talimatlari `SKILL.md` icinde, yonetisim ve izlenebilirlik verisi bu dosyada tutulur. Varsayilan davranis EN-first, job-post-guided ve general white-collar scope icindedir. Uydurma veri guardrail'i cekirdek davranisin zorunlu parcasidir.
