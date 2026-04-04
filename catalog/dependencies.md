@@ -39,6 +39,7 @@ Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir.
 | `mh-blueprint-prompt-library-curator` | `mh-module-context-audit`, `mh-module-repo-architecture`, `mh-module-action-summary` |
 | `mh-blueprint-real-estate-valuation-session-composer` | `mh-master-ultimate-real-estate-market-and-valuation-strategist-core`, `mh-module-real-estate-market-data-validation`, `mh-module-real-estate-comparable-analysis`, `mh-module-real-estate-valuation-logic`, `mh-module-real-estate-risk-and-uncertainty`, `mh-module-real-estate-investment-decision-support`, `mh-module-real-estate-no-hallucination-governance` |
 | `mh-blueprint-skill-packager` | `mh-blueprint-prompt-library-curator`, `mh-module-repo-architecture`, `mh-module-action-summary` |
+| `mh-blueprint-meshy-3d-prompt-composer` | `mh-module-collaborative-guidance`, `mh-module-action-summary` |
 
 ## Masters -> Modules
 
