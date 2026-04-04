@@ -18,9 +18,12 @@ description: Use when a user wants second-hand car listings in a given location 
 
 1. Arama kapsamini belirle: konum (sehir, ilce), yaricap (km), butce araligi, marka/model tercihi, yil araligi, km siniri, yakit tipi ve vites tercihi. Eksik kritik parametreleri kullanicidan iste; ikincil tercihleri makul varsayimlarla doldur.
 
-2. Hedef platformlari tanimla: sahibinden.com, arabam.com, letgo ve benzeri Turkiye merkezli ikinci el arac platformlari. Kullanici belirli bir platform belirtmisse ona oncelik ver.
+2. Ilan kaynagini belirle. Iki mod vardir:
+   - Kullanici ilan verisi sagliyor: kullanici URL, ekran goruntusu, kopyalanmis ilan metni veya ilan listesi paylasiyorsa dogrudan bunlarla calis.
+   - AI web taramasi yapiyor: eger calisma ortami gercek web erisimi sagliyorsa (browsing araci, web search vb.) sahibinden.com, arabam.com, letgo gibi platformlarda gercek ilanlari tara. Gercek web erisimi yoksa kullanicidan ilan linkleri veya ilan verileri istemeli; asla sahte veya tahmini URL uretmemelidir.
+   Referans platformlar: sahibinden.com, arabam.com, letgo ve benzeri Turkiye merkezli ikinci el arac platformlari.
 
-3. Ilanlari topla ve normalize et: her ilan icin marka, model, paket, model yili, kilometre, yakit tipi, vites, fiyat, konum, tramer tutari ve detayi, boyali/degisen parca bilgisi, sahip sayisi, ilan tarihi, ilan linki ve aciklama metnini ayristir.
+3. Ilanlari topla ve normalize et: her ilan icin marka, model, paket, model yili, kilometre, yakit tipi, vites, fiyat, konum, tramer tutari ve detayi, boyali/degisen parca bilgisi, sahip sayisi, ilan tarihi, ilan linki (kullanici verdiyse veya gercek tarama ile bulunduysa) ve aciklama metnini ayristir.
 
 4. Tramer dogrulama katmanini calistir:
    - Tramer tutarinin ilan aciklamasiyla tutarliligini kontrol et.
@@ -52,7 +55,7 @@ description: Use when a user wants second-hand car listings in a given location 
 ## Output Expectations
 
 - Cikti su bolumlerden olusmali: Search Summary, Market Snapshot, Opportunity Vehicles, Vehicles to Avoid, Tramer Consistency Overview, Red Flag Summary, Recommended Next Steps.
-- Her arac icin ilan linki mutlaka dahil edilmeli.
+- Ilan linki yalnizca kullanicinin verdigi veya gercek web taramasi ile bulunan gercek URL'lerden alinmali; sahte, tahmini veya uydurma URL uretilmemeli. Eger gercek link yoksa ilan basligini ve platformunu belirtmek yeterlidir.
 - Firsat ve risk gruplari net ayrilmis olmali.
 - Tramer tutarsizliklari acikca raporlanmali.
 - Kirmizi bayraklar kategorize edilmis ve ciddiyet seviyesi belirtilmis olmali.
@@ -69,6 +72,8 @@ description: Use when a user wants second-hand car listings in a given location 
 - Eksik kilometre, fotograf veya tramer bilgisi ile kesin degerlendirme yapmak
 - Galeri dilini ("araclarimiz", "magzamizi ziyaret") fark etmemek
 - Ilan linklerini ciktidan cikarmak
+- Gercek olmayan, sahte veya arama sayfasina dusen URL'ler uretmek
+- Dogrulanmamis ilan URL'lerini gercek ilan linki gibi sunmak
 - "Hemen alin" gibi garanti tavsiye vermek
 - Boyali/degisen parca iddiasini tramer kaydiyla karsilastirmamak
 

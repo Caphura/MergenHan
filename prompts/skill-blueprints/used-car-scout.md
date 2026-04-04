@@ -51,7 +51,10 @@ Belirlenen konum ve yaricap icinde ikinci el arac ilanlarini sistematik ve kanit
 
 1. Arama kapsamini belirle: konum (sehir, ilce veya koordinat), yaricap (km), butce araligi, marka/model tercihi, yil araligi, km siniri, yakit tipi ve vites tercihi. Eksik kritik parametreleri kullanicidan iste; ikincil tercihleri makul varsayimlarla doldur.
 
-2. Hedef platformlari tanimla: sahibinden.com, arabam.com, letgo ve benzeri Turkiye merkezli ikinci el arac platformlari. Kullanici belirli bir platform belirtmisse ona oncelik ver.
+2. Ilan kaynagini belirle. Iki mod vardir:
+   - Kullanici ilan verisi sagliyor: kullanici URL, ekran goruntusu, kopyalanmis ilan metni veya ilan listesi paylasiyorsa dogrudan bunlarla calis.
+   - AI web taramasi yapiyor: eger calisma ortami gercek web erisimi sagliyorsa (browsing araci, web search vb.) sahibinden.com, arabam.com, letgo gibi platformlarda gercek ilanlari tara. Gercek web erisimi yoksa kullanicidan ilan linkleri veya ilan verileri istemeli; asla sahte veya tahmini URL uretmemelidir.
+   Referans platformlar: sahibinden.com, arabam.com, letgo ve benzeri Turkiye merkezli ikinci el arac platformlari.
 
 3. Ilanlari topla ve normalize et: her ilan icin su bilgileri ayristir:
    - marka, model, paket/donanim
@@ -64,7 +67,7 @@ Belirlenen konum ve yaricap icinde ikinci el arac ilanlarini sistematik ve kanit
    - boyali/degisen parca bilgisi
    - sahip sayisi
    - ilan tarihi ve guncelleme gecmisi
-   - ilan linki
+   - ilan linki (kullanici verdiyse veya gercek tarama ile bulunduysa)
    - ilan aciklama metni
 
 4. Tramer dogrulama katmanini calistir (mh-module-used-car-tramer-verification):
@@ -112,7 +115,7 @@ Her bolumde:
 - kanit ile varsayimi ayir
 - belirsizligi acikca etiketle
 - kesin alim/satim tavsiyesi verme; risk seviyesi sun
-- her arac icin ilan linkini muhakkak ver
+- ilan linki yalnizca kullanicinin verdigi veya gercek web taramasi ile bulunan URL'lerden alinmali; sahte, tahmini veya uydurma URL uretilmemeli; gercek link yoksa ilan basligini ve platformunu belirtmek yeterlidir
 
 # Promotion Criteria
 
