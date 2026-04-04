@@ -17,6 +17,7 @@ Bu klasor, MergenHan cekirdek iceriginin ChatGPT projeleri, custom GPT benzeri i
 - [`feature-spec-composer-project-instructions-example.md`](./feature-spec-composer-project-instructions-example.md): feature spec odakli skill icin kisa oturum / proje talimati ornegi
 - [`nano-banana-project-instructions-example.md`](./nano-banana-project-instructions-example.md): text-only image prompt skill'i icin kisa oturum / proje talimati ornegi
 - [`meshy-3d-prompt-composer-project-instructions-example.md`](./meshy-3d-prompt-composer-project-instructions-example.md): Meshy icin 800 karakter sinirli 3D prompt skill'i icin kisa oturum / proje talimati ornegi
+- [`resume-composer-project-instructions-example.md`](./resume-composer-project-instructions-example.md): ATS-friendly English resume skill'i icin kisa oturum / proje talimati ornegi
 
 ## Sinir
 
