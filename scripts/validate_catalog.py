@@ -179,10 +179,10 @@ def main() -> int:
 
     for file_id, path in prompt_file_ids.items():
         if file_id not in prompt_ids:
-            warnings.append(f"Prompt file missing from catalog: {file_id} ({path.relative_to(ROOT)})")
+            errors.append(f"Prompt file missing from catalog: {file_id} ({path.relative_to(ROOT)})")
     for file_id, path in skill_file_ids.items():
         if file_id not in skill_ids:
-            warnings.append(f"Skill file missing from catalog: {file_id} ({path.relative_to(ROOT)})")
+            errors.append(f"Skill file missing from catalog: {file_id} ({path.relative_to(ROOT)})")
 
     if errors:
         print("Catalog validation failed:")

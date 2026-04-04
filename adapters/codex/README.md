@@ -13,6 +13,7 @@ Bu klasor, MergenHan cekirdek skill ve blueprint'lerini Codex tarafindan yurutul
 
 - [`mapping.md`](./mapping.md): cekirdek varligin Codex tarafinda nasil temsil edilecegi
 - [`task-packet-example.md`](./task-packet-example.md): kisa gorev paketi ornegi
+- [`meshy-3d-prompt-composer-task-packet-example.md`](./meshy-3d-prompt-composer-task-packet-example.md): Meshy 3D prompt skill'i icin kisa gorev paketi ornegi
 
 ## Sinir
 

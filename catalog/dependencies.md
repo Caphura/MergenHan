@@ -19,6 +19,7 @@ Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir.
 | `mh-skill-catalog-validator` | `mh-blueprint-catalog-validator` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-feature-spec-composer` | `mh-blueprint-feature-spec-composer` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-game-strategy-session-composer` | `mh-blueprint-game-strategy-session-composer` | Paketlenmis skill, kaynak blueprint bagini korur |
+| `mh-skill-meshy-3d-prompt-composer` | `mh-blueprint-meshy-3d-prompt-composer` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-nano-banana-image-prompt-composer` | `mh-blueprint-nano-banana-image-prompt-composer` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-onboarding-router` | `mh-blueprint-onboarding-router` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-prompt-library-curator` | `mh-blueprint-prompt-library-curator` | Paketlenmis skill, kaynak blueprint bagini korur |
@@ -34,6 +35,7 @@ Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir.
 | `mh-blueprint-catalog-validator` | `mh-module-context-audit`, `mh-module-repo-architecture`, `mh-module-action-summary` |
 | `mh-blueprint-feature-spec-composer` | `mh-module-context-audit`, `mh-module-collaborative-guidance`, `mh-module-action-summary` |
 | `mh-blueprint-game-strategy-session-composer` | `mh-master-ultimate-game-development-strategist-core`, `mh-module-steam-market-validation`, `mh-module-mvp-scope-reduction`, `mh-module-production-risk-strategy`, `mh-module-full-concept-greenlight` |
+| `mh-blueprint-meshy-3d-prompt-composer` | `mh-module-collaborative-guidance`, `mh-module-action-summary` |
 | `mh-blueprint-nano-banana-image-prompt-composer` | `mh-master-nano-banana-image-prompt-composer`, `mh-module-collaborative-guidance`, `mh-module-action-summary` |
 | `mh-blueprint-onboarding-router` | `mh-module-context-audit`, `mh-module-repo-architecture`, `mh-module-collaborative-guidance`, `mh-module-action-summary` |
 | `mh-blueprint-prompt-library-curator` | `mh-module-context-audit`, `mh-module-repo-architecture`, `mh-module-action-summary` |
