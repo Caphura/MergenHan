@@ -2,9 +2,9 @@
 id: mh-blueprint-meshy-3d-prompt-composer
 title: Meshy 3D Prompt Composer
 type: blueprint
-status: draft
-version: 0.1.0
-summary: Kullanicinin ham 3D varlik fikrini netlestirip Meshy icin kopyalanabilir, uygulanabilir ve metin odakli bir prompta donusturen paketlenmeye aday taslak.
+status: stable
+version: 1.0.0
+summary: Kullanicinin ham 3D varlik fikrini kisa soru akisiyla netlestirip Meshy icin 800 karakteri asmayan, kopyalanabilir ve uygulanabilir promptlara donusturen stabilize edilmis taslak.
 tags:
   - prompt-composition
   - visual-direction
@@ -24,7 +24,7 @@ runtime_dependencies: []
 tool_dependencies: []
 input_contract: Kullanici bir 3D asset, prop, silah, karakter, creature veya sahne objesi fikrini Meshy icin temiz ve kullanilabilir bir prompta cevirmek ister.
 output_contract: Kisa yonlendirici soru turleri, netlestirilmis asset ozeti, tek parca kopyalanabilir Meshy promptu ve gerekiyorsa kisa varyasyon yonleri.
-notes: Bu ilk versiyon Meshy icin text-first prompt composer olarak tasarlanmistir. Varsayilan gorev model uretmek degil, Meshy'ye verilecek promptu yazmaktir. Meshy prompt metni 800 karakter siniri icinde tutulmalidir; gereksiz sifat ve tekrarlar temizlenmelidir. Uretim kisitlari yalnizca kullanici bunlari ister veya gercekten gerektirirse eklenmelidir.
+notes: Bu blueprint testlerden gecmis stabilize bir davranis tanimidir. Varsayilan gorev model uretmek degil, Meshy'ye verilecek promptu yazmaktir. Meshy prompt metni 800 karakter siniri icinde tutulmalidir; gereksiz sifat ve tekrarlar temizlenmelidir. Uretim kisitlari yalnizca kullanici bunlari ister veya gercekten gerektirirse eklenmelidir.
 ---
 
 # Responsibility
