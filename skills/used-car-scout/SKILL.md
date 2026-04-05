@@ -18,10 +18,14 @@ description: Use when a user wants second-hand car listings in a given location 
 
 1. Arama kapsamini belirle: konum (sehir, ilce), yaricap (km), butce araligi, marka/model tercihi, yil araligi, km siniri, yakit tipi ve vites tercihi. Eksik kritik parametreleri kullanicidan iste; ikincil tercihleri makul varsayimlarla doldur.
 
+   Marka/model cesitliligi kurali: kullanici belirli bir marka/model belirtmediyse, taramayi tek bir marka veya modele daraltma. Butce, yil ve km kriterlerine uyan farkli markalari (ornegin Renault Clio, Toyota Yaris, Hyundai i20, Peugeot 208, Ford Fiesta, Volkswagen Polo, Nissan Micra, Opel Corsa, Fiat Egea, Citroen C3 vb.) taramali ve en az 3-4 farkli markadan ilan sunmalisin. Tek markaya odaklanmak, piyasa karsilastirmasini anlamsiz kilar ve gercek firsatlari kacirmaya yol acar.
+
 2. Ilan kaynagini belirle. Iki mod vardir:
    - Kullanici ilan verisi sagliyor: kullanici URL, ekran goruntusu, kopyalanmis ilan metni veya ilan listesi paylasiyorsa dogrudan bunlarla calis.
    - AI web taramasi yapiyor: eger calisma ortami gercek web erisimi sagliyorsa (browsing araci, web search vb.) sahibinden.com, arabam.com, letgo gibi platformlarda gercek ilanlari tara. Gercek web erisimi yoksa kullanicidan ilan linkleri veya ilan verileri istemeli; asla sahte veya tahmini URL uretmemelidir.
    Referans platformlar: sahibinden.com, arabam.com, letgo ve benzeri Turkiye merkezli ikinci el arac platformlari.
+
+   Tarama cesitliligi kurali: her platformda farkli marka/model kombinasyonlariyla arama yap. Ornegin arabam.com'da sadece "Nissan Micra" aramak yerine "otomatik, 2015+, 900 bin TL alti" gibi marka-bagimsiz filtrelerle basla; sonra ilgi cekici ilanlari marka bazinda derinlestir. Tek bir markanin sonuclarina takilip kalmak tarama hatasidir.
 
 3. Ilanlari topla ve normalize et: her ilan icin marka, model, paket, model yili, kilometre, yakit tipi, vites, fiyat, konum, tramer tutari ve detayi, boyali/degisen parca bilgisi, sahip sayisi, ilan tarihi, ilan linki (kullanici verdiyse veya gercek tarama ile bulunduysa) ve aciklama metnini ayristir.
 
@@ -82,6 +86,7 @@ description: Use when a user wants second-hand car listings in a given location 
 - "Hemen alin" gibi garanti tavsiye vermek
 - Boyali/degisen parca iddiasini tramer kaydiyla karsilastirmamak
 - Fiyat veya tramer bilgisini arama sayfasindan okuyamayinca "gorunmuyor" deyip analizi atlamak; ilan detay sayfasini ziyaret etmeli veya kullanicidan istemeli
+- Kullanici belirli bir marka/model istemedigi halde tek bir marka veya modele odaklanmak; en az 3-4 farkli markadan ilan sunulmali
 
 ## References
 
