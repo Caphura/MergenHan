@@ -2,7 +2,7 @@ id: mh-skill-used-car-scout
 title: Used Car Scout
 type: skill
 status: stable
-version: 1.2.0
+version: 1.2.1
 summary: Belirlenen konum ve yaricapta ikinci el arac ilanlarini tramer dogrulama, kirmizi bayrak taramasi ve fiyat karsilastirmasi ile analiz ederek firsat araclari ve uzak durulmasi gereken araclari ilan linki ile birlikte sunan paketlenmis beceri.
 tags:
   - automotive
