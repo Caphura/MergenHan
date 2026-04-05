@@ -1,6 +1,6 @@
 ---
 name: used-car-scout
-description: Use when a user wants second-hand car listings in a given location and radius analyzed for opportunities and risks, with tramer verification, red flag detection, pricing comparison, and listing links.
+description: Use when a user wants second-hand car listings in a given location and radius analyzed for opportunities and risks, with tramer verification, red flag detection, pricing comparison, and only real listing-detail links.
 ---
 
 # Used Car Scout
@@ -26,19 +26,20 @@ description: Use when a user wants second-hand car listings in a given location 
    - Kullanici ilan verisi sagliyor: kullanici URL, ekran goruntusu, kopyalanmis ilan metni veya ilan listesi paylasiyorsa dogrudan bunlarla calis.
    - AI web taramasi yapiyor: eger calisma ortami gercek web erisimi sagliyorsa (browsing araci, web search vb.) sahibinden.com, arabam.com, letgo gibi platformlarda gercek ilanlari tara. Gercek web erisimi yoksa kullanicidan ilan linkleri veya ilan verileri istemeli; asla sahte veya tahmini URL uretmemelidir.
 
-   Dogrudan ilan linki kurali: ciktida verilen her URL, o ilanin detay sayfasina acmalidir. Arama sonuc sayfasina, liste sayfasina veya filtre sayfasina yonlendiren URL'ler gecersizdir.
+   Dogrudan ilan linki kurali: ciktida verilen her URL, o ilanin gercek detay sayfasina acmalidir. Arama sonuc sayfasina, liste sayfasina, filtre sayfasina veya kategori sayfasina yonlendiren URL'ler gecersizdir ve asla verilmemelidir.
 
    Platform URL yapilari: ikinci el arac platformlarinin ilan detay URL'leri standarttir ve JavaScript ile gizlenmez. Sayfanin icerigi JS ile yuklense bile URL kendisi her zaman statik ve erislebilirdir:
    - sahibinden.com: https://www.sahibinden.com/ilan/[kategori-slug]/[ilan-basligi-slug]/[ilan-id] — ilan ID'si sayisal ve arama sonuclarinda gorunur
    - arabam.com: https://www.arabam.com/ilan/[tur]/[ilan-basligi-slug]/[ilan-id] — ilan ID'si sayisal ve arama sonuclarinda gorunur
    - letgo: https://www.letgo.com/item/[ilan-basligi-slug]-iid-[ilan-id]
 
-   "JavaScript sitesi oldugu icin URL alinamadi" gecerli bir mazeret degildir. Ilan ID'si arama sonuc sayfasinda, HTML icerisinde veya listelemede gorunur. Bu ID'yi kullanarak detay sayfasi URL'si olusturulabilir. Eger gercekten hicbir sekilde ilan ID'sine ulasilamiyorsa, o zaman ilan basligini, platformunu ve varsa ilan numarasini yaz; ama once URL olusturmayi dene.
+   "JavaScript sitesi oldugu icin URL alinamadi" gecerli bir mazeret degildir. Ilan ID'si arama sonuc sayfasinda, HTML icerisinde veya listelemede gorunur.
+   Ancak keskin cizgi sudur: sadece gercek ilan detay sayfasi linki ver. Elindeki URL'nin arama/listing sayfasi oldugundan supheleniyorsan veya detay sayfasi oldugunu dogrulayamiyorsan, o URL'yi hic verme. Onun yerine ilan basligini, platformunu ve varsa ilan numarasini yaz.
    Referans platformlar: sahibinden.com, arabam.com, letgo ve benzeri Turkiye merkezli ikinci el arac platformlari.
 
    Tarama cesitliligi kurali: her platformda farkli marka/model kombinasyonlariyla arama yap. Marka-bagimsiz filtrelerle basla; sonra ilgi cekici ilanlari marka bazinda derinlestir. Tek bir markanin sonuclarina takilip kalmak tarama hatasidir.
 
-3. Ilanlari topla ve normalize et: her ilan icin marka, model, paket, model yili, kilometre, yakit tipi, vites, fiyat, konum, tramer tutari ve detayi, boyali/degisen parca bilgisi, sahip sayisi, ilan tarihi, ilan linki (kullanici verdiyse veya gercek tarama ile bulunduysa) ve aciklama metnini ayristir.
+3. Ilanlari topla ve normalize et: her ilan icin marka, model, paket, model yili, kilometre, yakit tipi, vites, fiyat, konum, tramer tutari ve detayi, boyali/degisen parca bilgisi, sahip sayisi, ilan tarihi, ilan linki (yalnizca kullanici verdiyse veya gercek tarama ile dogrulanmis detay sayfasi bulunduysa) ve aciklama metnini ayristir.
 
    Eksik veri kurtarma kurali: ilan platformlari (ozellikle arabam.com, sahibinden.com) fiyat, tramer ve detay bilgilerini JavaScript ile dinamik yukler. Arama sonuc sayfasinda fiyat veya diger kritik alanlar gorunmuyorsa:
    - Once ilan detay sayfasini dogrudan ziyaret et; cogu bilgi detay sayfasinda mevcuttur.
@@ -76,14 +77,16 @@ description: Use when a user wants second-hand car listings in a given location 
    - Firsat Araclari: uygun fiyat + temiz veya aciklanmis tramer + az kirmizi bayrak.
    - Uzak Durulmasi Gereken Araclar: yuksek risk + tramer tutarsizligi + ciddi kirmizi bayraklar.
 
-8. Her arac icin karar destekleyici ozet olustur: ilan linki, fiyat konumlama, tramer degerlendirmesi, kirmizi bayrak ozeti, genel risk seviyesi ve onerilen sonraki adim.
+8. Her arac icin karar destekleyici ozet olustur: varsa yalnizca gercek ilan detay linki, fiyat konumlama, tramer degerlendirmesi, kirmizi bayrak ozeti, genel risk seviyesi ve onerilen sonraki adim.
 
 9. Tum cikti boyunca kanit ile varsayimi ayir, eksik veriyi gizleme, garanti alim/satim tavsiyesi verme, kesin fiyat degerlendirmesi yerine kaba araliklar sun.
 
 ## Output Expectations
 
 - Cikti su bolumlerden olusmali: Search Summary, Market Snapshot, Opportunity Vehicles, Vehicles to Avoid, Tramer Consistency Overview, Red Flag Summary, Recommended Next Steps.
-- Ilan linki yalnizca kullanicinin verdigi veya gercek web taramasi ile bulunan gercek detay sayfasi URL'lerinden alinmali. Arama sayfasina, liste sayfasina veya filtre sayfasina yonlendiren URL'ler gecersizdir ve verilmemeli. Detay sayfasi URL'si alinamiyorsa ilan basligini, platformunu ve ilan numarasini yaz.
+- Ilan linki yalnizca kullanicinin verdigi veya gercek web taramasi ile dogrulanmis gercek detay sayfasi URL'lerinden alinmali.
+- Arama sayfasina, liste sayfasina, filtre sayfasina veya kategori sayfasina yonlendiren URL'ler gecersizdir ve asla verilmemeli.
+- Detay sayfasi URL'si kesin olarak dogrulanamiyorsa hic URL verme; bunun yerine ilan basligini, platformunu ve ilan numarasini yaz.
 - Firsat ve risk gruplari net ayrilmis olmali.
 - Tramer tutarsizliklari acikca raporlanmali.
 - Sonuclarda yer alan her ilan icin tramer degerlendirmesi zorunludur. Tramer tutari, boyali/degisen parca bilgisi, aciklama ile tutarliligi ve guvenilirlik yorumu her ilanin ciktisinda ayri bir alan olarak yer almali. Tramer bilgisi belirtilmemisse bu durum acikca "tramer bilgisi ilanda belirtilmemis — bagimsiz sorgu onerilir" olarak yazilmali; bos birakilmamali.
@@ -103,6 +106,7 @@ description: Use when a user wants second-hand car listings in a given location 
 - Ilan linklerini ciktidan cikarmak
 - Gercek olmayan, sahte veya arama sayfasina dusen URL'ler uretmek
 - Dogrulanmamis ilan URL'lerini gercek ilan linki gibi sunmak
+- Detay sayfasi oldugundan kesin emin olunmayan URL'leri vermek
 - "Hemen alin" gibi garanti tavsiye vermek
 - Boyali/degisen parca iddiasini tramer kaydiyla karsilastirmamak
 - Fiyat veya tramer bilgisini arama sayfasindan okuyamayinca "gorunmuyor" deyip analizi atlamak; ilan detay sayfasini ziyaret etmeli veya kullanicidan istemeli
@@ -112,7 +116,7 @@ description: Use when a user wants second-hand car listings in a given location 
 - Ilan detay sayfasindaki eksper/hasar raporu gorselini kontrol etmeden tramer degerlendirmesi yapmak
 - Eksper gorselindeki boyali/degisen parca bilgisini aciklama metniyle capraz kontrol etmemek
 - Arama sayfasina, liste sayfasina veya filtre sayfasina yonlendiren URL'leri ilan linki olarak vermek
-- "JavaScript sitesi oldugu icin URL alinamadi" gibi bahanelerle ilan linkini vermekten kacinmak; platform URL yapilari standarttir ve ilan ID'si her zaman erislebilirdir
+- "JavaScript sitesi oldugu icin URL alinamadi" gibi bahanelerle arama/listing sayfasi linki vermek; sadece dogrulanmis detay sayfasi linki verilebilir
 
 ## References
 
