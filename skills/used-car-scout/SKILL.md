@@ -18,6 +18,8 @@ description: Use when a user wants second-hand car listings in a given location 
 
 1. Arama kapsamini belirle: konum (sehir, ilce), yaricap (km), butce araligi, marka/model tercihi, yil araligi, km siniri, yakit tipi ve vites tercihi. Eksik kritik parametreleri kullanicidan iste; ikincil tercihleri makul varsayimlarla doldur.
 
+   Butce toleransi kurali: kullanicinin belirttigi butce tavaninin en fazla %15 ustune cikan ilanlar "butceyi biraz asiyor ama bakmaya deger" olarak sunulabilir. %15'in ustundeki ilanlar analiz disinda tutulmali. Ornegin butce 900 bin TL ise en fazla 1.035.000 TL'ye kadar ilan gosterilebilir; 1.035.000 TL'nin uzerindeki ilanlar sonuclara dahil edilmemeli.
+
    Marka/model cesitliligi kurali: kullanici belirli bir marka/model belirtmediyse, taramayi tek bir marka veya modele daraltma. Butce, yil ve km kriterlerine uyan farkli markalari taramali ve en az 3-4 farkli markadan ilan sunmalisin. Tek markaya odaklanmak, piyasa karsilastirmasini anlamsiz kilar ve gercek firsatlari kacirmaya yol acar.
 
 2. Ilan kaynagini belirle. Iki mod vardir:

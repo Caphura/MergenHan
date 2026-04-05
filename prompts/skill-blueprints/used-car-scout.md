@@ -3,7 +3,7 @@ id: mh-blueprint-used-car-scout
 title: Used Car Scout
 type: blueprint
 status: stable
-version: 1.2.1
+version: 1.2.2
 summary: Belirlenen konum ve yaricapta ikinci el arac ilanlarini derinlemesine analiz ederek firsat araclarini ve uzak durulmasi gereken araclari ilan linki ile birlikte sunan blueprint.
 tags:
   - automotive
@@ -50,6 +50,8 @@ Belirlenen konum ve yaricap icinde ikinci el arac ilanlarini sistematik ve kanit
 # Workflow
 
 1. Arama kapsamini belirle: konum (sehir, ilce veya koordinat), yaricap (km), butce araligi, marka/model tercihi, yil araligi, km siniri, yakit tipi ve vites tercihi. Eksik kritik parametreleri kullanicidan iste; ikincil tercihleri makul varsayimlarla doldur.
+
+   Butce toleransi kurali: kullanicinin belirttigi butce tavaninin en fazla %15 ustune cikan ilanlar "butceyi biraz asiyor ama bakmaya deger" olarak sunulabilir. %15'in ustundeki ilanlar analiz disinda tutulmali.
 
    Marka/model cesitliligi kurali: kullanici belirli bir marka/model belirtmediyse, taramayi tek bir marka veya modele daraltma. Butce, yil ve km kriterlerine uyan farkli markalari taramali ve en az 3-4 farkli markadan ilan sunmalisin. Tek markaya odaklanmak, piyasa karsilastirmasini anlamsiz kilar ve gercek firsatlari kacirmaya yol acar.
 
