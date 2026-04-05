@@ -2,9 +2,9 @@
 id: mh-blueprint-used-car-scout
 title: Used Car Scout
 type: blueprint
-status: stable
-version: 1.3.2
-summary: Belirlenen konum ve yaricapta ikinci el arac ilanlarini derinlemesine analiz ederek firsat araclarini ve uzak durulmasi gereken araclari yalnizca gercek ilan detay linkleri ile birlikte sunan blueprint.
+status: archived
+version: 1.4.0
+summary: Tarihsel referans olarak korunan, ikinci el arac ilan analizi icin tasarlanmis ancak karmaşıklık ve halusinasyon riski nedeniyle yeni kullanim icin onerilmeyen blueprint.
 tags:
   - automotive
   - used-car
@@ -31,8 +31,12 @@ runtime_dependencies: []
 tool_dependencies: []
 input_contract: Konum, yaricap, butce araligi ve opsiyonel olarak marka/model/yil/km tercihleri ile birlikte ikinci el arac arama ve analiz istegi.
 output_contract: Firsat araclari ve uzak durulmasi gereken araclar listeleri, her birinde yalnizca gercek ilan detay linki, tramer degerlendirmesi, kirmizi bayraklar, fiyat konumlama ve onerilen sonraki adimlar.
-notes: Bu blueprint ikinci el arac ilanlarini analiz eder; aracin fiziksel muayenesini, resmi ekspertiz raporunu veya hukuki danismanlik hizmetini ikame etmez. Referans platformlar sahibinden.com, arabam.com, letgo ve benzeri Turkiye merkezli ikinci el arac platformlaridir. Arama/listing sayfasi URL'leri gecersizdir; yalnizca gercek ilan detay sayfasi linki verilmelidir.
+notes: Bu blueprint repodan silinmeden tarihsel referans olarak korunmaktadir. Davranisin pratikte fazla karmasik ve halusinasyona acik oldugu goruldugu icin yeni kullanim icin onerilmez. Referans platformlar sahibinden.com, arabam.com, letgo ve benzeri Turkiye merkezli ikinci el arac platformlaridir. Arama/listing sayfasi URL'leri gecersizdir; yalnizca gercek ilan detay sayfasi linki verilmelidir.
 ---
+
+# Archived Note
+
+Bu blueprint tarihsel referans olarak korunur. Yeni kullanimlarda tercih edilmemelidir; davranisin karmasikligi ve halusinasyon riski nedeniyle rafa kaldirilmistir.
 
 # Responsibility
 

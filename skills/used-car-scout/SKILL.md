@@ -1,9 +1,13 @@
 ---
 name: used-car-scout
-description: Use when a user wants second-hand car listings in a given location and radius analyzed for opportunities and risks, with tramer verification, red flag detection, pricing comparison, and only real listing-detail links.
+description: Archived historical skill for second-hand car listing analysis. Kept for reference, not recommended for new use.
 ---
 
 # Used Car Scout
+
+## Status
+
+Bu skill tarihsel referans olarak korunur. Yeni kullanimlarda tercih edilmemelidir; gercek dunyada fazla karmasik ve halusinasyona acik calistigi goruldugu icin rafa kaldirilmistir.
 
 ## Use When
 
@@ -13,6 +17,8 @@ description: Use when a user wants second-hand car listings in a given location 
 - Birden fazla ilani fiyat, km, yas, donanim ve tramer ekseninde karsilastirmak istediginde
 - Ilan aciklamalarindaki supheli ifadeleri, eksik bilgileri ve manipulasyon isaretlerini tespit ettirmek istediginde
 - Galeri ilani ile gercek sahip ilanini ayirt etmek istediginde
+
+Bu liste tarihsel baglam icindir. Yeni kullanimlarda bu skill'i aktif olarak onermeyin.
 
 ## Workflow
 
