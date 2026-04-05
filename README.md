@@ -31,6 +31,7 @@ MergenHan, tasinabilir bir AI prompt ve skill kutuphanesi olarak tasarlanmis; ok
 |   |-- lifecycle.md
 |   |-- orchestration-rules.md
 |   |-- skill-package-spec.md
+|   |-- usage-guide.md
 |   `-- validation-rules.md
 |-- examples/
 |   `-- compositions/
@@ -50,6 +51,10 @@ MergenHan, tasinabilir bir AI prompt ve skill kutuphanesi olarak tasarlanmis; ok
 `-- templates/
     `-- skill-package/
 ```
+
+## Mevcut Skill'leri Kullanmak
+
+Bu repodaki hazir skill'leri herhangi bir AI ortaminda (ChatGPT, Claude Code, Codex, vb.) kullanmak icin adim adim rehber: [`docs/usage-guide.md`](docs/usage-guide.md)
 
 ## 30 Saniyelik Baslangic
 
@@ -92,7 +97,12 @@ Ilk eklemede yeterli olan zorunlu prompt alanlari:
 
 ## Nereden Baslamaliyim?
 
-Okuma sirasini kisa tutmak isterseniz:
+Sadece mevcut skill'leri kullanmak istiyorsaniz:
+
+1. Kullanim rehberi: [`docs/usage-guide.md`](docs/usage-guide.md)
+2. Skill katalogu: [`catalog/skills.md`](catalog/skills.md)
+
+Icerik yazmak veya kutuphanenin yapisini anlamak istiyorsaniz:
 
 1. Bu README
 2. Bir ornek prompt: [`prompts/masters/active/prompt-library-orchestrator.md`](prompts/masters/active/prompt-library-orchestrator.md)
