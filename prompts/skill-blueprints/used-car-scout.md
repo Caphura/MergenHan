@@ -3,7 +3,7 @@ id: mh-blueprint-used-car-scout
 title: Used Car Scout
 type: blueprint
 status: stable
-version: 1.2.2
+version: 1.2.4
 summary: Belirlenen konum ve yaricapta ikinci el arac ilanlarini derinlemesine analiz ederek firsat araclarini ve uzak durulmasi gereken araclari ilan linki ile birlikte sunan blueprint.
 tags:
   - automotive
@@ -81,6 +81,8 @@ Belirlenen konum ve yaricap icinde ikinci el arac ilanlarini sistematik ve kanit
    - Detay sayfasinda da gorunemiyorsa bu alani "veri alinamadi" olarak isaretle ve kullaniciya sor.
    - Fiyat, km veya tramer gibi kritik alanlari "bilinmiyor" olarak birakip analizi atlamaya calisma; once her yolu dene, son care kullanicidan iste.
 
+   Zorunlu aciklama analizi kurali: radarindaki her ilanin aciklama metnini oku ve analiz et. Aciklamasini okumadan hicbir ilani firsat veya risk olarak siniflandirma. Aciklama metni ilan sahibinin dili, iddialari, gizledikleri ve tutarsizliklari hakkinda kritik bilgi tasir; bu veriyi atlamak analizi eksik ve guvenilmez kilar.
+
 4. Tramer dogrulama katmanini calistir (mh-module-used-car-tramer-verification):
    - Tramer tutarinin ilan aciklamasiyla tutarliligini kontrol et
    - "Tramersiz" iddialarinin makullugunu degerlendir
@@ -116,8 +118,10 @@ Sonucu mumkun oldugunca su yapida topla:
 
 - Search Summary: konum, yaricap, kriterler ve taranan platform ozeti
 - Market Snapshot: bulunan toplam ilan sayisi, fiyat araligi, ortalama km ve genel piyasa gorunumu
-- Opportunity Vehicles: firsat araclari listesi (her birinde ilan linki, fiyat konumlama, tramer durumu, guc sinyalleri)
-- Vehicles to Avoid: uzak durulmasi gereken araclar listesi (her birinde ilan linki, tespit edilen riskler, kirmizi bayraklar)
+- Opportunity Vehicles: firsat araclari listesi (her birinde ilan linki, fiyat konumlama, tramer degerlendirmesi, guc sinyalleri)
+- Vehicles to Avoid: uzak durulmasi gereken araclar listesi (her birinde ilan linki, tramer degerlendirmesi, tespit edilen riskler, kirmizi bayraklar)
+
+Her ilan icin tramer degerlendirmesi zorunludur: tramer tutari, boyali/degisen parca bilgisi, aciklama ile tutarliligi ve guvenilirlik yorumu ayri bir alan olarak yer almali. Tramer bilgisi belirtilmemisse acikca "tramer bilgisi ilanda belirtilmemis — bagimsiz sorgu onerilir" yazilmali.
 - Tramer Consistency Overview: genel tramer guvenilirlik tablosu
 - Red Flag Summary: en sik gorulen kirmizi bayrak kaliplari
 - Recommended Next Steps: fiziksel muayene, bagimsiz tramer sorgusu, ekspertiz, pazarlik onerileri

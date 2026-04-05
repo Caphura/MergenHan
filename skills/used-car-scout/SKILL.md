@@ -36,6 +36,8 @@ description: Use when a user wants second-hand car listings in a given location 
    - Detay sayfasinda da gorunemiyorsa bu alani "veri alinamadi" olarak isaretle ve kullaniciya sor: "Su ilanlarin fiyatlari benim tarafimda gorunmuyor, kontrol edip paylasir misiniz?"
    - Fiyat, km veya tramer gibi kritik alanlari asla "bilinmiyor" olarak birakip analizi atlamaya calisma; once her yolu dene, son care kullanicidan iste.
 
+   Zorunlu aciklama analizi kurali: radarindaki her ilanin aciklama metnini oku ve analiz et. Aciklamasini okumadan hicbir ilani firsat veya risk olarak siniflandirma. Ilan detay sayfasini ziyaret ettiginde fiyat ve tramer verisinin yaninda aciklama metnini de mutlaka oku. Aciklama metni ilan sahibinin dili, iddialari, gizledikleri ve tutarsizliklari hakkinda kritik bilgi tasir; bu veriyi atlamak analizi eksik ve guvenilmez kilar.
+
 4. Tramer dogrulama katmanini calistir:
    - Tramer tutarinin ilan aciklamasiyla tutarliligini kontrol et.
    - "Tramersiz" iddialarinin makullugunu degerlendir.
@@ -69,6 +71,7 @@ description: Use when a user wants second-hand car listings in a given location 
 - Ilan linki yalnizca kullanicinin verdigi veya gercek web taramasi ile bulunan gercek URL'lerden alinmali; sahte, tahmini veya uydurma URL uretilmemeli. Eger gercek link yoksa ilan basligini ve platformunu belirtmek yeterlidir.
 - Firsat ve risk gruplari net ayrilmis olmali.
 - Tramer tutarsizliklari acikca raporlanmali.
+- Sonuclarda yer alan her ilan icin tramer degerlendirmesi zorunludur. Tramer tutari, boyali/degisen parca bilgisi, aciklama ile tutarliligi ve guvenilirlik yorumu her ilanin ciktisinda ayri bir alan olarak yer almali. Tramer bilgisi belirtilmemisse bu durum acikca "tramer bilgisi ilanda belirtilmemis — bagimsiz sorgu onerilir" olarak yazilmali; bos birakilmamali.
 - Kirmizi bayraklar kategorize edilmis ve ciddiyet seviyesi belirtilmis olmali.
 - Fiyat konumlama kaba araliklarda sunulmali; kesin deger bicilmemeli.
 - Kesin alim/satim tavsiyesi yerine risk seviyesi ve kosullu degerlendirme verilmeli.
@@ -89,6 +92,8 @@ description: Use when a user wants second-hand car listings in a given location 
 - Boyali/degisen parca iddiasini tramer kaydiyla karsilastirmamak
 - Fiyat veya tramer bilgisini arama sayfasindan okuyamayinca "gorunmuyor" deyip analizi atlamak; ilan detay sayfasini ziyaret etmeli veya kullanicidan istemeli
 - Kullanici belirli bir marka/model istemedigi halde tek bir marka veya modele odaklanmak; en az 3-4 farkli markadan ilan sunulmali
+- Ilanin aciklama metnini okumadan veya analiz etmeden o ilani firsat ya da risk olarak siniflandirmak
+- Herhangi bir ilani tramer degerlendirmesi yapmadan veya tramer bilgisini ciktiya yazmadan sunmak
 
 ## References
 
