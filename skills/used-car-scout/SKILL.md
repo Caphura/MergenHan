@@ -25,6 +25,8 @@ description: Use when a user wants second-hand car listings in a given location 
 2. Ilan kaynagini belirle. Iki mod vardir:
    - Kullanici ilan verisi sagliyor: kullanici URL, ekran goruntusu, kopyalanmis ilan metni veya ilan listesi paylasiyorsa dogrudan bunlarla calis.
    - AI web taramasi yapiyor: eger calisma ortami gercek web erisimi sagliyorsa (browsing araci, web search vb.) sahibinden.com, arabam.com, letgo gibi platformlarda gercek ilanlari tara. Gercek web erisimi yoksa kullanicidan ilan linkleri veya ilan verileri istemeli; asla sahte veya tahmini URL uretmemelidir.
+
+   Dogrudan ilan linki kurali: ciktida verilen her URL, o ilanin detay sayfasina acmalidir. Arama sonuc sayfasina, liste sayfasina veya filtre sayfasina yonlendiren URL'ler gecersizdir. Ilan detay URL'leri genellikle sayisal bir ilan ID'si icerir (ornegin /ilan/.../39321138). Eger dogrudan detay sayfasinin URL'sini alamiyorsan, ilan linkini verme; bunun yerine ilan basligini, platformunu ve ilan numarasini yaz.
    Referans platformlar: sahibinden.com, arabam.com, letgo ve benzeri Turkiye merkezli ikinci el arac platformlari.
 
    Tarama cesitliligi kurali: her platformda farkli marka/model kombinasyonlariyla arama yap. Marka-bagimsiz filtrelerle basla; sonra ilgi cekici ilanlari marka bazinda derinlestir. Tek bir markanin sonuclarina takilip kalmak tarama hatasidir.
@@ -43,6 +45,12 @@ description: Use when a user wants second-hand car listings in a given location 
    - "Tramersiz" iddialarinin makullugunu degerlendir.
    - Boyali/degisen parca ile tramer arasindaki uyumsuzluklari isaretle.
    - Yanlis veya eksik girilmis olabilecek tramer verilerini tespit et.
+
+   Eksper/hasar raporu gorseli kurali: ilan platformlari (ozellikle arabam.com ve sahibinden.com) ilan detay sayfasinda eksper raporu gorseli veya hasar diagrimi gosterir. Bu gorsel aracin hangi parcalarinin boyali, degisen veya hasarli oldugunu renkli sema ile belirtir. Ilan detay sayfasini ziyaret ettiginde bu gorseli mutlaka kontrol et. Sonra su capraz kontrolu yap:
+   - Eksper gorselindeki boyali/degisen parcalar ile ilan aciklamasindaki beyanlar tutarli mi?
+   - Eksper gorselindeki hasar isaretleri ile belirtilen tramer tutari oranlali mi?
+   - Aciklamada "hatasiz, boyasiz" deniyorken eksper gorselinde boyali/degisen parca var mi?
+   - Eksper gorseli yoksa veya gorulemiyorsa bunu ilgili ilanin ciktisinda "eksper gorseli bulunamadi veya gorulemedi" olarak belirt.
 
 5. Kirmizi bayrak taramasini calistir:
    - Aciklama dilindeki supheli ifadeleri tara (baskici dil, genel iddialar, galeri dili).
@@ -68,7 +76,7 @@ description: Use when a user wants second-hand car listings in a given location 
 ## Output Expectations
 
 - Cikti su bolumlerden olusmali: Search Summary, Market Snapshot, Opportunity Vehicles, Vehicles to Avoid, Tramer Consistency Overview, Red Flag Summary, Recommended Next Steps.
-- Ilan linki yalnizca kullanicinin verdigi veya gercek web taramasi ile bulunan gercek URL'lerden alinmali; sahte, tahmini veya uydurma URL uretilmemeli. Eger gercek link yoksa ilan basligini ve platformunu belirtmek yeterlidir.
+- Ilan linki yalnizca kullanicinin verdigi veya gercek web taramasi ile bulunan gercek detay sayfasi URL'lerinden alinmali. Arama sayfasina, liste sayfasina veya filtre sayfasina yonlendiren URL'ler gecersizdir ve verilmemeli. Detay sayfasi URL'si alinamiyorsa ilan basligini, platformunu ve ilan numarasini yaz.
 - Firsat ve risk gruplari net ayrilmis olmali.
 - Tramer tutarsizliklari acikca raporlanmali.
 - Sonuclarda yer alan her ilan icin tramer degerlendirmesi zorunludur. Tramer tutari, boyali/degisen parca bilgisi, aciklama ile tutarliligi ve guvenilirlik yorumu her ilanin ciktisinda ayri bir alan olarak yer almali. Tramer bilgisi belirtilmemisse bu durum acikca "tramer bilgisi ilanda belirtilmemis — bagimsiz sorgu onerilir" olarak yazilmali; bos birakilmamali.
@@ -94,6 +102,9 @@ description: Use when a user wants second-hand car listings in a given location 
 - Kullanici belirli bir marka/model istemedigi halde tek bir marka veya modele odaklanmak; en az 3-4 farkli markadan ilan sunulmali
 - Ilanin aciklama metnini okumadan veya analiz etmeden o ilani firsat ya da risk olarak siniflandirmak
 - Herhangi bir ilani tramer degerlendirmesi yapmadan veya tramer bilgisini ciktiya yazmadan sunmak
+- Ilan detay sayfasindaki eksper/hasar raporu gorselini kontrol etmeden tramer degerlendirmesi yapmak
+- Eksper gorselindeki boyali/degisen parca bilgisini aciklama metniyle capraz kontrol etmemek
+- Arama sayfasina, liste sayfasina veya filtre sayfasina yonlendiren URL'leri ilan linki olarak vermek
 
 ## References
 

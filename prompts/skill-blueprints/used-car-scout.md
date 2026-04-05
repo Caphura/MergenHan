@@ -3,7 +3,7 @@ id: mh-blueprint-used-car-scout
 title: Used Car Scout
 type: blueprint
 status: stable
-version: 1.2.4
+version: 1.3.0
 summary: Belirlenen konum ve yaricapta ikinci el arac ilanlarini derinlemesine analiz ederek firsat araclarini ve uzak durulmasi gereken araclari ilan linki ile birlikte sunan blueprint.
 tags:
   - automotive
@@ -88,6 +88,12 @@ Belirlenen konum ve yaricap icinde ikinci el arac ilanlarini sistematik ve kanit
    - "Tramersiz" iddialarinin makullugunu degerlendir
    - Boyali/degisen parca ile tramer arasindaki uyumsuzluklari isaretle
    - Yanlis veya eksik girilmis olabilecek tramer verilerini tespit et
+
+   Eksper/hasar raporu gorseli kurali: ilan detay sayfasindaki eksper raporu gorseli veya hasar diagramini mutlaka kontrol et. Bu gorsel aracin hangi parcalarinin boyali, degisen veya hasarli oldugunu renkli sema ile belirtir. Sonra su capraz kontrolu yap:
+   - Eksper gorselindeki boyali/degisen parcalar ile ilan aciklamasindaki beyanlar tutarli mi?
+   - Eksper gorselindeki hasar isaretleri ile belirtilen tramer tutari oranlali mi?
+   - Aciklamada "hatasiz, boyasiz" deniyorken eksper gorselinde boyali/degisen parca var mi?
+   - Eksper gorseli yoksa veya gorulemiyorsa bunu "eksper gorseli bulunamadi veya gorulemedi" olarak belirt.
 
 5. Kirmizi bayrak taramasini calistir (mh-module-used-car-listing-red-flags):
    - Aciklama dilindeki supheli ifadeleri tara
