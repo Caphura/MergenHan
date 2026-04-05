@@ -26,7 +26,14 @@ description: Use when a user wants second-hand car listings in a given location 
    - Kullanici ilan verisi sagliyor: kullanici URL, ekran goruntusu, kopyalanmis ilan metni veya ilan listesi paylasiyorsa dogrudan bunlarla calis.
    - AI web taramasi yapiyor: eger calisma ortami gercek web erisimi sagliyorsa (browsing araci, web search vb.) sahibinden.com, arabam.com, letgo gibi platformlarda gercek ilanlari tara. Gercek web erisimi yoksa kullanicidan ilan linkleri veya ilan verileri istemeli; asla sahte veya tahmini URL uretmemelidir.
 
-   Dogrudan ilan linki kurali: ciktida verilen her URL, o ilanin detay sayfasina acmalidir. Arama sonuc sayfasina, liste sayfasina veya filtre sayfasina yonlendiren URL'ler gecersizdir. Ilan detay URL'leri genellikle sayisal bir ilan ID'si icerir (ornegin /ilan/.../39321138). Eger dogrudan detay sayfasinin URL'sini alamiyorsan, ilan linkini verme; bunun yerine ilan basligini, platformunu ve ilan numarasini yaz.
+   Dogrudan ilan linki kurali: ciktida verilen her URL, o ilanin detay sayfasina acmalidir. Arama sonuc sayfasina, liste sayfasina veya filtre sayfasina yonlendiren URL'ler gecersizdir.
+
+   Platform URL yapilari: ikinci el arac platformlarinin ilan detay URL'leri standarttir ve JavaScript ile gizlenmez. Sayfanin icerigi JS ile yuklense bile URL kendisi her zaman statik ve erislebilirdir:
+   - sahibinden.com: https://www.sahibinden.com/ilan/[kategori-slug]/[ilan-basligi-slug]/[ilan-id] — ilan ID'si sayisal ve arama sonuclarinda gorunur
+   - arabam.com: https://www.arabam.com/ilan/[tur]/[ilan-basligi-slug]/[ilan-id] — ilan ID'si sayisal ve arama sonuclarinda gorunur
+   - letgo: https://www.letgo.com/item/[ilan-basligi-slug]-iid-[ilan-id]
+
+   "JavaScript sitesi oldugu icin URL alinamadi" gecerli bir mazeret degildir. Ilan ID'si arama sonuc sayfasinda, HTML icerisinde veya listelemede gorunur. Bu ID'yi kullanarak detay sayfasi URL'si olusturulabilir. Eger gercekten hicbir sekilde ilan ID'sine ulasilamiyorsa, o zaman ilan basligini, platformunu ve varsa ilan numarasini yaz; ama once URL olusturmayi dene.
    Referans platformlar: sahibinden.com, arabam.com, letgo ve benzeri Turkiye merkezli ikinci el arac platformlari.
 
    Tarama cesitliligi kurali: her platformda farkli marka/model kombinasyonlariyla arama yap. Marka-bagimsiz filtrelerle basla; sonra ilgi cekici ilanlari marka bazinda derinlestir. Tek bir markanin sonuclarina takilip kalmak tarama hatasidir.
@@ -105,6 +112,7 @@ description: Use when a user wants second-hand car listings in a given location 
 - Ilan detay sayfasindaki eksper/hasar raporu gorselini kontrol etmeden tramer degerlendirmesi yapmak
 - Eksper gorselindeki boyali/degisen parca bilgisini aciklama metniyle capraz kontrol etmemek
 - Arama sayfasina, liste sayfasina veya filtre sayfasina yonlendiren URL'leri ilan linki olarak vermek
+- "JavaScript sitesi oldugu icin URL alinamadi" gibi bahanelerle ilan linkini vermekten kacinmak; platform URL yapilari standarttir ve ilan ID'si her zaman erislebilirdir
 
 ## References
 

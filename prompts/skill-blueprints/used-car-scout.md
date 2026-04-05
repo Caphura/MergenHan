@@ -3,7 +3,7 @@ id: mh-blueprint-used-car-scout
 title: Used Car Scout
 type: blueprint
 status: stable
-version: 1.3.0
+version: 1.3.1
 summary: Belirlenen konum ve yaricapta ikinci el arac ilanlarini derinlemesine analiz ederek firsat araclarini ve uzak durulmasi gereken araclari ilan linki ile birlikte sunan blueprint.
 tags:
   - automotive
@@ -58,6 +58,12 @@ Belirlenen konum ve yaricap icinde ikinci el arac ilanlarini sistematik ve kanit
 2. Ilan kaynagini belirle. Iki mod vardir:
    - Kullanici ilan verisi sagliyor: kullanici URL, ekran goruntusu, kopyalanmis ilan metni veya ilan listesi paylasiyorsa dogrudan bunlarla calis.
    - AI web taramasi yapiyor: eger calisma ortami gercek web erisimi sagliyorsa (browsing araci, web search vb.) sahibinden.com, arabam.com, letgo gibi platformlarda gercek ilanlari tara. Gercek web erisimi yoksa kullanicidan ilan linkleri veya ilan verileri istemeli; asla sahte veya tahmini URL uretmemelidir.
+
+   Dogrudan ilan linki kurali: ciktida verilen her URL, o ilanin detay sayfasina acmalidir. Platform URL yapilari standarttir ve JavaScript ile gizlenmez:
+   - sahibinden.com: https://www.sahibinden.com/ilan/[kategori-slug]/[ilan-basligi-slug]/[ilan-id]
+   - arabam.com: https://www.arabam.com/ilan/[tur]/[ilan-basligi-slug]/[ilan-id]
+   - letgo: https://www.letgo.com/item/[ilan-basligi-slug]-iid-[ilan-id]
+   "JavaScript sitesi oldugu icin URL alinamadi" gecerli bir mazeret degildir. Ilan ID'si arama sonuclarinda her zaman gorunur.
    Referans platformlar: sahibinden.com, arabam.com, letgo ve benzeri Turkiye merkezli ikinci el arac platformlari.
 
    Tarama cesitliligi kurali: her platformda farkli marka/model kombinasyonlariyla arama yap. Marka-bagimsiz filtrelerle basla; sonra ilgi cekici ilanlari marka bazinda derinlestir. Tek bir markanin sonuclarina takilip kalmak tarama hatasidir.
