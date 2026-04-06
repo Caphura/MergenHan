@@ -1,20 +1,20 @@
 # Meshy 3D Prompt Composer Test Pack
 
-Bu belge, `Meshy 3D Prompt Composer` icin farkli AI ortamlarda uygulanabilecek test senaryolarini toplar. Amac, modelin yalnizca rastgele 3D prompt yazmasini degil; kullanicinin ham asset fikrini kisa ama etkili sorularla netlestirip Meshy icin kopyalanabilir, metin odakli ve gercekci bir prompta donusturmesini test etmektir.
+This document `Meshy 3D Prompt Composer` icin different AI ortamlarda uygulanabilecek test senaryolarini toplar. Amac, modelin only rastgele 3D prompt yazmasini degil; the user's ham asset fikrini short ama etkili sorularla netlestirip Meshy icin kopyalanabilir, metin odakli ve gercekci bir prompta donusturmesini test etmektir.
 
-## Kullanim Sekli
+## Usage
 
 Her testten once asagidaki acilis talimatini kullan:
 
 ```text
-Asagidaki 3D asset istegini Meshy icin prompta donustur. Ama hemen uzun prompt yazmaya atlama. Once eksik ama sonucu gercekten degistirecek detaylari bul, gerekirse sadece birkac yuksek etkili soru sor, sonra yeterli netlik varsa ayni cevapta sonucu su yapida ver:
+Asagidaki 3D asset istegini Meshy icin prompta donustur. Goal immediately uzun prompt yazmaya atlama. Once eksik ama sonucu gercekten degistirecek detaylari bul, if needed only birkac yuksek etkili soru sor, sonra yeterli netlik varsa same cevapta sonucu su yapida ver:
 
 1. Asset Summary
 2. Meshy Prompt
 3. Production Notes
 4. Optional Variations
 
-Varsayilan davranis text-only olsun. Modeli uretme, araci tetikleme veya sahte teknik garanti verme. Meshy Prompt bolumundeki asil prompt metni 800 karakteri asmamali.
+Varsaylisting davranis text-only olsun. Modeli uretme, vehiclei tetikleme veya sahte teknik garanti verme. Meshy Prompt bolumundeki asil prompt metni 800 karakteri asmamali.
 ```
 
 ## Test Senaryolari
@@ -29,20 +29,20 @@ Varsayilan davranis text-only olsun. Modeli uretme, araci tetikleme veya sahte t
 Meshy icin stylized bir health potion sisesi promptu istiyorum. Fantasy oyunu icin olacak.
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
-- Nihai prompttan once en az 1 kisa tur soru sormali
-- Kisa ama yuksek etkili sorularla sise formu, renk hissi, malzeme ve kondisyonu netlestirmeli
+- Nihai prompttan once en az 1 short tur soru sormali
+- Short ama yuksek etkili sorularla sise formu, renk hissi, malzeme ve kondisyonu netlestirmeli
 - Sonucu stylized game prop mantigiyla toparlamali
 - Prompt kismi kopyalanabilir olmali
-- Meshy Prompt metni 800 karakter siniri icinde kalmali
+- Meshy Prompt metni 800 karakter boundary icinde kalmali
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
 - Bu kadar eksik girdide hic soru sormadan direkt prompt vermek
 - 800 karakteri asan, gereksiz sisirilmis prompt yazmak
 - Gereksiz uzun soru listesi acmak
-- Sadece "high quality, detailed, amazing" gibi bos kalite sloganlariyla prompt sisirmek
+- Sadece "high quality, detailed, amazing" such as bos kalite sloganlariyla prompt sisirmek
 
 **Referans guclu cevap:**
 
@@ -51,7 +51,7 @@ Asset Summary
 
 - Stylized fantasy health potion bottle
 - Oyun ici prop olarak ilk bakista okunakli olmali
-- Simdilik orta-neseli, temiz fantasy yone yakin bir varsayimla ilerliyorum
+- Simdilik orta-neseli, temiz fantasy yone yakin bir assumptionla ilerliyorum
 
 Meshy Prompt
 
@@ -79,20 +79,20 @@ Optional Variations
 Bir sci-fi ammo crate icin Meshy promptu yaz. Askeri ama cok jenerik durmasin.
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
-- Kasanin kullanim baglami, olcek hissi, panel yapisi, materyal dili ve yipranma seviyesini netlestirmeli
-- "Askeri ama jenerik degil" kismini promptta farkli kimlik unsurlariyla yansitmali
-- Hard-surface varlik mantigini image prompt diline kaydirmadan kurmali
+- Kasanin usage contexti, olcek hissi, panel structure, materyal dili ve yipranma seviyesini netlestirmeli
+- "Askeri ama jenerik degil" kismini promptta different identity unsurlariyla yansitmali
+- Hard-surface asset mantigini image prompt diline kaydirmadan kurmali
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
 - Sadece renk ekleyip objeyi ayirt etmeden birakmak
-- Teknik his vermek yerine yalnizca sinematik atmosfer tarif etmek
+- Teknik his vermek yerine only sinematik atmosfer tarif etmek
 
 ### MP3 - Karakter / creature netlestirme
 
-**Amac:** Model, canli bir varlik isteginde form, tavir ve stil yonunu sorularla ayrisabiliyor mu?
+**Amac:** Model, canli bir asset isteginde form, tavir ve stil yonunu sorularla ayrisabiliyor mu?
 
 **Test girdisi:**
 
@@ -100,20 +100,20 @@ Bir sci-fi ammo crate icin Meshy promptu yaz. Askeri ama cok jenerik durmasin.
 Meshy icin sevimli ama hafif yaramaz gorunen bir orman creature'i prompta donustur.
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
 - Creature'in boyut, beden orani, ana ayirt edici ozellikleri ve stil yonunu netlestirmeli
 - Sevimli ile yaramaz arasindaki ton dengesini promptta hissettirmeli
-- Promptu sadece duygu sifati listesine cevirmemeli
+- Promptu only duygu sifati listesine cevirmemeli
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
 - Somut siluet veya fiziksel detay olmadan soyut duygu sifati yigmak
 - Kullaniciyi karakter sheet seviyesinde gereksiz teknik detaylara bogmak
 
-### MP4 - Belirsiz istekten net prompta gecis
+### MP4 - Belirsiz requestten net prompta gecis
 
-**Amac:** Model, daginik ve eksik bir istekte once dogru sorulari sorup sonra durabildigi yerde prompta gecebiliyor mu?
+**Amac:** Model, daginik ve eksik bir requestte once correct sorulari sorup sonra durabildigi yerde prompta gecebiliyor mu?
 
 **Test girdisi:**
 
@@ -121,60 +121,60 @@ Meshy icin sevimli ama hafif yaramaz gorunen bir orman creature'i prompta donust
 Aklimda bir silah var ama tam oturtamadim. Biraz antik, biraz da teknoloji karisimi bir sey olsun. Meshy icin toparlar misin?
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
-- Silahin turu, donem hissi, enerji / mekanik karisimi ve kullanim sinifini netlestiren az sayida soru sormali
+- Silahin type, donem hissi, enerji / mekanik karisimi ve usage sinifini netlestiren az sayida soru sormali
 - Yeterli cevap gelince yeni tur acmadan nihai prompt vermeli
 - Hybrid estetik fikrini tek akista toparlamali
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
 - Sonsuz soru moduna gecmek
-- Kullanici hala belirsizken asiri spesifik ama uydurma kararlar vermek
+- Kullanici hala belirsizken asiri spesifik ama fabricated decisionlar vermek
 
 ### MP5 - Teknik garanti direnci
 
-**Amac:** Model, kullanici teknik beklenti istediginde bilmedigi seyleri uydurmadan dikkatli kalabiliyor mu?
+**Amac:** Model, user teknik beklenti istediginde bilmedigi seyleri fabricateddan dikkatli kalabiliyor mu?
 
 **Test girdisi:**
 
 ```text
-Bana Meshy icin game-ready bir medieval kalkan promptu yaz. Low poly olsun, topology tertemiz olsun, UV sorunsuz olsun, her engine'e hazir olsun.
+Bana Meshy icin game-ready bir medieval kalkan promptu yaz. Low poly olsun, topology tertemiz olsun, UV sorunsuz olsun, her engine'e ready olsun.
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
 - Kullanicinin teknik beklentisini not etmeli ama sahte garanti dili kullanmamali
 - Promptta stil ve form tarafini guclu tutarken teknik notlari daha dikkatli, sinirli ve gercekci sunmali
-- "Her engine'e hazir" gibi kesin iddialari yumusatmali veya baglama baglamali
+- "Her engine'e ready" such as kesin iddialari yumusatmali veya contexta contextali
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
-- Teknik olarak garanti veremeyecegi seyleri kesinmis gibi yazmak
-- Promptun tamamini anlamsiz uretim sloganlarina cevirmek
+- Teknik olarak garanti veremeyecegi seyleri kesinmis such as yazmak
+- Promptun tamamini anlamsiz generation sloganlarina cevirmek
 
-### MP6 - Sadece prompt isteyen hizli kullanim
+### MP6 - Sadece prompt isteyen hizli usage
 
-**Amac:** Model, kullanici zaten yeterince net tarif verdiginde ekstra analiz uzatmadan dogrudan iyi bir prompt verebiliyor mu?
+**Amac:** Model, user zaten yeterince net tarif verdiginde ekstra analysis uzatmadan directly iyi bir prompt verebiliyor mu?
 
 **Test girdisi:**
 
 ```text
-Meshy icin prompt yaz: kucuk bir masaustu collectible robot, retro-futuristic tasarim, beyaz ve turuncu govde, hafif ciziklerle kullanilmis hissi, sevimli ama premium bir urun gibi gorunsun.
+Meshy icin prompt yaz: kucuk bir masaustu collectible robot, retro-futuristic tasarim, beyaz ve turuncu govde, hafif ciziklerle kullanilmis hissi, sevimli ama premium bir urun such as gorunsun.
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
-- Girdinin yeterince net oldugunu anlayip uzun soru turu acmamali
-- Asset summary kisa kalmali, prompt ise yogun ve kopyalanabilir olmali
-- Stil, malzeme, renk ve urun hissini dengeli sekilde birlestirmeli
+- Girdinin yeterince net oldugunu anlayip uzun soru type acmamali
+- Asset summary short kalmali, prompt ise yogun ve kopyalanabilir olmali
+- Stil, malzeme, renk ve urun hissini dengeli way birlestirmeli
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
 - Gereksiz soru sormak
 - Kullanicinin zaten verdigi detaylari zayiflatmak veya dagitmak
 
-## Onerilen Test Sirasi
+## Recommended Test Order
 
 1. `MP1`
 2. `MP6`
@@ -183,20 +183,20 @@ Meshy icin prompt yaz: kucuk bir masaustu collectible robot, retro-futuristic ta
 5. `MP3`
 6. `MP5`
 
-Bu sira, net ve kolay prop isteklerinden daha belirsiz netlestirme durumlarina ve en sonda teknik guardrail stresine dogru ilerler.
+Bu sira, net ve kolay prop requestlerinden daha belirsiz netlestirme durumlarina ve en sonda teknik guardrail stresine correct ilerler.
 
-## Puanlama Rubrigi
+## Scoring Rubric
 
 | Olcut | Ne aranir? |
 | --- | --- |
-| Niyet Tespiti | Kullanici prop, creature, weapon veya collectible istedigini dogru okuyabiliyor mu |
-| Soru Disiplini | Yalnizca gerekli oldugunda az sayida yuksek etkili soru soruyor mu |
-| Prompt Kalitesi | Nihai prompt somut, kopyalanabilir ve Meshy kullanimina uygun mu |
+| Niyet Tespiti | Kullanici prop, creature, weapon veya collectible istedigini correct okuyabiliyor mu |
+| Soru Disiplini | Yalnizca required oldugunda az sayida yuksek etkili soru soruyor mu |
+| Prompt Kalitesi | Nihai prompt somut, kopyalanabilir ve Meshy usageina uygun mu |
 | Guardrail Disiplini | Model uretmeden, sahte teknik garanti vermeden text-first kaliyor mu |
-| Karakter Butcesi | Meshy Prompt metni 800 karakter siniri icinde kaliyor mu |
+| Karakter Butcesi | Meshy Prompt metni 800 karakter boundary icinde kaliyor mu |
 | Eyleme Donukluk | Production Notes ve Optional Variations gercekten ise yariyor mu |
 
-## Kisa Sonuc Formu
+## Short Result Form
 
 ```text
 AI:

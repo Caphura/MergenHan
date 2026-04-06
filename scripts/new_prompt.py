@@ -6,7 +6,7 @@ import sys
 from datetime import date
 from pathlib import Path
 
-from script_common import ROOT, SUPPORTED_LOCALES, locale_root, read_text
+from script_common import CANONICAL_LOCALE, ROOT, SUPPORTED_LOCALES, locale_root, read_text
 
 TEMPLATES = {
     "master": ROOT / "templates" / "master-prompt.md",
@@ -25,14 +25,14 @@ ID_PLACEHOLDERS = {
 }
 MODULE_CATEGORIES = {"capability", "domain", "tone", "constraints", "output"}
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
-MIRROR_LOCALES = tuple(locale for locale in SUPPORTED_LOCALES if locale != "tr")
+MIRROR_LOCALES = tuple(locale for locale in SUPPORTED_LOCALES if locale != CANONICAL_LOCALE)
 
 
 def title_from_slug(slug: str) -> str:
     return " ".join(part.capitalize() for part in slug.split("-") if part)
 
 
-def destination(args: argparse.Namespace, *, locale: str = "tr") -> Path:
+def destination(args: argparse.Namespace, *, locale: str = CANONICAL_LOCALE) -> Path:
     root = locale_root(locale)
     if args.kind == "module":
         return root / "prompts" / "modules" / args.category
@@ -41,17 +41,17 @@ def destination(args: argparse.Namespace, *, locale: str = "tr") -> Path:
     return root / "prompts" / "skill-blueprints"
 
 
-def target_path(args: argparse.Namespace, *, locale: str = "tr") -> Path:
+def target_path(args: argparse.Namespace, *, locale: str = CANONICAL_LOCALE) -> Path:
     return destination(args, locale=locale) / f"{args.slug}.md"
 
 
-def template_path(kind: str, *, locale: str = "tr") -> Path:
-    if locale == "tr":
+def template_path(kind: str, *, locale: str = CANONICAL_LOCALE) -> Path:
+    if locale == CANONICAL_LOCALE:
         return TEMPLATES[kind]
     return locale_root(locale) / "templates" / TEMPLATES[kind].name
 
 
-def render_template(args: argparse.Namespace, *, locale: str = "tr") -> str:
+def render_template(args: argparse.Namespace, *, locale: str = CANONICAL_LOCALE) -> str:
     template = read_text(template_path(args.kind, locale=locale))
     rendered = template.replace(ID_PLACEHOLDERS[args.kind], f"mh-{args.kind}-{args.slug}", 1)
     rendered = rendered.replace(TITLE_PLACEHOLDERS[args.kind], args.title, 1)
@@ -101,8 +101,8 @@ def main() -> int:
     validate_args(args, parser)
     args.title = args.title or title_from_slug(args.slug)
 
-    primary_path = target_path(args, locale="tr")
-    primary_content = render_template(args, locale="tr")
+    primary_path = target_path(args, locale=CANONICAL_LOCALE)
+    primary_content = render_template(args, locale=CANONICAL_LOCALE)
 
     mirror_path: Path | None = None
     mirror_content = ""

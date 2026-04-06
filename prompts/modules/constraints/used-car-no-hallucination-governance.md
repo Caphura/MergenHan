@@ -4,7 +4,7 @@ title: Used Car No Hallucination Governance
 type: module
 status: active
 version: 1.1.0
-summary: Kanitsiz arac gecmisi iddialarini, sahte tramer yorumlarini ve desteksiz fiyat kesinligini engelleyen zorunlu governance modulu.
+summary: Kanitsiz vehicle gecmisi iddialarini, sahte tramer yorumlarini ve desteksiz fiyat kesinligini engelleyen required governance module.
 tags:
   - automotive
   - used-car
@@ -14,22 +14,22 @@ tags:
   - safety
 depends_on: []
 last_reviewed: 2026-04-05
-input_contract: Ikinci el arac ilan analizi, tramer degerlendirmesi ve fiyat karsilastirmasi oturumlari.
-output_contract: Kanit ayristirmasi, varsayimlar, eksik veriler ve guven seviyesi zorunluluklari.
-notes: Bu modul opsiyonel degildir; ilgili tum ikinci el arac analizlerinde zorunlu governance katmani olarak kullanilmalidir.
+input_contract: Ikinci el vehicle listing analysis, tramer degerlendirmesi ve fiyat karsilastirmasi oturumlari.
+output_contract: Kanit separatemasi, assumptionlar, eksik veriler ve guven seviyesi requiredluklari.
+notes: This module opsiyonel degildir; related tum used car vehicle analizlerinde required governance katmani olarak kullanilmalidir.
 ---
 
 # Purpose
 
-Ikinci el arac analizlerinde kaynaksiz bilgi uretimini, sahte tramer yorumlarini, uydurma arac gecmisi iddialarini ve desteksiz fiyat kesinligini engellemek.
+Ikinci el vehicle analizlerinde kaynaksiz bilgi uretimini, sahte tramer yorumlarini, fabricated vehicle gecmisi iddialarini ve desteksiz fiyat kesinligini engellemek.
 
 # Usage Rules
 
-- Aracin gercek gecmisini bilmiyorsan uydurma.
-- Tramer verisini tahmin etme veya duzeltme.
+- Aracin gercek gecmisini bilmiyorsan fabricated.
+- Tramer verisini tahmin etme veya fix.
 - Eksik bilgiyi gizleme.
-- "Guvenle alinabilir" gibi garanti ifadeler kullanma.
-- Her zaman kanit ile varsayimi ayir.
+- "Guvenle alinabilir" such as garanti ifadeler kullanma.
+- Her zaman evidence ile assumptioni ayir.
 
 # Module Text
 

@@ -7,74 +7,74 @@ description: Archived historical skill for second-hand car listing analysis. Kep
 
 ## Status
 
-Bu skill tarihsel referans olarak korunur. Yeni kullanimlarda tercih edilmemelidir; gercek dunyada fazla karmasik ve halusinasyona acik calistigi goruldugu icin rafa kaldirilmistir.
+This skill tarihsel referans olarak is preserved. Yeni usagelarda tercih edilmemelidir; gercek dunyada fazla karmasik ve halusinasyona clear calistigi goruldugu icin rafa kaldirilmistir.
 
 ## Use When
 
-- Kullanici belirlenen konum ve yaricapta ikinci el arac ilanlarini taratmak istediginde
-- Firsat araclari ve uzak durulmasi gereken araclari ilan linki ile birlikte gormek istediginde
-- Tramer bilgisinin ilan aciklamasiyla tutarli olup olmadigini kontrol ettirmek istediginde
-- Birden fazla ilani fiyat, km, yas, donanim ve tramer ekseninde karsilastirmak istediginde
+- Kullanici belirlenen konum ve yaricapta used car vehicle listinglarini taratmak istediginde
+- Firsat vehiclelari ve uzak durulmasi gereken vehiclelari listing linki ile birlikte gormek istediginde
+- Tramer bilgisinin listing aciklamasiyla tutarli olup olmadigini kontrol ettirmek istediginde
+- Birden fazla listingi fiyat, km, yas, donanim ve tramer ekseninde karsilastirmak istediginde
 - Ilan aciklamalarindaki supheli ifadeleri, eksik bilgileri ve manipulasyon isaretlerini tespit ettirmek istediginde
-- Galeri ilani ile gercek sahip ilanini ayirt etmek istediginde
+- Galeri listingi ile gercek sahip listingini ayirt etmek istediginde
 
-Bu liste tarihsel baglam icindir. Yeni kullanimlarda bu skill'i aktif olarak onermeyin.
+Bu liste tarihsel context icindir. Yeni usagelarda bu skill'i aktif olarak onermeyin.
 
 ## Workflow
 
-1. Arama kapsamini belirle: konum (sehir, ilce), yaricap (km), butce araligi, marka/model tercihi, yil araligi, km siniri, yakit tipi ve vites tercihi. Eksik kritik parametreleri kullanicidan iste; ikincil tercihleri makul varsayimlarla doldur.
+1. Arama kapsamini belirle: konum (sehir, ilce), yaricap (km), butce araligi, marka/model tercihi, yil araligi, km boundary, yakit tipi ve vites tercihi. Eksik kritik parametreleri userdan iste; ikincil tercihleri makul assumptionlarla doldur.
 
-   Butce toleransi kurali: kullanicinin belirttigi butce tavaninin en fazla %15 ustune cikan ilanlar "butceyi biraz asiyor ama bakmaya deger" olarak sunulabilir. %15'in ustundeki ilanlar analiz disinda tutulmali. Ornegin butce 900 bin TL ise en fazla 1.035.000 TL'ye kadar ilan gosterilebilir; 1.035.000 TL'nin uzerindeki ilanlar sonuclara dahil edilmemeli.
+   Butce toleransi rule: the user's belirttigi butce tavaninin en fazla %15 ustune cikan listinglar "butceyi biraz asiyor ama bakmaya value" olarak sunulabilir. %15'in ustundeki listinglar analysis disinda tutulmali. Ornegin butce 900 bin TL ise en fazla 1.035.000 TL'ye kadar listing gosterilebilir; 1.035.000 TL'nin uzerindeki listinglar sonuclara dahil edilmemeli.
 
-   Marka/model cesitliligi kurali: kullanici belirli bir marka/model belirtmediyse, taramayi tek bir marka veya modele daraltma. Butce, yil ve km kriterlerine uyan farkli markalari taramali ve en az 3-4 farkli markadan ilan sunmalisin. Tek markaya odaklanmak, piyasa karsilastirmasini anlamsiz kilar ve gercek firsatlari kacirmaya yol acar.
+   Marka/model cesitliligi rule: user belirli bir marka/model belirtmediyse, taramayi tek bir marka veya modele daraltma. Butce, yil ve km kriterlerine uyan different markalari taramali ve en az 3-4 different markadan listing sunmalisin. Tek markaya odaklanmak, piyasa karsilastirmasini anlamsiz kilar ve gercek firsatlari kacirmaya yol acar.
 
 2. Ilan kaynagini belirle. Iki mod vardir:
-   - Kullanici ilan verisi sagliyor: kullanici URL, ekran goruntusu, kopyalanmis ilan metni veya ilan listesi paylasiyorsa dogrudan bunlarla calis.
-   - AI web taramasi yapiyor: eger calisma ortami gercek web erisimi sagliyorsa (browsing araci, web search vb.) sahibinden.com, arabam.com, letgo gibi platformlarda gercek ilanlari tara. Gercek web erisimi yoksa kullanicidan ilan linkleri veya ilan verileri istemeli; asla sahte veya tahmini URL uretmemelidir.
+   - Kullanici listing verisi sagliyor: user URL, ekran goruntusu, kopyalanmis listing metni veya listing listesi paylasiyorsa directly bunlarla calis.
+   - AI web taramasi yapiyor: eger working ortami gercek web erisimi sagliyorsa (browsing vehiclei, web search vb.) sahibinden.com, arabam.com, letgo such as platformlarda gercek listinglari tara. Gercek web erisimi yoksa userdan listing linkleri veya listing verileri istemeli; asla sahte veya tahmini URL uretmemelidir.
 
-   Dogrudan ilan linki kurali: ciktida verilen her URL, o ilanin gercek detay sayfasina acmalidir. Arama sonuc sayfasina, liste sayfasina, filtre sayfasina veya kategori sayfasina yonlendiren URL'ler gecersizdir ve asla verilmemelidir.
+   Dogrudan listing linki rule: outputda verilen her URL, o listingin gercek detay sayfasina acmalidir. Arama sonuc sayfasina, liste sayfasina, filtre sayfasina veya kategori sayfasina yonlendiren URL'ler gecersizdir ve asla verilmemelidir.
 
-   Platform URL yapilari: ikinci el arac platformlarinin ilan detay URL'leri standarttir ve JavaScript ile gizlenmez. Sayfanin icerigi JS ile yuklense bile URL kendisi her zaman statik ve erislebilirdir:
-   - sahibinden.com: https://www.sahibinden.com/ilan/[kategori-slug]/[ilan-basligi-slug]/[ilan-id] — ilan ID'si sayisal ve arama sonuclarinda gorunur
-   - arabam.com: https://www.arabam.com/ilan/[tur]/[ilan-basligi-slug]/[ilan-id] — ilan ID'si sayisal ve arama sonuclarinda gorunur
-   - letgo: https://www.letgo.com/item/[ilan-basligi-slug]-iid-[ilan-id]
+   Platform URL yapilari: used car vehicle platformlarinin listing detay URL'leri standarttir ve JavaScript ile gizlenmez. Sayfanin content JS ile yuklense bile URL kendisi her zaman statik ve erislebilirdir:
+   - sahibinden.com: https://www.sahibinden.com/listing/[kategori-slug]/[listing-basligi-slug]/[listing-id] — listing ID'si sayisal ve arama sonuclarinda gorunur
+   - arabam.com: https://www.arabam.com/listing/[tur]/[listing-basligi-slug]/[listing-id] — listing ID'si sayisal ve arama sonuclarinda gorunur
+   - letgo: https://www.letgo.com/item/[listing-basligi-slug]-iid-[listing-id]
 
    "JavaScript sitesi oldugu icin URL alinamadi" gecerli bir mazeret degildir. Ilan ID'si arama sonuc sayfasinda, HTML icerisinde veya listelemede gorunur.
-   Ancak keskin cizgi sudur: sadece gercek ilan detay sayfasi linki ver. Elindeki URL'nin arama/listing sayfasi oldugundan supheleniyorsan veya detay sayfasi oldugunu dogrulayamiyorsan, o URL'yi hic verme. Onun yerine ilan basligini, platformunu ve varsa ilan numarasini yaz.
-   Referans platformlar: sahibinden.com, arabam.com, letgo ve benzeri Turkiye merkezli ikinci el arac platformlari.
+   Ancak keskin cizgi sudur: only gercek listing detay sayfasi linki ver. Elindeki URL'nin arama/listing sayfasi oldugundan supheleniyorsan veya detay sayfasi oldugunu dogrulayamiyorsan, o URL'yi hic verme. Onun yerine listing basligini, platformunu ve varsa listing numarasini yaz.
+   Referans platformlar: sahibinden.com, arabam.com, letgo ve benzeri Turkiye merkezli used car vehicle platformlari.
 
-   Tarama cesitliligi kurali: her platformda farkli marka/model kombinasyonlariyla arama yap. Marka-bagimsiz filtrelerle basla; sonra ilgi cekici ilanlari marka bazinda derinlestir. Tek bir markanin sonuclarina takilip kalmak tarama hatasidir.
+   Tarama cesitliligi rule: her platformda different marka/model kombinasyonlariyla arama yap. Marka-bagimsiz filtrelerle basla; sonra ilgi cekici listinglari marka bazinda derinlestir. Tek bir markanin sonuclarina takilip kalmak tarama hatasidir.
 
-3. Ilanlari topla ve normalize et: her ilan icin marka, model, paket, model yili, kilometre, yakit tipi, vites, fiyat, konum, tramer tutari ve detayi, boyali/degisen parca bilgisi, sahip sayisi, ilan tarihi, ilan linki (yalnizca kullanici verdiyse veya gercek tarama ile dogrulanmis detay sayfasi bulunduysa) ve aciklama metnini ayristir.
+3. Ilanlari topla ve normalize et: her listing icin marka, model, package, model yili, kilometre, yakit tipi, vites, fiyat, konum, tramer tutari ve detayi, boyali/degisen parca bilgisi, sahip sayisi, listing tarihi, listing linki (only user verdiyse veya gercek tarama ile dogrulanmis detay sayfasi bulunduysa) ve description metnini separate.
 
-   Eksik veri kurtarma kurali: ilan platformlari (ozellikle arabam.com, sahibinden.com) fiyat, tramer ve detay bilgilerini JavaScript ile dinamik yukler. Arama sonuc sayfasinda fiyat veya diger kritik alanlar gorunmuyorsa:
-   - Once ilan detay sayfasini dogrudan ziyaret et; cogu bilgi detay sayfasinda mevcuttur.
-   - Detay sayfasinda da gorunemiyorsa bu alani "veri alinamadi" olarak isaretle ve kullaniciya sor: "Su ilanlarin fiyatlari benim tarafimda gorunmuyor, kontrol edip paylasir misiniz?"
-   - Fiyat, km veya tramer gibi kritik alanlari asla "bilinmiyor" olarak birakip analizi atlamaya calisma; once her yolu dene, son care kullanicidan iste.
+   Eksik veri kurtarma rule: listing platformlari (ozellikle arabam.com, sahibinden.com) fiyat, tramer ve detay bilgilerini JavaScript ile dinamik yukler. Arama sonuc sayfasinda fiyat veya diger kritik alanlar gorunmuyorsa:
+   - Once listing detay sayfasini directly ziyaret et; cogu bilgi detay sayfasinda mevcuttur.
+   - Detay sayfasinda da gorunemiyorsa bu area "veri alinamadi" olarak isaretle ve to the user sor: "Su listinglarin fiyatlari benim tarafimda gorunmuyor, kontrol edip paylasir misiniz?"
+   - Fiyat, km veya tramer such as kritik alanlari asla "bilinmiyor" olarak birakip analysis atlamaya working; once her yolu dene, son care userdan iste.
 
-   Zorunlu aciklama analizi kurali: radarindaki her ilanin aciklama metnini oku ve analiz et. Aciklamasini okumadan hicbir ilani firsat veya risk olarak siniflandirma. Ilan detay sayfasini ziyaret ettiginde fiyat ve tramer verisinin yaninda aciklama metnini de mutlaka oku. Aciklama metni ilan sahibinin dili, iddialari, gizledikleri ve tutarsizliklari hakkinda kritik bilgi tasir; bu veriyi atlamak analizi eksik ve guvenilmez kilar.
+   Zorunlu description analysis rule: radarindaki her listingin description metnini oku ve analysis et. Aciklamasini okumadan hicbir listingi firsat veya risk olarak siniflandirma. Ilan detay sayfasini ziyaret ettiginde fiyat ve tramer verisinin yaninda description metnini de mutlaka oku. Aciklama metni listing sahibinin dili, iddialari, gizledikleri ve tutarsizliklari about kritik bilgi tasir; bu veriyi atlamak analysis eksik ve guvenilmez kilar.
 
-4. Tramer dogrulama katmanini calistir:
-   - Tramer tutarinin ilan aciklamasiyla tutarliligini kontrol et.
+4. Tramer validation katmanini calistir:
+   - Tramer tutarinin listing aciklamasiyla tutarliligini kontrol et.
    - "Tramersiz" iddialarinin makullugunu degerlendir.
    - Boyali/degisen parca ile tramer arasindaki uyumsuzluklari isaretle.
    - Yanlis veya eksik girilmis olabilecek tramer verilerini tespit et.
 
-   Eksper/hasar raporu gorseli kurali: ilan platformlari (ozellikle arabam.com ve sahibinden.com) ilan detay sayfasinda eksper raporu gorseli veya hasar diagrimi gosterir. Bu gorsel aracin hangi parcalarinin boyali, degisen veya hasarli oldugunu renkli sema ile belirtir. Ilan detay sayfasini ziyaret ettiginde bu gorseli mutlaka kontrol et. Sonra su capraz kontrolu yap:
-   - Eksper gorselindeki boyali/degisen parcalar ile ilan aciklamasindaki beyanlar tutarli mi?
-   - Eksper gorselindeki hasar isaretleri ile belirtilen tramer tutari oranlali mi?
-   - Aciklamada "hatasiz, boyasiz" deniyorken eksper gorselinde boyali/degisen parca var mi?
-   - Eksper gorseli yoksa veya gorulemiyorsa bunu ilgili ilanin ciktisinda "eksper gorseli bulunamadi veya gorulemedi" olarak belirt.
+   Eksper/hasar raporu visuali rule: listing platformlari (ozellikle arabam.com ve sahibinden.com) listing detay sayfasinda eksper raporu visuali veya hasar diagrimi shows. Bu visual vehiclein hangi parcalarinin boyali, degisen veya hasarli oldugunu renkli sema ile belirtir. Ilan detay sayfasini ziyaret ettiginde bu visuali mutlaka kontrol et. Sonra su capraz kontrolu yap:
+   - Eksper visualindeki boyali/degisen parcalar ile listing aciklamasindaki beyanlar tutarli mi?
+   - Eksper visualindeki hasar isaretleri ile belirtilen tramer tutari oranlali mi?
+   - Aciklamada "hatasiz, boyasiz" deniyorken eksper visualinde boyali/degisen parca var mi?
+   - Eksper visuali yoksa veya gorulemiyorsa bunu related listingin outputsinda "eksper visuali bulunamadi veya gorulemedi" olarak belirt.
 
 5. Kirmizi bayrak taramasini calistir:
    - Aciklama dilindeki supheli ifadeleri tara (baskici dil, genel iddialar, galeri dili).
    - Veri tutarsizliklarini kontrol et (km-yas-fiyat uyumu).
    - Fotograf kalitesi ve eksikligini degerlendir.
    - Eksik bilgi noktalarini isaretle.
-   - Galeri ilani ile gercek sahip ilanini ayirt et.
+   - Galeri listingi ile gercek sahip listingini ayirt et.
 
 6. Fiyat karsilastirma katmanini calistir:
-   - Her ilani benzer marka/model/yil/km araclarla karsilastir.
+   - Her listingi benzer marka/model/yil/km vehiclelarla karsilastir.
    - Fiyat konumlamasini belirle (piyasanin altinda, civarinda, ustunde).
    - Firsat puanlamasini yap.
    - Asiri dusuk fiyati tek basina firsat sayma; "too good to be true" mantigini uygula.
@@ -83,46 +83,46 @@ Bu liste tarihsel baglam icindir. Yeni kullanimlarda bu skill'i aktif olarak one
    - Firsat Araclari: uygun fiyat + temiz veya aciklanmis tramer + az kirmizi bayrak.
    - Uzak Durulmasi Gereken Araclar: yuksek risk + tramer tutarsizligi + ciddi kirmizi bayraklar.
 
-8. Her arac icin karar destekleyici ozet olustur: varsa yalnizca gercek ilan detay linki, fiyat konumlama, tramer degerlendirmesi, kirmizi bayrak ozeti, genel risk seviyesi ve onerilen sonraki adim.
+8. Her vehicle icin decision destekleyici ozet olustur: varsa only gercek listing detay linki, fiyat konumlama, tramer degerlendirmesi, kirmizi bayrak ozeti, genel risk seviyesi ve onerilen sonraki step.
 
-9. Tum cikti boyunca kanit ile varsayimi ayir, eksik veriyi gizleme, garanti alim/satim tavsiyesi verme, kesin fiyat degerlendirmesi yerine kaba araliklar sun.
+9. Tum output boyunca evidence ile assumptioni ayir, eksik veriyi gizleme, garanti alim/satim tavsiyesi verme, kesin fiyat degerlendirmesi yerine kaba araliklar sun.
 
 ## Output Expectations
 
 - Cikti su bolumlerden olusmali: Search Summary, Market Snapshot, Opportunity Vehicles, Vehicles to Avoid, Tramer Consistency Overview, Red Flag Summary, Recommended Next Steps.
-- Ilan linki yalnizca kullanicinin verdigi veya gercek web taramasi ile dogrulanmis gercek detay sayfasi URL'lerinden alinmali.
+- Ilan linki only the user's verdigi veya gercek web taramasi ile dogrulanmis gercek detay sayfasi URL'lerinden alinmali.
 - Arama sayfasina, liste sayfasina, filtre sayfasina veya kategori sayfasina yonlendiren URL'ler gecersizdir ve asla verilmemeli.
-- Detay sayfasi URL'si kesin olarak dogrulanamiyorsa hic URL verme; bunun yerine ilan basligini, platformunu ve ilan numarasini yaz.
+- Detay sayfasi URL'si kesin olarak dogrulanamiyorsa hic URL verme; bunun yerine listing basligini, platformunu ve listing numarasini yaz.
 - Firsat ve risk gruplari net ayrilmis olmali.
-- Tramer tutarsizliklari acikca raporlanmali.
-- Sonuclarda yer alan her ilan icin tramer degerlendirmesi zorunludur. Tramer tutari, boyali/degisen parca bilgisi, aciklama ile tutarliligi ve guvenilirlik yorumu her ilanin ciktisinda ayri bir alan olarak yer almali. Tramer bilgisi belirtilmemisse bu durum acikca "tramer bilgisi ilanda belirtilmemis — bagimsiz sorgu onerilir" olarak yazilmali; bos birakilmamali.
-- Kirmizi bayraklar kategorize edilmis ve ciddiyet seviyesi belirtilmis olmali.
-- Fiyat konumlama kaba araliklarda sunulmali; kesin deger bicilmemeli.
-- Kesin alim/satim tavsiyesi yerine risk seviyesi ve kosullu degerlendirme verilmeli.
-- Eksik veri acikca belirtilmeli ve fiziksel muayene her zaman onerilmeli.
-- Galeri ilani ile gercek sahip ilani ayrimi gorunur olmali.
+- Tramer tutarsizliklari explicitly raporlanmali.
+- Sonuclarda yer alan her listing icin tramer degerlendirmesi requireddur. Tramer tutari, boyali/degisen parca bilgisi, description ile tutarliligi ve guvenilirlik yorumu her listingin outputsinda ayri bir alan olarak yer almali. Tramer bilgisi belirtilmemisse bu durum explicitly "tramer bilgisi listingda belirtilmemis — bagimsiz sorgu onerilir" olarak yazilmali; bos birakilmamali.
+- Red flags kategorize edilmis ve ciddiyet seviyesi belirtilmis olmali.
+- Fiyat konumlama kaba araliklarda sunulmali; kesin value bicilmemeli.
+- Kesin alim/satim tavsiyesi yerine risk seviyesi ve kosullu evaluation verilmeli.
+- Eksik veri explicitly belirtilmeli ve fiziksel muayene her zaman onerilmeli.
+- Galeri listingi ile gercek sahip listingi ayrimi gorunur olmali.
 
 ## Failure Patterns To Avoid
 
-- Tramer tutarini ilan aciklamasiyla karsilastirmadan dogru kabul etmek
+- Tramer tutarini listing aciklamasiyla karsilastirmadan correct kabul etmek
 - "Tramersiz" iddiasini otomatik guvenilir saymak
 - Asiri dusuk fiyati sorgusuz firsat olarak sunmak
-- Eksik kilometre, fotograf veya tramer bilgisi ile kesin degerlendirme yapmak
-- Galeri dilini ("araclarimiz", "magzamizi ziyaret") fark etmemek
-- Ilan linklerini ciktidan cikarmak
+- Eksik kilometre, fotograf veya tramer bilgisi ile kesin evaluation yapmak
+- Galeri dilini ("vehiclelarimiz", "magzamizi ziyaret") fark etmemek
+- Ilan linklerini outputdan cikarmak
 - Gercek olmayan, sahte veya arama sayfasina dusen URL'ler uretmek
-- Dogrulanmamis ilan URL'lerini gercek ilan linki gibi sunmak
+- Dogrulanmamis listing URL'lerini gercek listing linki such as sunmak
 - Detay sayfasi oldugundan kesin emin olunmayan URL'leri vermek
-- "Hemen alin" gibi garanti tavsiye vermek
+- "Hemen alin" such as garanti tavsiye vermek
 - Boyali/degisen parca iddiasini tramer kaydiyla karsilastirmamak
-- Fiyat veya tramer bilgisini arama sayfasindan okuyamayinca "gorunmuyor" deyip analizi atlamak; ilan detay sayfasini ziyaret etmeli veya kullanicidan istemeli
-- Kullanici belirli bir marka/model istemedigi halde tek bir marka veya modele odaklanmak; en az 3-4 farkli markadan ilan sunulmali
-- Ilanin aciklama metnini okumadan veya analiz etmeden o ilani firsat ya da risk olarak siniflandirmak
-- Herhangi bir ilani tramer degerlendirmesi yapmadan veya tramer bilgisini ciktiya yazmadan sunmak
-- Ilan detay sayfasindaki eksper/hasar raporu gorselini kontrol etmeden tramer degerlendirmesi yapmak
-- Eksper gorselindeki boyali/degisen parca bilgisini aciklama metniyle capraz kontrol etmemek
-- Arama sayfasina, liste sayfasina veya filtre sayfasina yonlendiren URL'leri ilan linki olarak vermek
-- "JavaScript sitesi oldugu icin URL alinamadi" gibi bahanelerle arama/listing sayfasi linki vermek; sadece dogrulanmis detay sayfasi linki verilebilir
+- Fiyat veya tramer bilgisini arama sayfasindan okuyamayinca "gorunmuyor" deyip analysis atlamak; listing detay sayfasini ziyaret etmeli veya userdan istemeli
+- Kullanici belirli bir marka/model istemedigi halde tek bir marka veya modele odaklanmak; en az 3-4 different markadan listing sunulmali
+- Ilanin description metnini okumadan veya analysis etmeden o listingi firsat ya da risk olarak siniflandirmak
+- Herhangi bir listingi tramer degerlendirmesi yapmadan veya tramer bilgisini outputya yazmadan sunmak
+- Ilan detay sayfasindaki eksper/hasar raporu visualini kontrol etmeden tramer degerlendirmesi yapmak
+- Eksper visualindeki boyali/degisen parca bilgisini description metniyle capraz kontrol etmemek
+- Arama sayfasina, liste sayfasina veya filtre sayfasina yonlendiren URL'leri listing linki olarak vermek
+- "JavaScript sitesi oldugu icin URL alinamadi" such as bahanelerle arama/listing sayfasi linki vermek; only dogrulanmis detay sayfasi linki verilebilir
 
 ## References
 
@@ -130,7 +130,7 @@ Bu liste tarihsel baglam icindir. Yeni kullanimlarda bu skill'i aktif olarak one
 
 ## Portability Notes
 
-- Bu skill'in cekirdek davranisi provider-agnostiktir.
-- Runtime'a ozel ilan tarama otomasyonu, web scraping araci veya platform API entegrasyonu adapter katmaninda belgelenmelidir.
-- Varsayilan gorev ilan verisi uzerinden analiz ve karar destegi uretmektir; otomatik satin alma islemi baslatmak degildir.
-- Referans platformlar sahibinden.com, arabam.com ve letgo'dur; baska ulke veya platform uyarlamalari adapter katmaninda yapilabilir.
+- This skill'in core davranisi provider-agnostiktir.
+- Runtime'a specific listing tarama otomasyonu, web scraping vehiclei veya platform API entegrasyonu adapter katmaninda belgelenmelidir.
+- Varsaylisting task listing verisi uzerinden analysis ve decision support uretmektir; otomatik satin alma islemi baslatmak degildir.
+- Referans platformlar sahibinden.com, arabam.com ve letgo'dur; baska ulke veya platform adaptationlari adapter katmaninda yapilabilir.

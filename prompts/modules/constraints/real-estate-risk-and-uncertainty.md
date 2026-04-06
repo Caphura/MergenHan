@@ -4,7 +4,7 @@ title: Real Estate Risk and Uncertainty
 type: module
 status: active
 version: 1.0.0
-summary: Emlak analizinde belirsizlik kaynaklarini, riskleri ve kirmizi bayraklari gorunur kilan modul.
+summary: Emlak analizinde uncertainty kaynaklarini, riskleri ve kirmizi bayraklari surfacean modul.
 tags:
   - real-estate
   - risk
@@ -12,18 +12,18 @@ tags:
   - confidence
 depends_on: []
 last_reviewed: 2026-04-03
-input_contract: Belirsizlik, guven seviyesi ve risk kaynaklarinin aciklanmasi talepleri.
+input_contract: Belirsizlik, guven seviyesi ve risk kaynaklarinin aciklanmasi requestleri.
 output_contract: Guven seviyesi, ana risk suruculeri ve ek veri ihtiyaci ozeti.
-notes: Analizin neden yanlis olabilecegini acikca gostermek icin kullanilir.
+notes: Analizin neden yanlis olabilecegini explicitly gostermek icin kullanilir.
 ---
 
 # Purpose
 
-Analizi zayiflatan veya sonucun degismesine yol acabilecek tum belirsizlikleri saklamadan gostermek.
+Analizi zayiflatan veya sonucun degismesine yol acabilecek tum uncertaintyleri saklamadan gostermek.
 
 # Usage Rules
 
-- Guven seviyesini acikca belirt.
+- Guven seviyesini explicitly belirt.
 - Yetersiz veri varsa bunu yumusatma.
 - Her onemli riskin neden etkili oldugunu acikla.
 - Belirsizligi gizleyerek kesinlik hissi verme.

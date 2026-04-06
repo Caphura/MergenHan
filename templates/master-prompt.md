@@ -1,10 +1,10 @@
-﻿---
+---
 id: mh-master-your-slug
 title: Your Master Prompt Title
 type: master
 status: draft
 version: 0.1.0
-summary: Bu master promptun neyi basardigini tek cumlede anlatin.
+summary: Describe in one sentence what this master prompt achieves.
 tags:
   - composition
   - workflow
@@ -12,7 +12,7 @@ depends_on: []
 last_reviewed: 2026-04-03
 ---
 
-Opsiyonel metadata alanlari gerektikce eklenebilir:
+Add optional metadata fields when needed:
 
 - `input_contract`
 - `output_contract`
@@ -24,19 +24,19 @@ Opsiyonel metadata alanlari gerektikce eklenebilir:
 
 # Goal
 
-Bu promptun hangi ana gorevi yerine getirdigini netlestirin.
+Clarify the main job this prompt is responsible for.
 
 # Assembly Map
 
-- Hangi modulleri neden kullandiginizi burada listeleyin.
-- Bu bolum, baska birinin promptu hizla anlamasini saglar.
+- List which modules you use and why.
+- This section should help another person understand the prompt quickly.
 
 # Prompt Body
 
-Buraya gercek master prompt metnini yazin.
+Write the actual master prompt text here.
 
 # Maintenance Notes
 
-- Hangi durumda moduller ayrilmali?
-- Ne zaman arsive tasinmali?
-- Runtime'a ozel notlari cekirdek prompta degil `adapters/` katmanina tasiyin.
+- In which cases should pieces be extracted into modules?
+- When should this be archived?
+- Move runtime-specific notes into `adapters/` instead of the core prompt.

@@ -1,10 +1,10 @@
 # Nano Banana Session Example
 
-Bu ornek, skill'in gorsel uretmeden yalnizca metin tabanli Nano Banana promptu verme davranisini gostermek icin hazirlanmistir.
+This example skill'in visual uretmeden only text-based Nano Banana promptu verme davranisini gostermek icin is prepared.
 
-## Ham Istek
+## Raw Request
 
-Kardelen ciceklerinin actigi bir dag manzarasi gorseli istiyorum.
+Kardelen ciceklerinin actigi bir dag manzarasi visuali istiyorum.
 
 ## Yonlendirici Sorular
 
@@ -13,7 +13,7 @@ Kardelen ciceklerinin actigi bir dag manzarasi gorseli istiyorum.
 3. Genis manzara mi istiyorsun, yoksa ciceklerin daha baskin oldugu daha yakin bir kadraj mi?
 4. Dag zirvelerinde kar kalintilari gorunsun mu?
 
-## Ornek Kullanici Cevabi
+## Example Kullanici Cevabi
 
 Fotogercekci olsun. Sabah isigi olsun. Genis manzara istiyorum ama kardelenler de on planda secilsin. Zirvelerde biraz kar kalsin.
 
@@ -40,4 +40,4 @@ A photorealistic early spring mountain landscape with blooming snowdrops clearly
 
 ## Not
 
-Bu ornekte davranis yalnizca metin promptu uretir. Gorsel olusturmaz ve image tool tetiklemez.
+Bu examplete davranis only metin promptu uretir. Gorsel olusturmaz ve image tool tetiklemez.

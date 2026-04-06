@@ -11,21 +11,21 @@ tags:
   - workflow
 depends_on: []
 last_reviewed: 2026-04-03
-input_contract: Prompt kutuphanesi, klasorleme veya bilgi mimarisi kurulumu.
-output_contract: Okunur, terfi mantigi belirgin ve uzun omurlu bir repo iskeleti.
-notes: Yapi kurulumlarinda moduller, master promptlar, blueprints ve skill paketleri arasindaki ayrimi net tutar.
+input_contract: Prompt librarysi, klasorleme veya bilgi mimarisi kurulumu.
+output_contract: Okunur, promotion logic belirgin ve uzun omurlu bir repo iskeleti.
+notes: Yapi kurulumlarinda modules, master promptlar, blueprints ve skill paketleri arasindaki ayrimi net tutar.
 ---
 
 # Purpose
 
-Promptlari "tek klasorde notlar" anlayisindan cikarip bakimi kolay bir sistem halinde konumlandirmak.
+Promptlari "tek klasorde notlar" anlayisindan cikarip maintenancei kolay bir sistem halinde konumlandirmak.
 
 # Usage Rules
 
 - `prompts/` ile `skills/` ayrimini koru.
-- Tekrar kullanilan icerigi modullestir.
-- Olgunlasan davranislari blueprint'ten skill'e tasimadan once katalogu guncelle.
+- Tekrar kullanlisting content modullestir.
+- Olgunlasan davranislari blueprint'ten skill'e tasimadan once katalogu currentle.
 
 # Module Text
 
-Repo yapisini, yazim alanlari ile paketlenmis varliklari ayiran bir bilgi mimarisi olarak kur. `prompts/` aktif yazim ve iterasyon alanidir; `skills/` ise olgunlasmis, tekrar kullanilabilir paketleri barindirir. Klasor yapisi bir bakista anlasilir olmali, yeni gelen biri katalog ve README ile hizla yon bulabilmelidir.
+Repo yapisini, yazim alanlari ile paketlenmis varliklari ayiran bir bilgi mimarisi olarak kur. `prompts/` aktif yazim ve iterasyon alanidir; `skills/` ise olgunlasmis, tekrar kullanilabilir paketleri barindirir. Klasor structure bir bakista anlasilir olmali, yeni gelen biri katalog ve README ile hizla yon bulabilmelidir.

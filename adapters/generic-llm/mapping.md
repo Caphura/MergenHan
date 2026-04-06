@@ -1,30 +1,30 @@
-﻿# Generic LLM Mapping
+# Generic LLM Mapping
 
-## Adapter Ne Bekler?
+## What Does the Adapter Expect?
 
-- Duz metin olarak tasinabilir cekirdek prompt veya skill tanimi
-- Bagimliliklarin ve kisitlarin acik yazimi
-- Tool veya permission varsayimi yapmayan workflow anlatimi
+- A portable core prompt or skill definition in plain text
+- Explicit dependencies and constraints
+- A workflow description that does not assume tools or permissions
 
-## Core Skill Burada Nasil Temsil Edilir?
+## How Is the Core Skill Represented Here?
 
-- `SKILL.md` dogrudan kullanilabilir cekirdek talimat olarak ele alinir
-- `meta.yaml` baglam ve yonetisim bilgisi saglar
-- Gerekirse blueprint veya master aciklamalari oturum baglamina manuel olarak eklenir
+- `SKILL.md` is treated as a directly usable core instruction
+- `meta.yaml` provides context and governance information
+- Blueprint or master explanations can be added manually to the session context when needed
 
-## Core'dan Ne Degismeden Kalmalidir?
+## What Must Remain Unchanged from the Core?
 
-- Kimlik, kapsam ve bagimliliklar
-- Cekirdek workflow
-- Kisitlar ve cikti beklentileri
+- Identity, scope, and dependencies
+- Core workflow
+- Constraints and output expectations
 
-## Runtime Duzeyinde Ne Uyarlanabilir?
+## What Can Be Adapted at the Runtime Level?
 
-- Baglamin tek mesajda veya asamali verilmesi
-- Oturum acilis metninin kisaltilmasi veya genisletilmesi
-- Cikti sablonunun arayuze gore duzenlenmesi
+- Whether context is provided in a single message or step by step
+- Shortening or expanding the session opener
+- Adjusting the output template to fit the interface
 
-Kisa not:
+## Short Note
 
-- Text-only image prompt composer turu skill'ler generic LLM tarafinda dogrudan `SKILL.md` uzerinden tasinabilir.
-- Gemini benzeri ortamlarda, gorsel araclari olsa bile varsayilan davranis metin cikti olarak korunmalidir.
+- Skills like the text-only image prompt composer port directly through `SKILL.md`.
+- In Gemini-like environments, even if visual tools exist, the default behavior should still preserve text output.

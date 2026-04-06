@@ -60,8 +60,8 @@ TEXT = {
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Validate TR/EN localization mirror integrity.")
-    parser.add_argument("--source-locale", choices=SUPPORTED_LOCALES, default="tr")
-    parser.add_argument("--target-locale", choices=SUPPORTED_LOCALES, default="en")
+    parser.add_argument("--source-locale", choices=SUPPORTED_LOCALES, default="en")
+    parser.add_argument("--target-locale", choices=SUPPORTED_LOCALES, default="tr")
     return parser
 
 

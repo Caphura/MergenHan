@@ -1,103 +1,103 @@
 # Taxonomy
 
-Bu belge, izinli etiketleri ve klasor bazli anlamlari sabitler. Yeni etiket eklemeden once burada yer alan gruplardan biriyle ifade edilip edilemeyecegi kontrol edilmelidir.
+This document defines the allowed tags and the folder-based meanings used throughout the repository. Before adding a new tag, check whether the idea can already be expressed through one of the groups listed here.
 
-## Katmanlar
+## Layers
 
-| Katman | Anlam |
+| Layer | Meaning |
 | --- | --- |
-| `core` | Tasinabilir prompt, modul, blueprint, skill ve katalog icerigi |
-| `adapter` | Belirli bir runtime'a ozel esleme, komut ve otomasyon notlari |
-| `validation` | Repo butunlugu, metadata ve link dogrulama araclari |
+| `core` | Portable prompt, module, blueprint, skill, and catalog content |
+| `adapter` | Runtime-specific mapping, command, and automation notes |
+| `validation` | Repo integrity, metadata, and link validation utilities |
 
-## Modul Kategorileri
+## Module Categories
 
-| Klasor | Amac |
+| Folder | Purpose |
 | --- | --- |
-| `capability` | Davranis, muhakeme adimi veya uygulama yetenegi |
-| `domain` | Alan bilgisi, repo yapisi, is kurali veya uzmanlik cercevesi |
-| `tone` | Ses tonu, iletisim bicimi ve isbirligi tarzi |
-| `constraints` | Yasatilacak kurallar, sinirlar ve guvenlik kosullari |
-| `output` | Cikti bicimi, raporlama tarzi ve sunum kontrati |
+| `capability` | A behavior, reasoning step, or execution capability |
+| `domain` | Domain knowledge, repo structure, business rules, or an expertise frame |
+| `tone` | Voice, communication style, and collaboration style |
+| `constraints` | Rules, boundaries, and safety conditions that must be enforced |
+| `output` | Output format, reporting style, and presentation contract |
 
-## Izinli Etiketler
+## Allowed Tags
 
-| Etiket | Anlam |
+| Tag | Meaning |
 | --- | --- |
-| `adapters` | Bir cekirdek varligin birden fazla runtime veya saglayiciya eslenmesiyle ilgili icerik |
-| `analysis` | Durum tespiti, inceleme veya baglam toplama agirlikli icerik |
-| `apartment-analysis` | Apartman ve daire satis ilanlarini karsilastirma, eleme ve yatirim acisindan degerlendirme odakli icerik |
-| `anti-hallucination` | Kanitsiz cikarimlari sinirlayan ve sahte kesinligi engelleyen koruyucu icerik |
-| `automotive` | Otomotiv alani, arac degerleme, ilan analizi ve ikinci el piyasa odakli icerik |
-| `catalog` | Repo indeksleri, listeler ve uretilen referans kataloglariyla ilgili icerik |
-| `collaboration` | Isbirligi, eslik etme ve destekleyici iletisim |
-| `commercial-viability` | Bir fikrin pazarda satin alinabilir veya satilabilir olma sansini degerlendiren icerik |
-| `composition` | Modullerin birlestirilmesi veya orkestrasyonu |
-| `comparables` | Emsal veri, benzer ornekler ve karsilastirmali fiyat mantigi etrafinda kurulan icerik |
-| `confidence` | Sonucun guven duzeyi ve belirsizlik katsayisini gorunur kilan icerik |
-| `data-quality` | Kaynak verinin eksik, zayif veya tutarsiz yonlerini tespit eden icerik |
-| `decision` | Alternatifler arasinda secim yapma veya sonuc karari olusturma odakli icerik |
-| `evaluation` | Bir fikri, varligi veya karari belirli olcutlerle degerlendiren icerik |
-| `evidence` | Gozlem, kaynak veya kanit ile varsayimi ayirma odakli icerik |
-| `feasibility` | Yapilabilirlik, kaynak gercekligi ve uygulanabilirlik odakli icerik |
-| `game-development` | Oyun fikrini urun, scope, pazar ve uretim gercekligiyle birlikte ele alan icerik |
-| `discovery` | Mevcut durumu arastirma ve belgeleme |
-| `documentation` | Repo belgeleri, aciklayici promptlar ve yazili standartlar |
-| `decision-support` | Analizi satin alma, satma, secme veya aksiyon kararina ceviren icerik |
-| `feature-design` | Belirli bir oyun ozelligini tanimlama, kurallastirma ve spec haline getirme odakli icerik |
-| `game-design` | Oyun sistemleri, mekanikler ve oyuncu deneyimi tasarimi odakli icerik |
-| `governance` | Surum, durum, yasam dongusu ve bakim disiplini |
-| `greenlight` | Bir fikir veya konseptin devam etmeye deger olup olmadigini netlestiren icerik |
-| `guidance` | Kullaniciyi yonlendiren veya karar netlestiren icerik |
-| `image-generation` | Gorsel uretim modelleri, image prompt tasarimi veya gorsel ciktisi hedefleyen akislara ait icerik |
-| `legacy` | Yalnizca tarihsel referans icin saklanan icerik |
-| `library` | Prompt kutuphanesi ve ic organizasyonla ilgili icerik |
-| `listing-analysis` | Ilan inceleme, kirmizi bayrak tespiti, aciklama analizi ve firsat degerlendirme odakli icerik |
-| `investment` | Getiri, geri donus, pazarlik hassasiyeti ve satin alma mantigi etrafinda karar destekleyen icerik |
-| `logic` | Sonuc uretme mantigi, kural akisi veya muhakeme yapisini belirginlestiren icerik |
-| `maintenance` | Surekli repo bakimi, guncelleme ve operasyonel tutarlilik odakli icerik |
-| `mapping` | Cekirdek icerik ile adapter veya baska temsil katmanlari arasindaki esleme mantigi |
-| `market` | Pazar yapisi, talep, konumlama veya ticari baglamla ilgili icerik |
-| `market-data` | Piyasa verisi, ilan verisi veya dis kaynakli rakamsal baglam uzerinden kurulan icerik |
-| `market-research` | Piyasa kosullari, emsal dinamikleri veya sektor gorunumu arastirma odakli icerik |
-| `mvp` | En kucuk uygulanabilir urun veya ilk surum kapsam mantigi etrafinda kurulan icerik |
-| `nano-banana` | Nano Banana odakli prompt tasarimi, yonlendirme ve cikti hazirlama icerigi |
-| `negotiation` | Pazarlik alani, taviz noktasi ve fiyat esnekligi odakli icerik |
-| `output-format` | Cikti sekli, rapor bicimi ve sunum kontrati |
-| `packaging` | Blueprint'i skill paketine donusturme pratikleri |
-| `portability` | Icerigin birden fazla runtime'da tasinabilirligini koruma hedefi |
-| `positioning` | Pazar veya urun baglaminda yer tutma, farklilasim ve algi cercevesi olusturan icerik |
-| `pricing` | Fiyat araligi, fiyat mantigi veya fiyat yorumlama odakli icerik |
-| `prioritization` | Nelerin once yapilacagini veya kapsamda tutulacagini siralayan icerik |
-| `production` | Uretim sureci, teknik uygulama gercekligi veya ekip kapasitesi odakli icerik |
-| `promotion` | Bir varligi bir ust olgunluk seviyesine tasima veya terfi ettirme odakli icerik |
-| `prompt-composition` | Ham fikri veya eksik tarifi hedef modele uygun, kopyalanabilir prompta donusturen icerik |
-| `privacy` | Hassas veriyi koruma ve bilgi ayrimi |
-| `readability` | Acik, taranabilir ve anlasilir yazim hedefi |
-| `real-estate` | Gayrimenkul, ilan, piyasa, emsal ve degerleme odakli icerik |
-| `risk` | Tehlike, belirsizlik ve olasi kayip senaryolarini gorunur kilan icerik |
-| `routing` | Talebi dogru varlik tipine veya akisa yonlendirme |
-| `repo-architecture` | Klasorleme, repo iskeleti ve dosya kontrati |
-| `repo-hygiene` | Temizlik, tutarlilik ve bakim kolayligi |
-| `safety` | Guvenli kullanim sinirlari ve zarar azaltma |
-| `scope` | Kapsam siniri, is yukunu daraltma veya genisligi kontrol etme odakli icerik |
-| `scoring` | Fikirleri, adaylari veya secenekleri puanlayarak degerlendiren icerik |
-| `session` | Oturum acilisi, session setup veya analiz oturumu secimi odakli icerik |
-| `solo-dev` | Tek kisilik veya cok kucuk ekipli gelistirme gercekligine odakli icerik |
-| `steam` | Steam ekosistemi, oyuncu beklentisi ve pazar sinyalleriyle ilgili icerik |
-| `strategy` | Yuksek seviyeli secim, yon tayini ve ticari / urunsel planlama odakli icerik |
-| `summary` | Kisa sonuc, sonraki adim veya toparlama formatlari |
-| `tone` | Ton modulleri veya ses karakteri |
-| `tramer` | Hasar kaydi dogrulama, tramer tutari tutarsizligi ve hasar gecmisi tespiti odakli icerik |
-| `uncertainty` | Bilinmeyenleri, veri bosluklarini ve karar belirsizligini aciklayan icerik |
-| `used-car` | Ikinci el arac alim-satim, piyasa taramasi ve arac degerlendirme odakli icerik |
-| `valuation` | Deger araligi kurma, fiyat mantigi ve emsal temelli fiyat yorumlama odakli icerik |
-| `validation` | Katalog, metadata, link veya bagimlilik tutarliligini denetleme |
-| `visual-direction` | Sahne, kompozisyon, isik, stil ve atmosfer netlestiren gorsel yonlendirme icerigi |
-| `workflow` | Adim adim is akisina hizmet eden icerik |
+| `adapters` | Content about mapping a core asset into multiple runtimes or providers |
+| `analysis` | Content centered on diagnosis, inspection, or context gathering |
+| `apartment-analysis` | Content focused on comparing apartment listings, filtering them, and evaluating them from an investment perspective |
+| `anti-hallucination` | Guardrail content that limits unsupported inferences and prevents false certainty |
+| `automotive` | Content focused on the automotive domain, vehicle valuation, listing analysis, and the used-car market |
+| `catalog` | Content related to repo indexes, lists, and generated reference catalogs |
+| `collaboration` | Collaboration, companionship, and supportive communication |
+| `commercial-viability` | Content that evaluates whether an idea is likely to be buyable or sellable in the market |
+| `composition` | Combining modules or orchestrating them together |
+| `comparables` | Content built around comparable data, similar examples, and comparison-based pricing logic |
+| `confidence` | Content that makes the confidence level and uncertainty factor visible |
+| `data-quality` | Content that identifies missing, weak, or inconsistent aspects of source data |
+| `decision` | Content focused on choosing among alternatives or forming a final decision |
+| `evaluation` | Content that evaluates an idea, asset, or decision against explicit criteria |
+| `evidence` | Content focused on separating observation, source, or evidence from assumption |
+| `feasibility` | Content focused on viability, source realism, and practical executability |
+| `game-development` | Content that treats a game idea together with product, scope, market, and production reality |
+| `discovery` | Researching and documenting the current state |
+| `documentation` | Repo documents, explanatory prompts, and written standards |
+| `decision-support` | Content that turns analysis into a buying, selling, choosing, or action decision |
+| `feature-design` | Content focused on defining a specific game feature, formalizing it, and turning it into a spec |
+| `game-design` | Content focused on game systems, mechanics, and player-experience design |
+| `governance` | Versioning, status, lifecycle, and maintenance discipline |
+| `greenlight` | Content that clarifies whether an idea or concept is worth continuing |
+| `guidance` | Content that guides the user or helps clarify a decision |
+| `image-generation` | Content for workflows that target image-generation models, image prompt design, or visual outputs |
+| `legacy` | Content kept only for historical reference |
+| `library` | Content related to the prompt library and its internal organization |
+| `listing-analysis` | Content focused on listing review, red-flag detection, description analysis, and opportunity evaluation |
+| `investment` | Content that supports decisions around return, payback, negotiation sensitivity, and purchase logic |
+| `logic` | Content that makes the reasoning logic, rule flow, or decision structure explicit |
+| `maintenance` | Content focused on ongoing repo maintenance, updates, and operational consistency |
+| `mapping` | Mapping logic between core content and adapters or other representation layers |
+| `market` | Content related to market structure, demand, positioning, or commercial context |
+| `market-data` | Content built on market data, listing data, or outside quantitative context |
+| `market-research` | Content focused on researching market conditions, comparable dynamics, or industry outlook |
+| `mvp` | Content built around minimum viable product or first-version scope logic |
+| `nano-banana` | Content for Nano Banana prompt design, guidance, and output preparation |
+| `negotiation` | Content focused on negotiation space, concession points, and price flexibility |
+| `output-format` | Output shape, report format, and presentation contract |
+| `packaging` | Practices for turning a blueprint into a skill package |
+| `portability` | The goal of preserving content portability across multiple runtimes |
+| `positioning` | Content that creates a positioning or differentiation frame in a market or product context |
+| `pricing` | Content focused on price ranges, pricing logic, or price interpretation |
+| `prioritization` | Content that ranks what should be done first or kept in scope |
+| `production` | Content focused on production process, implementation reality, or team capacity |
+| `promotion` | Content focused on moving an asset to a higher maturity level |
+| `prompt-composition` | Content that turns a raw idea or incomplete brief into a target-model-ready, copyable prompt |
+| `privacy` | Protecting sensitive data and separating information appropriately |
+| `readability` | The goal of clear, scannable, understandable writing |
+| `real-estate` | Content focused on real estate, listings, market context, comparables, and valuation |
+| `risk` | Content that makes danger, uncertainty, and loss scenarios visible |
+| `routing` | Directing a request to the right asset type or workflow |
+| `repo-architecture` | Foldering, repo skeleton, and file contracts |
+| `repo-hygiene` | Cleanliness, consistency, and ease of maintenance |
+| `safety` | Safe usage boundaries and harm reduction |
+| `scope` | Content focused on scope boundaries, workload narrowing, or breadth control |
+| `scoring` | Content that evaluates ideas, candidates, or options by scoring them |
+| `session` | Content focused on session opening, session setup, or choosing the right analysis session |
+| `solo-dev` | Content focused on the reality of solo or very small-team development |
+| `steam` | Content related to the Steam ecosystem, player expectations, and market signals |
+| `strategy` | Content focused on high-level choice, direction-setting, and commercial or product planning |
+| `summary` | Short conclusions, next steps, or wrap-up formats |
+| `tone` | Tone modules or voice character |
+| `tramer` | Content focused on damage-record verification, inconsistency in Tramer amounts, and damage-history detection |
+| `uncertainty` | Content that explains unknowns, data gaps, and decision uncertainty |
+| `used-car` | Content focused on used-car buying and selling, market scanning, and vehicle evaluation |
+| `valuation` | Content focused on building value ranges, pricing logic, and comparable-based price interpretation |
+| `validation` | Checking catalog, metadata, link, or dependency consistency |
+| `visual-direction` | Visual guidance content that clarifies scene, composition, lighting, style, and atmosphere |
+| `workflow` | Content that supports a step-by-step workflow |
 
-## Etiketleme Kurali
+## Tagging Rule
 
-- Her prompt en az 2, ideal olarak 3-5 etiket tasir.
-- Ayni anlami tasiyan yeni etiketler turetilmez.
-- Skill metalarinda, blueprint ile uyumlu ana etiketler korunur.
+- Every prompt carries at least 2 tags, ideally 3 to 5.
+- Do not create new tags that duplicate an existing meaning.
+- In skill metadata, preserve the primary tags that align with the source blueprint.

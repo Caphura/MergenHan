@@ -1,36 +1,36 @@
 # Dependency Catalog
 
-Bu belge, cekirdek varliklar arasindaki bagimlilik iliskilerini ozetler. Adapter dosyalari bu katalogda cekirdek bagimlilik olarak sayilmaz; onlar uyumluluk katmanidir.
+This document summarizes dependency relationships between core assets. Adapter files are not treated as core dependencies in this catalog; they are compatibility-layer material.
 
-Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir.
+Note: This catalog is generated with `python scripts/generate_catalog.py`.
 
-## Sahiplik Notu
+## Ownership Notes
 
-- Adapter mapping'leri cekirdek dependency sahipligini degistirmez.
-- Cekirdek ID'ler, blueprint kaynaklari ve `depends_on` zinciri `prompts/` ile `skills/` altinda sahiplenilmeye devam eder.
-- Adapterler bu cekirdek sahipligi referans alir; yeni runtime destegi eklemek cekirdekte yeni bagimlilik sahibi yaratmaz.
+- Adapter mappings do not change core dependency ownership.
+- Core IDs, blueprint sources, and the `depends_on` chain continue to be owned under `prompts/` and `skills/`.
+- Adapters reference that core ownership; adding support for a new runtime does not create a new dependency owner in the core layer.
 
 ## Skills -> Blueprints
 
-| Skill | Baglidir | Not |
+| Skill | Depends On | Notes |
 | --- | --- | --- |
-| `mh-skill-adapter-mapper` | `mh-blueprint-adapter-mapper` | Paketlenmis skill, kaynak blueprint bagini korur |
-| `mh-skill-apartment-investment-analyzer` | `mh-blueprint-apartment-investment-analyzer` | Paketlenmis skill, kaynak blueprint bagini korur |
-| `mh-skill-catalog-validator` | `mh-blueprint-catalog-validator` | Paketlenmis skill, kaynak blueprint bagini korur |
-| `mh-skill-feature-spec-composer` | `mh-blueprint-feature-spec-composer` | Paketlenmis skill, kaynak blueprint bagini korur |
-| `mh-skill-game-strategy-session-composer` | `mh-blueprint-game-strategy-session-composer` | Paketlenmis skill, kaynak blueprint bagini korur |
-| `mh-skill-meshy-3d-prompt-composer` | `mh-blueprint-meshy-3d-prompt-composer` | Paketlenmis skill, kaynak blueprint bagini korur |
-| `mh-skill-nano-banana-image-prompt-composer` | `mh-blueprint-nano-banana-image-prompt-composer` | Paketlenmis skill, kaynak blueprint bagini korur |
-| `mh-skill-onboarding-router` | `mh-blueprint-onboarding-router` | Paketlenmis skill, kaynak blueprint bagini korur |
-| `mh-skill-prompt-library-curator` | `mh-blueprint-prompt-library-curator` | Paketlenmis skill, kaynak blueprint bagini korur |
-| `mh-skill-real-estate-valuation-session-composer` | `mh-blueprint-real-estate-valuation-session-composer` | Paketlenmis skill, kaynak blueprint bagini korur |
-| `mh-skill-resume-composer` | `mh-blueprint-resume-composer` | Paketlenmis skill, kaynak blueprint bagini korur |
-| `mh-skill-skill-packager` | `mh-blueprint-skill-packager` | Paketlenmis skill, kaynak blueprint bagini korur |
-| `mh-skill-used-car-scout` | `mh-blueprint-used-car-scout` | Paketlenmis skill, kaynak blueprint bagini korur |
+| `mh-skill-adapter-mapper` | `mh-blueprint-adapter-mapper` | Packaged skill keeps its source blueprint link |
+| `mh-skill-apartment-investment-analyzer` | `mh-blueprint-apartment-investment-analyzer` | Packaged skill keeps its source blueprint link |
+| `mh-skill-catalog-validator` | `mh-blueprint-catalog-validator` | Packaged skill keeps its source blueprint link |
+| `mh-skill-feature-spec-composer` | `mh-blueprint-feature-spec-composer` | Packaged skill keeps its source blueprint link |
+| `mh-skill-game-strategy-session-composer` | `mh-blueprint-game-strategy-session-composer` | Packaged skill keeps its source blueprint link |
+| `mh-skill-meshy-3d-prompt-composer` | `mh-blueprint-meshy-3d-prompt-composer` | Packaged skill keeps its source blueprint link |
+| `mh-skill-nano-banana-image-prompt-composer` | `mh-blueprint-nano-banana-image-prompt-composer` | Packaged skill keeps its source blueprint link |
+| `mh-skill-onboarding-router` | `mh-blueprint-onboarding-router` | Packaged skill keeps its source blueprint link |
+| `mh-skill-prompt-library-curator` | `mh-blueprint-prompt-library-curator` | Packaged skill keeps its source blueprint link |
+| `mh-skill-real-estate-valuation-session-composer` | `mh-blueprint-real-estate-valuation-session-composer` | Packaged skill keeps its source blueprint link |
+| `mh-skill-resume-composer` | `mh-blueprint-resume-composer` | Packaged skill keeps its source blueprint link |
+| `mh-skill-skill-packager` | `mh-blueprint-skill-packager` | Packaged skill keeps its source blueprint link |
+| `mh-skill-used-car-scout` | `mh-blueprint-used-car-scout` | Packaged skill keeps its source blueprint link |
 
 ## Blueprints -> Masters / Modules / Blueprints
 
-| Blueprint | Bagimliliklar |
+| Blueprint | Dependencies |
 | --- | --- |
 | `mh-blueprint-adapter-mapper` | `mh-module-context-audit`, `mh-module-repo-architecture`, `mh-module-action-summary` |
 | `mh-blueprint-apartment-investment-analyzer` | `mh-master-ultimate-real-estate-market-and-valuation-strategist-core`, `mh-module-real-estate-market-data-validation`, `mh-module-real-estate-comparable-analysis`, `mh-module-real-estate-valuation-logic`, `mh-module-real-estate-risk-and-uncertainty`, `mh-module-real-estate-investment-decision-support`, `mh-module-real-estate-no-hallucination-governance`, `mh-module-action-summary` |
@@ -49,7 +49,7 @@ Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir.
 
 ## Masters -> Modules
 
-| Master | Bagimliliklar |
+| Master | Dependencies |
 | --- | --- |
 | `mh-master-nano-banana-image-prompt-composer` | `mh-module-collaborative-guidance`, `mh-module-action-summary` |
 | `mh-master-prompt-library-orchestrator` | `mh-module-context-audit`, `mh-module-repo-architecture`, `mh-module-collaborative-guidance`, `mh-module-no-sensitive-data`, `mh-module-action-summary` |
@@ -59,4 +59,4 @@ Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir.
 
 ## Modules
 
-Moduller su anda cekirdek katalogda bagimsiz destek birimleri olarak listelenir; kataloglanan moduller icin ikincil bir `depends_on` iliskisi bulunmamaktadir.
+Modules are currently listed in the core catalog as independent support units; cataloged modules do not have a secondary `depends_on` relationship at this time.

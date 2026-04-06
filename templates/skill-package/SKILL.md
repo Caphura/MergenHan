@@ -1,4 +1,4 @@
-﻿---
+---
 name: your-skill-slug
 description: Use when this skill should be triggered. Keep this short and specific.
 ---
@@ -7,24 +7,24 @@ description: Use when this skill should be triggered. Keep this short and specif
 
 ## Use When
 
-- Bu skill hangi taleplerde devreye girmeli?
-- Hangi sinyaller aranmali?
+- Which requests should trigger this skill?
+- Which signals should it look for?
 
 ## Workflow
 
-1. Ilk tarama veya analiz adimini tanimla.
-2. Ana uygulama adimlarini sirala.
-3. Gerekirse referans veya script kullanimini belirt.
+1. Define the first inspection or analysis step.
+2. List the main execution steps.
+3. Mention references or script usage when needed.
 
 ## Output Expectations
 
-- Sonucun nasil sunulacagini belirt.
-- Karar, rapor, dosya veya degisiklik turlerini netlestir.
+- Describe how the result should be presented.
+- Clarify the decision, report, file, or change types to be produced.
 
 ## References
 
-- Gerekirse `references/` altindaki dosyalara isaret edin.
+- Point to files under `references/` when needed.
 
 ## Portability Notes
 
-- Runtime'a ozel slash command, hook, permission, tool veya agent wiring detaylari bu dosyada degil `adapters/` katmaninda belgelenir.
+- Runtime-specific slash commands, hooks, permissions, tools, or agent-wiring details belong in `adapters/`, not in this file.

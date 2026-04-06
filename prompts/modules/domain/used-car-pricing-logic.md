@@ -4,7 +4,7 @@ title: Used Car Pricing Logic
 type: module
 status: active
 version: 1.0.0
-summary: Ikinci el arac fiyatlarini piyasa karsilastirmasi, firsat puanlama ve deger analizi ile degerlendiren modul.
+summary: Ikinci el vehicle fiyatlarini piyasa karsilastirmasi, firsat puanlama ve value analysis ile evaluates modul.
 tags:
   - automotive
   - used-car
@@ -13,22 +13,22 @@ tags:
   - comparables
 depends_on: []
 last_reviewed: 2026-04-05
-input_contract: Bir veya birden fazla arac ilaninin fiyat, km, yas, donanim ve konum bilgisi.
+input_contract: Bir veya birden fazla vehicle listinginin fiyat, km, yas, donanim ve konum bilgisi.
 output_contract: Fiyat konumlama degerlendirmesi, firsat puanlama ve pahali/ucuz olma gerekceleri.
-notes: Bu modul canli piyasa verisine erisemez; mevcut ilan verisi ve genel piyasa bilgisi uzerinden kaba karsilastirma yapar.
+notes: This module canli piyasa verisine erisemez; mevcut listing verisi ve genel piyasa bilgisi uzerinden kaba karsilastirma yapar.
 ---
 
 # Purpose
 
-Ikinci el arac ilanlarinin fiyatlarini benzer araclarla karsilastirarak firsat veya asiri fiyatlanmis arac tespiti yapmak.
+Ikinci el vehicle listinglarinin fiyatlarini benzer vehiclelarla karsilastirarak firsat veya asiri fiyatlanmis vehicle tespiti yapmak.
 
 # Usage Rules
 
-- Fiyat kararlarini kesin olarak verme; her zaman kaba araliklarda sun.
-- Tek bir fiyat kaynagina guvenme; karsilastirma icin birden fazla ilan kullan.
-- Benzer arac taniminda yil, km, donanim, vites ve yakit tipini dikkate al.
+- Fiyat decisionlarini kesin olarak verme; her zaman kaba araliklarda sun.
+- Tek bir fiyat kaynagina guvenme; karsilastirma icin birden fazla listing kullan.
+- Benzer vehicle taniminda yil, km, donanim, vites ve yakit tipini dikkate al.
 - Bolgesel fiyat farklarini goz onunde bulundur.
-- Marka ve model bazli deger kaybi hizini fiyat mantigina kat.
+- Marka ve model bazli value kaybi hizini fiyat mantigina kat.
 
 # Module Text
 

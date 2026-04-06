@@ -4,7 +4,7 @@ title: Full Concept Greenlight
 type: module
 status: active
 version: 1.0.0
-summary: Bir oyun fikrini puanlayan, greenlight karari veren ve stratejik verdict ureten cikti modulu.
+summary: Bir oyun fikrini puanlayan, greenlight decisioni veren ve stratejik verdict ureten output module.
 tags:
   - evaluation
   - greenlight
@@ -12,19 +12,19 @@ tags:
   - decision
 depends_on: []
 last_reviewed: 2026-04-03
-input_contract: Tam konsept degerlendirmesi ve karar verilmesi talepleri.
+input_contract: Tam konsept degerlendirmesi ve decision verilmesi requestleri.
 output_contract: Puanlar, recommendation status, temel gucler ve zayifliklar.
-notes: Ciktiyi karar verdiren bir formatta standartlastirir.
+notes: Ciktiyi decision verdiren bir formatta standartlastirir.
 ---
 
 # Purpose
 
-Parcali analizi tek bir stratejik karara donusturmek ve fikir icin net bir devam / dur karari cikarabilmek.
+Parcali analysis tek bir stratejik decisiona donusturmek ve fikir icin net bir devam / dur decisioni cikarabilmek.
 
 # Usage Rules
 
-- Belirsiz ovgu verme; karar ver.
-- Skorlar acik gerekceye dayansin.
+- Belirsiz ovgu verme; decision ver.
+- Skorlar clear gerekceye dayansin.
 - Gerekirse DO NOT PURSUE de.
 - Zayifliklarin ustunu yumusatma.
 

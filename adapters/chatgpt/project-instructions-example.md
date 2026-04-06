@@ -1,13 +1,13 @@
 # ChatGPT Project Instructions Example
 
-Bu ornek, cekirdek bir skill'in ChatGPT proje talimatlarina nasil tasinabilecegini gosterir. Ornek olarak `prompt-library-curator` kullanilir; asil davranis cekirdek dosyalarda kalir.
+This example core bir skill'in ChatGPT proje talimatlarina how tasinabilecegini shows. Example olarak `prompt-library-curator` kullanilir; asil davranis core dosyalarda remains.
 
-## Core Kaynaklar
+## Core Sources
 
 - [`skills/prompt-library-curator/SKILL.md`](../../skills/prompt-library-curator/SKILL.md)
 - [`skills/prompt-library-curator/meta.yaml`](../../skills/prompt-library-curator/meta.yaml)
 
-## Ornek Proje Talimati
+## Example Project Instructions
 
 ```md
 You are using MergenHan as a portable prompt and skill library.
@@ -18,6 +18,6 @@ If a request is ChatGPT-specific, keep that adaptation in the adapter layer only
 When organizing repository content, preserve IDs, titles, and dependency chains unless a real inconsistency is found.
 ```
 
-## Kisa Not
+## Short Note
 
-Bu adapter ornegi, cekirdegin yerine gecmez; yalnizca ChatGPT tarafinda nasil yerlestirilecegini gosterir.
+This adapter example cekirdegin yerine gecmez; only ChatGPT side how yerlestirilecegini shows.

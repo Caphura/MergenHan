@@ -1,10 +1,10 @@
-﻿---
+---
 id: mh-module-your-slug
 title: Your Module Title
 type: module
 status: draft
 version: 0.1.0
-summary: Bu modulu baska promptlardan ayiran davranis veya kisit.
+summary: The reusable behavior or constraint that makes this module distinct.
 tags:
   - workflow
   - guidance
@@ -12,7 +12,7 @@ depends_on: []
 last_reviewed: 2026-04-03
 ---
 
-Opsiyonel metadata alanlari gerektikce eklenebilir:
+Add optional metadata fields when needed:
 
 - `input_contract`
 - `output_contract`
@@ -24,17 +24,17 @@ Opsiyonel metadata alanlari gerektikce eklenebilir:
 
 # Purpose
 
-Bu modulun tek sorumlulugunu anlatin.
+Explain the module's single responsibility.
 
 # Usage Rules
 
-- Nerede kullanilir?
-- Nerede kullanilmaz?
+- Where should it be used?
+- Where should it not be used?
 
 # Module Text
 
-Buraya tekrar kullanilabilir prompt parcasini yazin.
+Write the reusable prompt fragment here.
 
 # Portability Notes
 
-- Runtime'a ozel komut, arac veya izin beklentileri varsa bunlari adapter notlarina tasiyin.
+- If there are runtime-specific command, tool, or permission expectations, move them into adapter notes.

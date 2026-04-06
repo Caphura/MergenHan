@@ -1,8 +1,8 @@
-# Modulden Master Prompta Ornek
+# Modulden Master Prompta Example
 
-Bu ornek, ayri modullerin nasil tek bir master prompt icinde bir araya geldigini gostermek icin hazirlanmistir.
+This example ayri modullerin how tek bir master prompt icinde bir araya geldigini gostermek icin is prepared.
 
-## Kullanilan Modul Seti
+## Kullanlisting Modul Seti
 
 - [`prompts/modules/capability/context-audit.md`](../../prompts/modules/capability/context-audit.md)
 - [`prompts/modules/domain/repo-architecture.md`](../../prompts/modules/domain/repo-architecture.md)
@@ -16,12 +16,12 @@ Bu ornek, ayri modullerin nasil tek bir master prompt icinde bir araya geldigini
 
 ## Nasil Birlesiyor?
 
-1. `context-audit` mevcut durumu okuma zorunlulugu getirir.
-2. `repo-architecture` klasor ve bilgi mimarisi kararlarini standardize eder.
+1. `context-audit` mevcut durumu okuma requiredlugu getirir.
+2. `repo-architecture` folder ve bilgi mimarisi decisionlarini standardize eder.
 3. `collaborative-guidance` iletisim tonunu netlestirir.
-4. `no-sensitive-data` guvenli icerik sinirini cizer.
-5. `action-summary` sonucu kisa ve uygulanabilir hale getirir.
+4. `no-sensitive-data` guvenli content sinirini cizer.
+5. `action-summary` sonucu short ve uygulanabilir hale getirir.
 
 ## Cikarim
 
-Bu desen sayesinde ayni davranis bloklari tekrar tekrar kopyalanmadan farkli master promptlarda birlestirilebilir.
+Bu desen sayesinde same davranis bloklari tekrar tekrar kopyalanmadan different master promptlarda birlestirilebilir.

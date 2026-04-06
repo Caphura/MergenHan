@@ -1,0 +1,29 @@
+﻿id: mh-skill-resume-composer
+title: Resume Composer
+type: skill
+status: stable
+version: 1.1.0
+summary: Mevcut resume, ham kariyer notlari veya inspectable kanitlari okuyup; gerekirse tek kisa netlestirme turu acarak ATS-friendly, evidence-only, role-aware ve gerektiginde one-page veya export-review odakli English resume ciktilari ureten paketlenmis beceri.
+tags:
+  - positioning
+  - guidance
+  - workflow
+  - readability
+  - evidence
+  - validation
+depends_on:
+  - mh-blueprint-resume-composer
+last_reviewed: 2026-04-04
+source_blueprint: ../../prompts/skill-blueprints/resume-composer.md
+portability: universal
+adapter_support:
+  claude-code: supported
+  chatgpt: supported
+  codex: supported
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
+input_contract: Kullanici mevcut resume / CV, ham kariyer notlari, ekran goruntuleri, public profil / source linkleri, local repo veya belge kanitlari ve bunlara ek bir job post vererek ATS-friendly, evidence-only ve gerekirse tailored veya one-page bir resume cikti ister.
+output_contract: Gerekirse tek kisa netlestirme turu; Candidate Summary, Target Role Fit, Resume Draft, Weak Spots / Missing Inputs ve gerekiyorsa Optional Tailoring Notes. Export review modunda findings-first kisa audit de desteklenir.
+notes: Bu klasorde calisma talimatlari `SKILL.md` icinde, yonetisim ve izlenebilirlik verisi bu dosyada tutulur. Varsayilan davranis EN-firsttir. Skill inspectable evidence'i sorudan once kullanir, generic white-collar baseline'a zorlamaz ve unsupported degree / placeholder contact / uydurma ownership gibi driftleri kirmizi bayrak sayar.
+

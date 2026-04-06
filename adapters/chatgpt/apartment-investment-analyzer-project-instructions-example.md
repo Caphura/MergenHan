@@ -1,13 +1,13 @@
 # ChatGPT Apartment Investment Analyzer Project Instructions Example
 
-Bu ornek, `apartment-investment-analyzer` skill'inin ChatGPT tarafinda kisa proje talimati veya manuel oturum acilisi olarak nasil kullanilabilecegini gosterir.
+This example `apartment-investment-analyzer` skill'inin ChatGPT side short proje talimati veya manual session acilisi olarak how kullanilabilecegini shows.
 
-## Core Kaynaklar
+## Core Sources
 
 - [`skills/apartment-investment-analyzer/SKILL.md`](../../skills/apartment-investment-analyzer/SKILL.md)
 - [`skills/apartment-investment-analyzer/meta.yaml`](../../skills/apartment-investment-analyzer/meta.yaml)
 
-## Ornek Proje Talimati
+## Example Project Instructions
 
 ```md
 You are using MergenHan as a portable prompt and skill library.
@@ -20,6 +20,6 @@ Do not use guarantee language, fake precision, or unsupported rental/yield certa
 Keep the final output decision-friendly and action-oriented.
 ```
 
-## Kisa Not
+## Short Note
 
-Bu ornek, cekirdek skill'in yerine gecmez; ChatGPT tarafinda nasil yerlestirilebilecegini gosterir. Ayni mantik baska text-first LLM ortamlari icin `generic-llm` adapter'i uzerinden temsil edilebilir.
+This example does not replace the core skill; ChatGPT side how yerlestirilebilecegini shows. Ayni mantik baska text-first LLM ortamlari icin `generic-llm` adapter'i uzerinden temsil edilebilir.

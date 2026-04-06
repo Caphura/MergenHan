@@ -1,9 +1,9 @@
-﻿id: mh-skill-your-slug
+id: mh-skill-your-slug
 title: Your Skill Title
 type: skill
 status: stable
 version: 1.0.0
-summary: Paketlenmis skill'in ne yaptigini tek cumlede anlatin.
+summary: Explain in one sentence what the packaged skill does.
 tags:
   - packaging
   - workflow
@@ -19,6 +19,6 @@ adapter_support:
   generic-llm: supported
 runtime_dependencies: []
 tool_dependencies: []
-input_contract: Skill'i tetikleyen talep tipi.
-output_contract: Skill tamamlandiginda beklenen sonuc.
-notes: `SKILL.md` sade tutulur; yonetisim bu dosyada yasar.
+input_contract: The kind of request that should trigger this skill.
+output_contract: The result expected when the skill is complete.
+notes: Keep `SKILL.md` concise; governance lives in this file.

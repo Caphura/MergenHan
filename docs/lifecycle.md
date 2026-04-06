@@ -1,83 +1,82 @@
-﻿# Yasam Dongusu
+# Lifecycle
 
-Bu belge, MergenHan icindeki iceriklerin zaman icinde nasil evrildigini tanimlar. Adapter mapping'i bu yasam dongusunun bir asamasi degil, ayri bir uyumluluk katmanidir.
+This document defines how content in MergenHan evolves over time. Adapter mapping is not a stage in that lifecycle; it is a separate compatibility layer.
 
-## Iki Eksenli Model
+## Two-Axis Model
 
-MergenHan yasam dongusu iki eksende okunur:
+MergenHan's lifecycle is read across two axes:
 
-- yapisal tip: `module`, `master`, `blueprint`, `skill`
-- olgunluk durumu: `draft`, `active`, `stable`, `deprecated`, `archived`
+- structural type: `module`, `master`, `blueprint`, `skill`
+- maturity status: `draft`, `active`, `stable`, `deprecated`, `archived`
 
-Bu sayede bir varlik hem bir tur, hem de bir olgunluk durumu tasir.
+This means every asset carries both a type and a maturity state.
 
-## Yapisal Tipler
+## Structural Types
 
 ### `module`
 
-- Tekrar kullanilabilir destek birimidir.
-- Davranis, kisit, ton, alan bilgisi veya cikti parcasi olabilir.
+- A reusable support unit
+- Can be a behavior, constraint, tone, domain-knowledge piece, or output fragment
 
 ### `master`
 
-- Bir gorev ailesi icin birden fazla modulu orkestre eder.
-- Bagimliliklarini acikca gostermelidir.
+- Orchestrates multiple modules for one task family
+- Must clearly show its dependencies
 
 ### `blueprint`
 
-- Paketlenmeye aday, stabilize edilmis skill taslagidir.
-- Hala insan tarafindan tartisilabilir ve gelistirilebilir formdadir.
+- A stabilized skill draft that is a candidate for packaging
+- Still remains open to human discussion and refinement
 
 ### `skill`
 
-- Paketlenmis ve tekrar kullanima hazir cekirdek beceridir.
-- Adapterler tarafindan farkli runtime'lara eslenebilir.
+- A packaged, reusable core capability
+- Can be mapped into multiple runtimes through adapters
 
-## Olgunluk Durumlari
+## Maturity States
 
 ### `draft`
 
-- Ilk taslak seviyesidir.
-- Hizli degisime aciktir.
+- Initial draft level
+- Open to fast change
 
 ### `active`
 
-- Guncel kullanimda olan iceriktir.
-- Henuz tam oturmamis olabilir ama tercih edilen surumdur.
+- Currently used content
+- May still be evolving, but it is the preferred version
 
 ### `stable`
 
-- Davranisi oturmus ve tekrar tekrar kullanilan iceriktir.
-- Paketleme veya genis dagitim icin iyi adaydir.
+- Behavior is settled and reused repeatedly
+- A good candidate for packaging or broader distribution
 
 ### `deprecated`
 
-- Yerine daha iyi bir icerik gelmistir.
-- Yeni kullanim icin onerilmez, fakat gecis icin saklanir.
+- Replaced by something better
+- Not recommended for new use, but kept for transition
 
 ### `archived`
 
-- Tarihsel referans olarak korunur.
-- Silinmez; bulunabilir kalir.
+- Preserved as historical reference
+- Not deleted; still discoverable
 
-## Tipler Arasi Tipik Gecisler
+## Typical Transitions Between Types
 
-En sik gorulen evrimler sunlardir:
+Common evolution paths include:
 
-- yeni tekrar kullanilabilir davranis `draft module` olarak baslar
-- birden fazla modulu birlestiren akis `active master` haline gelir
-- tekrar eden, paketlenebilir gorev mantigi `blueprint` olarak netlesir
-- davranisi oturan blueprint `skill` paketine terfi eder
-- zamanla oturan varlik `stable` olur
-- yerini daha iyisi alirsa `deprecated`, tarihsel referanssa `archived` olur
+- a new reusable behavior begins as a `draft module`
+- a flow that combines multiple modules becomes an `active master`
+- repeated, packageable task logic becomes a `blueprint`
+- a stable blueprint is promoted into a packaged `skill`
+- over time, mature assets become `stable`
+- if replaced they become `deprecated`, and if kept only for history they become `archived`
 
-## Adapter Mapping Neden Ayri?
+## Why Is Adapter Mapping Separate?
 
-Adapter mapping bir lifecycle stage degildir cunku:
+Adapter mapping is not a lifecycle stage because it:
 
-- cekirdek varligin turunu degistirmez
-- yalnizca belirli bir runtime ile uyumluluk bilgisini tasir
-- ayni cekirdek varlik icin birden fazla adapter mapping'i bulunabilir
+- does not change the core asset type
+- only carries compatibility information for a specific runtime
+- may exist multiple times for the same core asset
 
-Dolayisiyla `claude-code`, `chatgpt`, `codex` veya `generic-llm` destegi, `draft` ya da `stable` gibi bir durum degil; ayri bir uyumluluk katmanidir.
-
+So support for `claude-code`, `chatgpt`, `codex`, or `generic-llm` is not a status like `draft` or `stable`; it is a separate compatibility layer.

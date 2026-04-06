@@ -1,0 +1,27 @@
+id: mh-skill-nano-banana-image-prompt-composer
+title: Nano Banana Image Prompt Composer
+type: skill
+status: stable
+version: 1.0.0
+summary: Yari tanimli gorsel fikirleri kisa soru akisiyla netlestirip Nano Banana icin kopyalanabilir nihai prompta donusturen paketlenmis beceri.
+tags:
+  - image-generation
+  - prompt-composition
+  - visual-direction
+  - nano-banana
+  - workflow
+depends_on:
+  - mh-blueprint-nano-banana-image-prompt-composer
+last_reviewed: 2026-04-04
+source_blueprint: ../../prompts/skill-blueprints/nano-banana-image-prompt-composer.md
+portability: universal
+adapter_support:
+  claude-code: supported
+  chatgpt: supported
+  codex: supported
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
+input_contract: Kullanici yari tanimli bir gorsel fikir verir ve bunu Nano Banana icin temiz, uygulanabilir ve kopyalanabilir bir image prompta donusturmek ister.
+output_contract: Kisa yonlendirici soru turleri, netlestirilmis sahne ozeti, tek parca nihai Nano Banana promptu ve gerekiyorsa ince ayar varyasyonlari.
+notes: Bu klasorde calisma talimatlari `SKILL.md` icinde, yonetisim ve izlenebilirlik verisi bu dosyada tutulur. Davranis Gemini ve ChatGPT kullanimlarinda metin cikti olarak dogrulanmistir.

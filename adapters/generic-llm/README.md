@@ -1,18 +1,18 @@
 # Generic LLM Adapter
 
-Bu klasor, ozel runtime ozellikleri olmayan herhangi bir LLM sistemi icin minimum tasinabilir kullanim bicimini tanimlar.
+This folder defines the minimum portable usage shape for any LLM environment that does not provide runtime-specific features.
 
-## Kapsam
+## Scope
 
-- Duz metin prompt kullanim senaryolari
-- Manuel baglam toplama ve enjekte etme yaklasimi
-- Tool veya hook destegi olmayan ortamlarda cekirdek icerigin minimum calisma sekli
+- plain-text prompt usage scenarios
+- manual context collection and injection
+- the minimum working form of core content in environments without tool or hook support
 
-## Ornekler
+## Examples
 
-- [`mapping.md`](./mapping.md): cekirdek varligin generic LLM tarafinda nasil temsil edilecegi
-- [`minimal-usage-example.md`](./minimal-usage-example.md): en kisa kullanim ornegi
+- [`mapping.md`](./mapping.md): how a core asset is represented in a generic LLM environment
+- [`minimal-usage-example.md`](./minimal-usage-example.md): the shortest usage example
 
-## Sinir
+## Boundary
 
-Bu adapter, ozel runtime yetenekleri yokmus gibi davranir. Boylece MergenHan cekirdek iceriginin en dusuk ortak paydada da calisabilir kalmasi saglanir.
+This adapter behaves as if no runtime-specific capabilities exist. That keeps MergenHan core content usable even at the lowest common denominator.

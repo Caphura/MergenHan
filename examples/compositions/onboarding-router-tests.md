@@ -1,13 +1,13 @@
 # Onboarding Router Test Pack
 
-Bu belge, `Onboarding Router` icin farkli AI ortamlarda uygulanabilecek test senaryolarini toplar. Amac, modelin yalnizca tavsiye vermesini degil; kullanici talebini dogru varlik tipine veya repo aksiyonuna yonlendirip neden o yone gittigini aciklamasini test etmektir.
+This document `Onboarding Router` icin different AI ortamlarda uygulanabilecek test senaryolarini toplar. Amac, modelin only tavsiye vermesini degil; user talebini correct asset tipine veya repo aksiyonuna yonlendirip neden o yone gittigini aciklamasini test etmektir.
 
-## Kullanim Sekli
+## Usage
 
 Her testten once asagidaki acilis talimatini kullan:
 
 ```text
-Asagidaki repo veya prompt kutuphanesi istegini degerlendir. Dogrudan icerik yazmaya baslama. Once kullanicinin asil amacini belirle, sonra talebi su kategorilerden birine yonlendir:
+Asagidaki repo veya prompt librarysi istegini degerlendir. Dogrudan content yazmaya baslama. Once the user's asil amacini belirle, sonra talebi su kategorilerden birine yonlendir:
 
 - master
 - module
@@ -24,32 +24,32 @@ Sonucu su yapida ver:
 3. Dependency Candidates
 4. Recommended Next Step
 
-Eger talep runtime'a ozelse, bunu acikca adapter mapping olarak belirt.
+Eger request runtime'a ozelse, bunu explicitly adapter mapping olarak belirt.
 ```
 
 ## Test Senaryolari
 
-### OR1 - Tek gorevlik ama orkestre davranis
+### OR1 - Tek tasklik ama orkestre davranis
 
-**Amaç:** Model, birden fazla davranisi orkestre eden yeni gorevi `master` olarak yonlendirebiliyor mu?
+**Amaç:** Model, birden fazla davranisi orkestre eden yeni taski `master` olarak yonlendirebiliyor mu?
 
 **Test girdisi:**
 
 ```text
-Kullanicidan daginik bir gorsel fikir alip kisa sorularla netlestiren ve en sonda image modeline uygun tek parca prompt veren ilk calisan promptu yazmak istiyorum. Henuz test edilmedi, paketlenmeye aday bir skill gibi dusunmuyorum; once cekirdek promptu dogru yere koymak istiyorum. Bunu repoda nereye koymaliyim?
+Kullanicidan daginik bir visual fikir alip short sorularla netlestiren ve en sonda image modeline uygun tek parca prompt veren ilk calisan promptu yazmak istiyorum. Henuz test edilmedi, paketlenmeye aday bir skill such as dusunmuyorum; once core promptu correct yere koymak istiyorum. Bunu repoda nereye koymaliyim?
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
 - `master` rotasini secmeli
 - Orkestrasyon mantigini aciklamali
 - Bagimlilik adayi olarak ton veya output modullerini onerebilmeli
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
 - Dogrudan `module` ya da `skill` demek
-- Tek gorevlik orkestrasyon akisini erken asamada yanlislikla `blueprint`e itmek
-- Tekrar kullanilabilir cekirdek davranis ile paketlenmis beceriyi ayirmamak
+- Tek tasklik orkestrasyon akisini erken asamada yanlislikla `blueprint`e itmek
+- Tekrar kullanilabilir core davranis ile paketlenmis beceriyi ayirmamak
 
 ### OR2 - Tekrar kullanilabilir davranis parcasi
 
@@ -58,65 +58,65 @@ Kullanicidan daginik bir gorsel fikir alip kisa sorularla netlestiren ve en sond
 **Test girdisi:**
 
 ```text
-Farkli promptlarda tekrar tekrar kullanabilecegim bir davranis yazmak istiyorum: model, cevap verirken her zaman kanit ile varsayimi ayirsin. Bu nereye gider?
+Farkli promptlarda tekrar tekrar kullanabilecegim bir davranis yazmak istiyorum: model, cevap verirken her zaman evidence ile assumptioni ayirsin. Bu nereye gider?
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
 - `module` rotasini secmeli
-- Bunun tek gorev degil, tekrar kullanilabilir davranis parcasi oldugunu belirtmeli
-- Uygun klasor tipine dair ipucu verebilmeli
+- Bunun tek task degil, tekrar kullanilabilir davranis parcasi oldugunu belirtmeli
+- Uygun folder tipine dair ipucu verebilmeli
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
 - Bunu `master` veya `skill` olarak yonlendirmek
-- Tekrar kullanimi ana karar ekseni olarak gormemek
+- Tekrar usagei ana decision ekseni olarak gormemek
 
 ### OR3 - Paketlenmeye aday ama henuz tam oturmamis beceri
 
-**Amaç:** Model, davranisi var ama paketleme karari erken olan bir istegi `blueprint`e yonlendirebiliyor mu?
+**Amaç:** Model, davranisi var ama packaging decisioni erken olan bir istegi `blueprint`e yonlendirebiliyor mu?
 
 **Test girdisi:**
 
 ```text
-Bir AI'nin daire ilanlarini yatirim acisindan analiz etmesini saglayan bir akisim var. Iyi calisiyor ama henuz farkli orneklerle yeterince denemedim. Simdilik bunu hangi katmanda tutmaliyim?
+Bir AI'nin daire listinglarini investment acisindan analysis etmesini saglayan bir akisim var. Iyi calisiyor ama henuz different examplelerle yeterince denemedim. Simdilik bunu hangi katmanda tutmaliyim?
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
 - `blueprint` rotasini secmeli
 - Test/olgunluk eksenini gerekce yapmali
 - Hemen skill paketine ziplamamak gerektigini aciklamali
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
 - Yetersiz sinyale ragmen `skill` demek
 - `master` ile `blueprint` ayrimini belirsiz birakmak
 
-### OR4 - Terfi ve paketleme karari
+### OR4 - Terfi ve packaging decisioni
 
-**Amaç:** Model, kullanici artik paketleme istediginde bunu `packaging` aksiyonuna yonlendirebiliyor mu?
+**Amaç:** Model, user artik packaging istediginde bunu `packaging` aksiyonuna yonlendirebiliyor mu?
 
 **Test girdisi:**
 
 ```text
-Bir blueprint'i farkli AI'larda test ettim ve artik skill paketine cevirmek istiyorum. Bana repo icinde hangi dosyalari olusturmam gerektigini ve nasil ilerlemem gerektigini soyle.
+Bir blueprint'i different AI'larda test ettim ve artik skill paketine cevirmek istiyorum. Bana repo icinde hangi dosyalari olusturmam gerektigini ve how ilerlemem gerektigini soyle.
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
 - `packaging` rotasini secmeli
-- `SKILL.md`, `meta.yaml`, gerekiyorsa `examples/` gibi ihtiyaclari listelemeli
-- Bunu dogrudan yeni `skill` yazma istegiyle karistirmamali
+- `SKILL.md`, `meta.yaml`, gerekiyorsa `examples/` such as ihtiyaclari listelemeli
+- Bunu directly yeni `skill` yazma istegiyle karistirmamali
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
-- Sadece `skill` deyip paketleme akislarini es gecmek
-- Katalog / metadata guncellemesini unutturmak
+- Sadece `skill` deyip packaging akislarini es gecmek
+- Katalog / metadata currentlemesini unutturmak
 
-### OR5 - Repo bakim ve katalog sorusu
+### OR5 - Repo maintenance ve katalog sorusu
 
-**Amaç:** Model, bakim odakli talebi `catalog` aksiyonuna yonlendirebiliyor mu?
+**Amaç:** Model, maintenance odakli talebi `catalog` aksiyonuna yonlendirebiliyor mu?
 
 **Test girdisi:**
 
@@ -124,59 +124,59 @@ Bir blueprint'i farkli AI'larda test ettim ve artik skill paketine cevirmek isti
 Repoya yeni bir prompt ekledim ama kataloglarda gorunup gorunmediginden emin degilim. Hangi adima gitmeliyim?
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
 - `catalog` rotasini secmeli
-- Katalog uretim / dogrulama akislarini onermeli
-- Icerik yazimi yerine bakim aksiyonuna yonelmeli
+- Katalog generation / validation akislarini onermeli
+- Icerik writing yerine maintenance aksiyonuna yonelmeli
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
 - Yeni prompt yazmaya baslamak
-- `module` veya `master` gibi icerik tipi secmeye kaymak
+- `module` veya `master` such as content tipi secmeye kaymak
 
-### OR6 - Runtime'a ozel tasima istegi
+### OR6 - Runtime'a specific tasima istegi
 
-**Amaç:** Model, runtime'a ozel talebi `adapter mapping` olarak ayirabiliyor mu?
+**Amaç:** Model, runtime'a specific talebi `adapter mapping` olarak ayirabiliyor mu?
 
 **Test girdisi:**
 
 ```text
-Elimde hazir bir skill var. Bunu ChatGPT proje talimati olarak nasil kullanacagimi yazmak istiyorum. Bu cekirdege mi gitmeli, adapter'e mi?
+Elimde ready bir skill var. Bunu ChatGPT proje talimati olarak how kullanacagimi yazmak istiyorum. Bu cekirdege mi gitmeli, adapter'e mi?
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
 - `adapter mapping` rotasini secmeli
-- Runtime'a ozel davranisin adapter katmanina ait oldugunu acikca yazmali
-- Cekirdek tanimi provider syntax'i ile kirletmemeyi vurgulamali
+- Runtime'a specific davranisin adapter katmanina ait oldugunu explicitly yazmali
+- Core tanimi provider syntax'i ile kirletmemeyi vurgulamali
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
-- Bunu `skill` veya `master` degisikligi gibi gormek
+- Bunu `skill` veya `master` degisikligi such as gormek
 - Adapter katmaninin amacini kacirmak
 
 ### OR7A - Standalone orchestrator ayrimi
 
-**Amaç:** Model, kendi basina calisan ama henuz ilk asamadaki bir yonlendirme orkestratorunu `master` olarak ayirabiliyor mu?
+**Amaç:** Model, kendi basina calisan ama henuz ilk asamadaki bir guidance orkestratorunu `master` olarak ayirabiliyor mu?
 
 **Test girdisi:**
 
 ```text
-Repodaki farkli onboarding durumlarini yoneten ilk calisan orchestrator promptu yazmak istiyorum. Bu akisin gorevi, kullaniciya bazen yeni prompt yazdirma, bazen blueprint'ten skill'e terfi karari verme, bazen de katalog bakimina yonlendirme olacak. Henuz test edilmedi ve paketlenmeye aday reusable bir beceri olarak degil, once tek gorevlik bir orchestration promptu olarak dusunuyorum. Bunu repoda nereye koymaliyim?
+Repodaki different onboarding durumlarini yoneten ilk calisan orchestrator promptu yazmak istiyorum. Bu akisin taski, to the user bazen yeni prompt yazdirma, bazen blueprint'ten skill'e promotion decisioni verme, bazen de katalog maintenanceina guidance olacak. Henuz test edilmedi ve paketlenmeye aday reusable bir beceri olarak degil, once tek tasklik bir orchestration promptu olarak dusunuyorum. Bunu repoda nereye koymaliyim?
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
 - `master` rotasini secmeli
-- Bunun once tek gorevlik orchestration promptu olarak okunmasi gerektigini aciklamali
-- Bagimlilik adayi olarak context audit, repo architecture ve action summary gibi parcalari gosterebilmeli
+- Bunun once tek tasklik orchestration promptu olarak okunmasi gerektigini aciklamali
+- Bagimlilik adayi olarak context audit, repo architecture ve action summary such as parcalari gosterebilmeli
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
 - Bunu erken asamada `blueprint`e itmek
 - Talebi atomik bir `module`e indirgeyip kaybetmek
-- Paketlenmis `skill` gibi davranmak
+- Paketlenmis `skill` such as davranmak
 
 ### OR7B - Reusable routing behavior ayrimi
 
@@ -185,23 +185,23 @@ Repodaki farkli onboarding durumlarini yoneten ilk calisan orchestrator promptu 
 **Test girdisi:**
 
 ```text
-Repo icinde tekrar tekrar kullanabilecegim bir yonlendirme davranisi tasarlamak istiyorum. Bu davranis, gelen istegin yeni prompt, blueprint, skill packaging, catalog bakimi veya adapter mapping olup olmadigini ayirsin. Amacim atomik bir yardimci davranis parcasi degil; farkli onboarding durumlarinda tekrar kullanabilecegim, ileride paketlenmeye aday bir routing mantigini once dogru katmanda tutmak. Simdilik bunu henuz skill olarak paketlemek istemiyorum. Bunu repoda nereye koymaliyim?
+Repo icinde tekrar tekrar kullanabilecegim bir guidance davranisi tasarlamak istiyorum. Bu davranis, gelen istegin yeni prompt, blueprint, skill packaging, catalog maintenancei veya adapter mapping olup olmadigini ayirsin. Amacim atomik bir yardimci davranis parcasi degil; different onboarding durumlarinda tekrar kullanabilecegim, ileride paketlenmeye aday bir routing mantigini once correct katmanda tutmak. Simdilik bunu henuz skill olarak paketlemek istemiyorum. Bunu repoda nereye koymaliyim?
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
 - `blueprint` rotasini secmeli
-- Bunun atomik bir `module` degil, tekrar kullanilabilir ve skill-benzeri bir routing mantigi oldugunu ayirt etmeli
-- Talebin asil isinin onboarding ve yonlendirme davranisi oldugunu fark etmeli
-- Bagimlilik adayi olarak context audit, repo architecture ve action summary gibi parcalari gosterebilmeli
+- Bunun atomik bir `module` degil, tekrar kullanilabilir ve skill-benzeri bir routing logic oldugunu ayirt etmeli
+- Talebin asil isinin onboarding ve guidance davranisi oldugunu fark etmeli
+- Bagimlilik adayi olarak context audit, repo architecture ve action summary such as parcalari gosterebilmeli
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
-- Talebi tek bir katalog scripti gibi yorumlamak
+- Talebi tek bir katalog scripti such as yorumlamak
 - Router davranisini `module`e asiri indirgeyip kaybetmek
 - Tekrar kullanilabilir router davranisini yanlislikla `master` olarak siniflandirmak
 
-## Onerilen Test Sirasi
+## Recommended Test Order
 
 1. `OR1`
 2. `OR2`
@@ -212,26 +212,26 @@ Repo icinde tekrar tekrar kullanabilecegim bir yonlendirme davranisi tasarlamak 
 7. `OR7A`
 8. `OR7B`
 
-Bu sira, net varlik seciminden daha karmasik yonlendirme ve siniflandirma kararlarina dogru ilerler. `OR7A` ve `OR7B`, benzer gorunen ama farkli katmanlara gitmesi gereken iki routing durumunu ayri ayri stresler.
+Bu sira, net asset seciminden daha karmasik guidance ve siniflandirma decisionlarina correct ilerler. `OR7A` ve `OR7B`, benzer gorunen ama different katmanlara gitmesi gereken iki routing durumunu ayri ayri stresler.
 
-## Puanlama Rubrigi
+## Scoring Rubric
 
 | Olcut | Ne aranir? |
 | --- | --- |
-| Amaç Tespiti | Kullanicinin asil derdini dogru okuyabiliyor mu |
-| Routing Dogrulugu | `master`, `module`, `blueprint`, `skill`, `packaging`, `catalog`, `adapter mapping` arasinda dogru secim yapiyor mu |
-| Gerekcelendirme | Neden o yone gittigini acik ve ikna edici sekilde anlatabiliyor mu |
-| Bagimlilik Onerisi | Uygun bagimlilik adaylarini gorup gereksiz genislemiyor mu |
-| Sonraki Adim Netligi | Cikti, kullanicinin ne yapacagini somutlastiriyor mu |
+| Amaç Tespiti | Kullanicinin asil derdini correct okuyabiliyor mu |
+| Routing Dogrulugu | `master`, `module`, `blueprint`, `skill`, `packaging`, `catalog`, `adapter mapping` arasinda correct secim yapiyor mu |
+| Gerekcelendirme | Neden o yone gittigini clear ve ikna edici way anlatabiliyor mu |
+| Bagimlilik Onerisi | Uygun dependency adaylarini gorup gereksiz genislemiyor mu |
+| Sonraki Adim Netligi | Cikti, the user's what yapacagini somutlastiriyor mu |
 
-## Kisa Sonuc Formu
+## Short Result Form
 
 ```text
 AI:
 Test ID:
-Secilen rota dogru muydu:
+Secilen rota correct muydu:
 Gerekce yeterince net miydi:
-Onerilen sonraki adim kullanisli miydi:
+Recommended sonraki step kullanisli miydi:
 En guclu yani:
 En zayif yani:
 Tekrar dener miydim: Evet / Hayir

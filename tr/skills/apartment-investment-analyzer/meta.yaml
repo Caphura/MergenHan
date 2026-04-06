@@ -1,0 +1,26 @@
+id: mh-skill-apartment-investment-analyzer
+title: Apartment Investment Analyzer
+type: skill
+status: stable
+version: 1.0.0
+summary: Apartman satis ilanlarini yatirim, kira getirisi, fiyatlama riski ve sonraki kontrol adimlari acisindan yapisal bicimde analiz eden paketlenmis beceri.
+tags:
+  - real-estate
+  - apartment-analysis
+  - investment
+  - decision-support
+depends_on:
+  - mh-blueprint-apartment-investment-analyzer
+last_reviewed: 2026-04-04
+source_blueprint: ../../prompts/skill-blueprints/apartment-investment-analyzer.md
+portability: universal
+adapter_support:
+  claude-code: supported
+  chatgpt: supported
+  codex: supported
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
+input_contract: Kullanicinin tek bir apartman satis ilanini, birden fazla ilan grubunu veya yatirim shortlist'i ihtiyacini karar destekleyici bicimde analiz etmek istemesi.
+output_contract: Apartman satis ilanlarini kanit-temelli, risk bilinci tasiyan ve taranabilir yatirim analizi formatinda sunan kopyalanabilir yonerge.
+notes: Bu klasorde calisma talimatlari `SKILL.md` icinde, yonetisim ve izlenebilirlik verisi bu dosyada tutulur. Davranis farkli AI denemelerinde karar destekleyici cikti yapisi ve risk/belirsizlik disiplini acisindan yeterli bulunmustur.

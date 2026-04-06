@@ -1,21 +1,21 @@
 # Claude Code Adapter
 
-Bu klasor, MergenHan cekirdek prompt ve skill iceriklerini Claude Code tarzinda kullanmak icin gereken runtime esleme notlarini tutar.
+This folder holds the runtime mapping notes required to use MergenHan core prompts and skills in a Claude Code style workflow.
 
-## Kapsam
+## Scope
 
-Burada su konular belgelenir:
+The following topics are documented here:
 
-- slash command veya komut girisi yaklasimi
-- settings, hooks ve permission modeli
-- agent wiring veya gorev dagitimi notlari
-- cekirdek varliklarin Claude Code icindeki calistirma bicimi
+- slash-command or command-entry patterns
+- settings, hooks, and permission model
+- agent wiring or task-distribution notes
+- how core assets are executed inside Claude Code
 
-## Ornekler
+## Examples
 
-- [`mapping.md`](./mapping.md): cekirdek varligin Claude Code tarafinda nasil temsil edilecegi
-- [`settings.example.json`](./settings.example.json): adapter katmanina ait, guvenli ve istege bagli ayar ornegi
+- [`mapping.md`](./mapping.md): how a core asset is represented in Claude Code
+- [`settings.example.json`](./settings.example.json): a safe, optional settings example for the adapter layer
 
-## Sinir
+## Boundary
 
-Cekirdek davranis burada yeniden yazilmaz. Promptun veya skill'in asil mantigi `prompts/` ve `skills/` altinda kalir. Claude Code'a ozel syntax ve otomasyon ise bu adapter katmaninda tutulur.
+Core behavior is not rewritten here. The actual prompt or skill logic stays under `prompts/` and `skills/`. Claude-Code-specific syntax and automation live in this adapter layer.

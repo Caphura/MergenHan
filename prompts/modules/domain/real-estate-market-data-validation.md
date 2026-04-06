@@ -4,7 +4,7 @@ title: Real Estate Market Data Validation
 type: module
 status: active
 version: 1.0.0
-summary: Emlak veri girisinin kalite, tutarlilik ve kullanim uygunlugunu denetleyen modul.
+summary: Emlak veri girisinin kalite, tutarlilik ve usage uygunlugunu denetleyen modul.
 tags:
   - real-estate
   - data-quality
@@ -12,20 +12,20 @@ tags:
   - market-data
 depends_on: []
 last_reviewed: 2026-04-03
-input_contract: Ilan, emlak veri seti veya property detaylarinin guvenilirlik acisindan degerlendirilmesi.
+input_contract: Ilan, real-estate veri seti veya property detaylarinin guvenilirlik acisindan degerlendirilmesi.
 output_contract: Veri kalitesi ozeti, eksik kritik alanlar ve analizin ilerleyip ilerleyemeyecegi.
-notes: Veri zayifsa yorum ve degerleme kalitesini sinirlamak icin erken asama kontrol modulu.
+notes: Veri zayifsa yorum ve valuation kalitesini sinirlamak icin erken asama kontrol module.
 ---
 
 # Purpose
 
-Mevcut piyasa veya ilan verisinin guvenilir, yeterli ve degerleme icin kullanilabilir olup olmadigini denetlemek.
+Mevcut piyasa veya listing verisinin guvenilir, yeterli ve valuation icin kullanilabilir olup olmadigini denetlemek.
 
 # Usage Rules
 
-- Veri gordugun gibi dogru kabul etme.
-- Eksik kritik alanlari acikca isaretle.
-- Supheli ilanlari veri tabanina esit agirlikta kabul etme.
+- Veri gordugun such as correct kabul etme.
+- Eksik kritik alanlari explicitly isaretle.
+- Supheli listinglari veri tabanina esit agirlikta kabul etme.
 - Dataset yetersizse bunu net soyle.
 
 # Module Text

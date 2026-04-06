@@ -1,15 +1,15 @@
 # Codex Meshy 3D Prompt Composer Task Packet Example
 
-Bu ornek, `meshy-3d-prompt-composer` skill'inin Codex tarafinda repo-aware gorev paketi olarak nasil kullanilabilecegini gosterir.
+This example `meshy-3d-prompt-composer` skill'inin Codex side repo-aware task package olarak how kullanilabilecegini shows.
 
-## Core Kaynaklar
+## Core Sources
 
 - [`skills/meshy-3d-prompt-composer/SKILL.md`](../../skills/meshy-3d-prompt-composer/SKILL.md)
 - [`skills/meshy-3d-prompt-composer/meta.yaml`](../../skills/meshy-3d-prompt-composer/meta.yaml)
 - [`skills/meshy-3d-prompt-composer/examples/session-example.md`](../../skills/meshy-3d-prompt-composer/examples/session-example.md)
 - [`examples/compositions/meshy-3d-prompt-composer-tests.md`](../../examples/compositions/meshy-3d-prompt-composer-tests.md)
 
-## Ornek Gorev Paketi
+## Example Task Packet
 
 ```md
 Objective: Help the user turn a rough 3D asset idea into a clean Meshy prompt using the core `meshy-3d-prompt-composer` skill.
@@ -22,7 +22,7 @@ Working set:
 Constraints:
 - If the request is underdefined, ask one short round of 2-3 high-impact clarification questions before writing the final prompt.
 - If the request is already specific or the user explicitly asks for a direct prompt, respond with the final prompt in the same reply.
-- Keep the `Meshy Prompt` text within the 800-character limit.
+- Keep the `Meshy Prompt` text within the 800-chvehicleter limit.
 - Stay text-only by default; do not claim unverifiable topology, UV, or engine-readiness guarantees.
 Expected output:
 - Asset Summary
@@ -31,6 +31,6 @@ Expected output:
 - Optional Variations if they materially help
 ```
 
-## Kisa Not
+## Short Note
 
-Codex'e ozel gorev paketleme dili bu adapter dosyasinda kalir; cekirdek davranis ve 800 karakter guardrail'i skill paketinden gelir.
+Codex'e specific task packaging dili bu adapter dosyasinda remains; core davranis ve 800 karakter guardrail'i skill paketinden gelir.

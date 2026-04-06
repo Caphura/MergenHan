@@ -1,15 +1,15 @@
 # Codex Task Packet Example
 
-Bu ornek, cekirdek bir blueprint'in Codex tarafinda repo gorev paketi olarak nasil kullanilabilecegini gosterir.
+This example core bir blueprint'in Codex side repo task package olarak how kullanilabilecegini shows.
 
-## Core Kaynaklar
+## Core Sources
 
 - [`prompts/skill-blueprints/catalog-validator.md`](../../prompts/skill-blueprints/catalog-validator.md)
 - [`catalog/prompts.md`](../../catalog/prompts.md)
 - [`catalog/skills.md`](../../catalog/skills.md)
 - [`catalog/dependencies.md`](../../catalog/dependencies.md)
 
-## Ornek Gorev Paketi
+## Example Task Packet
 
 ```md
 Objective: Run a repository consistency review using the core `catalog-validator` blueprint.
@@ -30,6 +30,6 @@ Expected output:
 - validation result summary
 ```
 
-## Kisa Not
+## Short Note
 
-Codex'e ozel gorev paketleme dili bu adapter dosyasinda kalir; cekirdek karar mantigi blueprint'ten gelir.
+Codex'e specific task packaging dili bu adapter dosyasinda remains; core decision logic blueprint'ten gelir.

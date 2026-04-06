@@ -1,15 +1,15 @@
-﻿# Codex Resume Composer Task Packet Example
+# Codex Resume Composer Task Packet Example
 
-Bu ornek, `resume-composer` skill'inin Codex tarafinda repo-aware gorev paketi olarak nasil kullanilabilecegini gosterir.
+This example `resume-composer` skill'inin Codex side repo-aware task package olarak how kullanilabilecegini shows.
 
-## Core Kaynaklar
+## Core Sources
 
 - [`skills/resume-composer/SKILL.md`](../../skills/resume-composer/SKILL.md)
 - [`skills/resume-composer/meta.yaml`](../../skills/resume-composer/meta.yaml)
 - [`skills/resume-composer/examples/session-example.md`](../../skills/resume-composer/examples/session-example.md)
 - [`examples/compositions/resume-composer-tests.md`](../../examples/compositions/resume-composer-tests.md)
 
-## Ornek Gorev Paketi
+## Example Task Packet
 
 ```md
 Objective: Help the user turn an existing resume, raw career notes, or inspectable evidence pack into an ATS-friendly English resume using the core `resume-composer` skill.
@@ -37,6 +37,6 @@ Expected output:
 - Optional Tailoring Notes if they materially help
 ```
 
-## Kisa Not
+## Short Note
 
-Codex'e ozel gorev paketleme dili bu adapter dosyasinda kalir; cekirdek workflow, EN-first varsayimi, kanit-onceligi ve no-fabrication guardrail'i skill paketinden gelir.
+Codex'e specific task packaging dili bu adapter dosyasinda remains; core workflow, EN-first assumptioni, evidence-onceligi ve no-fabrication guardrail'i skill paketinden gelir.

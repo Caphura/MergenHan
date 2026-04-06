@@ -4,7 +4,7 @@ title: Real Estate No Hallucination Governance
 type: module
 status: active
 version: 1.0.0
-summary: Kanitsiz emlak iddialarini, sahte kesinligi ve desteksiz degerlemeyi engelleyen zorunlu governance modulu.
+summary: Kanitsiz real-estate iddialarini, sahte kesinligi ve desteksiz valuationyi engelleyen required governance module.
 tags:
   - real-estate
   - governance
@@ -13,21 +13,21 @@ tags:
   - anti-hallucination
 depends_on: []
 last_reviewed: 2026-04-03
-input_contract: Emlak piyasa arastirmasi, emsal analizi ve degerleme oturumlari.
-output_contract: Kanit ayristirmasi, varsayimlar, eksik veriler ve guven seviyesi zorunluluklari.
-notes: Bu modul opsiyonel degildir; ilgili tum emlak analizlerinde zorunlu governance katmani olarak kullanilmalidir.
+input_contract: Emlak piyasa arastirmasi, emsal analysis ve valuation oturumlari.
+output_contract: Kanit separatemasi, assumptionlar, eksik veriler ve guven seviyesi requiredluklari.
+notes: This module opsiyonel degildir; related tum real-estate analizlerinde required governance katmani olarak kullanilmalidir.
 ---
 
 # Purpose
 
-Kaynaksiz bilgi uretimini, sahte kesinligi ve desteklenemeyen degerleme sonucunu engellemek.
+Kaynaksiz bilgi uretimini, sahte kesinligi ve desteklenemeyen valuation sonucunu engellemek.
 
 # Usage Rules
 
 - Desteklenmeyen property fact uretme.
 - Kaynagi olmayan market claim uretme.
-- Zayif veriye kesin deger bicme.
-- Bilinmeyeni biliyormus gibi sunma.
+- Zayif veriye kesin value bicme.
+- Bilinmeyeni biliyormus such as sunma.
 - Eksik veriyi gizleme.
 
 # Module Text

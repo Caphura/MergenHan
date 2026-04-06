@@ -1,26 +1,26 @@
-﻿# Codex Mapping
+# Codex Mapping
 
-## Adapter Ne Bekler?
+## What Does the Adapter Expect?
 
-- Acik gorev mantigi olan cekirdek prompt, blueprint veya skill
-- Izlenebilir bagimlilik zinciri
-- Gerekirse repo icindeki hedef dosya veya katalog baglantilari
+- A core prompt, blueprint, or skill with clear task logic
+- A traceable dependency chain
+- Target file or catalog links inside the repo when needed
 
-## Core Skill Burada Nasil Temsil Edilir?
+## How Is the Core Skill Represented Here?
 
-- `SKILL.md` cekirdek yurutme talimati olarak okunur
-- `meta.yaml` bagimlilik, kaynak blueprint ve uyumluluk bilgisini verir
-- Codex'e ozel gorev paketleme, arac kullanimi ve calisma akisi bu adapter tarafinda tarif edilir
+- `SKILL.md` is read as the core execution instruction
+- `meta.yaml` provides dependency, source blueprint, and compatibility information
+- Codex-specific task packaging, tool usage, and workflow shape are described in this adapter
 
-## Core'dan Ne Degismeden Kalmalidir?
+## What Must Remain Unchanged from the Core?
 
-- Skill'in amaci ve kapsam siniri
-- Dependency iliskileri
-- Tetikleyici sinyaller ve workflow mantigi
-- Cekirdek portability kurallari
+- The skill's purpose and scope boundary
+- Dependency relationships
+- Trigger signals and workflow logic
+- Core portability rules
 
-## Runtime Duzeyinde Ne Uyarlanabilir?
+## What Can Be Adapted at the Runtime Level?
 
-- Repo icinde gorev parcasi haline getirme bicimi
-- Arac secimi, komut yurutme disiplini ve is akisi formati
-- Cikti sunumu ve kapanis ozetleri
+- How the work is turned into a repo task
+- Tool choice, command-execution discipline, and workflow format
+- Output presentation and closeout summary style

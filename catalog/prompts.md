@@ -1,12 +1,12 @@
 # Prompt Catalog
 
-Bu katalog, repodaki aktif ve tarihsel prompt varliklarini insan-okunur bir indeks halinde listeler.
+This catalog lists active and historical prompt assets in the repository as a human-readable index.
 
-Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir. Runtime'a ozel uyarlamalar `adapters/` katmaninda tutulur ve burada promptun kendisiyle karistirilmaz.
+Note: This catalog is generated with `python scripts/generate_catalog.py`. Runtime-specific adaptations live in the `adapters/` layer and are not mixed with the prompt definition here.
 
 ## Master Prompts
 
-| ID | Baslik | Durum | Surum | Etiketler | Bagimliliklar | Yol |
+| ID | Title | Status | Version | Tags | Dependencies | Path |
 | --- | --- | --- | --- | --- | --- | --- |
 | `mh-master-nano-banana-image-prompt-composer` | Nano Banana Image Prompt Composer | `active` | `1.0.0` | `image-generation`, `prompt-composition`, `visual-direction`, `nano-banana` | `mh-module-collaborative-guidance`, `mh-module-action-summary` | [`prompts/masters/active/nano-banana-image-prompt-composer.md`](../prompts/masters/active/nano-banana-image-prompt-composer.md) |
 | `mh-master-prompt-library-orchestrator` | Prompt Library Orchestrator | `active` | `1.0.0` | `library`, `composition`, `repo-hygiene` | `mh-module-context-audit`, `mh-module-repo-architecture`, `mh-module-collaborative-guidance`, `mh-module-no-sensitive-data`, `mh-module-action-summary` | [`prompts/masters/active/prompt-library-orchestrator.md`](../prompts/masters/active/prompt-library-orchestrator.md) |
@@ -16,7 +16,7 @@ Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir. Runtime'a oze
 
 ## Modules
 
-| ID | Baslik | Durum | Surum | Etiketler | Bagimliliklar | Yol |
+| ID | Title | Status | Version | Tags | Dependencies | Path |
 | --- | --- | --- | --- | --- | --- | --- |
 | `mh-module-action-summary` | Action Summary | `active` | `1.0.0` | `output-format`, `summary`, `readability` | `-` | [`prompts/modules/output/action-summary.md`](../prompts/modules/output/action-summary.md) |
 | `mh-module-collaborative-guidance` | Collaborative Guidance | `active` | `1.0.0` | `collaboration`, `tone`, `guidance` | `-` | [`prompts/modules/tone/collaborative-guidance.md`](../prompts/modules/tone/collaborative-guidance.md) |
@@ -40,7 +40,7 @@ Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir. Runtime'a oze
 
 ## Skill Blueprints
 
-| ID | Baslik | Durum | Surum | Etiketler | Bagimliliklar | Yol |
+| ID | Title | Status | Version | Tags | Dependencies | Path |
 | --- | --- | --- | --- | --- | --- | --- |
 | `mh-blueprint-adapter-mapper` | Adapter Mapper | `stable` | `1.0.0` | `portability`, `documentation`, `workflow` | `mh-module-context-audit`, `mh-module-repo-architecture`, `mh-module-action-summary` | [`prompts/skill-blueprints/adapter-mapper.md`](../prompts/skill-blueprints/adapter-mapper.md) |
 | `mh-blueprint-apartment-investment-analyzer` | Apartment Investment Analyzer | `stable` | `1.0.0` | `real-estate`, `apartment-analysis`, `investment`, `decision-support` | `mh-master-ultimate-real-estate-market-and-valuation-strategist-core`, `mh-module-real-estate-market-data-validation`, `mh-module-real-estate-comparable-analysis`, `mh-module-real-estate-valuation-logic`, `mh-module-real-estate-risk-and-uncertainty`, `mh-module-real-estate-investment-decision-support`, `mh-module-real-estate-no-hallucination-governance`, `mh-module-action-summary` | [`prompts/skill-blueprints/apartment-investment-analyzer.md`](../prompts/skill-blueprints/apartment-investment-analyzer.md) |

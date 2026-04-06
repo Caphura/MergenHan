@@ -4,7 +4,7 @@ title: MVP Scope Reduction
 type: module
 status: active
 version: 1.0.0
-summary: Bir oyun fikrini en kucuk test edilebilir ve satilabilir versiyona indiren kapsam daraltma modulu.
+summary: Bir oyun fikrini en kucuk test edilebilir ve satilabilir versiyona indiren scope daraltma module.
 tags:
   - mvp
   - scope
@@ -14,18 +14,18 @@ depends_on: []
 last_reviewed: 2026-04-03
 input_contract: Buyuk veya daginik bir oyun fikrinin MVP seviyesine indirilmesi.
 output_contract: Must have, cut listesi, build order ve en kucuk test edilebilir versiyon.
-notes: Ozellikle solo dev kapsam patlamasini erken frenlemek icin kullanilir.
+notes: Ozellikle solo dev scope patlamasini erken frenlemek icin kullanilir.
 ---
 
 # Purpose
 
-Fikri ambisyondan arindirip cekirdek degerini koruyan en kucuk uretilir forma indirmek.
+Fikri ambisyondan arindirip core degerini koruyan en kucuk uretilir forma indirmek.
 
 # Usage Rules
 
 - Maksimum ozellik degil minimum gecerlilik hedeflenir.
 - Core loop'u guclendirmeyen her seyi sorgula.
-- Gerekirse acimasiz kapsam kesintisi oner.
+- Gerekirse acimasiz scope kesintisi oner.
 - Gec post-launch ozelliklerini MVP'ye tasima.
 
 # Module Text

@@ -1,10 +1,10 @@
 # Skill Catalog
 
-Bu katalog, `skills/` altindaki paketlenmis ve tekrar kullanilabilir hale getirilmis becerileri listeler.
+This catalog lists packaged, reusable skills under `skills/`.
 
-Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir.
+Note: This catalog is generated with `python scripts/generate_catalog.py`.
 
-| ID | Baslik | Durum | Surum | Etiketler | Kaynak Blueprint | Adapter Support | Dosyalar |
+| ID | Title | Status | Version | Tags | Source Blueprint | Adapter Support | Files |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `mh-skill-adapter-mapper` | Adapter Mapper | `stable` | `1.0.0` | `portability`, `adapters`, `mapping`, `governance` | [`prompts/skill-blueprints/adapter-mapper.md`](../prompts/skill-blueprints/adapter-mapper.md) | `claude-code`, `chatgpt`, `codex`, `generic-llm` | [`skills/adapter-mapper/SKILL.md`](../skills/adapter-mapper/SKILL.md), [`skills/adapter-mapper/meta.yaml`](../skills/adapter-mapper/meta.yaml) |
 | `mh-skill-apartment-investment-analyzer` | Apartment Investment Analyzer | `stable` | `1.0.0` | `real-estate`, `apartment-analysis`, `investment`, `decision-support` | [`prompts/skill-blueprints/apartment-investment-analyzer.md`](../prompts/skill-blueprints/apartment-investment-analyzer.md) | `claude-code`, `chatgpt`, `codex`, `generic-llm` | [`skills/apartment-investment-analyzer/SKILL.md`](../skills/apartment-investment-analyzer/SKILL.md), [`skills/apartment-investment-analyzer/meta.yaml`](../skills/apartment-investment-analyzer/meta.yaml) |

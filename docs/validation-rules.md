@@ -1,40 +1,40 @@
-# Dogrulama Kurallari
+# Validation Rules
 
-Bu belge, repo butunlugunu korumak icin uygulanacak hafif dogrulama kontrollerini tanimlar.
+This document defines the lightweight validation checks used to preserve repository integrity.
 
-## Katalog Kontrolleri
+## Catalog Checks
 
-- Kirik katalog girdileri raporlanir.
-- Katalogda listelenen dosya gercekte yoksa hata kabul edilir.
-- Repoda bulunan ama katalogda yer almayan prompt veya skill dosyalari raporlanir.
-- Katalog satirlarindaki ID ve yol uyumsuzluklari tespit edilir.
+- Broken catalog entries are reported.
+- If a file listed in a catalog does not exist, it counts as an error.
+- Prompt or skill files that exist in the repo but are missing from the catalog are reported.
+- Catalog row ID and path mismatches are detected.
 
-## Bagimlilik Kontrolleri
+## Dependency Checks
 
-- `depends_on` alanindaki her ID repoda veya ilgili katalogda cozulmelidir.
-- Kirik dependency referanslari raporlanir.
-- Ayni varlik icin cift kayit veya duplicate ID bulunursa hata kabul edilir.
-- Skill ile blueprint arasindaki `source_blueprint` baglantisi bozulmamalidir.
-- Adapter mapping notlari cekirdek dependency sahipligini degistirmez.
+- Every ID under `depends_on` must resolve in the repo or the relevant catalog.
+- Broken dependency references are reported.
+- Duplicate records or duplicate IDs are treated as errors.
+- The `source_blueprint` link between a skill and its blueprint must remain valid.
+- Adapter mapping notes do not change core dependency ownership.
 
-## Metadata Kontrolleri
+## Metadata Checks
 
-- Frontmatter veya `meta.yaml` icinde zorunlu alan eksigi raporlanir.
-- `id`, `title`, `type`, `status`, `version` gibi temel alanlar bos veya gecersiz ise sorun sayilir.
-- Paketlenmis skill klasorlerinde `SKILL.md` ve `meta.yaml` birlikte bulunmalidir.
-- `SKILL.md` icindeki `name` ve `description` frontmatter alanlari dogrulanabilir.
-- Yeni standartta kullanilan `portability`, `adapter_support`, `runtime_dependencies`, `tool_dependencies` alanlari eksikse uyari seviyesinde raporlanabilir.
-- Bu portability uyari katmani ozellikle yeni blueprints, paketlenmis skill'ler ve aktif olarak evrilen ana cekirdek varliklar icin uygulanir.
+- Missing required frontmatter or `meta.yaml` fields are reported.
+- Empty or invalid core fields such as `id`, `title`, `type`, `status`, or `version` count as problems.
+- Packaged skill folders must contain both `SKILL.md` and `meta.yaml`.
+- `name` and `description` inside `SKILL.md` frontmatter must be valid.
+- New-standard fields such as `portability`, `adapter_support`, `runtime_dependencies`, and `tool_dependencies` may be reported as warnings when missing.
+- That portability-warning layer is especially relevant for new blueprints, packaged skills, and actively evolving core assets.
 
-## Link Kontrolleri
+## Link Checks
 
-- Markdown icindeki goreli baglantilar cozulmelidir.
-- Hedef dosya veya klasor yoksa kirik link olarak isaretlenir.
-- Kataloglardan ve README'den verilen linkler ozellikle kontrol edilir.
+- Relative markdown links must resolve.
+- Missing target files or folders are marked as broken links.
+- Links provided by catalogs and the README are checked with extra care.
 
-## Kapsam
+## Scope
 
-Asgari kontrol kapsamimiz sunlardir:
+Our minimum validation scope includes:
 
 - `README.md`
 - `catalog/*.md`
@@ -44,6 +44,6 @@ Asgari kontrol kapsamimiz sunlardir:
 - `skills/**/meta.yaml`
 - `adapters/**/*.md`
 
-## Uygulama Notu
+## Implementation Note
 
-Bu kurallar agir CI veya harici paket bagimliligi gerektirmez. `scripts/validate_catalog.py`, `scripts/validate_metadata.py` ve `scripts/check_missing_links.py` bu kontrollerin hafif ve okunur uygulamalaridir.
+These rules do not require heavy CI or external packages. `scripts/validate_catalog.py`, `scripts/validate_metadata.py`, `scripts/check_missing_links.py`, and `scripts/validate_localization.py` are the lightweight, readable implementations of these checks.

@@ -1,16 +1,16 @@
 # Game Strategy Session Example
 
-Bu ornek, kullanici talebinin asil amacina gore dogru stratejik oturum kompozisyonunun nasil secilecegini gostermek icin hazirlanmistir.
+This example user talebinin asil amacina gore correct stratejik session kompozisyonunun how secilecegini gostermek icin is prepared.
 
-## Ham Istek
+## Raw Request
 
-Bu oyun fikrine acimasiz ama ticari gercekcilikle bak. Steam potansiyeli, scope, risk ve greenlight acisindan tam degerlendirme istiyorum.
+Bu oyun fikrine acimasiz ama ticari gercekcilikle bak. Steam potansiyeli, scope, risk ve greenlight acisindan tam evaluation istiyorum.
 
-## Beklenen Session Goal
+## Expected Session Goal
 
-Oyunun Steam pazari, kapsam gercekligi, production riski ve genel greenlight potansiyelini tek oturumda degerlendirmek.
+Oyunun Steam pazari, scope gercekligi, production riski ve genel greenlight potansiyelini tek oturumda degerlendirmek.
 
-## Beklenen Active Modules
+## Expected Active Modules
 
 - Core
 - Steam Market Validation
@@ -18,11 +18,11 @@ Oyunun Steam pazari, kapsam gercekligi, production riski ve genel greenlight pot
 - Production Risk Strategy
 - Full Concept Greenlight
 
-## Ornek Cevap Sekli
+## Example Response Shape
 
 ### Session Goal
 
-Oyunun Steam potansiyelini, solo-dev gercekligini, kapsam riskini ve greenlight durumunu tek stratejik oturumda degerlendirmek.
+Oyunun Steam potansiyelini, solo-dev gercekligini, scope riskini ve greenlight durumunu tek stratejik oturumda degerlendirmek.
 
 ### Active Modules
 
@@ -35,7 +35,7 @@ Oyunun Steam potansiyelini, solo-dev gercekligini, kapsam riskini ve greenlight 
 
 ### Why This Composition
 
-Kullanici yalnizca market veya yalnizca risk degil; tam stratejik bir karar istiyor. Bu nedenle tum ana analiz modullerini birlikte kullanan full composition en uygun secimdir. Talep tonu da daha acimasiz ve ticari gercekcilik odakli oldugu icin sert mod ust katmani eklenmelidir.
+Kullanici only market veya only risk degil; tam stratejik bir decision istiyor. Bu nedenle tum ana analysis modullerini birlikte kullanan full composition en uygun secimdir. Talep tonu da daha acimasiz ve ticari gercekcilik odakli oldugu icin sert mod ust katmani eklenmelidir.
 
 ### Copy-Paste Session Opening
 

@@ -4,7 +4,7 @@ title: Real Estate Investment Decision Support
 type: module
 status: active
 version: 1.0.0
-summary: Emlak arastirmasini satin alma, satma, pazarlik ve yatirim kararina ceviren modul.
+summary: Emlak arastirmasini satin alma, satma, pazarlik ve investment decisionina ceviren modul.
 tags:
   - real-estate
   - investment
@@ -12,20 +12,20 @@ tags:
   - negotiation
 depends_on: []
 last_reviewed: 2026-04-03
-input_contract: Analizi pratik satin alma, satma, bekleme veya pazarlik kararina cevirme talepleri.
-output_contract: Karar baglami, tavsiye edilen aksiyon ve pazarlik pozisyonu ozeti.
-notes: Genel yorum yerine eyleme donuk karar onerisi uretir.
+input_contract: Analizi pratik satin alma, satma, bekleme veya pazarlik decisionina cevirme requestleri.
+output_contract: Karar contexti, tavsiye edilen aksiyon ve pazarlik pozisyonu ozeti.
+notes: Genel yorum yerine eyleme donuk decision onerisi uretir.
 ---
 
 # Purpose
 
-Piyasa ve degerleme analizini kullanicinin gercek kararina donusturmek.
+Piyasa ve valuation analizini the user's gercek decisionina donusturmek.
 
 # Usage Rules
 
 - Vague tavsiye verme.
 - Analizi eyleme cevir.
-- Buy / wait / reject / investigate further gibi net karar dili kullan.
+- Buy / wait / reject / investigate further such as net decision dili kullan.
 - Pazarlik mantigini gorunur yap.
 
 # Module Text

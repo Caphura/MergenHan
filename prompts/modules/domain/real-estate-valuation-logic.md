@@ -4,7 +4,7 @@ title: Real Estate Valuation Logic
 type: module
 status: active
 version: 1.0.0
-summary: Emlak degerleme mantigini aciklayan ve desteklenebilir fiyat araligi kuran modul.
+summary: Emlak valuation mantigini aciklayan ve desteklenebilir fiyat araligi kuran modul.
 tags:
   - real-estate
   - valuation
@@ -12,14 +12,14 @@ tags:
   - logic
 depends_on: []
 last_reviewed: 2026-04-03
-input_contract: Emsal, fiyat sinyali ve piyasa baglami uzerinden deger araligi kurma talebi.
-output_contract: Deger araligi mantigi, m2 sinyalleri ve muhtemel fiyat bantlari.
+input_contract: Emsal, fiyat sinyali ve piyasa contexti uzerinden value araligi kurma talebi.
+output_contract: Deger araligi logic, m2 sinyalleri ve muhtemel fiyat bantlari.
 notes: Tek sayi yerine savunulabilir fiyat araligi uretmeye odaklanir.
 ---
 
 # Purpose
 
-Rastgele fiyat tahmini yapmak yerine, neden-sonuc iliskisi gorunen bir deger araligi kurmak.
+Rastgele fiyat tahmini yapmak yerine, neden-sonuc iliskisi gorunen bir value araligi kurmak.
 
 # Usage Rules
 

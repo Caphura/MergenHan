@@ -3,7 +3,7 @@ title: Onboarding Router
 type: skill
 status: stable
 version: 1.0.0
-summary: Repo veya prompt-library taleplerini dogru varlik tipine ya da bakim aksiyonuna yonlendiren paketlenmis onboarding becerisi.
+summary: Repo veya prompt-library requestlerini correct asset tipine ya da maintenance aksiyonuna yonlendiren paketlenmis onboarding becerisi.
 tags:
   - routing
   - workflow
@@ -20,6 +20,6 @@ adapter_support:
   generic-llm: supported
 runtime_dependencies: []
 tool_dependencies: []
-input_contract: Kullanicinin bir istegin hangi icerik tipine, klasore veya repo bakim aksiyonuna gitmesi gerektigini netlestirmek istemesi.
-output_contract: Routing Decision, Why This Route, Dependency Candidates ve Recommended Next Step bolumlerinden olusan taranabilir yonlendirme cevabi.
-notes: Bu klasorde calisma talimatlari `SKILL.md` icinde, yonetisim ve izlenebilirlik verisi bu dosyada tutulur. Davranis test paketinde `master`, `module`, `blueprint`, `packaging`, `catalog` ve `adapter mapping` ayrimlari acisindan yeterli bulunmustur.
+input_contract: Kullanicinin bir istegin hangi content tipine, klasore veya repo maintenance aksiyonuna gitmesi gerektigini netlestirmek istemesi.
+output_contract: Routing Decision, Why This Route, Dependency Candidates ve Recommended Next Step bolumlerinden olusan taranabilir guidance cevabi.
+notes: Bu klasorde working talimatlari `SKILL.md` icinde, governance ve izlenebilirlik verisi bu dosyada tutulur. Davranis test paketinde `master`, `module`, `blueprint`, `packaging`, `catalog` ve `adapter mapping` ayrimlari acisindan yeterli bulunmustur.
