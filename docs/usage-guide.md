@@ -24,9 +24,10 @@ MergenHan'daki her `SKILL.md` dosyasi, bir AI'ya "bu gorevi su adimlarla, su kur
 | Dogru aksiyona yonlendirme | `onboarding-router` |
 | Adapter esleme | `adapter-mapper` |
 | Katalog dogrulama | `catalog-validator` |
-| Ikinci el arac tarama ve analiz | `used-car-scout` |
 
 Emin degilsen `onboarding-router` ile basla; talebini dogru katmana yonlendirir.
+
+Not: `archived` durumundaki skill'ler katalogda tarihsel referans olarak kalabilir, fakat yeni kullanimlarda tercih edilmemelidir.
 
 ## Uc Adimda Kullanim
 

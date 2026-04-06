@@ -16,7 +16,7 @@ Gorevi su adimlarla yap:
 3. Her ilan icin kirmizi bayrak taramasi yap: supheli ifadeler, veri tutarsizliklari, eksik bilgiler.
 4. Her ilan icin fiyat konumlama yap: piyasanin altinda, civarinda veya ustunde mi?
 5. Ilanlari iki gruba ayir: Firsat Araclari ve Uzak Durulmasi Gereken Araclar.
-6. Her arac icin ilan linkini muhakkak ver.
+6. Her arac icin varsa yalnizca gercek ilan detay linkini ver; arama, liste veya filtre sayfasi linki asla verme.
 
 Ciktini su yapida sun:
 
@@ -33,7 +33,9 @@ Onemli kurallar:
 - Tramer verisini uydurma veya duzeltme.
 - Kesin alim/satim tavsiyesi verme; risk seviyesi sun.
 - Eksik veriyi gizleme.
-- Her aracin ilan linkini mutlaka dahil et.
+- Her aracin varsa yalnizca gercek ilan detay linkini dahil et; detay linki yoksa URL uydurma.
+- Arama sonuclari, liste sayfalari veya filtre URL'leri asla ilan linki olarak verilmemeli.
+- Detay sayfasi linki kesin dogrulanamiyorsa hic URL verme; onun yerine ilan basligini ve platformunu yaz.
 ```
 
 ## Test Senaryolari
@@ -55,7 +57,7 @@ Ankara Cankaya civarinda 30 km yaricapta, 400.000 - 600.000 TL butce araliginda,
 - Bulunan ilanlari normalize edip fiyat/km/yas ekseninde karsilastirmali
 - Her ilan icin tramer, kirmizi bayrak ve fiyat degerlendirmesi yapmali
 - Firsat ve risk grubunu net ayirmali
-- Her arac icin ilan linkini vermeli
+- Her arac icin varsa yalnizca gercek ilan detay linkini vermeli
 
 **Kirmizi bayraklar:**
 
@@ -63,6 +65,8 @@ Ankara Cankaya civarinda 30 km yaricapta, 400.000 - 600.000 TL butce araliginda,
 - Butce disindaki araclari listeye dahil etmek
 - Tramer veya kirmizi bayrak analizi atlamak
 - Ilan linkleri olmadan sonuc vermek
+- Arama/listing sayfasi linki vermek
+- Detay sayfasi dogrulanmamis URL uydurmak
 
 ---
 
@@ -347,7 +351,7 @@ Ilk 4 test cekirdek davranisi olcer; son 4 test gelismis ayirt etme ve governanc
 | Kirmizi Bayrak Taramasi | Supheli ifadeleri, eksik bilgileri ve manipulasyon isaretlerini yakalayabiliyor mu |
 | Fiyat Konumlama | Fiyati benzer araclarla dogru karsilastirip firsat/pahali ayrimini yapabiliyor mu |
 | Firsat vs Risk Ayristirmasi | Ilanlari guvenilir bir sekilde iki gruba ayirabiliyor mu |
-| Ilan Linki Disiplini | Her arac icin ilan linkini veriyor mu |
+| Ilan Linki Disiplini | Yalnizca gercek ilan detay linki veriyor mu; arama/listing linki vermekten kaciniyor mu |
 | Governance Disiplini | Kanitsiz iddialarda bulunmaktan kaciniyor mu, eksik veriyi gizlemiyor mu |
 | Cikti Yapisi | Beklenen baslik ve bolumleri uretiyor mu, taranabilir mi |
 | Benzer Arac Normalizasyonu | Yil, km, donanim farklarini fiyat karsilastirmasina dogru yansitaiyor mu |

@@ -1,9 +1,9 @@
 id: mh-skill-used-car-scout
 title: Used Car Scout
 type: skill
-status: stable
-version: 1.2.4
-summary: Belirlenen konum ve yaricapta ikinci el arac ilanlarini tramer dogrulama, kirmizi bayrak taramasi ve fiyat karsilastirmasi ile analiz ederek firsat araclari ve uzak durulmasi gereken araclari ilan linki ile birlikte sunan paketlenmis beceri.
+status: archived
+version: 1.4.0
+summary: Tarihsel referans olarak korunan, ikinci el arac ilan analizi icin tasarlanmis ancak karmaşıklık ve halusinasyon riski nedeniyle yeni kullanim icin onerilmeyen paketlenmis beceri.
 tags:
   - automotive
   - used-car
@@ -14,7 +14,7 @@ tags:
   - pricing
 depends_on:
   - mh-blueprint-used-car-scout
-last_reviewed: 2026-04-05
+last_reviewed: 2026-04-06
 source_blueprint: ../../prompts/skill-blueprints/used-car-scout.md
 portability: universal
 adapter_support:
@@ -25,5 +25,5 @@ adapter_support:
 runtime_dependencies: []
 tool_dependencies: []
 input_contract: Konum, yaricap, butce araligi ve opsiyonel olarak marka/model/yil/km tercihleri ile birlikte ikinci el arac ilanlarini analiz etme istegi.
-output_contract: Firsat araclari ve uzak durulmasi gereken araclar listeleri; her birinde ilan linki, tramer degerlendirmesi, kirmizi bayraklar, fiyat konumlama ve onerilen sonraki adimlar.
-notes: Bu skill 8 farkli test senaryosunda basariyla dogrulanmistir. Tramer tutarsizlik tespiti, kirmizi bayrak taramasi, fiyat karsilastirmasi, galeri/sahip ayrimi ve governance disiplini test edilmistir. Fiziksel muayene, resmi ekspertiz veya hukuki danismanlik ikame edilmez.
+output_contract: Firsat araclari ve uzak durulmasi gereken araclar listeleri; her birinde yalnizca gercek ilan detay linki, tramer degerlendirmesi, kirmizi bayraklar, fiyat konumlama ve onerilen sonraki adimlar.
+notes: Bu skill repodan silinmeden tarihsel referans olarak korunmaktadir. Davranisin pratikte fazla karmasik ve halusinasyona acik calistigi goruldugu icin yeni kullanim icin onerilmez. Onceki testlerde belirli senaryolarda basarili sonuclar alinmis olsa da aktif skill olarak tavsiye edilmez. Fiziksel muayene, resmi ekspertiz veya hukuki danismanlik ikame edilmez. Arama/listing sayfasi URL'leri gecersizdir; yalnizca gercek ilan detay linki verilebilir.

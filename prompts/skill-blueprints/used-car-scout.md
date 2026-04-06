@@ -2,9 +2,9 @@
 id: mh-blueprint-used-car-scout
 title: Used Car Scout
 type: blueprint
-status: stable
-version: 1.2.4
-summary: Belirlenen konum ve yaricapta ikinci el arac ilanlarini derinlemesine analiz ederek firsat araclarini ve uzak durulmasi gereken araclari ilan linki ile birlikte sunan blueprint.
+status: archived
+version: 1.4.0
+summary: Tarihsel referans olarak korunan, ikinci el arac ilan analizi icin tasarlanmis ancak karmaşıklık ve halusinasyon riski nedeniyle yeni kullanim icin onerilmeyen blueprint.
 tags:
   - automotive
   - used-car
@@ -20,7 +20,7 @@ depends_on:
   - mh-module-used-car-no-hallucination-governance
   - mh-module-collaborative-guidance
   - mh-module-action-summary
-last_reviewed: 2026-04-05
+last_reviewed: 2026-04-06
 portability: universal
 adapter_support:
   claude-code: supported
@@ -30,9 +30,13 @@ adapter_support:
 runtime_dependencies: []
 tool_dependencies: []
 input_contract: Konum, yaricap, butce araligi ve opsiyonel olarak marka/model/yil/km tercihleri ile birlikte ikinci el arac arama ve analiz istegi.
-output_contract: Firsat araclari ve uzak durulmasi gereken araclar listeleri, her birinde ilan linki, tramer degerlendirmesi, kirmizi bayraklar, fiyat konumlama ve onerilen sonraki adimlar.
-notes: Bu blueprint ikinci el arac ilanlarini analiz eder; aracin fiziksel muayenesini, resmi ekspertiz raporunu veya hukuki danismanlik hizmetini ikame etmez. Referans platformlar sahibinden.com, arabam.com, letgo ve benzeri Turkiye merkezli ikinci el arac platformlaridir.
+output_contract: Firsat araclari ve uzak durulmasi gereken araclar listeleri, her birinde yalnizca gercek ilan detay linki, tramer degerlendirmesi, kirmizi bayraklar, fiyat konumlama ve onerilen sonraki adimlar.
+notes: Bu blueprint repodan silinmeden tarihsel referans olarak korunmaktadir. Davranisin pratikte fazla karmasik ve halusinasyona acik oldugu goruldugu icin yeni kullanim icin onerilmez. Referans platformlar sahibinden.com, arabam.com, letgo ve benzeri Turkiye merkezli ikinci el arac platformlaridir. Arama/listing sayfasi URL'leri gecersizdir; yalnizca gercek ilan detay sayfasi linki verilmelidir.
 ---
+
+# Archived Note
+
+Bu blueprint tarihsel referans olarak korunur. Yeni kullanimlarda tercih edilmemelidir; davranisin karmasikligi ve halusinasyon riski nedeniyle rafa kaldirilmistir.
 
 # Responsibility
 
@@ -58,6 +62,13 @@ Belirlenen konum ve yaricap icinde ikinci el arac ilanlarini sistematik ve kanit
 2. Ilan kaynagini belirle. Iki mod vardir:
    - Kullanici ilan verisi sagliyor: kullanici URL, ekran goruntusu, kopyalanmis ilan metni veya ilan listesi paylasiyorsa dogrudan bunlarla calis.
    - AI web taramasi yapiyor: eger calisma ortami gercek web erisimi sagliyorsa (browsing araci, web search vb.) sahibinden.com, arabam.com, letgo gibi platformlarda gercek ilanlari tara. Gercek web erisimi yoksa kullanicidan ilan linkleri veya ilan verileri istemeli; asla sahte veya tahmini URL uretmemelidir.
+
+   Dogrudan ilan linki kurali: ciktida verilen her URL, o ilanin gercek detay sayfasina acmalidir. Arama sonuc sayfasi, liste sayfasi, filtre sayfasi veya kategori sayfasi URL'leri kesinlikle verilmemelidir. Platform URL yapilari standarttir ve JavaScript ile gizlenmez:
+   - sahibinden.com: https://www.sahibinden.com/ilan/[kategori-slug]/[ilan-basligi-slug]/[ilan-id]
+   - arabam.com: https://www.arabam.com/ilan/[tur]/[ilan-basligi-slug]/[ilan-id]
+   - letgo: https://www.letgo.com/item/[ilan-basligi-slug]-iid-[ilan-id]
+   "JavaScript sitesi oldugu icin URL alinamadi" gecerli bir mazeret degildir. Ilan ID'si arama sonuclarinda her zaman gorunur.
+   Ancak keskin cizgi sudur: sadece gercek ilan detay sayfasi linki ver. Elindeki URL'nin arama/listing sayfasi oldugundan supheleniyorsan veya detay sayfasi oldugunu dogrulayamiyorsan, o URL'yi hic verme. Onun yerine ilan basligini, platformunu ve varsa ilan numarasini yaz.
    Referans platformlar: sahibinden.com, arabam.com, letgo ve benzeri Turkiye merkezli ikinci el arac platformlari.
 
    Tarama cesitliligi kurali: her platformda farkli marka/model kombinasyonlariyla arama yap. Marka-bagimsiz filtrelerle basla; sonra ilgi cekici ilanlari marka bazinda derinlestir. Tek bir markanin sonuclarina takilip kalmak tarama hatasidir.
@@ -73,7 +84,7 @@ Belirlenen konum ve yaricap icinde ikinci el arac ilanlarini sistematik ve kanit
    - boyali/degisen parca bilgisi
    - sahip sayisi
    - ilan tarihi ve guncelleme gecmisi
-   - ilan linki (kullanici verdiyse veya gercek tarama ile bulunduysa)
+   - ilan linki (yalnizca kullanici verdiyse veya gercek tarama ile dogrulanmis detay sayfasi bulunduysa)
    - ilan aciklama metni
 
    Eksik veri kurtarma kurali: ilan platformlari (ozellikle arabam.com, sahibinden.com) fiyat, tramer ve detay bilgilerini JavaScript ile dinamik yukler. Arama sonuc sayfasinda fiyat veya diger kritik alanlar gorunmuyorsa:
@@ -88,6 +99,12 @@ Belirlenen konum ve yaricap icinde ikinci el arac ilanlarini sistematik ve kanit
    - "Tramersiz" iddialarinin makullugunu degerlendir
    - Boyali/degisen parca ile tramer arasindaki uyumsuzluklari isaretle
    - Yanlis veya eksik girilmis olabilecek tramer verilerini tespit et
+
+   Eksper/hasar raporu gorseli kurali: ilan detay sayfasindaki eksper raporu gorseli veya hasar diagramini mutlaka kontrol et. Bu gorsel aracin hangi parcalarinin boyali, degisen veya hasarli oldugunu renkli sema ile belirtir. Sonra su capraz kontrolu yap:
+   - Eksper gorselindeki boyali/degisen parcalar ile ilan aciklamasindaki beyanlar tutarli mi?
+   - Eksper gorselindeki hasar isaretleri ile belirtilen tramer tutari oranlali mi?
+   - Aciklamada "hatasiz, boyasiz" deniyorken eksper gorselinde boyali/degisen parca var mi?
+   - Eksper gorseli yoksa veya gorulemiyorsa bunu "eksper gorseli bulunamadi veya gorulemedi" olarak belirt.
 
 5. Kirmizi bayrak taramasini calistir (mh-module-used-car-listing-red-flags):
    - Aciklama dilindeki supheli ifadeleri tara
@@ -106,7 +123,7 @@ Belirlenen konum ve yaricap icinde ikinci el arac ilanlarini sistematik ve kanit
    - Firsat Araclari: dusuk fiyat + temiz tramer + az kirmizi bayrak kombinasyonu
    - Uzak Durulmasi Gereken Araclar: yuksek risk + tramer tutarsizligi + ciddi kirmizi bayraklar
 
-8. Her arac icin karar destekleyici ozet olustur: ilan linki, fiyat konumlama, tramer degerlendirmesi, kirmizi bayrak ozeti, genel risk seviyesi ve onerilen sonraki adim.
+8. Her arac icin karar destekleyici ozet olustur: varsa yalnizca gercek ilan detay linki, fiyat konumlama, tramer degerlendirmesi, kirmizi bayrak ozeti, genel risk seviyesi ve onerilen sonraki adim.
 
 9. Governance katmanini (mh-module-used-car-no-hallucination-governance) tum cikti boyunca uygula: kanit ile varsayimi ayir, eksik veriyi gizleme, garanti ifade kullanma.
 
@@ -118,8 +135,8 @@ Sonucu mumkun oldugunca su yapida topla:
 
 - Search Summary: konum, yaricap, kriterler ve taranan platform ozeti
 - Market Snapshot: bulunan toplam ilan sayisi, fiyat araligi, ortalama km ve genel piyasa gorunumu
-- Opportunity Vehicles: firsat araclari listesi (her birinde ilan linki, fiyat konumlama, tramer degerlendirmesi, guc sinyalleri)
-- Vehicles to Avoid: uzak durulmasi gereken araclar listesi (her birinde ilan linki, tramer degerlendirmesi, tespit edilen riskler, kirmizi bayraklar)
+- Opportunity Vehicles: firsat araclari listesi (her birinde varsa yalnizca gercek ilan detay linki, fiyat konumlama, tramer degerlendirmesi, guc sinyalleri)
+- Vehicles to Avoid: uzak durulmasi gereken araclar listesi (her birinde varsa yalnizca gercek ilan detay linki, tramer degerlendirmesi, tespit edilen riskler, kirmizi bayraklar)
 
 Her ilan icin tramer degerlendirmesi zorunludur: tramer tutari, boyali/degisen parca bilgisi, aciklama ile tutarliligi ve guvenilirlik yorumu ayri bir alan olarak yer almali. Tramer bilgisi belirtilmemisse acikca "tramer bilgisi ilanda belirtilmemis — bagimsiz sorgu onerilir" yazilmali.
 - Tramer Consistency Overview: genel tramer guvenilirlik tablosu
@@ -130,7 +147,9 @@ Her bolumde:
 - kanit ile varsayimi ayir
 - belirsizligi acikca etiketle
 - kesin alim/satim tavsiyesi verme; risk seviyesi sun
-- ilan linki yalnizca kullanicinin verdigi veya gercek web taramasi ile bulunan URL'lerden alinmali; sahte, tahmini veya uydurma URL uretilmemeli; gercek link yoksa ilan basligini ve platformunu belirtmek yeterlidir
+- ilan linki yalnizca kullanicinin verdigi veya gercek web taramasi ile dogrulanmis gercek detay sayfasi URL'lerinden alinmali; sahte, tahmini veya uydurma URL uretilmemeli
+- arama sonuc sayfasi, liste sayfasi, filtre sayfasi veya kategori sayfasi linki asla verilmemeli
+- detay sayfasi linki kesin olarak dogrulanamiyorsa hic URL verme; bunun yerine ilan basligini, platformunu ve varsa ilan numarasini belirt
 
 # Promotion Criteria
 
