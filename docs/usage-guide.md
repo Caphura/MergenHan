@@ -1,6 +1,6 @@
-# Usage Guide
+# How to Use MergenHan on Any AI
 
-This document explains step by step how to use skills, master prompts, and modules from the MergenHan library in any AI environment.
+This document explains step by step how to use skills, master prompts, blueprints, and modules from the MergenHan library in any AI environment.
 
 ## Language and Source Note
 
@@ -10,7 +10,67 @@ This document explains step by step how to use skills, master prompts, and modul
 
 ## Core Idea
 
-Every `SKILL.md` file in MergenHan is a ready-made instruction set that tells an AI: "do this task in these steps and under these rules." No matter which AI you use, the same core instruction can be reused; only the way you place it changes.
+MergenHan separates portable core content from runtime-specific adapter notes.
+
+The usual flow is:
+
+1. Choose the smallest correct core asset.
+2. Give that core asset to the AI.
+3. Add your task, inputs, and constraints.
+4. Keep runtime-specific behavior in the adapter layer, not inside the core asset.
+
+## Start With the Right Asset
+
+| If you need | Use | Why |
+| --- | --- | --- |
+| A repeatable bounded task | `skills/` | Already packaged for direct reuse |
+| A broader orchestrated workflow | `prompts/masters/` | Combines multiple modules for one task family |
+| A pre-packaging workflow draft | `prompts/skill-blueprints/` | Useful when no packaged skill exists yet |
+| A reusable behavior fragment | `prompts/modules/` | Best for composing or extending other assets |
+
+If you are unsure, start with `onboarding-router`.
+
+## Universal Workflow
+
+1. Find the closest asset in `catalog/skills.md` or under `prompts/`.
+2. Give the AI the core source:
+   - repo-aware AI: reference the file path
+   - instruction-based AI: paste the asset content into instructions
+   - plain chat AI: paste only the minimum relevant asset into the chat
+3. Add your task, source material, and constraints.
+4. Add optional context only when it helps:
+   - skill: `meta.yaml`
+   - master: `depends_on` and `Assembly Map`
+   - blueprint: input/output contract and notes
+5. Tell the AI to follow the workflow in order and report missing inputs instead of inventing them.
+6. If the runtime needs special commands, tools, or permissions, use the relevant adapter notes under `adapters/`.
+
+## Fastest Copy-Paste Template
+
+Use this when the AI cannot read repository files directly:
+
+```md
+You are using the MergenHan library.
+
+Core source:
+- skills/resume-composer/SKILL.md
+
+Optional context:
+- skills/resume-composer/meta.yaml
+
+Task:
+- Draft an ATS-friendly resume from the notes below.
+
+Rules:
+- Follow the core workflow in order.
+- Keep runtime-specific assumptions out of the core skill.
+- If information is missing, say so instead of inventing it.
+
+Expected output:
+- Candidate Summary
+- Resume Draft
+- Weak Spots / Missing Inputs
+```
 
 ## Which Skill Fits My Need?
 
@@ -34,17 +94,6 @@ Check `catalog/skills.md`. Current packaged skills include:
 If you are unsure, start with `onboarding-router`.
 
 Note: Skills marked `archived` may remain in the catalog as historical references, but they should not be preferred for new use.
-
-## Use It in Three Steps
-
-1. Find the skill you need under `catalog/skills.md`.
-2. Copy the content of `skills/<skill-name>/SKILL.md`.
-3. Paste it into your AI environment and give your task.
-
-Every skill package carries at least two files:
-
-- `SKILL.md`: the core working instruction
-- `meta.yaml`: dependency, version, and source-blueprint context
 
 ## Pasting by Platform
 
@@ -112,6 +161,44 @@ This is the lowest-common-denominator route. It assumes no special tools, hooks,
 
 See [`adapters/generic-llm/minimal-usage-example.md`](../adapters/generic-llm/minimal-usage-example.md) for more detail.
 
+## Using Master Prompts
+
+Master prompts are orchestration files that combine multiple modules. Unlike skills, they are for broader task flows.
+
+For example, to organize the prompt library itself:
+
+```text
+prompts/masters/active/prompt-library-orchestrator.md
+```
+
+Usage: paste the master prompt into the AI. The behavior of its modules is already documented through the `Assembly Map` inside the prompt.
+
+## Using Blueprints
+
+Blueprints are stabilized pre-packaging drafts. Use them when no packaged skill exists yet, but expect them to evolve faster than packaged skills.
+
+When using a blueprint:
+
+1. Paste the blueprint itself first.
+2. Keep its `depends_on`, contracts, and notes visible if they affect the task.
+3. Do not treat it as a fully frozen package unless it has been promoted into `skills/`.
+
+## Using Modules
+
+Modules are reusable support fragments. They are usually not pasted alone unless you are composing a new master prompt or adapting an existing workflow.
+
+Typical module roles include:
+
+- capability behavior
+- domain knowledge
+- tone guidance
+- constraints
+- output formatting
+
+## Session Composer Difference
+
+Skills such as `game-strategy-session-composer` and `real-estate-valuation-session-composer` do not perform the full analysis themselves. They first select the correct analysis session and then generate a copy-paste opening message for another AI session.
+
 ## Example Scenario: Writing a Resume
 
 1. Open `skills/resume-composer/SKILL.md` and copy it.
@@ -145,22 +232,6 @@ Expected output shape:
 3. The skill asks 2-4 clarifying questions.
 4. It then produces a directly copyable Nano Banana prompt.
 
-## Using Master Prompts
-
-Master prompts are orchestration files that combine multiple modules. Unlike skills, they are for broader task flows.
-
-For example, to organize the prompt library itself:
-
-```text
-prompts/masters/active/prompt-library-orchestrator.md
-```
-
-Usage: paste the master prompt into the AI. The behavior of its modules is already documented through the `Assembly Map` inside the prompt.
-
-## Session Composer Difference
-
-Skills such as `game-strategy-session-composer` and `real-estate-valuation-session-composer` do not perform the full analysis themselves. They first select the correct analysis session and then generate a copy-paste opening message for another AI session.
-
 ## Core Rules
 
 - Keep runtime-specific syntax out of the core layer; put provider-specific notes under `adapters/`.
@@ -170,7 +241,7 @@ Skills such as `game-strategy-session-composer` and `real-estate-valuation-sessi
 
 ## Advanced: Adding New Content
 
-This guide focuses on using existing skills. If you want to add new prompts, modules, or skills:
+This guide focuses on using existing library assets. If you want to add new prompts, modules, or skills:
 
 - Quick start: the "30-Second Start" section in the README
 - Detailed rules: [`docs/conventions.md`](conventions.md)
