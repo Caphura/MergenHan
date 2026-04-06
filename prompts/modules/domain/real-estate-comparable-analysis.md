@@ -12,14 +12,14 @@ tags:
   - analysis
 depends_on: []
 last_reviewed: 2026-04-03
-input_contract: Konu gayrimenkul veya piyasa hedefi icin emsal uygunlugu analizi.
-output_contract: Guclu, kabul edilebilir, zayif ve reddedilen emsal gruplari ile secim mantigi.
+input_contract: Konu gayrimenkul veya piyasa hedefi icin emsal uygunlugu analysis.
+output_contract: Guclu, kabul edilebilir, zayif ve reddedilen emsal gruplari ile secim logic.
 notes: Emsal sayisindan cok emsal kalitesine oncelik verir.
 ---
 
 # Purpose
 
-En cok sayida ilani toplamak degil, en anlamli ve en savunulabilir emsalleri secmek.
+En cok sayida listingi toplamak degil, en anlamli ve en savunulabilir emsalleri secmek.
 
 # Usage Rules
 

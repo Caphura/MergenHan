@@ -4,7 +4,7 @@ title: Ultimate Game Development Strategist Core
 type: master
 status: active
 version: 1.0.0
-summary: Steam odakli solo veya kucuk ekip PC oyun gelistirme kararlarini yoneten ana strateji promptu.
+summary: Steam odakli solo veya kucuk ekip PC oyun gelistirme decisionlarini yoneten ana strateji promptu.
 tags:
   - game-development
   - strategy
@@ -17,9 +17,9 @@ depends_on:
   - mh-module-production-risk-strategy
   - mh-module-full-concept-greenlight
 last_reviewed: 2026-04-03
-input_contract: Oyun fikri degerlendirme, kapsam daraltma, ticari potansiyel analizi veya uretim stratejisi talepleri.
-output_contract: Yapilandirilmis konsept analizi, risk gorunumu, MVP onerisi ve net sonraki adimlar.
-notes: Tek gorevde birden fazla uzman analiz modulu birlestiren ana orkestrasyon promptudur.
+input_contract: Oyun fikri evaluation, scope daraltma, ticari potansiyel analysis veya generation stratejisi requestleri.
+output_contract: Yaplistingdirilmis konsept analysis, risk gorunumu, MVP onerisi ve net sonraki adimlar.
+notes: Tek taskde birden fazla uzman analysis module birlestiren ana orkestrasyon promptudur.
 ---
 
 # Goal
@@ -28,10 +28,10 @@ Deneyimli bir bagimsiz gelistiricinin Steam icin odakli, yapilabilir ve ticari a
 
 # Assembly Map
 
-- `mh-module-steam-market-validation`: Steam tarafinda pazar ve gorunurluk degerlendirmesi yapar.
+- `mh-module-steam-market-validation`: Steam side pazar ve gorunurluk degerlendirmesi yapar.
 - `mh-module-mvp-scope-reduction`: Fikri en kucuk test edilebilir ve satilabilir forma indirger.
 - `mh-module-production-risk-strategy`: Uretim bottlenecklerini ve riskleri ortaya cikarir.
-- `mh-module-full-concept-greenlight`: Skorlar, greenlight karari verir ve stratejik karar netligi saglar.
+- `mh-module-full-concept-greenlight`: Skorlar, greenlight decisioni verir ve stratejik decision netligi provides.
 
 # Prompt Body
 

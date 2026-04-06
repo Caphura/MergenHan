@@ -3,7 +3,7 @@ title: Nano Banana Image Prompt Composer
 type: skill
 status: stable
 version: 1.0.0
-summary: Yari tanimli gorsel fikirleri kisa soru akisiyla netlestirip Nano Banana icin kopyalanabilir nihai prompta donusturen paketlenmis beceri.
+summary: Yari tanimli visual fikirleri short soru akisiyla netlestirip Nano Banana icin kopyalanabilir nihai prompta donusturen paketlenmis beceri.
 tags:
   - image-generation
   - prompt-composition
@@ -22,6 +22,6 @@ adapter_support:
   generic-llm: supported
 runtime_dependencies: []
 tool_dependencies: []
-input_contract: Kullanici yari tanimli bir gorsel fikir verir ve bunu Nano Banana icin temiz, uygulanabilir ve kopyalanabilir bir image prompta donusturmek ister.
-output_contract: Kisa yonlendirici soru turleri, netlestirilmis sahne ozeti, tek parca nihai Nano Banana promptu ve gerekiyorsa ince ayar varyasyonlari.
-notes: Bu klasorde calisma talimatlari `SKILL.md` icinde, yonetisim ve izlenebilirlik verisi bu dosyada tutulur. Davranis Gemini ve ChatGPT kullanimlarinda metin cikti olarak dogrulanmistir.
+input_contract: Kullanici yari tanimli bir visual fikir verir ve bunu Nano Banana icin temiz, uygulanabilir ve kopyalanabilir bir image prompta donusturmek ister.
+output_contract: Short yonlendirici soru types, netlestirilmis sahne ozeti, tek parca nihai Nano Banana promptu ve gerekiyorsa ince ayar varyasyonlari.
+notes: Bu klasorde working talimatlari `SKILL.md` icinde, governance ve izlenebilirlik verisi bu dosyada tutulur. Davranis Gemini ve ChatGPT usagelarinda metin output olarak dogrulanmistir.

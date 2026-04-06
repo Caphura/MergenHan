@@ -1,10 +1,10 @@
-﻿---
+---
 id: mh-blueprint-your-slug
 title: Your Skill Blueprint Title
 type: blueprint
 status: draft
 version: 0.1.0
-summary: Paketlenmeden once stabilize edilen skill davranisinin ozeti.
+summary: Summary of the skill behavior stabilized before packaging.
 tags:
   - packaging
   - workflow
@@ -12,7 +12,7 @@ depends_on: []
 last_reviewed: 2026-04-03
 ---
 
-Opsiyonel metadata alanlari gerektikce eklenebilir:
+Add optional metadata fields when needed:
 
 - `input_contract`
 - `output_contract`
@@ -24,21 +24,21 @@ Opsiyonel metadata alanlari gerektikce eklenebilir:
 
 # Responsibility
 
-Bu blueprint'in ustlendigi ana sorumlulugu yazin.
+Write the main responsibility this blueprint takes on.
 
 # Trigger Signals
 
-- Kullanici nasil bir talep ettiginde bu davranis gereklidir?
-- Hangi sinyaller paketlemeye deger oldugunu gosterir?
+- What kind of user request makes this behavior necessary?
+- Which signals show that it is worth packaging?
 
 # Workflow
 
-1. Calisma sirasini yazin.
-2. Gereken baglam kaynaklarini listeleyin.
-3. Olasi ciktilari netlestirin.
+1. Write the working order.
+2. List the context sources you need.
+3. Clarify the likely outputs.
 
 # Promotion Criteria
 
-- Ne zaman `skills/` altina tasinmali?
-- Hangi yardimci klasorler gerekecek?
-- Hangi adapterlerde nasil temsil edilecegi cekirdek davranisi bozmadan aciklanabiliyor mu?
+- When should it move into `skills/`?
+- Which helper folders will be needed?
+- Can its representation in adapters be explained without breaking core behavior?

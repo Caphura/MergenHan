@@ -1,76 +1,76 @@
-# Adapter Modeli
+# Adapter Model
 
-MergenHan AI-agnostik bir prompt ve skill kutuphanesidir. Bu repoda cekirdek icerik tek bir saglayiciya, tek bir runtime'a veya tek bir arac ailesine kilitlenmez.
+MergenHan is an AI-agnostic prompt and skill library. Core content in this repository is not locked to one provider, one runtime, or one tool family.
 
-## Uc Katmanli Model
+## Three-Layer Model
 
-| Katman | Icerik | Neden Ayridir? |
+| Layer | Content | Why It Is Separate |
 | --- | --- | --- |
-| `core` | Promptlar, moduller, masters, blueprints, skills, kataloglar, sablonlar ve temel belgeler | En uzun omurlu bilgi burada yasar ve tasinabilir kalir |
-| `adapter` | Claude Code, ChatGPT, Codex veya generic LLM icin runtime eslemeleri | Her ortam farkli komut, arac, izin ve otomasyon modeline sahiptir |
-| `validation` | Hafif kontrol scriptleri ve dogrulama kurallari | Bakim kalitesini artirir ama cekirdek icerigin anlamsal sahibi degildir |
+| `core` | Prompts, modules, masters, blueprints, skills, catalogs, templates, and core documentation | The longest-lived knowledge lives here and stays portable |
+| `adapter` | Runtime mappings for Claude Code, ChatGPT, Codex, or generic LLM usage | Each environment has a different command, tool, permission, and automation model |
+| `validation` | Lightweight scripts and validation rules | Improves maintenance quality without owning the meaning of the core content |
 
-## Cekirdek Icerik Nedir?
+## What Counts as Core Content?
 
-Cekirdek icerik su ilkeyle yazilir:
+Core content is written with these principles:
 
-- Tek bir provider syntax'ina baglanmaz
-- Ayni skill'in birden fazla adapter tarafindan temsil edilmesine izin verir
-- Tasinabilir gorev mantigini ve bagimlilik zincirini saklar
-- Insan tarafindan okunur ve elle bakima uygundur
+- It is not tied to one provider syntax.
+- It allows the same skill to be represented by multiple adapters.
+- It preserves portable task logic and the dependency chain.
+- It stays readable and easy to maintain by hand.
 
-Cekirdek icerigin icinde bulunmamasi gereken seyler:
+Things that should not live inside core content:
 
-- Sadece bir runtime'da gecerli slash command kaliplari
-- Tool cagirimi icin platforma ozel komut soz dizimleri
-- Hook, permission, agent wiring ve benzeri calistirma ortami detaylari
-- Platforma ozel ayar dosyasi semantikleri
+- Slash-command patterns valid only in one runtime
+- Platform-specific tool-call syntax
+- Hooks, permission rules, agent wiring, or similar execution-environment details
+- Platform-specific settings semantics
 
-## Adapter Katmani Ne Yapar?
+## What Does the Adapter Layer Do?
 
-Adapter katmani, cekirdek prompt veya skill'i belirli bir runtime'a nasil tasiyacagimizi aciklar.
+The adapter layer explains how a core prompt or skill should be carried into a specific runtime.
 
-Ornek sorumluluklar:
+Typical responsibilities include:
 
-- Claude Code icin slash command, settings, hooks ve permission yaklasimi
-- ChatGPT icin project instruction, custom GPT ve manual prompt injection yaklasimi
-- Codex icin repo gorev paketi, arac beklentisi ve yurutme notlari
-- Generic LLM icin yalnizca minimum tasinabilir kullanim sekli
+- Claude Code slash-command, settings, hooks, and permission conventions
+- ChatGPT project-instructions, custom-GPT, or manual prompt-injection packaging
+- Codex task packets, tool expectations, and execution notes
+- Minimal usage for generic LLM environments
 
-Bu detaylar cekirdege yazilmaz; ilgili adapter altinda belgelenir.
+These details do not belong in the core layer; they are documented under the relevant adapter.
 
-## Ayni Skill Birden Fazla Adapter ile Eslenebilir
+## One Skill Can Map to Multiple Adapters
 
-Bir skill paketinin tek bir runtime karsiligi olmak zorunda degildir. Aksine, beklenen model sudur:
+A packaged skill does not need to have exactly one runtime representation. The expected model is:
 
-- cekirdekte bir adet ana skill tanimi bulunur
-- bu skill icin bir veya daha fazla adapter mapping'i yazilir
-- adapterler cekirdek davranisi degistirmez, sadece calistirma bicimini cevirir
+- one core skill definition in the core layer
+- one or more adapter mappings for that skill
+- adapters that translate execution style without changing core behavior
 
-## Yeni Bir Adapter Eklerken
+## Adding a New Adapter
 
-Yeni bir runtime eklemek istediginizde asgari iskelet sunlardir:
+When you add a new runtime, the minimum skeleton is:
 
 - `adapters/<runtime>/README.md`
 - `adapters/<runtime>/mapping.md`
-- gerekiyorsa kompakt kullanim ornekleri veya istege bagli ayar ornekleri
+- compact examples or optional settings files when useful
 
-Bu iskelet cekirdek sahipligi degistirmez; sadece yeni runtime'a gecis katmani ekler.
+This does not change ownership of the core content. It only adds a new runtime transition layer.
 
-## Validation Katmani Neden Ayridir?
+## Why Is Validation Separate?
 
-Validation katmani zorunlu bir runtime degildir. Amaci:
+The validation layer is not a runtime. Its job is to:
 
-- katalogdaki kirik referanslari tespit etmek
-- metadata eksiklerini gormek
-- duplicate ID veya bozuk goreli link gibi bakim sorunlarini yakalamak
+- detect broken references in catalogs
+- reveal missing metadata
+- catch maintenance issues such as duplicate IDs or broken relative links
 
-Bu katman cekirdek icerigin yerini almaz; yalnizca repo disiplinini destekler.
+Validation supports repository discipline, but it does not replace the core content itself.
 
-## Temel Kurallar
+## Core Rules
 
-- MergenHan AI-agnostiktir.
-- Cekirdek icerik Claude Code veya baska tek bir provider'a kilitlenmez.
-- Runtime'a ozel komutlar, hook'lar, permission kurallari ve tool convention'lari adapter katmanina aittir.
-- Ayni skill birden fazla adapter mapping'ine sahip olabilir.
-- Adapter mapping'i cekirdek bagimlilik sahipligini degistirmez; adapterler cekirdek ID ve dependency zincirini referans alir.
+- MergenHan is AI-agnostic.
+- Core content must not be locked to Claude Code or any other single provider.
+- Runtime-specific commands, hooks, permission rules, and tool conventions belong to the adapter layer.
+- One skill may have multiple adapter mappings.
+- Adapter mappings do not change core dependency ownership; they reference core IDs and dependency chains.

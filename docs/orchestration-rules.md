@@ -1,56 +1,56 @@
-﻿# Orkestrasyon Kurallari
+# Orchestration Rules
 
-Bu belge, MergenHan icindeki cekirdek varlik tiplerinin birbiriyle nasil iliski kuracagini ve repo genelinde nasil evrilecegini tanimlar.
+This document defines how core asset types inside MergenHan relate to one another and how they evolve across the repository.
 
-## Genel Ilkeler
+## General Principles
 
-- Cekirdek icerik okunur, tasinabilir ve bagimliliklari acik olacak sekilde yazilir.
-- Ayni davranis tekrar ettiginde once `module` adayligi dusunulur.
-- Runtime'a ozel davranis cekirdekte gizlenmez; adapter katmanina tasinir.
-- Terfi, katalog ve bagimlilik kayitlari guncellenmeden tamamlanmis sayilmaz.
+- Core content should stay readable, portable, and explicit about its dependencies.
+- When behavior starts repeating, consider a `module` first.
+- Runtime-specific behavior must not be hidden inside the core layer; move it to adapters.
+- A promotion is not complete until catalogs and dependency records are updated.
 
-## Master Kurallari
+## Master Rules
 
-- `master` bir gorev ailesi icin birden fazla modulun acik bicimde birlestirilmis surumudur.
-- Master'lar `Assembly Map` veya benzeri bir bolumle hangi bagimliliklari neden kullandigini gostermelidir.
-- Master icinde yer alan davranis tekrar kullanilabilir hale geldiyse ayri bir module cikarilmalidir.
+- A `master` is an explicit composition of multiple modules for one task family.
+- Masters should use an `Assembly Map` or a similar section to show which dependencies they use and why.
+- If behavior inside a master becomes reusable, extract it into a separate module.
 
-## Module Kurallari
+## Module Rules
 
-- Moduller tekrar kullanilabilir destek birimleridir.
-- Tek sorumluluk ilkesine yakin tutulurlar.
-- Modul bir gorevin tamamini degil, goreve tasinabilir destek parcasi olusturur.
-- Moduller bagimsiz kalabildigi surece baska modullere zorunlu baglanmamaya oncelik verir.
+- Modules are reusable support units.
+- They should stay close to the single-responsibility principle.
+- A module does not represent a full task; it provides a reusable support fragment for tasks.
+- As long as they can remain independent, modules should avoid unnecessary mandatory links to other modules.
 
-## Blueprint Kurallari
+## Blueprint Rules
 
-- Blueprint, paketleme oncesi stabilize edilen skill taslagidir.
-- Her blueprint `depends_on` alaninda bagimliliklarini acikca beyan etmelidir.
-- Blueprint paketlenmeye aday olsa bile runtime'a ozel syntax icermez.
-- Promotion kriterleri belgenin icinde veya ilgili paket spec'inde izlenebilir olmalidir.
+- A blueprint is a stabilized pre-packaging skill draft.
+- Every blueprint must declare its dependencies explicitly through `depends_on`.
+- Even when a blueprint is ready for packaging, it should not contain runtime-specific syntax.
+- Promotion criteria should remain traceable inside the document or the relevant packaging spec.
 
-## Skill Kurallari
+## Skill Rules
 
-- Skill paketleri, blueprint kokenini kaybetmeden `skills/` altina terfi eder.
-- Skill'ler bagimlilik zincirini gizlememelidir; `meta.yaml` veya katalog kayitlari bunu gostermelidir.
-- Provider-specific davranis cekirdek skill taniminda degil adapter mapping'lerinde tutulur.
-- Bir skill birden fazla adapter tarafindan desteklenebilir.
+- Skill packages are promoted into `skills/` without losing blueprint lineage.
+- Skills must not hide the dependency chain; `meta.yaml` or catalog records should show it.
+- Provider-specific behavior belongs in adapter mappings, not the core skill definition.
+- One skill can be supported by multiple adapters.
 
-## Catalog Kurallari
+## Catalog Rules
 
-- Yeni veya tasinan her varlik ilgili katalogda izlenebilir olmalidir.
-- Promosyonlar `catalog/prompts.md`, `catalog/skills.md` ve gerekirse `catalog/dependencies.md` kayitlarini gunceller.
-- `catalog/taxonomy.md` yeni etiket ihtiyaclarini kontrollu bicimde sabitler.
-- Kataloglar yapinin sahibi degil, indeksidir; gercek kaynak dosya repodaki varligin kendisidir.
+- Every new or moved asset should remain traceable in the relevant catalog.
+- Promotions update `catalog/prompts.md`, `catalog/skills.md`, and when needed `catalog/dependencies.md`.
+- `catalog/taxonomy.md` controls new tag needs in a deliberate way.
+- Catalogs are indexes, not owners; the real source of truth is the repository asset itself.
 
-## Arsiv Kurallari
+## Archive Rules
 
-- Arsivlenen icerik silinmez; bulunabilir kalir.
-- Arsiv kayitlari kataloglardan tamamen dusurulmez, durumu acik bicimde korunur.
-- Yeni varyant eski icerigi ikame ediyorsa bu iliski notlarda veya katalogda gorunur olmalidir.
+- Archived content is not deleted; it remains discoverable.
+- Archived entries are not fully removed from catalogs; their status stays visible.
+- If a new variant supersedes older content, that relationship should remain visible in notes or catalogs.
 
-## Adapter Iliskisi
+## Adapter Relationship
 
-- Adapter mapping'i bir yasam dongusu asamasi degildir.
-- Adapter, var olan cekirdek icerigin runtime uyumluluk katmanidir.
-- Ayni cekirdek varlik farkli adapterlerde farkli calistirma notlariyla temsil edilebilir; buna ragmen kimlik, amac ve bagimlilik zinciri cekirdekten alinmaya devam eder.
+- Adapter mapping is not a lifecycle stage.
+- An adapter is the runtime compatibility layer for existing core content.
+- The same core asset may appear in multiple adapters with different execution notes, but identity, purpose, and dependency chain continue to come from the core layer.

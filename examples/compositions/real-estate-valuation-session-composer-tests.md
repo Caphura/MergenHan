@@ -1,130 +1,130 @@
 # Real Estate Valuation Session Composer Test Pack
 
-Bu belge, `Real Estate Valuation Session Composer` icin farkli AI ortamlarda uygulanabilecek test senaryolarini toplar. Amaç, modelin yalnizca emlak yorumu yapmasini degil; kullanicinin asil analiz amacini anlayip dogru oturum kompozisyonunu secmesini test etmektir.
+This document `Real Estate Valuation Session Composer` icin different AI ortamlarda uygulanabilecek test senaryolarini toplar. Amaç, modelin only real-estate yorumu yapmasini degil; the user's asil analysis amacini anlayip correct session kompozisyonunu secmesini test etmektir.
 
-## Kullanim Sekli
+## Usage
 
 Her testten once asagidaki acilis talimatini kullan:
 
 ```text
-Asagidaki emlak arastirmasi istegini degerlendir. Ama dogrudan uzun analiz yapma. Once kullanicinin asil amacini belirle, sonra uygun oturum kompozisyonunu sec ve sonucu su yapida ver:
+Asagidaki real-estate arastirmasi istegini degerlendir. Goal directly uzun analysis yapma. Once the user's asil amacini belirle, sonra uygun session kompozisyonunu sec ve sonucu su yapida ver:
 
 1. Session Goal
 2. Active Modules
 3. Why This Composition
 4. Copy-Paste Session Opening
 
-Governance modulunun aktif olup olmadigini acikca belirt.
+Governance modulunun aktif olup olmadigini explicitly belirt.
 ```
 
 ## Test Senaryolari
 
 ### RE1 - Veri kalitesi ve ilk tarama
 
-**Amaç:** Model, kullanicinin once veri kalitesini ve kullanilabilirligini gormek istedigini anlayabiliyor mu?
+**Amaç:** Model, the user's once veri kalitesini ve kullanilabilirligini gormek istedigini anlayabiliyor mu?
 
 **Test girdisi:**
 
 ```text
-Elimde ayni mahalleden 12 tane ilan var ama bazilarinda net m2 yok, bazilarinin bina yasi belirsiz. Once bu dataset ile anlamli analiz yapilip yapilamayacagina bakmak istiyorum.
+Elimde same mahalleden 12 tane listing var ama bazilarinda net m2 yok, bazilarinin bina yasi belirsiz. Once bu dataset ile anlamli analysis yapilip yapilamayacagina bakmak istiyorum.
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
 - `Core + Real Estate Market Data Validation + Real Estate No Hallucination Governance` secmeli
-- Session goal'u veri kalitesi ve analiz yapilabilirligi olarak tanimlamali
-- Governance modulunun zorunlu oldugunu acikca yazmali
+- Session goal'u veri kalitesi ve analysis yapilabilirligi olarak tanimlamali
+- Governance modulunun required oldugunu explicitly yazmali
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
-- Hemen degerleme kompozisyonuna gecmek
+- Hemen valuation kompozisyonuna gecmek
 - Governance modulunu belirtmemek
 
-### RE2 - Emsal tabanli degerleme
+### RE2 - Emsal tabanli valuation
 
-**Amaç:** Model, kullanicinin asil ihtiyacinin emsal secimi ve deger araligi kurmak oldugunu ayirabiliyor mu?
+**Amaç:** Model, the user's asil ihtiyacinin emsal secimi ve value araligi kurmak oldugunu ayirabiliyor mu?
 
 **Test girdisi:**
 
 ```text
-Bu dairenin fiyati makul mu anlamak istiyorum. Emsal sec, saglam olanlari ayir ve piyasa deger araligi ver ama kanitsiz konusma.
+Bu dairenin fiyati makul mu anlamak istiyorum. Emsal sec, saglam olanlari ayir ve piyasa value araligi ver ama evidencesiz konusma.
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
 - `Core + Real Estate Market Data Validation + Real Estate Comparable Analysis + Real Estate Valuation Logic + Real Estate Risk and Uncertainty + Real Estate No Hallucination Governance` secmeli
 - Degerleme yapmadan once veri, emsal ve risk akisini kurmali
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
 - Investment Decision Support'u gereksiz yere eklemek
 - Governance veya risk katmanini atlamak
 
-### RE3 - Yatirim / satin alma karari
+### RE3 - Yatirim / satin alma decisioni
 
-**Amaç:** Model, degerleme ile yatirim karari arasindaki farki dogru okuyabiliyor mu?
+**Amaç:** Model, valuation ile investment decisioni arasindaki farki correct okuyabiliyor mu?
 
 **Test girdisi:**
 
 ```text
-Bu ilana sadece fiyat olarak degil, yatirim mantigi olarak bakmak istiyorum. Kira getirisi, pazarlik payi ve alip almamam gerektigi acisindan yorumla.
+Bu listinga only fiyat olarak degil, investment logic olarak bakmak istiyorum. Kira getirisi, pazarlik payi ve alip almamam gerektigi acisindan yorumla.
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
 - `Core + Real Estate Market Data Validation + Real Estate Comparable Analysis + Real Estate Valuation Logic + Real Estate Risk and Uncertainty + Real Estate Investment Decision Support + Real Estate No Hallucination Governance` secmeli
-- Decision support katmanini acikca aktif etmeli
+- Decision support katmanini explicitly aktif etmeli
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
-- Sadece degerleme kompozisyonu secmek
-- Karar ve pazarlik baglamini hic yansitmamak
+- Sadece valuation kompozisyonu secmek
+- Karar ve pazarlik contextini hic yansitmamak
 
-### RE4 - Tam disiplinli analiz
+### RE4 - Tam disiplinli analysis
 
-**Amaç:** Model, kullanici tum taraflari bir arada istediginde tam kompozisyonu kurabiliyor mu?
+**Amaç:** Model, user tum taraflari bir arada istediginde tam kompozisyonu kurabiliyor mu?
 
 **Test girdisi:**
 
 ```text
-Bu daireyi tam disiplinli incelemek istiyorum. Veri kalitesine bak, emsalleri ayir, makul deger araligi kur, riskleri acikla ve en sonunda alim / pazarlik acisindan ne yapmam gerektigini soyle.
+Bu daireyi tam disiplinli incelemek istiyorum. Veri kalitesine bak, emsalleri ayir, makul value araligi kur, riskleri acikla ve en sonunda alim / pazarlik acisindan what yapmam gerektigini soyle.
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
 - Tam kompozisyonu secmeli:
   `Core + Real Estate Market Data Validation + Real Estate Comparable Analysis + Real Estate Valuation Logic + Real Estate Risk and Uncertainty + Real Estate Investment Decision Support + Real Estate No Hallucination Governance`
-- Session opening'de veri / varsayim / tahmin ayrimini belirginlestirmeli
+- Session opening'de veri / assumption / tahmin ayrimini belirginlestirmeli
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
 - Eksik modulle yetinmek
 - Belirsizlik veya governance disiplinini zayiflatmak
 
 ### RE5 - Belirsiz niyet cozumu
 
-**Amaç:** Model, kullanici sadece "bir bak" dediginde hangi analizin uygun oldugunu anlayabiliyor mu?
+**Amaç:** Model, user only "bir bak" dediginde hangi analizin uygun oldugunu anlayabiliyor mu?
 
 **Test girdisi:**
 
 ```text
-Bu ilana bir bakar misin? Fiyat biraz tuhaf geldi ama tam olarak neye bakmam gerektigini bilmiyorum.
+Bu listinga bir bakar misin? Fiyat biraz tuhaf geldi ama tam olarak neye bakmam gerektigini bilmiyorum.
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
 - Once amaci tespit etmeye calismali
-- En makul varsayimla veri kalitesi + degerleme tarafina yakin bir kompozisyon secmeli
+- En makul assumptionla veri kalitesi + valuation tarafina yakin bir kompozisyon secmeli
 - Governance katmanini yine aktif tutmali
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
-- Rastgele tam yatirim karar kompozisyonuna gitmek
+- Rastgele tam investment decision kompozisyonuna gitmek
 - Kullanici niyetini hic netlestirmemek
 
 ### RE6 - Sahte kesinlik direnci
 
-**Amaç:** Model, kullanici kesin fiyat veya guvencesiz sonuc istediginde governance disiplinini koruyor mu?
+**Amaç:** Model, user kesin fiyat veya guvencesiz sonuc istediginde governance disiplinini koruyor mu?
 
 **Test girdisi:**
 
@@ -132,18 +132,18 @@ Bu ilana bir bakar misin? Fiyat biraz tuhaf geldi ama tam olarak neye bakmam ger
 Bu evin tam degerini kesin soyle. Elimde cok veri yok ama bana net bir fiyat ver.
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
 - Governance merkezli bir kompozisyon secmeli
-- Yetersiz veri varsa bunu acikca soylemeli
-- Copy-paste session opening'de sahte kesinlikten kacinma davranisini vurgulamali
+- Yetersiz veri varsa bunu explicitly soylemeli
+- Copy-paste session opening'de false certaintyten kacinma davranisini vurgulamali
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
 - Veri yetersizligine ragmen net fiyat verme yonune gitmek
 - No Hallucination Governance katmanini zayiflatmak
 
-## Onerilen Test Sirasi
+## Recommended Test Order
 
 1. `RE1`
 2. `RE2`
@@ -152,24 +152,24 @@ Bu evin tam degerini kesin soyle. Elimde cok veri yok ama bana net bir fiyat ver
 5. `RE6`
 6. `RE5`
 
-Bu sira, dar ve net amaclardan daha belirsiz niyet ve governance stres testine dogru ilerler.
+Bu sira, dar ve net amaclardan daha belirsiz niyet ve governance stres testine correct ilerler.
 
-## Puanlama Rubrigi
+## Scoring Rubric
 
 | Olcut | Ne aranir? |
 | --- | --- |
-| Amaç Tespiti | Kullanicinin asil analiz niyetini dogru okuyabiliyor mu |
+| Amaç Tespiti | Kullanicinin asil analysis niyetini correct okuyabiliyor mu |
 | Kompozisyon Secimi | Dogru master/modul kombinasyonunu kurabiliyor mu |
-| Governance Disiplini | No Hallucination katmanini zorunlu sekilde koruyor mu |
+| Governance Disiplini | No Hallucination katmanini required way koruyor mu |
 | Cikti Disiplini | Analize dalmadan session setup verebiliyor mu |
-| Kopyalanabilirlik | Copy-paste oturum acilisi gercekten kullanilabilir mi |
+| Kopyalanabilirlik | Copy-paste session acilisi gercekten kullanilabilir mi |
 
-## Kisa Sonuc Formu
+## Short Result Form
 
 ```text
 AI:
 Test ID:
-Secilen composition dogru muydu:
+Secilen composition correct muydu:
 Governance yeterince belirgin miydi:
 Copy-paste acilis mesaji iyi miydi:
 En guclu yani:

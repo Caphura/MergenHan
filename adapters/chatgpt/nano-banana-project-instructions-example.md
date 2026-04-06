@@ -1,13 +1,13 @@
 # ChatGPT Nano Banana Project Instructions Example
 
-Bu ornek, `nano-banana-image-prompt-composer` skill'inin ChatGPT tarafinda kisa proje talimati veya manuel oturum acilisi olarak nasil kullanilabilecegini gosterir.
+This example `nano-banana-image-prompt-composer` skill'inin ChatGPT side short proje talimati veya manual session acilisi olarak how kullanilabilecegini shows.
 
-## Core Kaynaklar
+## Core Sources
 
 - [`skills/nano-banana-image-prompt-composer/SKILL.md`](../../skills/nano-banana-image-prompt-composer/SKILL.md)
 - [`skills/nano-banana-image-prompt-composer/meta.yaml`](../../skills/nano-banana-image-prompt-composer/meta.yaml)
 
-## Ornek Proje Talimati
+## Example Project Instructions
 
 ```md
 You are using MergenHan as a portable prompt and skill library.
@@ -20,6 +20,6 @@ Do not generate the image unless the user explicitly asks for image generation.
 Default to text-only output.
 ```
 
-## Kisa Not
+## Short Note
 
-Bu ornek, cekirdek skill'in yerine gecmez; ChatGPT tarafinda nasil yerlestirilebilecegini gosterir. Gemini benzeri benzer text-first ortamlarda da ayni mantik `generic-llm` adapter'i uzerinden temsil edilebilir.
+This example does not replace the core skill; ChatGPT side how yerlestirilebilecegini shows. Gemini benzeri benzer text-first ortamlarda da same mantik `generic-llm` adapter'i uzerinden temsil edilebilir.

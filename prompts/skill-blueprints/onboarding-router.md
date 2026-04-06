@@ -1,10 +1,10 @@
-﻿---
+---
 id: mh-blueprint-onboarding-router
 title: Onboarding Router
 type: blueprint
 status: stable
 version: 1.0.0
-summary: Kullanici talebini dogru varlik tipine veya repo aksiyonuna yonlendiren, testlerle dogrulanmis evrensel onboarding blueprint'i.
+summary: Kullanici talebini correct asset tipine veya repo aksiyonuna yonlendiren, testlerle dogrulanmis evrensel onboarding blueprint'i.
 tags:
   - routing
   - workflow
@@ -23,14 +23,14 @@ adapter_support:
   generic-llm: supported
 runtime_dependencies: []
 tool_dependencies: []
-input_contract: Kullanici talebinin hangi icerik tipine, klasore veya bakim aksiyonuna yonlenmesi gerektigini belirleme istegi.
-output_contract: Talebin `master`, `module`, `blueprint`, `skill`, `packaging`, `catalog` veya `adapter mapping` aksiyonlarindan birine acik sekilde yonlendirilmesi.
-notes: Bu blueprint siniflandirma ve yonlendirme davranisini cekirdekte tutar; runtime'a ozel onboarding UI detaylari adapterlere birakilir. Farkli AI denemelerinde genel olarak basarili bulunmus, ancak `master` ile `blueprint` ayrimini karistiran sapmalar goruldugu icin skill paketine terfiden once bu routing ayriminin dilsel olarak daha da keskinlestirilmesi faydali olabilir.
+input_contract: Kullanici talebinin hangi content tipine, klasore veya maintenance aksiyonuna yonlenmesi gerektigini belirleme istegi.
+output_contract: Talebin `master`, `module`, `blueprint`, `skill`, `packaging`, `catalog` veya `adapter mapping` aksiyonlarindan birine clear way yonlendirilmesi.
+notes: This blueprint siniflandirma ve guidance davranisini corete tutar; runtime'a specific onboarding UI detaylari adapterlere birakilir. Farkli AI denemelerinde genel olarak basarili bulunmus, ancak `master` ile `blueprint` ayrimini karistiran sapmalar goruldugu icin skill paketine terfiden once bu routing ayriminin dilsel olarak daha da keskinlestirilmesi faydali olabilir.
 ---
 
 # Responsibility
 
-Kullanicinin talebini once anlam, sonra repo icindeki dogru aksiyona yonlendir.
+Kullanicinin talebini once anlam, sonra repo icindeki correct aksiyona yonlendir.
 
 # Trigger Signals
 
@@ -41,41 +41,41 @@ Kullanicinin talebini once anlam, sonra repo icindeki dogru aksiyona yonlendir.
 
 # Workflow
 
-1. Talebin amacini, tekrar kullanilabilirlik duzeyini ve baglam genisligini belirle.
+1. Talebin amacini, tekrar kullanilabilirlik duzeyini ve context genisligini belirle.
 2. Icerigi su kategorilerden birine yonlendir: `master`, `module`, `blueprint`, `skill`, `packaging`, `catalog`, `adapter mapping`.
-3. Eger karar tekrar kullanima dayaniyorsa bagimlilik adaylarini acikca listele.
-4. Eger runtime'a ozel bir istek varsa cekirdek degil adapter katmanina yonlendir.
-5. Sonucu kisa bir karar ozeti ve onerilen sonraki adimla bitir.
+3. Eger decision tekrar usagea dayaniyorsa dependency adaylarini explicitly listele.
+4. Eger runtime'a specific bir request varsa core degil adapter katmanina yonlendir.
+5. Sonucu short bir decision ozeti ve onerilen sonraki adimla bitir.
 
 # Routing Heuristics
 
-Asagidaki ayrimlari acik ve tutarli sekilde koru:
+Asagidaki ayrimlari clear ve tutarli way koru:
 
-- `module`: baska promptlarda da tekrar kullanilabilecek atomik bir davranis, kural veya output parcasiysa
-- `master`: tek bir gorevi bastan sona cozen, birden fazla davranisi ayni akista orkestre eden prompt ise
+- `module`: baska promptlarda da tekrar kullanilabilecek atomik bir davranis, rule veya output parcasiysa
+- `master`: tek bir taski bastan sona cozen, birden fazla davranisi same akista orkestre eden prompt ise
 - `blueprint`: artik skill davranisi tasiyorsa ama paketlenmis `skills/` klasorune gecmek icin henuz erken ise
-- `skill`: davranis tekrarli testlerden gecmis, paketlenmeye hazir ve `SKILL.md` + `meta.yaml` yapisina tasinacak kadar olgun ise
-- `packaging`: kullanici yeni davranis yazmak degil, mevcut bir blueprint'i skill paketine cevirmek istiyorsa
-- `catalog`: konu yeni icerik yazmak degil, katalog uretimi, metadata veya dependency kayitlarini guncellemek ise
-- `adapter mapping`: istek runtime'a, project instruction'a, tool wiring'e veya provider-specific kullanim notlarina ozelse
+- `skill`: davranis tekrarli testlerden gecmis, paketlenmeye ready ve `SKILL.md` + `meta.yaml` yapisina to carry over kadar olgun ise
+- `packaging`: user yeni davranis yazmak degil, mevcut bir blueprint'i skill paketine cevirmek istiyorsa
+- `catalog`: topic yeni content yazmak degil, katalog uretimi, metadata veya dependency kayitlarini currentlemek ise
+- `adapter mapping`: request runtime'a, project instruction'a, tool wiring'e veya provider-specific usage notlarina ozelse
 
 Ozellikle su iki hatadan kacin:
 
-- Tek gorevlik ama orkestre prompt akisini erken `blueprint`e itme; bu tip icerikler once cogunlukla `master` olarak baslar.
-- Talep siniflandirma ve repo icinde yonlendirme davranisi tasiyorsa bunu otomatik olarak `master` yapma; tekrar kullanilabilir routing mantigi guclu ise `blueprint` daha dogru olabilir.
+- Tek tasklik ama orkestre prompt akisini erken `blueprint`e itme; bu tip icerikler once cogunlukla `master` olarak baslar.
+- Talep siniflandirma ve repo icinde guidance davranisi tasiyorsa bunu otomatik olarak `master` yapma; tekrar kullanilabilir routing logic guclu ise `blueprint` daha correct olabilir.
 
 # Decision Output Discipline
 
-Karar verirken yalnizca sonucu soyleme; neden o yone gittigini de baglam genisligi, tekrar kullanilabilirlik ve paket olgunlugu eksenlerinde acikla.
+Karar verirken only sonucu soyleme; neden o yone gittigini de context genisligi, tekrar kullanilabilirlik ve package olgunlugu eksenlerinde acikla.
 
-Mumkunse su mantigi izle:
+Mumkunse su logic izle:
 
-1. Bu talep yeni bir icerik mi, mevcut icerigin terfisi mi, yoksa bakim/adapter isi mi?
-2. Davranis atomik mi, tek gorevlik orkestrasyon mu, yoksa paketlenmeye aday tekrar kullanilabilir beceri mi?
-3. Sonraki en kucuk mantikli adim nedir?
+1. Bu request yeni bir content mi, mevcut icerigin terfisi mi, yoksa maintenance/adapter isi mi?
+2. Davranis atomik mi, tek tasklik orkestrasyon mu, yoksa paketlenmeye aday tekrar kullanilabilir beceri mi?
+3. Sonraki en kucuk mantikli step nedir?
 
 # Promotion Criteria
 
 - Router sinyalleri tekrar eden onboarding ihtiyaclarinda net fayda sagliyorsa
-- Karar ciktisi farkli adapterlerde de degismeden korunabiliyorsa
-- Repo yeni katilimcilari icin tutarli yonlendirme dili olusturuyorsa
+- Karar outputsi different adapterlerde de degismeden korunabiliyorsa
+- Repo yeni katilimcilari icin tutarli guidance dili olusturuyorsa

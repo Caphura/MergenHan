@@ -1,52 +1,58 @@
-# Kullanim Rehberi
+# Usage Guide
 
-Bu belge, MergenHan kutuphanesindeki skill, master prompt ve modulleri herhangi bir AI ortaminda nasil kullanacaginizi adim adim aciklar.
+This document explains step by step how to use skills, master prompts, and modules from the MergenHan library in any AI environment.
 
-## Temel Fikir
+## Language and Source Note
 
-MergenHan'daki her `SKILL.md` dosyasi, bir AI'ya "bu gorevi su adimlarla, su kurallara gore yap" diyen hazir bir talimat setidir. Hangi AI kullanirsan kullan, ayni cekirdek talimati yapistirirsin; sadece yapistirma sekli degisir.
+- The repository root is the canonical English source.
+- The Turkish usage mirror lives under `tr/README.md` and `tr/docs/`.
+- `scripts/` is locale-aware and supports both EN and TR catalog and validation flows.
 
-## Hangi Skill Bana Uygun?
+## Core Idea
 
-`catalog/skills.md` dosyasina bak. Mevcut paketlenmis beceriler:
+Every `SKILL.md` file in MergenHan is a ready-made instruction set that tells an AI: "do this task in these steps and under these rules." No matter which AI you use, the same core instruction can be reused; only the way you place it changes.
 
-| Ihtiyac | Skill |
+## Which Skill Fits My Need?
+
+Check `catalog/skills.md`. Current packaged skills include:
+
+| Need | Skill |
 | --- | --- |
-| CV / Resume yazmak | `resume-composer` |
-| Gorsel prompt olusturmak | `nano-banana-image-prompt-composer` |
-| 3D model promptu yazmak | `meshy-3d-prompt-composer` |
-| Oyun fikrini stratejik degerlendirmek | `game-strategy-session-composer` |
-| Oyun ozelligi spec'i yazmak | `feature-spec-composer` |
-| Gayrimenkul degerlemesi | `real-estate-valuation-session-composer` |
-| Daire yatirim analizi | `apartment-investment-analyzer` |
-| Kutuphane bakimi | `prompt-library-curator` |
-| Blueprint'ten skill'e terfi degerlendirmesi | `skill-packager` |
-| Dogru aksiyona yonlendirme | `onboarding-router` |
-| Adapter esleme | `adapter-mapper` |
-| Katalog dogrulama | `catalog-validator` |
+| Writing a CV / resume | `resume-composer` |
+| Building image prompts | `nano-banana-image-prompt-composer` |
+| Writing 3D asset prompts | `meshy-3d-prompt-composer` |
+| Evaluating game ideas strategically | `game-strategy-session-composer` |
+| Writing game feature specs | `feature-spec-composer` |
+| Real-estate valuation | `real-estate-valuation-session-composer` |
+| Apartment investment analysis | `apartment-investment-analyzer` |
+| Library maintenance | `prompt-library-curator` |
+| Packaging blueprints into skills | `skill-packager` |
+| Routing requests to the right asset | `onboarding-router` |
+| Adapter mapping | `adapter-mapper` |
+| Catalog validation | `catalog-validator` |
 
-Emin degilsen `onboarding-router` ile basla; talebini dogru katmana yonlendirir.
+If you are unsure, start with `onboarding-router`.
 
-Not: `archived` durumundaki skill'ler katalogda tarihsel referans olarak kalabilir, fakat yeni kullanimlarda tercih edilmemelidir.
+Note: Skills marked `archived` may remain in the catalog as historical references, but they should not be preferred for new use.
 
-## Uc Adimda Kullanim
+## Use It in Three Steps
 
-1. `catalog/skills.md` dosyasindan ihtiyacina uyan skill'i bul.
-2. `skills/<skill-adi>/SKILL.md` icerigini kopyala.
-3. Kullandigin AI ortamina yapistir ve gorevini ver.
+1. Find the skill you need under `catalog/skills.md`.
+2. Copy the content of `skills/<skill-name>/SKILL.md`.
+3. Paste it into your AI environment and give your task.
 
-Her skill paketi en az iki dosya tasir:
+Every skill package carries at least two files:
 
-- `SKILL.md`: cekirdek calisma talimati (AI'ya verilen icerik)
-- `meta.yaml`: bagimlilik, versiyon ve kaynak blueprint bilgisi (opsiyonel baglam)
+- `SKILL.md`: the core working instruction
+- `meta.yaml`: dependency, version, and source-blueprint context
 
-## Platforma Gore Yapistirma
+## Pasting by Platform
 
 ### ChatGPT
 
-SKILL.md icerigini proje talimatlarina (Project Instructions) veya Custom GPT'nin Instructions alanina koy.
+Put the `SKILL.md` content into project instructions or the Instructions field of a custom GPT.
 
-Ornek proje talimati:
+Example project instructions:
 
 ```md
 You are using MergenHan as a portable prompt and skill library.
@@ -56,24 +62,22 @@ Do not invent ChatGPT-specific runtime rules inside the core skill.
 If a request is ChatGPT-specific, keep that adaptation in the adapter layer only.
 ```
 
-Daha fazla ayrint icin: [`adapters/chatgpt/project-instructions-example.md`](../adapters/chatgpt/project-instructions-example.md)
+See [`adapters/chatgpt/project-instructions-example.md`](../adapters/chatgpt/project-instructions-example.md) for more detail.
 
 ### Claude Code
 
-Claude Code repo-aware calistigi icin skill dosyalarini dogrudan gorebilir. Oturumda ilgili dosyayi referans vermek yeterlidir:
+Because Claude Code is repository-aware, it can see skill files directly. It is enough to reference the relevant file inside the session:
 
 ```text
-Bu repo MergenHan prompt kutuphanesidir.
-skills/resume-composer/SKILL.md dosyasindaki cekirdek davranisi kullan.
+This repository is the MergenHan prompt library.
+Use the core behavior from `skills/resume-composer/SKILL.md`.
 ```
 
-Adapter katmanina ait ayar ornegi: [`adapters/claude-code/settings.example.json`](../adapters/claude-code/settings.example.json)
-
-Daha fazla ayrint icin: [`adapters/claude-code/README.md`](../adapters/claude-code/README.md)
+See [`adapters/claude-code/README.md`](../adapters/claude-code/README.md) and [`adapters/claude-code/settings.example.json`](../adapters/claude-code/settings.example.json) for more detail.
 
 ### Codex
 
-Cekirdek skill'i gorev paketi (task packet) olarak tanimla:
+Define the core skill as a task packet:
 
 ```md
 Objective: Draft an ATS-friendly resume using the MergenHan resume-composer skill.
@@ -90,13 +94,13 @@ Expected output:
 - Weak Spots / Missing Inputs
 ```
 
-Daha fazla ayrint icin: [`adapters/codex/task-packet-example.md`](../adapters/codex/task-packet-example.md)
+See [`adapters/codex/task-packet-example.md`](../adapters/codex/task-packet-example.md) for more detail.
 
-### Herhangi Bir LLM (Minimum Yol)
+### Any LLM (Minimum Path)
 
-1. `SKILL.md` icerigini kopyala.
-2. Oturuma yapistir.
-3. Asagidaki gibi basit bir istem ekle:
+1. Copy `SKILL.md` into the session.
+2. Summarize `meta.yaml` if dependency or source context helps.
+3. Add a simple instruction such as:
 
 ```text
 Use the core behavior from MergenHan's `resume-composer` skill.
@@ -104,77 +108,71 @@ Follow the workflow steps in order.
 Keep runtime-specific assumptions out of the core recommendation.
 ```
 
-Bu en dusuk ortak payda yontemidir; ozel arac, hook veya izin varsayimi yapmaz.
+This is the lowest-common-denominator route. It assumes no special tools, hooks, or permissions.
 
-Daha fazla ayrint icin: [`adapters/generic-llm/minimal-usage-example.md`](../adapters/generic-llm/minimal-usage-example.md)
+See [`adapters/generic-llm/minimal-usage-example.md`](../adapters/generic-llm/minimal-usage-example.md) for more detail.
 
-## Ornek Senaryo: CV Yazmak
+## Example Scenario: Writing a Resume
 
-1. `skills/resume-composer/SKILL.md` dosyasini ac ve icerigini kopyala.
-2. AI oturumuna yapistir.
-3. Ham kariyer notlarini, mevcut CV metnini veya ekran goruntusunu ver.
-4. AI, skill'deki workflow adimlarini izleyerek sana yapilardirmis bir CV taslagi uretir.
+1. Open `skills/resume-composer/SKILL.md` and copy it.
+2. Paste it into the AI session.
+3. Provide your raw career notes, current resume text, or screenshots.
+4. The AI will follow the workflow and produce a structured resume draft.
 
-Beklenen cikti yapisi:
+Expected output shape:
 
 - Candidate Summary
-- Target Role Fit (istege bagli)
+- Target Role Fit (optional)
 - Resume Draft (ATS-friendly)
 - Weak Spots / Missing Inputs
-- Optional Tailoring Notes (is ilani varsa)
+- Optional Tailoring Notes (if there is a job post)
 
-## Ornek Senaryo: Oyun Fikrini Degerlendirmek
+## Example Scenario: Evaluating a Game Idea
 
-1. `skills/game-strategy-session-composer/SKILL.md` dosyasini ac ve icerigini kopyala.
-2. AI oturumuna yapistir ve oyun fikrini anlat.
-3. Skill dogru analiz oturumunu secer:
-   - Steam potansiyeli: `Core + Steam Market Validation`
-   - MVP daraltma: `Core + MVP Scope Reduction`
-   - Uretim riski: `Core + Production Risk Strategy`
-   - Tam degerlendirme: tumunu birlestirir
-4. Sana copy-paste session opening verir; bunu yeni bir AI oturumuna yapistirirsin.
+1. Open `skills/game-strategy-session-composer/SKILL.md` and copy it.
+2. Paste it into the AI session and describe your game idea.
+3. The skill selects the right analysis session:
+   - Steam potential: `Core + Steam Market Validation`
+   - MVP reduction: `Core + MVP Scope Reduction`
+   - Production risk: `Core + Production Risk Strategy`
+   - Full evaluation: all of them together
+4. It gives you a copy-paste session opening that you can move into another AI session.
 
-## Ornek Senaryo: Gorsel Prompt Olusturmak
+## Example Scenario: Building an Image Prompt
 
-1. `skills/nano-banana-image-prompt-composer/SKILL.md` dosyasini ac ve icerigini kopyala.
-2. AI oturumuna yapistir ve "soyle bir sahne istiyorum" de.
-3. Skill sana 2-4 netlestirici soru sorar.
-4. Sonra dogrudan kopyalanabilir Nano Banana promptu uretir.
+1. Open `skills/nano-banana-image-prompt-composer/SKILL.md` and copy it.
+2. Paste it into the AI session and say what scene you want.
+3. The skill asks 2-4 clarifying questions.
+4. It then produces a directly copyable Nano Banana prompt.
 
-## Master Prompt Kullanimi
+## Using Master Prompts
 
-Master promptlar, birden fazla modulu birlestiren orkestrasyon dosyalaridir. Skill'lerden farkli olarak daha genis kapsamli gorevler icindir.
+Master prompts are orchestration files that combine multiple modules. Unlike skills, they are for broader task flows.
 
-Ornegin prompt kutuphanesini duzenlemek icin:
+For example, to organize the prompt library itself:
 
 ```text
 prompts/masters/active/prompt-library-orchestrator.md
 ```
 
-Kullanim: master prompt icerigini AI'ya yapistir. Modullerin davranisi zaten prompt metninde acik Assembly Map ile gosterilir.
+Usage: paste the master prompt into the AI. The behavior of its modules is already documented through the `Assembly Map` inside the prompt.
 
-## Session Composer Farki
+## Session Composer Difference
 
-`game-strategy-session-composer` ve `real-estate-valuation-session-composer` gibi skill'ler analizi kendileri yapmaz. Once dogru analiz oturumunu secer, sonra sana kopyala-yapistir bir acilis mesaji uretir. Bu mesaji baska bir AI oturumuna tasirsiin.
+Skills such as `game-strategy-session-composer` and `real-estate-valuation-session-composer` do not perform the full analysis themselves. They first select the correct analysis session and then generate a copy-paste opening message for another AI session.
 
-## Temel Kurallar
+## Core Rules
 
-- Cekirdek icerigi runtime'a ozel syntax ile kirletme; provider'a ozel notlari `adapters/` altinda tut.
-- Skill'deki workflow adimlarini sirayla izle.
-- Ozellikle `resume-composer` ve `real-estate` skill'leri kanitsiz bilgi eklemeyi yasaklar.
-- Varsayilan cikti metin tabanlidir; kullanici acikca istemedikce gorsel veya dosya uretme.
+- Keep runtime-specific syntax out of the core layer; put provider-specific notes under `adapters/`.
+- Follow skill workflow steps in order.
+- Skills such as `resume-composer` and the real-estate set explicitly forbid unsupported claims.
+- Default output is text-based unless the user explicitly asks for a visual or file artifact.
 
-## Ileri Duzey: Yeni Icerik Eklemek
+## Advanced: Adding New Content
 
-Bu rehber mevcut skill'lerin kullanimina odaklanir. Yeni prompt, modul veya skill eklemek icin:
+This guide focuses on using existing skills. If you want to add new prompts, modules, or skills:
 
-- Hizli baslangic: bu README'deki "30 Saniyelik Baslangic" bolumu
-- Detayli kurallar: [`docs/conventions.md`](conventions.md)
-- Birlestirme ve terfi akisi: [`docs/composition-guide.md`](composition-guide.md)
-- Skill paket spesifikasyonu: [`docs/skill-package-spec.md`](skill-package-spec.md)
-
-## Dil ve Kaynak Notu
-
-- `README.md` ve repo koku Turkce canonical kaynaktir.
-- English kullanim aynasi `en/README.md` ve `en/docs/` altinda bulunur.
-- `scripts/` locale-aware olarak hem TR hem EN katalog ve dogrulama akisini destekler.
+- Quick start: the "30-Second Start" section in the README
+- Detailed rules: [`docs/conventions.md`](conventions.md)
+- Composition and promotion flow: [`docs/composition-guide.md`](composition-guide.md)
+- Skill package spec: [`docs/skill-package-spec.md`](skill-package-spec.md)

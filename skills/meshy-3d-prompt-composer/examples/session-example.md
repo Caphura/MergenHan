@@ -12,15 +12,15 @@ Meshy icin stylized bir health potion sisesi promptu istiyorum. Fantasy oyunu ic
 Promptu guclendirmek icin iki seyi netlestireyim:
 
 1. Siseyi daha cok cute / cartoony mi istiyorsun, yoksa daha clean / premium stylized mi?
-2. Common item gibi mi gorunsun, yoksa daha rare / buyulu bir drop hissi mi versin?
+2. Common item such as mi gorunsun, yoksa daha rare / buyulu bir drop hissi mi versin?
 
-Bunlari secersen hemen 800 karakteri asmayan nihai Meshy promptunu yazayim.
+Bunlari secersen immediately 800 karakteri asmayan nihai Meshy promptunu yazayim.
 ```
 
 ## Example Follow-up Answer
 
 ```text
-Clean / premium stylized olsun. Rare item gibi hissettirsin.
+Clean / premium stylized olsun. Rare item such as hissettirsin.
 ```
 
 ## Good Final Reply
@@ -38,6 +38,6 @@ stylized fantasy health potion bottle, readable game prop silhouette, small roun
 
 Production Notes
 
-- Bu versiyon Meshy karakter limitine sigacak sekilde yogun tutuldu.
+- Bu versiyon Meshy karakter limitine sigacak way yogun tutuldu.
 - Istersen bunu low poly veya hand-painted yone de cekebilirim.
 ```

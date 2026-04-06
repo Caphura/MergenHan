@@ -1,22 +1,22 @@
 # Used Car Listing Risk Filter Test Pack
 
-Bu belge, `Used Car Listing Risk Filter` blueprint'i icin dar kapsamli test senaryolarini toplar. Amac, modelin yalnizca kullanicinin verdigi ilanlari inceleyip risk, tutarlilik ve sonraki adim onerileri uretmesini test etmektir.
+This document `Used Car Listing Risk Filter` blueprint'i icin dar kapsamli test senaryolarini toplar. Amac, modelin only the user's verdigi listinglari inceleyip risk, tutarlilik ve sonraki step onerileri uretmesini test etmektir.
 
-## Kullanim Sekli
+## Usage
 
 Her testten once asagidaki acilis talimatini kullan.
 
 ```text
-MergenHan prompt kutuphanesindeki used-car-listing-risk-filter blueprint'inin cekirdek davranisini kullan.
+MergenHan prompt librarysindeki used-car-listing-risk-filter blueprint'inin core davranisini kullan.
 
-Sadece bana verdigim ilanlar uzerinden calis. Yeni ilan arama, pazar taramasi veya firsat avciligi yapma.
+Sadece bana verdigim listinglar uzerinden calis. Yeni listing arama, pazar taramasi veya firsat avciligi yapma.
 
-Her ilan icin:
+Her listing icin:
 - risk seviyesini belirle
-- tramer ve aciklama tutarliligini incele
+- tramer ve description tutarliligini incele
 - kirmizi bayraklari listele
 - eksik kritik verileri yaz
-- sonraki dogrulama adimlarini oner
+- sonraki validation adimlarini oner
 
 Ciktini su yapida ver:
 - Input Summary
@@ -28,84 +28,84 @@ Ciktini su yapida ver:
 - Recommended Verification Steps
 - Shortlist / Hold / Eliminate
 
-Onemli kurallar:
-- Kanit ile varsayimi ayir.
-- Kullanici vermediyse URL uydurma.
+Onemli rules:
+- Kanit ile assumptioni ayir.
+- Kullanici vermediyse URL fabricated.
 - Kesin satin al tavsiyesi verme.
-- Pazar taramasi veya yeni ilan arama yapma.
+- Pazar taramasi veya yeni listing arama yapma.
 ```
 
 ## Test Senaryolari
 
-### UCRF1 - Tek ilan, bariz tramer celiskisi
+### UCRF1 - Tek listing, bariz tramer celiskisi
 
-**Amac:** Model, tek ilandaki temel celiskiyi yakalayabiliyor mu?
+**Amac:** Model, tek listingdaki temel celiskiyi yakalayabiliyor mu?
 
 **Test girdisi:**
 
 ```text
-Su ilani incele:
+Su listingi incele:
 
 - 2018 Honda Civic Eco Elegance
 - 128.000 km
 - 965.000 TL
 - Tramer: 0 TL
-- Aciklama: "Sag iki kapi lokal boyali, on tampon degisen ama kesinlikle onemsiz, tramersiz aile araci."
-- Link: https://www.sahibinden.com/ilan/ornek-civic
+- Aciklama: "Sag iki kapi lokal boyali, on tampon degisen ama kesinlikle onemsiz, tramersiz aile vehiclei."
+- Link: https://www.sahibinden.com/listing/example-civic
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
-- Tramer ile aciklama arasindaki celiskiyi acikca isaretlemeli
+- Tramer ile description arasindaki celiskiyi explicitly isaretlemeli
 - Riski en az orta-yuksek seviyede gormeli
 - Bagimsiz tramer sorgusu ve ekspertiz onermeli
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
 - "tramersiz" iddiasini sorgusuz kabul etmek
 - Boyali / degisen parca beyanini hafife almak
 
 ---
 
-### UCRF2 - Iyi gorunen ama eksik verili ilan
+### UCRF2 - Iyi gorunen ama eksik verili listing
 
-**Amac:** Model, iyi tonlu ilanda bile veri eksigini not edebiliyor mu?
+**Amac:** Model, iyi tonlu listingda bile veri eksigini not edebiliyor mu?
 
 **Test girdisi:**
 
 ```text
-Bu ilani degerlendir:
+Bu listingi degerlendir:
 
 - 2020 Toyota Corolla Flame X-Pack
 - 52.000 km
 - 1.245.000 TL
-- Aciklama: "Tum bakimlari yetkili serviste. Arac son derece temiz. Alana hayirli olsun."
+- Aciklama: "Tum maintenancelari yetkili serviste. Arac son derece temiz. Alana hayirli olsun."
 - Tramer bilgisi yok
 - Eksper raporu bilgisi yok
 - Sadece 4 fotograf var
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
 - Ilani otomatik guvenilir saymamali
 - Eksik tramer ve eksper bilgisini kritik veri eksigi olarak yazmali
 - Fotograf azligini not etmeli
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
-- "bakimlari yetkili serviste" ifadesinden fazla kesinlik uretmek
-- Veri eksigini dusuk risk gibi gostermek
+- "maintenancelari yetkili serviste" ifadesinden fazla kesinlik uretmek
+- Veri eksigini dusuk risk such as gostermek
 
 ---
 
-### UCRF3 - Iki ilan arasinda hangisi shortlist'e kalir
+### UCRF3 - Iki listing arasinda hangisi shortlist'e remains
 
-**Amac:** Model, ikili karsilastirmada dar karar destegi verebiliyor mu?
+**Amac:** Model, ikili karsilastirmada dar decision support verebiliyor mu?
 
 **Test girdisi:**
 
 ```text
-Su iki ilani risk acisindan karsilastir:
+Su iki listingi risk acisindan karsilastir:
 
 Ilan A
 - 2019 Renault Megane 1.5 dCi Icon
@@ -122,16 +122,16 @@ Ilan B
 - Aciklama: "Hatasiz boyasiz degisensiz, detay isteyen arasın."
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
-- Ilan A'yi aciklanmis ama dogrulanmasi gereken riskli/temkinli ilan olarak gormeli
+- Ilan A'yi aciklanmis ama dogrulanmasi gereken riskli/temkinli listing olarak gormeli
 - Ilan B'de veri boslugu ve asiri iddiayi not etmeli
 - Birini "shortlist", digerini "hold" veya "eliminate" benzeri sinifa koymali
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
-- Trameri belirtilmeyen ilani daha temiz varsaymak
-- Iki ilani da ayni risk seviyesinde ele almak
+- Trameri belirtilmeyen listingi daha temiz varsaymak
+- Iki listingi da same risk seviyesinde ele almak
 
 ---
 
@@ -142,32 +142,32 @@ Ilan B
 **Test girdisi:**
 
 ```text
-Bu ilan hakkinda ne dusunursun?
+Bu listing about what dusunursun?
 
 - 2017 BMW 3.20i
 - 780.000 TL
-- Aciklama: "Temiz arac, detaylar telefonda."
+- Aciklama: "Temiz vehicle, detaylar telefonda."
 - Km bilgisi yok
 - Tramer bilgisi yok
 - Fotograf yok
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
 - Veri yetersizligini merkezde tutmali
 - Kesin yargidan kacmali
 - Listeyi "hold" veya "eliminate" tarafina itebilmeli
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
 - Fiyat veya kalite konusunda tahmini hikaye uretmek
 - Veri eksigine ragmen olumlu shortlist tavsiyesi vermek
 
-## Puanlama Rubrigi
+## Scoring Rubric
 
 | Olcut | Ne arayacaksin |
 | --- | --- |
-| Kapsam Disiplini | Sadece verilen ilanlarla mi calisiyor |
+| Scope Disiplini | Sadece verilen listinglarla mi calisiyor |
 | Risk Muhakemesi | Risk seviyesi mantikli mi |
 | Tramer Tutarliligi | Celiskileri yakaliyor mu |
 | Veri Eksigi Duyarliligi | Eksik bilgiyle fren yapiyor mu |

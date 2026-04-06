@@ -1,6 +1,6 @@
-﻿# Blueprint'ten Skill'e Terfi Ornegi
+# Blueprint'ten Skill'e Terfi Ornegi
 
-Bu belge, okunur bir skill taslaginin nasil paketlenmis bir beceriye donustugunu ozetler.
+This document okunur bir skill taslaginin how paketlenmis bir beceriye donustugunu summarizes.
 
 ## Kaynak Blueprint
 
@@ -13,15 +13,15 @@ Bu belge, okunur bir skill taslaginin nasil paketlenmis bir beceriye donustugunu
 
 ## Donusum Mantigi
 
-1. Blueprint icindeki davranis tanimi korunur.
-2. Runtime-agnostik, sade bir `SKILL.md` yazilir.
-3. Versiyon, durum, etiket ve kaynak baglantisi `meta.yaml` icine tasinir.
+1. Blueprint icindeki davranis tanimi is preserved.
+2. Runtime-agnostik, sade bir `SKILL.md` is written.
+3. Versiyon, durum, etiket ve source baglantisi `meta.yaml` icine tasinir.
 4. Gerekli ayrintilar yardimci kaynaklara bolunur.
-5. Runtime'a ozel kullanim notlari gerekirse `adapters/` altina tasinir.
+5. Runtime'a specific usage notlari if needed `adapters/` altina tasinir.
 
 ## Neden Bu Ayrim?
 
-- `SKILL.md` kullanima odakli kalir.
+- `SKILL.md` usagea odakli remains.
 - Yonetisim bilgisi kaybolmaz.
-- Ayni davranisin yazili taslagi ile paketlenmis surumu birlikte izlenebilir.
+- Ayni davranisin yazili taslagi ile paketlenmis surumu birlikte traceable.
 - Claude Code, ChatGPT, Codex ve generic LLM eslemeleri cekirdegi bozmadan ayrica tanimlanabilir.

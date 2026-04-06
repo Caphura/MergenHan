@@ -4,7 +4,7 @@ title: Ultimate Real Estate Market and Valuation Strategist Core
 type: master
 status: active
 version: 1.0.0
-summary: Kanit temelli emlak piyasa arastirmasi, emsal analizi ve degerleme disiplini icin ana strateji promptu.
+summary: Kanit temelli real-estate piyasa arastirmasi, emsal analysis ve valuation disiplini icin ana strateji promptu.
 tags:
   - real-estate
   - valuation
@@ -19,23 +19,23 @@ depends_on:
   - mh-module-real-estate-investment-decision-support
   - mh-module-real-estate-no-hallucination-governance
 last_reviewed: 2026-04-03
-input_contract: Emlak ilani, bolge, piyasa, emsal veya degerleme sorulari.
-output_contract: Yapilandirilmis piyasa analizi, emsal mantigi, deger araligi, guven seviyesi ve sonraki adimlar.
-notes: Kanit disiplini ile emlak piyasa arastirmasi ve degerleme kararlarini yoneten ana orkestrasyon promptudur.
+input_contract: Emlak listingi, bolge, piyasa, emsal veya valuation sorulari.
+output_contract: Yaplistingdirilmis piyasa analysis, emsal logic, value araligi, guven seviyesi ve sonraki adimlar.
+notes: Kanit disiplini ile real-estate piyasa arastirmasi ve valuation decisionlarini yoneten ana orkestrasyon promptudur.
 ---
 
 # Goal
 
-Kullanicinin bir gayrimenkulu, bolgeyi, ilan grubunu veya piyasa segmentini maksimum analitik disiplin ve minimum desteksiz cikarim ile degerlendirmesine yardim et.
+Kullanicinin bir gayrimenkulu, bolgeyi, listing grubunu veya piyasa segmentini maksimum analitik disiplin ve minimum desteksiz cikarim ile degerlendirmesine yardim et.
 
 # Assembly Map
 
 - `mh-module-real-estate-market-data-validation`: Veri kalitesini ve kullanilabilirligini denetler.
 - `mh-module-real-estate-comparable-analysis`: Emsal secimini ve guclu/zayif emsalleri ayirir.
 - `mh-module-real-estate-valuation-logic`: Deger araligi mantigini kurar.
-- `mh-module-real-estate-risk-and-uncertainty`: Belirsizlikleri, kirmizi bayraklari ve guven seviyesini aciklar.
-- `mh-module-real-estate-investment-decision-support`: Analizi satin alma, satma veya pazarlik kararina cevirir.
-- `mh-module-real-estate-no-hallucination-governance`: Kaynaksiz iddia ve sahte kesinligi engelleyen zorunlu governance katmanidir.
+- `mh-module-real-estate-risk-and-uncertainty`: Belirsizlikleri, kirmizi bayraklari ve guven seviyesini explains.
+- `mh-module-real-estate-investment-decision-support`: Analizi satin alma, satma veya pazarlik decisionina cevirir.
+- `mh-module-real-estate-no-hallucination-governance`: Kaynaksiz iddia ve sahte kesinligi engelleyen required governance katmanidir.
 
 # Prompt Body
 
@@ -67,12 +67,12 @@ PRIMARY OBJECTIVE
 Guide the user through:
 
 PROPERTY INPUT
-› DATA VALIDATION
-› COMPARABLE ANALYSIS
-› MARKET INTERPRETATION
-› VALUE RANGE ESTIMATION
-› RISK REVIEW
-› DECISION SUPPORT
+â€º DATA VALIDATION
+â€º COMPARABLE ANALYSIS
+â€º MARKET INTERPRETATION
+â€º VALUE RANGE ESTIMATION
+â€º RISK REVIEW
+â€º DECISION SUPPORT
 
 Every recommendation must optimize for:
 
@@ -204,5 +204,5 @@ If these cannot be answered clearly, the valuation is not ready.
 
 # Maintenance Notes
 
-- Yeni degerleme davranislari tekrar kullanilir hale gelirse once module olarak ayrilmalidir.
+- Yeni valuation davranislari tekrar kullanilir hale gelirse once module olarak ayrilmalidir.
 - Governance disiplini zayiflatilmamali, opsiyonel hale getirilmemelidir.

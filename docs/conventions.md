@@ -1,17 +1,17 @@
-# Yazi ve Yapi Kurallari
+# Writing and Structure Rules
 
-Bu belge, prompt library icindeki dosyalarin nasil adlandirilacagini, hangi metadata alanlarini tasiyacagini ve ne zaman bir ust seviyeye terfi edecegini tanimlar. Cekirdek icerik AI-agnostik tutulur; runtime'a ozel esleme kurallari `adapters/` katmaninda yasatilir.
+This document defines how files in the prompt library should be named, which metadata fields they should carry, and when content should be promoted to a higher layer. Core content stays AI-agnostic; runtime-specific mapping rules live in the `adapters/` layer.
 
-## Adlandirma Kurallari
+## Naming Rules
 
-- Tum dosya ve klasor adlari `kebab-case` olur.
-- Dosya adlari icerigin turunu ve amacini kisa bicimde anlatir.
-- Kimlik deseni sabittir: `mh-<kind>-<slug>`
-- `kind` yalnizca su degerlerden birini alir: `master`, `module`, `blueprint`, `skill`
+- All file and folder names use `kebab-case`.
+- File names should describe the content type and intent concisely.
+- The identity pattern is fixed: `mh-<kind>-<slug>`
+- `kind` may only be one of: `master`, `module`, `blueprint`, `skill`
 
-## Prompt Dosyasi Frontmatter Kurali
+## Prompt File Frontmatter Rule
 
-`prompts/` altindaki tum prompt dosyalari ve `templates/` altindaki prompt sablonlari su alanlari tasir:
+All prompt files under `prompts/` and prompt templates under `templates/` carry these fields:
 
 - `id`
 - `title`
@@ -23,7 +23,7 @@ Bu belge, prompt library icindeki dosyalarin nasil adlandirilacagini, hangi meta
 - `depends_on`
 - `last_reviewed`
 
-Ihtiyaca gore su alanlar eklenebilir:
+These fields can be added when needed:
 
 - `input_contract`
 - `output_contract`
@@ -33,43 +33,43 @@ Ihtiyaca gore su alanlar eklenebilir:
 - `runtime_dependencies`
 - `tool_dependencies`
 
-## Skill Paket Istisnasi
+## Skill Package Exception
 
-Paketlenmis skill klasorlerindeki `SKILL.md` dosyalari runtime-agnostik cekirdek calisma talimati olarak sade tutulur ve yalnizca skill frontmatter'i (`name`, `description`) tasir.
+Packaged skill `SKILL.md` files stay minimal as runtime-agnostic core working instructions and only carry skill frontmatter (`name`, `description`).
 
-Skill'e ait yonetisim verileri su dosyada tutulur:
+Governance data for the skill lives in:
 
 - `skills/<skill-slug>/meta.yaml`
 
-Bu ayirim sayesinde:
+This split allows us to:
 
-- `SKILL.md` calisma talimatlarina odaklanir
-- versiyon, durum, bagimlilik ve kaynak blueprint baglantisi kaybolmaz
-- skill paketleri repo genelindeki yonetisim kurallariyla uyumlu kalir
-- runtime'a ozel hook, komut, izin ve arac notlari cekirdek skill tanimina karismaz
+- keep `SKILL.md` focused on the working instructions
+- preserve version, status, dependency, and source-blueprint links
+- keep skill packages aligned with repository governance rules
+- prevent runtime-specific hooks, commands, permissions, and tool notes from leaking into the core skill definition
 
-## Durum Yasam Dongusu
+## Status Lifecycle
 
-Yalnizca asagidaki `status` degerleri kullanilir:
+Only these `status` values are used:
 
-- `draft`: Ilk taslak, hizli degisebilir
-- `active`: Guncel kullanimda
-- `stable`: Siklikla tekrar kullanilan ve davranisi oturmus
-- `deprecated`: Yerine daha iyi bir icerik gelmis, yeni kullanim icin onerilmez
-- `archived`: Tarihsel referans olarak saklanan surum
+- `draft`: early draft, changes quickly
+- `active`: currently used
+- `stable`: frequently reused and behavior is settled
+- `deprecated`: replaced by something better; not recommended for new use
+- `archived`: kept as historical reference
 
-Yasam dongusunun yapisal ve evrimsel aciklamasi icin `docs/lifecycle.md` belgesine bakiniz.
+For structural and evolutionary details, see [`docs/lifecycle.md`](lifecycle.md).
 
-## Klasor Kullanim Kurallari
+## Folder Usage Rules
 
 ### `prompts/masters/`
 
-- `active/`: Guncel master promptlar
-- `archived/`: Tarihsel surumler veya emekliye ayrilmis varyantlar
+- `active/`: current master prompts
+- `archived/`: historical versions or retired variants
 
 ### `prompts/modules/`
 
-Asagidaki alt klasorler sabittir:
+The subfolders below are fixed:
 
 - `capability/`
 - `domain/`
@@ -77,56 +77,56 @@ Asagidaki alt klasorler sabittir:
 - `constraints/`
 - `output/`
 
-Yeni kategori eklemek yerine mevcut taksonomi icinde kalmaya oncelik verilir.
+Prefer staying inside the existing taxonomy instead of inventing new categories.
 
 ### `prompts/skill-blueprints/`
 
-- Paketlenmeden once stabilize edilen skill promptlari burada tutulur.
-- Buradaki icerik insan tarafindan okunur, tartisilir ve iyilestirilir.
+- Stabilized pre-packaging skill drafts live here.
+- Content here remains readable, discussable, and improvable by humans.
 
 ### `skills/`
 
-- Sadece olgunlasmis skill paketleri bulunur.
-- Gecici notlar veya arka plan dokumanlari buraya dagitilmaz.
-- Yardimci kaynaklar gerekiyorsa `references/`, `scripts/`, `assets/`, `agents/` altinda tutulur.
+- Only mature skill packages belong here.
+- Temporary notes or background documents should not be scattered into this layer.
+- Helper resources, when needed, live under `references/`, `scripts/`, `assets/`, or `agents/`.
 
 ### `adapters/`
 
-- Runtime'a ozel komut, hook, permission, tool ve agent wiring ayrintilari burada tutulur.
-- Cekirdek prompt veya skill tanimi provider syntax'i ile kirletilmez.
-- Ayni cekirdek varligin birden fazla adapter eslemesi olabilir.
+- Runtime-specific command, hook, permission, tool, and agent-wiring details live here.
+- Core prompt or skill definitions must not be polluted with provider syntax.
+- One core asset can have multiple adapter mappings.
 
-## Terfi Kurallari
+## Promotion Rules
 
-Bir icerik `module` olarak ayrilmalidir eger:
+A piece of content should be extracted as a `module` when:
 
-- ayni davranis baska promptlarda da kullaniliyorsa
-- tek bir goreve degil tekrar kullanima hizmet ediyorsa
+- the same behavior is reused in other prompts
+- it serves reuse rather than one single task
 
-Bir icerik `blueprint` olarak tutulmalidir eger:
+A piece of content should stay as a `blueprint` when:
 
-- skill davranisi var ama paketleme kararina hazir degilse
-- giris cikis kontrati oturmussa ama yardimci klasor ihtiyaci net degilse
+- it behaves like a skill but is not ready for packaging
+- its input/output contract is settled but helper-folder needs are not yet clear
 
-Bir `blueprint` skill paketine terfi ettirilmelidir eger:
+A `blueprint` should be promoted into a skill package when:
 
-- tetikleyici kullanim sinyalleri belirginse
-- gorev akisi sabitlendi ise
-- gerekiyorsa referans veya asset ihtiyaci netlesmisse
-- katalog ve meta kayitlari guncellenmeye hazirsa
-- cekirdek tanim tek bir saglayicinin syntax'ina bagli degilse
+- trigger scenarios are clearly visible
+- the workflow has stabilized
+- the need for helper references or assets is clear
+- catalogs and metadata are ready to be updated
+- the core definition is not tied to one provider syntax
 
-## Katalog Bakim Kurali
+## Catalog Maintenance Rule
 
-- `prompts/` veya `skills/` altina yeni dosya eklendiginde `python scripts/generate_catalog.py` calistirilir.
-- `catalog/prompts.md`, `catalog/skills.md` ve `catalog/dependencies.md` bu betik tarafindan yeniden uretilir.
-- Yeni etiket turetmeden once `catalog/taxonomy.md` kontrol edilir.
-- Bagimlilik ozeti elle degil uretilen katalog uzerinden takip edilir.
-- Skill paket standardi icin ayrintili kontrat `docs/skill-package-spec.md` icinde tutulur.
+- Whenever a new file is added under `prompts/` or `skills/`, run `python scripts/generate_catalog.py`.
+- `catalog/prompts.md`, `catalog/skills.md`, and `catalog/dependencies.md` are regenerated by that script.
+- Check `catalog/taxonomy.md` before introducing a new tag.
+- Track dependency summaries through generated catalogs rather than manual edits.
+- The detailed skill package contract lives in [`docs/skill-package-spec.md`](skill-package-spec.md).
 
-## Lokalizasyon Mimarisi
+## Localization Architecture
 
-- Turkce repo koku canonical kaynaktir.
-- `en/` altindaki ayna ayni dosya yollarini, slug'lari ve kimlik zincirini koruyan English mirror olarak tutulur.
-- `id`, `type`, `status`, `version`, `depends_on`, `source_blueprint`, tag token'lari ve adapter support alanlari locale'ler arasinda degismeden kalir.
-- `scripts/` tek kopya olarak kalir ve locale-aware sekilde hem TR hem EN icerigi uzerinde calisir.
+- The English repository root is the canonical source.
+- The `tr/` tree is a maintained Turkish mirror that keeps the same paths, slugs, and identity chain.
+- `id`, `type`, `status`, `version`, `depends_on`, `source_blueprint`, tag tokens, and adapter-support fields stay invariant across locales.
+- `scripts/` remains single-copy and locale-aware for both EN and TR content.

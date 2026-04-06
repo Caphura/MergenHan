@@ -1,23 +1,23 @@
 # MergenHan Prompt Library
 
-## Dil Secimi
+## Language Switch
 
-- Turkce canonical kaynak: [`README.md`](README.md)
-- English mirror: [`en/README.md`](en/README.md)
+- English canonical source: [`README.md`](README.md)
+- Turkish localization mirror: [`tr/README.md`](tr/README.md)
 
-Not: Repo koku Turkce canonical kaynaktir. `en/` altindaki icerik bakimi yapilan English aynadir; `scripts/` tek kopya ve locale-aware olarak kalir.
+Note: The repository root is the canonical English source. Content under `tr/` is a maintained Turkish localization mirror; `scripts/` stays single-copy and locale-aware.
 
-MergenHan, tasinabilir bir AI prompt ve skill kutuphanesi olarak tasarlanmis; okunur, bakimi kolay ve buyumeye dayanikli bir calisma alanidir. Cekirdek icerik tek bir saglayiciya kilitlenmez; Claude Code, ChatGPT, Codex ve genel LLM ortamlari icin uyarlamalar `adapters/` katmaninda tutulur.
+MergenHan is a portable AI prompt and skill library designed to stay readable, maintainable, and resilient as it grows. Core content is not locked to a single provider; adaptations for Claude Code, ChatGPT, Codex, and generic LLM environments live in the `adapters/` layer.
 
-## Bu Repo Ne Icin Var?
+## What Is This Repo For?
 
-- Master promptlari tek seferlik notlar yerine surumlenebilir varliklar gibi yonetmek
-- Tekrar kullanilabilir modulleri ayirip farkli akislarda birlestirmek
-- Olgunlasan skill taslaklarini tasinabilir skill paketlerine donusturmek
-- Ayni cekirdek icerigi farkli AI calisma ortamlarina adapterler uzerinden eslemek
-- Katalog, taksonomi ve orneklerle birikimi kaybolmadan buyutmek
+- Manage master prompts as versioned assets instead of one-off notes
+- Split reusable modules and combine them across multiple workflows
+- Turn mature skill drafts into portable skill packages
+- Map the same core content into different AI runtimes through adapters
+- Grow the library without losing structure, taxonomy, or examples
 
-## Repo Haritasi
+## Repo Map
 
 ```text
 .
@@ -59,27 +59,27 @@ MergenHan, tasinabilir bir AI prompt ve skill kutuphanesi olarak tasarlanmis; ok
     `-- skill-package/
 ```
 
-## Mevcut Skill'leri Kullanmak
+## Using Existing Skills
 
-Bu repodaki hazir skill'leri herhangi bir AI ortaminda (ChatGPT, Claude Code, Codex, vb.) kullanmak icin adim adim rehber: [`docs/usage-guide.md`](docs/usage-guide.md)
+For a step-by-step guide to using packaged skills from this repository in any AI environment such as ChatGPT, Claude Code, or Codex, see [`docs/usage-guide.md`](docs/usage-guide.md).
 
-## 30 Saniyelik Baslangic
+## 30-Second Start
 
-En kisa yol:
+The shortest path:
 
-1. Ihtiyaciniza en yakin sablonu `templates/` altindan kopyalayin.
-2. Sadece zorunlu metadata alanlarini doldurun.
-3. Dosyayi `prompts/` altinda dogru yere koyun.
-4. Kataloglari yeniden uretin: `python scripts/generate_catalog.py`
-5. Dogrulama betiklerini calistirin.
+1. Copy the closest template from `templates/`.
+2. Fill only the required metadata fields.
+3. Place the file under the right location in `prompts/`.
+4. Regenerate the catalogs: `python scripts/generate_catalog.py`
+5. Run the validation scripts.
 
-Elle kopyalamak istemezseniz:
+If you do not want to copy files manually:
 
 - `python scripts/new_prompt.py master your-slug`
 - `python scripts/new_prompt.py module your-slug --category capability`
 - `python scripts/new_prompt.py blueprint your-slug`
 
-Ilk eklemede yeterli olan zorunlu prompt alanlari:
+Required prompt fields for a first draft:
 
 - `id`
 - `title`
@@ -91,104 +91,104 @@ Ilk eklemede yeterli olan zorunlu prompt alanlari:
 - `depends_on`
 - `last_reviewed`
 
-`input_contract`, `output_contract`, `notes`, `portability`, `adapter_support`, `runtime_dependencies` ve `tool_dependencies` gibi alanlar ihtiyac oldukca eklenir.
+Fields such as `input_contract`, `output_contract`, `notes`, `portability`, `adapter_support`, `runtime_dependencies`, and `tool_dependencies` can be added when needed.
 
-## Hizli Baslangic
+## Quick Start
 
-1. Yeni bir icerik baslatmak icin uygun sablonu `templates/` altindan kopyalayin.
-2. Icerigi once `prompts/` altinda dogru kategoriye yerlestirin.
-3. Yeni etiket uretiyorsaniz `catalog/taxonomy.md` ile hizalayin.
-4. Kataloglari elle duzenlemek yerine `python scripts/generate_catalog.py` calistirin.
-5. Skill davranisi stabil hale geldiginde `prompts/skill-blueprints/` altindaki taslagi `skills/<skill-slug>/` altina terfi ettirin.
-6. Runtime'a ozel notlar gerekiyorsa cekirdek icerigi degistirmek yerine ilgili adapter altinda mapping belgesi ekleyin.
+1. Start new content from the correct template under `templates/`.
+2. Place it under the right category in `prompts/`.
+3. If you introduce new tags, align them with [`catalog/taxonomy.md`](catalog/taxonomy.md).
+4. Regenerate catalogs instead of editing them manually: `python scripts/generate_catalog.py`
+5. When a skill behavior stabilizes, promote the draft from `prompts/skill-blueprints/` into `skills/<skill-slug>/`.
+6. If runtime-specific notes are needed, add them under the relevant adapter instead of changing the core content.
 
-## Nereden Baslamaliyim?
+## Where Should I Start?
 
-Sadece mevcut skill'leri kullanmak istiyorsaniz:
+If you only want to use existing skills:
 
-1. Kullanim rehberi: [`docs/usage-guide.md`](docs/usage-guide.md)
-2. Skill katalogu: [`catalog/skills.md`](catalog/skills.md)
+1. Usage guide: [`docs/usage-guide.md`](docs/usage-guide.md)
+2. Skill catalog: [`catalog/skills.md`](catalog/skills.md)
 
-Icerik yazmak veya kutuphanenin yapisini anlamak istiyorsaniz:
+If you want to write content or understand the library structure:
 
-1. Bu README
-2. Bir ornek prompt: [`prompts/masters/active/prompt-library-orchestrator.md`](prompts/masters/active/prompt-library-orchestrator.md)
-3. Gerekirse kurallar: [`docs/conventions.md`](docs/conventions.md)
+1. This README
+2. An example master prompt: [`prompts/masters/active/prompt-library-orchestrator.md`](prompts/masters/active/prompt-library-orchestrator.md)
+3. Rules and conventions: [`docs/conventions.md`](docs/conventions.md)
 
-Derine inmek isterseniz:
+If you want to go deeper:
 
-- Tekrar kullanilabilir bir modul ornegi: [`prompts/modules/capability/context-audit.md`](prompts/modules/capability/context-audit.md)
-- Paketlenmemis skill taslagi: [`prompts/skill-blueprints/prompt-library-curator.md`](prompts/skill-blueprints/prompt-library-curator.md)
-- Paketlenmis skill ornegi: [`skills/prompt-library-curator/SKILL.md`](skills/prompt-library-curator/SKILL.md)
-- Gorsel prompt odakli skill ornegi: [`skills/nano-banana-image-prompt-composer/SKILL.md`](skills/nano-banana-image-prompt-composer/SKILL.md)
-- Adapter modeli: [`docs/adapter-model.md`](docs/adapter-model.md)
-- Yasam dongusu: [`docs/lifecycle.md`](docs/lifecycle.md)
-- Birlestirme ve terfi akisi: [`docs/composition-guide.md`](docs/composition-guide.md)
+- Reusable module example: [`prompts/modules/capability/context-audit.md`](prompts/modules/capability/context-audit.md)
+- Unpackaged skill draft: [`prompts/skill-blueprints/prompt-library-curator.md`](prompts/skill-blueprints/prompt-library-curator.md)
+- Packaged skill example: [`skills/prompt-library-curator/SKILL.md`](skills/prompt-library-curator/SKILL.md)
+- Visual-prompt skill example: [`skills/nano-banana-image-prompt-composer/SKILL.md`](skills/nano-banana-image-prompt-composer/SKILL.md)
+- Adapter model: [`docs/adapter-model.md`](docs/adapter-model.md)
+- Lifecycle: [`docs/lifecycle.md`](docs/lifecycle.md)
+- Composition and promotion flow: [`docs/composition-guide.md`](docs/composition-guide.md)
 
-## Yeni Bir AI Ortaminda Baslangic
+## Starting in a New AI Environment
 
-1. Once cekirdek kaynagi secin: tekrar kullanilabilir davranis icin `skills/`, paketleme oncesi davranis icin `prompts/skill-blueprints/`, gorev orkestrasyonu icin `prompts/masters/`.
-2. Sonra uygun adapteri secin: runtime'a ozel kullanim notlari `adapters/` altinda yer alir.
-3. Yeni bir ortam ekleyecekseniz `adapters/<runtime>/` altinda en az bir `README.md` ve `mapping.md` olusturun; gerekiyorsa ornek dosya veya istege bagli ayar ornegi ekleyin.
-4. Core kimlikleri, bagimlilik sahipligini ve workflow mantigini adaptere tasimayin; adapter yalnizca calistirma bicimini aciklar.
+1. Pick the right core source first: `skills/` for reusable packaged behavior, `prompts/skill-blueprints/` for pre-packaging skill drafts, and `prompts/masters/` for orchestration flows.
+2. Then pick the relevant adapter. Runtime-specific usage notes live under `adapters/`.
+3. When adding a new runtime, create at least `adapters/<runtime>/README.md` and `adapters/<runtime>/mapping.md`; add examples or optional settings files when useful.
+4. Do not move core IDs, dependency ownership, or workflow logic into the adapter layer. The adapter only explains execution style.
 
-Pratik adapter ornekleri:
+Practical adapter examples:
 
-- Claude Code ayar ornegi: [`adapters/claude-code/settings.example.json`](adapters/claude-code/settings.example.json)
-- ChatGPT proje talimati ornegi: [`adapters/chatgpt/project-instructions-example.md`](adapters/chatgpt/project-instructions-example.md)
-- Codex gorev paketi ornegi: [`adapters/codex/task-packet-example.md`](adapters/codex/task-packet-example.md)
-- Generic LLM minimum kullanim ornegi: [`adapters/generic-llm/minimal-usage-example.md`](adapters/generic-llm/minimal-usage-example.md)
+- Claude Code settings example: [`adapters/claude-code/settings.example.json`](adapters/claude-code/settings.example.json)
+- ChatGPT project-instructions example: [`adapters/chatgpt/project-instructions-example.md`](adapters/chatgpt/project-instructions-example.md)
+- Codex task-packet example: [`adapters/codex/task-packet-example.md`](adapters/codex/task-packet-example.md)
+- Generic LLM minimal-usage example: [`adapters/generic-llm/minimal-usage-example.md`](adapters/generic-llm/minimal-usage-example.md)
 
-## Icerik Tipleri
+## Content Types
 
-- `master`: Birden fazla modulun belirli bir gorev icin birlestirilmis surumu
-- `module`: Tekrar kullanilabilir davranis, kisit, ton veya cikti parcasi
-- `blueprint`: Paketlenmeden once stabilize edilen skill taslagi
-- `skill`: Adapterler tarafindan farkli runtimelara eslenebilen paketlenmis beceri
-- `adapter`: Cekirdek icerigi belirli bir runtime'in komut, arac ve izin modeline uyarlayan katman
+- `master`: a composed version of multiple modules for a specific task
+- `module`: a reusable behavior, constraint, tone, or output fragment
+- `blueprint`: a stabilized skill draft before packaging
+- `skill`: a packaged capability that can be mapped into multiple runtimes
+- `adapter`: the layer that adapts core content to a runtime's command, tool, and permission model
 
-## Calisma Akisi
+## Working Flow
 
-### 1. Fikirden Prompta
+### 1. From Idea to Prompt
 
-- Yeni fikirler once sablonla baslar.
-- Tekrar kullanilabilir parcalar `prompts/modules/` altina ayrilir.
-- Tam gorev akislari `prompts/masters/active/` altinda tutulur.
+- New ideas begin from templates.
+- Reusable parts are split into `prompts/modules/`.
+- Full task flows live under `prompts/masters/active/`.
 
-### 2. Prompttan Blueprint'e
+### 2. From Prompt to Blueprint
 
-- Moduler skill davranisi netlesince icerik `prompts/skill-blueprints/` altina tasinir.
-- Giris ve cikis kontrati belirginlesmeden paketleme yapilmaz.
+- Once modular skill behavior becomes clear, it moves into `prompts/skill-blueprints/`.
+- Packaging does not happen until input and output contracts are clear.
 
-### 3. Blueprint'ten Skill'e
+### 3. From Blueprint to Skill
 
-- Paketlenmis skill icin sade bir `SKILL.md` yazilir.
-- Yonetisim metadatasi `meta.yaml` icinde tutulur.
-- Gerekirse `references/`, `scripts/`, `assets/` gibi yardimci klasorler eklenir.
+- Write a concise `SKILL.md` for the packaged skill.
+- Keep governance metadata in `meta.yaml`.
+- Add helper folders such as `references/`, `scripts/`, or `assets/` when needed.
 
-### 4. Skill'ten Adapter'e
+### 4. From Skill to Adapter
 
-- Cekirdek prompt, blueprint ve skill tanimlari `prompts/` ile `skills/` altinda korunur.
-- Runtime'a ozel slash command, hook, tool, permission veya agent wiring detaylari `adapters/` altina tasinir.
-- Ayni skill birden fazla adapter tarafindan desteklenebilir.
+- Core prompt, blueprint, and skill definitions remain under `prompts/` and `skills/`.
+- Runtime-specific slash-command, hook, tool, permission, or agent-wiring details move into `adapters/`.
+- One skill can be supported by multiple adapters.
 
-## Repo Prensipleri
+## Repository Principles
 
-- Dosya ve klasor adlari her zaman `kebab-case` olur.
-- Ana dokumantasyon Turkce yazilir.
-- Prompt icerikleri YAML frontmatter ile surumlenir.
-- Gizli anahtar, musteri verisi ve paylasilmamasi gereken varyantlar repoya girmez.
-- Okunabilirlik ve manuel bakim once gelir; otomasyon yalnizca hafif uretim ve dogrulama scriptleriyle sinirli tutulur.
-- Cekirdek icerik tek bir saglayicinin syntax veya runtime varsayimlarina baglanmaz.
+- File and folder names always use `kebab-case`.
+- The repository root is English-first; Turkish lives in the maintained `tr/` mirror.
+- Prompt content is versioned through YAML frontmatter.
+- Secrets, customer data, and non-shareable variants do not enter the repo.
+- Readability and manual maintenance come first; automation stays limited to lightweight generation and validation scripts.
+- Core content must not depend on one provider's syntax or runtime assumptions.
 
-## Ilk Ornek Akislar
+## First Example Flows
 
-- Modulden master prompta gecis: [`examples/compositions/module-to-master.md`](examples/compositions/module-to-master.md)
-- Blueprint'ten skill paketine gecis: [`examples/compositions/blueprint-to-skill.md`](examples/compositions/blueprint-to-skill.md)
+- From module to master prompt: [`examples/compositions/module-to-master.md`](examples/compositions/module-to-master.md)
+- From blueprint to skill package: [`examples/compositions/blueprint-to-skill.md`](examples/compositions/blueprint-to-skill.md)
 
-## Hafif Bakim ve Dogrulama
+## Lightweight Maintenance and Validation
 
-Kataloglari yeniden uretmek ve repo butunlugunu kontrol etmek icin `scripts/` altinda bagimsizliksiz yardimci betikler bulunur:
+The `scripts/` folder includes dependency-light helper scripts to regenerate catalogs and check repository integrity:
 
 - `python scripts/new_prompt.py master your-slug`
 - `python scripts/new_prompt.py module your-slug --category capability`
@@ -197,11 +197,12 @@ Kataloglari yeniden uretmek ve repo butunlugunu kontrol etmek icin `scripts/` al
 - `python scripts/validate_catalog.py`
 - `python scripts/validate_metadata.py`
 - `python scripts/check_missing_links.py`
+- `python scripts/validate_localization.py`
 
-Onerilen akis:
+Recommended flow:
 
-1. Icerigi ekleyin veya guncelleyin.
-2. `python scripts/generate_catalog.py` calistirin.
-3. Diger betiklerle katalog, metadata ve link tutarliligini kontrol edin.
+1. Add or update content.
+2. Run `python scripts/generate_catalog.py`.
+3. Check catalog, metadata, links, and localization consistency with the other scripts.
 
-Bu betikler CI zorunlulugu getirmez; repo bakimini hizlandirmak ve manuel hatalari azaltmak icin kullanilir.
+These scripts do not impose mandatory CI. They exist to accelerate maintenance and reduce manual mistakes.

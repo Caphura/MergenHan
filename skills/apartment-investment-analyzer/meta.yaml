@@ -3,7 +3,7 @@ title: Apartment Investment Analyzer
 type: skill
 status: stable
 version: 1.0.0
-summary: Apartman satis ilanlarini yatirim, kira getirisi, fiyatlama riski ve sonraki kontrol adimlari acisindan yapisal bicimde analiz eden paketlenmis beceri.
+summary: Apartman satis listinglarini investment, kira getirisi, fiyatlama riski ve sonraki kontrol steps acisindan yapisal bicimde analysis eden paketlenmis beceri.
 tags:
   - real-estate
   - apartment-analysis
@@ -21,6 +21,6 @@ adapter_support:
   generic-llm: supported
 runtime_dependencies: []
 tool_dependencies: []
-input_contract: Kullanicinin tek bir apartman satis ilanini, birden fazla ilan grubunu veya yatirim shortlist'i ihtiyacini karar destekleyici bicimde analiz etmek istemesi.
-output_contract: Apartman satis ilanlarini kanit-temelli, risk bilinci tasiyan ve taranabilir yatirim analizi formatinda sunan kopyalanabilir yonerge.
-notes: Bu klasorde calisma talimatlari `SKILL.md` icinde, yonetisim ve izlenebilirlik verisi bu dosyada tutulur. Davranis farkli AI denemelerinde karar destekleyici cikti yapisi ve risk/belirsizlik disiplini acisindan yeterli bulunmustur.
+input_contract: Kullanicinin tek bir apartman satis listingini, birden fazla listing grubunu veya investment shortlist'i ihtiyacini decision destekleyici bicimde analysis etmek istemesi.
+output_contract: Apartman satis listinglarini evidence-temelli, risk bilinci tasiyan ve taranabilir investment analysis formatinda sunan kopyalanabilir instruction.
+notes: Bu klasorde working talimatlari `SKILL.md` icinde, governance ve izlenebilirlik verisi bu dosyada tutulur. Davranis different AI denemelerinde decision destekleyici output structure ve risk/uncertainty disiplini acisindan yeterli bulunmustur.

@@ -1,4 +1,4 @@
-﻿---
+---
 id: mh-blueprint-catalog-validator
 title: Catalog Validator
 type: blueprint
@@ -22,9 +22,9 @@ adapter_support:
   generic-llm: supported
 runtime_dependencies: []
 tool_dependencies: []
-input_contract: Repo butunlugunu katalog, dosya, kimlik ve link acisindan denetleme talepleri.
+input_contract: Repo butunlugunu katalog, dosya, identity ve link acisindan denetleme requestleri.
 output_contract: Tespit edilen tutarsizliklar, eksik girdiler, duplicate ID'ler ve link sorunlari icin taranabilir rapor.
-notes: Bu blueprint runtime'a ozel validator syntax'i uretmez; cekirdek kontrol mantigini tanimlar. Repo bakiminda tekrarli kullanim gordugu ve stable skill paketine kaynaklik ettigi icin stabilize edilmistir.
+notes: This blueprint runtime'a specific validator syntax'i uretmez; core kontrol mantigini defines. Repo maintenanceinda tekrarli usage gordugu ve stable skill paketine kaynaklik ettigi icin stabilize edilmistir.
 ---
 
 # Responsibility
@@ -33,7 +33,7 @@ Repo icindeki katalog ve metadata butunlugunu denetle, kirik referanslari gorunu
 
 # Trigger Signals
 
-- "Kataloglar guncel mi?"
+- "Kataloglar current mi?"
 - "Eksik link veya duplicate ID var mi?"
 - "Repo yapisinda kirik referanslari bul"
 
@@ -48,5 +48,5 @@ Repo icindeki katalog ve metadata butunlugunu denetle, kirik referanslari gorunu
 # Promotion Criteria
 
 - Kontrol listesi betiklestirilebilir duzeyde netlesmisse
-- Katalog ve metadata bakiminda tekrar eden bir ihtiyaci cozuyorsa
+- Katalog ve metadata maintenanceinda tekrar eden bir ihtiyaci cozuyorsa
 - Cikti formati insanlar ve scriptler icin okunur kaliyorsa

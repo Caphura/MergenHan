@@ -1,13 +1,13 @@
 # Game Strategy Session Composer Test Pack
 
-Bu belge, `Game Strategy Session Composer` icin farkli AI ortamlarda uygulanabilecek test senaryolarini toplar. Amaç, modelin yalnizca oyun fikrini yorumlamasini degil; kullanicinin asil amacini anlayip dogru oturum kompozisyonunu secmesini test etmektir.
+This document `Game Strategy Session Composer` icin different AI ortamlarda uygulanabilecek test senaryolarini toplar. Amaç, modelin only oyun fikrini yorumlamasini degil; the user's asil amacini anlayip correct session kompozisyonunu secmesini test etmektir.
 
-## Kullanim Sekli
+## Usage
 
 Her testten once asagidaki acilis talimatini kullan:
 
 ```text
-Asagidaki oyun fikri istegini degerlendir. Ama dogrudan uzun analiz yapma. Once kullanicinin asil amacini belirle, sonra uygun oturum kompozisyonunu sec ve sonucu su yapida ver:
+Asagidaki oyun fikri istegini degerlendir. Goal directly uzun analysis yapma. Once the user's asil amacini belirle, sonra uygun session kompozisyonunu sec ve sonucu su yapida ver:
 
 1. Session Goal
 2. Active Modules
@@ -21,7 +21,7 @@ Eger gerekiyorsa "sert mod" ust katmanini da ekleyebilirsin.
 
 ### GS1 - Steam potansiyeli secimi
 
-**Amaç:** Model, market/Steam odakli talebi dogru okuyup uygun modulleri secebiliyor mu?
+**Amaç:** Model, market/Steam odakli talebi correct okuyup uygun modules secebiliyor mu?
 
 **Test girdisi:**
 
@@ -29,36 +29,36 @@ Eger gerekiyorsa "sert mod" ust katmanini da ekleyebilirsin.
 Bu oyun fikrinin Steam'de is yapip yapmayacagini anlamak istiyorum. Fikir: Kucuk bir kasabada gecen, karanlik mizahli bir gece vardiyasi market simulasyonu.
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
 - `Core + Steam Market Validation + Full Concept Greenlight` secmeli
 - Session goal'u market ve greenlight odakli tanimlamali
-- Kopyala-yapistir acilis mesaji vermeli
+- Kopyala-paste acilis mesaji vermeli
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
-- Dogrudan tam analiz yapmaya baslamak
+- Dogrudan tam analysis yapmaya baslamak
 - MVP veya production risk modullerine gereksiz kaymak
 
 ### GS2 - MVP indirgeme secimi
 
-**Amaç:** Model, asıl ihtiyacin kapsam daraltma oldugunu anlayabiliyor mu?
+**Amaç:** Model, asıl ihtiyacin scope daraltma oldugunu anlayabiliyor mu?
 
 **Test girdisi:**
 
 ```text
-Bu fikri cok buyutmeden MVP'ye indirmem lazim. Fikir: co-op extraction roguelite ama ayni zamanda base building ve economy de var.
+Bu fikri cok buyutmeden MVP'ye indirmem lazim. Fikir: co-op extraction roguelite ama same zamanda base building ve economy de var.
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
 - `Core + MVP Scope Reduction` secmeli
-- Kapsam kesintisi ve en kucuk satilabilir versiyon mantigina yonelmeli
+- Scope kesintisi ve en kucuk satilabilir versiyon mantigina yonelmeli
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
-- Steam analizi veya full greenlight'a gereksiz kaymak
-- Tekrar kullanilabilir oturum acilisi vermemek
+- Steam analysis veya full greenlight'a gereksiz kaymak
+- Tekrar kullanilabilir session acilisi vermemek
 
 ### GS3 - Uretim riski secimi
 
@@ -70,39 +70,39 @@ Bu fikri cok buyutmeden MVP'ye indirmem lazim. Fikir: co-op extraction roguelite
 Bu fikrin uretimde nerede patlayacagini gormek istiyorum. Fikir: procedural dedektiflik oyunu, NPC hafizasi var, oyuncu ipuclarini serbest bicimde birlestiriyor.
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
 - `Core + Production Risk Strategy` secmeli
 - Bottleneck, test zorlugu ve solo-dev risklerine odaklanmali
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
 - Risk yerine oyun fikrini ovmeye kaymak
 - Production phase mantigini hic dusunmemek
 
-### GS4 - Tam stratejik degerlendirme
+### GS4 - Tam stratejik evaluation
 
-**Amaç:** Model, tam stratejik degerlendirme isteginde butun gerekli modulleri bir araya getirebiliyor mu?
+**Amaç:** Model, tam stratejik evaluation isteginde butun required modules bir araya getirebiliyor mu?
 
 **Test girdisi:**
 
 ```text
-Bu oyun fikrine acimasiz ama ticari gercekcilikle bak. Steam potansiyeli, scope, risk ve greenlight acisindan tam degerlendirme istiyorum.
+Bu oyun fikrine acimasiz ama ticari gercekcilikle bak. Steam potansiyeli, scope, risk ve greenlight acisindan tam evaluation istiyorum.
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
 - `Core + Steam Market Validation + MVP Scope Reduction + Production Risk Strategy + Full Concept Greenlight` secmeli
 - Gerekliyse sert mod ust katmanini eklemeli
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
 - Sadece tek modulle yetinmek
 - Sert tonu gerektigi halde yumusatmak
 
 ### GS5 - Belirsiz niyet cozumu
 
-**Amaç:** Model, kullanicinin ne istedigini tam soylemedigi durumda en uygun oturumu secebiliyor mu?
+**Amaç:** Model, the user's what istedigini tam soylemedigi durumda en uygun oturumu secebiliyor mu?
 
 **Test girdisi:**
 
@@ -110,37 +110,37 @@ Bu oyun fikrine acimasiz ama ticari gercekcilikle bak. Steam potansiyeli, scope,
 Bu fikre bir bakar misin? Fikir: tek tusla oynanan ama cok derin hisseden bir buyucu arena oyunu.
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
-- Once kullanicinin amacini tespit etmeye calismali
-- Gerekirse en makul varsayimla uygun session composition secmeli
+- Once the user's amacini tespit etmeye calismali
+- Gerekirse en makul assumptionla uygun session composition secmeli
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
 - Rastgele bir kompozisyon secmek
 - Kullanicinin amacini hic netlestirmemek
 
-### GS6 - Sert mod kullanimi
+### GS6 - Sert mod usagei
 
-**Amaç:** Model, kullanici acikca sert ve gercekci degerlendirme istediginde bunu session katmanina yansitiyor mu?
+**Amaç:** Model, user explicitly sert ve gercekci evaluation istediginde bunu session katmanina yansitiyor mu?
 
 **Test girdisi:**
 
 ```text
-Bu oyunu bana kirmadan degil, gercekci sekilde degerlendir. Kucuk ekip icin fazla mi buyuk, Steam'de dikkat ceker mi, durust ol.
+Bu oyunu bana kirmadan degil, gercekci way degerlendir. Kucuk ekip icin fazla mi buyuk, Steam'de dikkat ceker mi, durust ol.
 ```
 
-**Beklenen guclu davranis:**
+**Expected guclu davranis:**
 
 - Tam stratejik veya market + risk agirlikli kompozisyon secmeli
 - Sert mod ust katmanini eklemeli
 
-**Kirmizi bayraklar:**
+**Red flags:**
 
 - Tonu yumusatmak
-- "iyi olabilir" gibi kacamak genellemeler yapmak
+- "iyi olabilir" such as kacamak genellemeler yapmak
 
-## Onerilen Test Sirasi
+## Recommended Test Order
 
 1. `GS1`
 2. `GS2`
@@ -149,25 +149,25 @@ Bu oyunu bana kirmadan degil, gercekci sekilde degerlendir. Kucuk ekip icin fazl
 5. `GS6`
 6. `GS5`
 
-Bu sira, net amaclardan daha belirsiz niyet cozumune dogru ilerler.
+Bu sira, net amaclardan daha belirsiz niyet cozumune correct ilerler.
 
-## Puanlama Rubrigi
+## Scoring Rubric
 
 | Olcut | Ne aranir? |
 | --- | --- |
-| Amaç Tespiti | Kullanicinin asil derdini dogru okuyabiliyor mu |
+| Amaç Tespiti | Kullanicinin asil derdini correct okuyabiliyor mu |
 | Kompozisyon Secimi | Dogru master/modul kombinasyonunu kurabiliyor mu |
-| Ton Kontrolu | Sert mod gerektiğinde dogru ekleyebiliyor mu |
+| Ton Kontrolu | Sert mod gerektiğinde correct ekleyebiliyor mu |
 | Cikti Disiplini | Analize dalmadan session setup verebiliyor mu |
-| Kopyalanabilirlik | Copy-paste oturum acilisi gercekten kullanilabilir mi |
+| Kopyalanabilirlik | Copy-paste session acilisi gercekten kullanilabilir mi |
 
-## Kisa Sonuc Formu
+## Short Result Form
 
 ```text
 AI:
 Test ID:
-Secilen composition dogru muydu:
-Sert mod gerekli miydi:
+Secilen composition correct muydu:
+Sert mod required miydi:
 Copy-paste acilis mesaji iyi miydi:
 En guclu yani:
 En zayif yani:

@@ -4,7 +4,7 @@ title: Steam Market Validation
 type: module
 status: active
 version: 1.0.0
-summary: Oyun fikrinin Steam pazarinda gorunurluk, konumlanma ve satis potansiyelini degerlendiren modul.
+summary: Oyun fikrinin Steam pazarinda gorunurluk, konumlanma ve satis potansiyelini evaluates modul.
 tags:
   - steam
   - market
@@ -19,14 +19,14 @@ notes: Pazar gercekligi netlesmeden derin tasarim genislemesini frenlemek icin k
 
 # Purpose
 
-Fikrin Steam tarafinda fark edilir, tiklanir ve satin alinabilir olup olmadigini erken asamada degerlendirmek.
+Fikrin Steam side fark edilir, tiklanir ve satin alinabilir olup olmadigini erken asamada degerlendirmek.
 
 # Usage Rules
 
 - Sahte satis verisi uretme.
 - Kesinlik yoksa tahmin oldugunu belirt.
-- Fikri sadece yaratici oldugu icin olumlu degerlendirme.
-- Zayif market hook varsa bunu acikca soyle.
+- Fikri only yaratici oldugu icin olumlu evaluation.
+- Zayif market hook varsa bunu explicitly soyle.
 
 # Module Text
 

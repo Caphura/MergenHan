@@ -3,7 +3,7 @@ title: Adapter Mapper
 type: skill
 status: stable
 version: 1.0.0
-summary: Cekirdek prompt, blueprint, master veya skill icerigini adapter katmani icin tasinabilir bicimde eslemeye yardim eden beceri.
+summary: Core prompt, blueprint, master veya skill icerigini adapter katmani icin portable bicimde eslemeye yardim eden beceri.
 tags:
   - portability
   - adapters
@@ -21,6 +21,6 @@ adapter_support:
   generic-llm: supported
 runtime_dependencies: []
 tool_dependencies: []
-input_contract: Bir cekirdek varligin hangi kisimlarinin core'da kalacagini ve hangi kisimlarinin adapter katmanina eslenecegini netlestirme istegi.
+input_contract: Bir core the asset hangi kisimlarinin core'da kalacagini ve hangi kisimlarinin adapter katmanina eslenecegini netlestirme istegi.
 output_contract: Core invariants, adapter needs, mapping recommendations ve next step basliklari altinda taranabilir bir adapter mapping ozeti.
-notes: Bu skill adapter mapping karar mantigini cekirdekte tutar; runtime'a ozel uygulama detaylari adapter dosyalarinda belgelenir.
+notes: This skill adapter mapping decision mantigini corete tutar; runtime'a specific uygulama detaylari adapter dosyalarinda is documented.

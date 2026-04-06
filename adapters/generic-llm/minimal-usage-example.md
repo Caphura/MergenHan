@@ -1,17 +1,17 @@
 # Generic LLM Minimal Usage Example
 
-Bu ornek, ozel runtime ozelligi olmayan bir LLM ortaminda cekirdek bir skill'in minimum baglamla nasil kullanilabilecegini gosterir.
+This example specific runtime ozelligi olmayan bir LLM ortaminda core bir skill'in minimum contextla how kullanilabilecegini shows.
 
-## Core Kaynaklar
+## Core Sources
 
 - [`skills/prompt-library-curator/SKILL.md`](../../skills/prompt-library-curator/SKILL.md)
 - [`skills/prompt-library-curator/meta.yaml`](../../skills/prompt-library-curator/meta.yaml)
 
-## Minimal Kullanim
+## Minimal Usage
 
 1. `SKILL.md` icerigini oturuma ekleyin.
-2. Gerekirse `meta.yaml` icinden bagimlilik ve kaynak blueprint bilgisini ozetleyin.
-3. Asagidaki gibi basit bir istem kullanin:
+2. Gerekirse `meta.yaml` icinden dependency ve source blueprint bilgisini ozetleyin.
+3. Asagidaki such as basit bir istem kullanin:
 
 ```text
 Use the core behavior from MergenHan's `prompt-library-curator` skill.
@@ -20,6 +20,6 @@ Preserve existing IDs and dependency chains unless there is a real inconsistency
 Keep runtime-specific assumptions out of the core recommendation.
 ```
 
-## Kisa Not
+## Short Note
 
-Bu en dusuk ortak payda ornegidir; ozel arac, hook veya permission varsayimi yapmaz.
+Bu en dusuk ortak payda ornegidir; specific vehicle, hook veya permission assumptioni yapmaz.

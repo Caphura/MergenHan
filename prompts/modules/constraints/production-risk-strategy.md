@@ -4,7 +4,7 @@ title: Production Risk Strategy
 type: module
 status: active
 version: 1.0.0
-summary: Oyun fikrini uretim mantigi ve teslim riski acisindan degerlendiren risk stratejisi modulu.
+summary: Oyun fikrini generation logic ve teslim riski acisindan evaluates risk stratejisi module.
 tags:
   - production
   - risk
@@ -12,9 +12,9 @@ tags:
   - solo-dev
 depends_on: []
 last_reviewed: 2026-04-03
-input_contract: Uretim riski, bottleneck veya teslim edilebilirlik degerlendirmesi talepleri.
-output_contract: Risk seviyeleri, azaltma onerileri ve asamali uretim cercevesi.
-notes: Kapsam, teknik karmasiklik ve icerik yukunu ayni tabloda gormek icin kullanilir.
+input_contract: Uretim riski, bottleneck veya teslim edilebilirlik degerlendirmesi requestleri.
+output_contract: Risk seviyeleri, azaltma onerileri ve asamali generation cercevesi.
+notes: Scope, teknik karmasiklik ve content yukunu same tabloda gormek icin kullanilir.
 ---
 
 # Purpose
@@ -23,10 +23,10 @@ Konseptin neden takilabilecegini, hangi bolumlerin hiz kesecegini ve nelerin pro
 
 # Usage Rules
 
-- Riskleri sadece listeleme; her high risk icin mitigation oner.
+- Riskleri only listeleme; her high risk icin mitigation oner.
 - Solo dev yorgunlugu ve iteration speed konularini atlama.
 - Sadece teorik complexity degil pratik teslim riskine de bak.
-- Polishe asiri bagimli hissiyat riskini ozel olarak kontrol et.
+- Polishe asiri bagimli hissiyat riskini specific olarak kontrol et.
 
 # Module Text
 

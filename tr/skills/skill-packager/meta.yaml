@@ -1,0 +1,26 @@
+id: mh-skill-skill-packager
+title: Skill Packager
+type: skill
+status: stable
+version: 1.0.0
+summary: Blueprint'ten paketlenmis skill'e gecisi degerlendiren ve minimum guvenli paketleme adimlarini tanimlayan beceri.
+tags:
+  - packaging
+  - promotion
+  - governance
+  - maintenance
+depends_on:
+  - mh-blueprint-skill-packager
+last_reviewed: 2026-04-03
+source_blueprint: ../../prompts/skill-blueprints/skill-packager.md
+portability: universal
+adapter_support:
+  claude-code: supported
+  chatgpt: supported
+  codex: supported
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
+input_contract: Bir blueprint'in paketlenmis skill olmaya hazir olup olmadigini degerlendirme veya paketleme adimlarini netlestirme istegi.
+output_contract: Hazirlik durumu, eksikler, minimum paketleme adimlari ve sonraki adimlardan olusan taranabilir bir packaging ozeti.
+notes: Bu skill packaging karar mantigini cekirdekte tutar; runtime'a ozel uygulama notlari adapter katmaninda belgelenir.

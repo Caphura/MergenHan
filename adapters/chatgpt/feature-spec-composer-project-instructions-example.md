@@ -1,13 +1,13 @@
 # ChatGPT Feature Spec Composer Project Instructions Example
 
-Bu ornek, `feature-spec-composer` skill'inin ChatGPT tarafinda kisa proje talimati veya manuel oturum acilisi olarak nasil kullanilabilecegini gosterir.
+This example `feature-spec-composer` skill'inin ChatGPT side short proje talimati veya manual session acilisi olarak how kullanilabilecegini shows.
 
-## Core Kaynaklar
+## Core Sources
 
 - [`skills/feature-spec-composer/SKILL.md`](../../skills/feature-spec-composer/SKILL.md)
 - [`skills/feature-spec-composer/meta.yaml`](../../skills/feature-spec-composer/meta.yaml)
 
-## Ornek Proje Talimati
+## Example Project Instructions
 
 ```md
 You are using MergenHan as a portable prompt and skill library.
@@ -19,6 +19,6 @@ Keep the output organized under the expected feature spec headings.
 Do not turn the response into a detailed engineering task breakdown unless the user explicitly asks for that.
 ```
 
-## Kisa Not
+## Short Note
 
-Bu ornek, cekirdek skill'in yerine gecmez; ChatGPT tarafinda nasil yerlestirilebilecegini gosterir. Ayni mantik text-first baska LLM ortamlari icin `generic-llm` adapter'i uzerinden temsil edilebilir.
+This example does not replace the core skill; ChatGPT side how yerlestirilebilecegini shows. Ayni mantik text-first baska LLM ortamlari icin `generic-llm` adapter'i uzerinden temsil edilebilir.

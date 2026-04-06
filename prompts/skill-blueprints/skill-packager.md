@@ -1,10 +1,10 @@
-﻿---
+---
 id: mh-blueprint-skill-packager
 title: Skill Packager
 type: blueprint
 status: stable
 version: 1.0.0
-summary: Bir blueprint'in paketlenmis skill olmaya hazir olup olmadigini degerlendiren ve klasor yapisini hazirlayan dogrulanmis evrensel packaging blueprint'i.
+summary: Bir blueprint'in paketlenmis skill olmaya ready olup olmadigini evaluates ve folder yapisini hazirlayan dogrulanmis evrensel packaging blueprint'i.
 tags:
   - packaging
   - workflow
@@ -22,33 +22,33 @@ adapter_support:
   generic-llm: supported
 runtime_dependencies: []
 tool_dependencies: []
-input_contract: Belirli bir blueprint'in skill paketine terfi ettirilip ettirilmeyecegini ve nasil paketlenecegini degerlendirme talepleri.
-output_contract: Terfi karari, onerilen skill klasor yapisi, gerekli `SKILL.md` ve `meta.yaml` unsurlari.
-notes: Paketleme karari migration odaklidir; davranisi sifirdan yazmak yerine mevcut blueprint'i cekirdekte korur. Repo icindeki skill terfi akislarinda tekrarli kullanim gordugu ve stable skill paketine kaynaklik ettigi icin stabilize edilmistir.
+input_contract: Belirli bir blueprint'in skill paketine promotion ettirilip ettirilmeyecegini ve how paketlenecegini evaluation requestleri.
+output_contract: Terfi decisioni, onerilen skill folder structure, required `SKILL.md` ve `meta.yaml` unsurlari.
+notes: Paketleme decisioni migration odaklidir; davranisi sifirdan yazmak yerine mevcut blueprint'i corete preserves. Repo icindeki skill promotion akislarinda tekrarli usage gordugu ve stable skill paketine kaynaklik ettigi icin stabilize edilmistir.
 ---
 
 # Responsibility
 
-Bir blueprint'i yeniden yazmadan, paketlenebilir cekirdek skill yapisina migrate et.
+Bir blueprint'i yeniden yazmadan, paketlenebilir core skill yapisina migrate et.
 
 # Trigger Signals
 
-- "Bu blueprint artik skill olsun mu?"
+- "This blueprint artik skill olsun mu?"
 - "Paket yapisini hazirla"
 - "Hangi yardimci klasorler lazim?"
 
 # Workflow
 
-1. Kaynak blueprint'in tetikleyici sinyallerini, workflow'unu ve bagimliliklarini incele.
-2. Skill paketine tasinmasi gereken cekirdek talimati ayristir.
-3. `meta.yaml` icin zorunlu yonetisim alanlarini doldur.
+1. Kaynak blueprint'in tetikleyici sinyallerini, workflow'unu ve dependenciesini incele.
+2. Skill paketine tasinmasi gereken core talimati separate.
+3. `meta.yaml` icin required governance alanlarini doldur.
 4. Gerekliyse `references/`, `examples/`, `assets/` veya `scripts/` ihtiyacini acikla.
 5. Adapter'e ait runtime notlarini cekirdege gommeden ayrica isaretle.
-6. Sonucu terfi uygunlugu ve sonraki bakim adimlariyla bitir.
+6. Sonucu promotion uygunlugu ve sonraki maintenance adimlariyla bitir.
 
 # Promotion Criteria
 
-- Blueprint tekrar eden kullanim desenine sahipse
-- Giris ve cikis kontrati netse
+- Blueprint tekrar eden usage desenine sahipse
+- Giris ve output kontrati netse
 - Bagimlilik zinciri saklanmadan paketlenebiliyorsa
-- Cekirdek tanim provider-specific olmadan ayakta kalabiliyorsa
+- Core tanim provider-specific olmadan ayakta kalabiliyorsa

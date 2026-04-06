@@ -3,7 +3,7 @@ title: Used Car Scout
 type: skill
 status: archived
 version: 1.4.0
-summary: Tarihsel referans olarak korunan, ikinci el arac ilan analizi icin tasarlanmis ancak karmaşıklık ve halusinasyon riski nedeniyle yeni kullanim icin onerilmeyen paketlenmis beceri.
+summary: Tarihsel referans olarak korunan, used car vehicle listing analysis icin designed ancak karmaşıklık ve halusinasyon riski nedeniyle yeni usage icin onerilmeyen paketlenmis beceri.
 tags:
   - automotive
   - used-car
@@ -24,6 +24,6 @@ adapter_support:
   generic-llm: supported
 runtime_dependencies: []
 tool_dependencies: []
-input_contract: Konum, yaricap, butce araligi ve opsiyonel olarak marka/model/yil/km tercihleri ile birlikte ikinci el arac ilanlarini analiz etme istegi.
-output_contract: Firsat araclari ve uzak durulmasi gereken araclar listeleri; her birinde yalnizca gercek ilan detay linki, tramer degerlendirmesi, kirmizi bayraklar, fiyat konumlama ve onerilen sonraki adimlar.
-notes: Bu skill repodan silinmeden tarihsel referans olarak korunmaktadir. Davranisin pratikte fazla karmasik ve halusinasyona acik calistigi goruldugu icin yeni kullanim icin onerilmez. Onceki testlerde belirli senaryolarda basarili sonuclar alinmis olsa da aktif skill olarak tavsiye edilmez. Fiziksel muayene, resmi ekspertiz veya hukuki danismanlik ikame edilmez. Arama/listing sayfasi URL'leri gecersizdir; yalnizca gercek ilan detay linki verilebilir.
+input_contract: Konum, yaricap, butce araligi ve opsiyonel olarak marka/model/yil/km tercihleri ile birlikte used car vehicle listinglarini analysis etme istegi.
+output_contract: Firsat vehiclelari ve uzak durulmasi gereken vehiclelar listeleri; her birinde only gercek listing detay linki, tramer degerlendirmesi, kirmizi bayraklar, fiyat konumlama ve onerilen sonraki adimlar.
+notes: This skill repodan silinmeden tarihsel referans olarak korunmaktadir. Davranisin pratikte fazla karmasik ve halusinasyona clear calistigi goruldugu icin yeni usage icin onerilmez. Onceki testlerde belirli senaryolarda basarili sonuclar alinmis olsa da aktif skill olarak tavsiye edilmez. Fiziksel muayene, resmi ekspertiz veya hukuki danismanlik ikame edilmez. Arama/listing sayfasi URL'leri gecersizdir; only gercek listing detay linki verilebilir.

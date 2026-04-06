@@ -3,7 +3,7 @@ title: Catalog Validator
 type: skill
 status: stable
 version: 1.0.0
-summary: Repo kataloglari, metadata, dependency zinciri ve baglantilari dogrulayan paketlenmis beceri.
+summary: Repo kataloglari, metadata, dependency zinciri ve links dogrulayan paketlenmis beceri.
 tags:
   - validation
   - governance
@@ -21,6 +21,6 @@ adapter_support:
   generic-llm: supported
 runtime_dependencies: []
 tool_dependencies: []
-input_contract: Repo tutarliligi, katalog dogrulama veya metadata kontrolu istegi.
-output_contract: Hata, uyari, onerilen duzeltme ve sonraki adimlardan olusan taranabilir dogrulama raporu.
-notes: Cekirdek dogrulama mantigi skill icinde tanimlanir; runtime'a ozel calistirma notlari adapter katmaninda tutulur.
+input_contract: Repo tutarliligi, katalog validation veya metadata kontrolu istegi.
+output_contract: Hata, uyari, onerilen fix ve sonraki adimlardan olusan taranabilir validation raporu.
+notes: Core validation logic skill icinde tanimlanir; runtime'a specific execution notlari adapter katmaninda tutulur.

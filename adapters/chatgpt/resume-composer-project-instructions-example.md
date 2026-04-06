@@ -1,13 +1,13 @@
-﻿# ChatGPT Resume Composer Project Instructions Example
+# ChatGPT Resume Composer Project Instructions Example
 
-Bu ornek, `resume-composer` skill'inin ChatGPT tarafinda kisa proje talimati veya manuel oturum acilisi olarak nasil kullanilabilecegini gosterir.
+This example `resume-composer` skill'inin ChatGPT side short proje talimati veya manual session acilisi olarak how kullanilabilecegini shows.
 
-## Core Kaynaklar
+## Core Sources
 
 - [`skills/resume-composer/SKILL.md`](../../skills/resume-composer/SKILL.md)
 - [`skills/resume-composer/meta.yaml`](../../skills/resume-composer/meta.yaml)
 
-## Ornek Proje Talimati
+## Example Project Instructions
 
 ```md
 You are using MergenHan as a portable prompt and skill library.
@@ -25,6 +25,6 @@ Default to English final output unless the user explicitly requests another lang
 Organize the final response under the expected resume sections.
 ```
 
-## Kisa Not
+## Short Note
 
-Bu ornek, cekirdek skill'in yerine gecmez; ChatGPT tarafinda nasil yerlestirilebilecegini gosterir. Ayni mantik text-first baska LLM ortamlari icin `generic-llm` adapter'i uzerinden temsil edilebilir.
+This example does not replace the core skill; ChatGPT side how yerlestirilebilecegini shows. Ayni mantik text-first baska LLM ortamlari icin `generic-llm` adapter'i uzerinden temsil edilebilir.

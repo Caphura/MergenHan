@@ -1,21 +1,21 @@
 # Codex Adapter
 
-Bu klasor, MergenHan cekirdek skill ve blueprint'lerini Codex tarafindan yurutulebilir repo gorev paketlerine cevirme notlarini tutar.
+This folder documents how MergenHan core skills and blueprints are translated into Codex-friendly repo task packets.
 
-## Kapsam
+## Scope
 
-- repo gorev paketi bicimi
-- arac beklentileri ve yurutme sinirlari
-- task packet veya repository-aware kullanim notlari
-- cekirdek davranisin Codex is akisina aktarimi
+- repo task packet format
+- agent expectations and execution boundaries
+- task packet or repository-aware usage notes
+- how core behavior is mapped into the Codex workflow
 
-## Ornekler
+## Examples
 
-- [`mapping.md`](./mapping.md): cekirdek varligin Codex tarafinda nasil temsil edilecegi
-- [`task-packet-example.md`](./task-packet-example.md): kisa gorev paketi ornegi
-- [`meshy-3d-prompt-composer-task-packet-example.md`](./meshy-3d-prompt-composer-task-packet-example.md): Meshy 3D prompt skill'i icin kisa gorev paketi ornegi
-- [`resume-composer-task-packet-example.md`](./resume-composer-task-packet-example.md): ATS-friendly English resume skill'i icin kisa gorev paketi ornegi
+- [`mapping.md`](./mapping.md): how a core asset is represented in Codex
+- [`task-packet-example.md`](./task-packet-example.md): a short task packet example
+- [`meshy-3d-prompt-composer-task-packet-example.md`](./meshy-3d-prompt-composer-task-packet-example.md): a short task packet example for the Meshy 3D prompt skill
+- [`resume-composer-task-packet-example.md`](./resume-composer-task-packet-example.md): a short task packet example for the ATS-friendly English resume skill
 
-## Sinir
+## Boundary
 
-Codex'e ozel tool convention, izin veya gorev paketleme dili cekirdekte yasamaz. Bunlar yalnizca bu adapter katmaninda belgelenir.
+Codex-specific tool conventions, permissions, and task-packet language do not live in the core. They are documented only in this adapter layer.

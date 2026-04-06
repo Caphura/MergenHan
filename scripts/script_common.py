@@ -5,11 +5,12 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SUPPORTED_LOCALES = ("tr", "en")
+CANONICAL_LOCALE = "en"
+SUPPORTED_LOCALES = ("en", "tr")
 FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---(?:\n|$)", re.DOTALL)
 
 
-def add_locale_argument(parser: argparse.ArgumentParser, *, default: str = "tr") -> None:
+def add_locale_argument(parser: argparse.ArgumentParser, *, default: str = CANONICAL_LOCALE) -> None:
     parser.add_argument(
         "--locale",
         choices=SUPPORTED_LOCALES,
@@ -26,7 +27,7 @@ def ensure_supported_locale(locale: str) -> str:
 
 def locale_root(locale: str) -> Path:
     ensure_supported_locale(locale)
-    return ROOT if locale == "tr" else ROOT / locale
+    return ROOT if locale == CANONICAL_LOCALE else ROOT / locale
 
 
 def display_path(path: Path) -> str:

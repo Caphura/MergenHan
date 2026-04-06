@@ -1,27 +1,27 @@
-﻿# Claude Code Mapping
+# Claude Code Mapping
 
-## Adapter Ne Bekler?
+## What Does the Adapter Expect?
 
-- Okunur bir cekirdek prompt, blueprint veya skill tanimi
-- Acik `depends_on` zinciri
-- Gerekirse `portability` ve `adapter_support` bilgisi
+- A readable core prompt, blueprint, or skill definition
+- A clear `depends_on` chain
+- `portability` and `adapter_support` information when needed
 
-## Core Skill Burada Nasil Temsil Edilir?
+## How Is the Core Skill Represented Here?
 
-- `SKILL.md` cekirdek talimat olarak okunur
-- `meta.yaml` bagimlilik ve paket bilgisi saglar
-- Claude Code'a ozel slash command, hooks, settings ve permission notlari bu adapter dokumaninda tarif edilir
+- `SKILL.md` is read as the core instruction
+- `meta.yaml` provides dependency and package information
+- Claude-Code-specific slash commands, hooks, settings, and permission notes are described in this adapter document
 
-## Core'dan Ne Degismeden Kalmalidir?
+## What Must Remain Unchanged from the Core?
 
-- ID, baslik ve amac
-- Bagimlilik zinciri
-- Tetikleyici kullanim mantigi
-- Cekirdek workflow adimlari
+- ID, title, and purpose
+- Dependency chain
+- Trigger usage logic
+- Core workflow steps
 
-## Runtime Duzeyinde Ne Uyarlanabilir?
+## What Can Be Adapted at the Runtime Level?
 
-- Komut cagrisi sekli
-- Tool kullanimi ve izin modeli
-- Agent dagitimi veya gorev orkestrasyonu
-- Oturum acilis metninin Claude Code formatina cevrimi
+- Command invocation style
+- Tool usage and permission model
+- Agent distribution or task orchestration
+- Converting the session opener into Claude Code format

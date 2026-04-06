@@ -1,16 +1,16 @@
-# Skill Paket Spesifikasyonu
+# Skill Package Specification
 
-Bu belge, MergenHan icindeki skill paketleri icin resmi klasor ve metadata standardini tanimlar.
+This document defines the official folder and metadata standard for skill packages inside MergenHan.
 
-## Paket Amaci
+## Package Goal
 
-Bir skill paketi:
+A skill package:
 
-- cekirdek workflow'u tekrar kullanilabilir hale getirir
-- blueprint kokenini korur
-- runtime'a ozel davranisi cekirdege gommeden farkli adapterlerce eslenebilir kalir
+- makes a core workflow reusable
+- preserves blueprint lineage
+- stays mappable across adapters without embedding runtime-specific behavior into the core layer
 
-## Asgari Paket Yapisi
+## Minimum Package Structure
 
 ```text
 skills/<skill-slug>/
@@ -18,7 +18,7 @@ skills/<skill-slug>/
 `-- meta.yaml
 ```
 
-Ihtiyaca gore asagidaki klasorler eklenebilir:
+These folders can be added when needed:
 
 - `references/`
 - `examples/`
@@ -26,33 +26,33 @@ Ihtiyaca gore asagidaki klasorler eklenebilir:
 - `scripts/`
 - `agents/`
 
-Bu klasorler yalnizca gercek ihtiyac oldugunda eklenir; her skill'e zorunlu degildir.
+They are added only for real needs; they are not mandatory for every skill.
 
-## `SKILL.md` Zorunlu Alanlari
+## Required Fields in `SKILL.md`
 
-`SKILL.md` icinde su frontmatter alanlari zorunludur:
+`SKILL.md` must include these frontmatter fields:
 
 - `name`
 - `description`
 
-Belge govdesinde asgari olarak su bolumler beklenir:
+The body should include at least these sections:
 
 - `# <Skill Title>`
 - `## Use When`
 - `## Workflow`
 - `## Output Expectations`
 
-Ihtiyaca gore su bolumler eklenebilir:
+Optional sections include:
 
 - `## References`
 - `## Portability Notes`
-- adaptere degil cekirdege ait diger kullanim notlari
+- other core usage notes that do not belong to adapters
 
-`SKILL.md` cekirdek skill tanimidir; provider-specific davranis burada yasamaz.
+`SKILL.md` is the core skill definition; provider-specific behavior does not live there.
 
-## `meta.yaml` Zorunlu Alanlari
+## Required Fields in `meta.yaml`
 
-Her skill paketinde `meta.yaml` su alanlari tasimalidir:
+Every skill package must include these fields:
 
 - `id`
 - `title`
@@ -67,7 +67,7 @@ Her skill paketinde `meta.yaml` su alanlari tasimalidir:
 - `input_contract`
 - `output_contract`
 
-Asagidaki alanlar guclu bicimde onerilir ve yeni paketlerde standart kabul edilir:
+These fields are strongly recommended and treated as the standard for new packages:
 
 - `portability`
 - `adapter_support`
@@ -75,65 +75,65 @@ Asagidaki alanlar guclu bicimde onerilir ve yeni paketlerde standart kabul edili
 - `tool_dependencies`
 - `notes`
 
-## Destek Klasorleri
+## Support Folders
 
 ### `references/`
 
-- Kontrol listeleri, arka plan notlari ve uzun aciklamalar burada tutulur.
-- Cekirdek skill'i sisirmeden yardimci bilgi saglar.
+- Holds checklists, background notes, and longer explanations.
+- Provides supporting context without bloating the core skill.
 
 ### `examples/`
 
-- Beklenen kullanim ornekleri veya mini senaryolar tutulur.
-- Ozellikle onboarding ve kalite kontrol icin yararlidir.
+- Holds expected usage examples or mini scenarios.
+- Especially useful for onboarding and quality control.
 
 ### `assets/`
 
-- Gorsel, sablon, sabit veri veya baska tasinabilir kaynaklar burada tutulur.
-- Platforma ozel gecici dosyalar icin kullanilmaz.
+- Holds visuals, templates, static data, or other portable resources.
+- Should not be used for platform-specific temporary files.
 
 ### `scripts/`
 
-- Hafif otomasyonlar, donusum araclari veya kontrol yardimcilari burada tutulur.
-- Agir bagimliliklardan kacinilir.
+- Holds lightweight automation, transformation helpers, or small validation tools.
+- Heavy dependency chains should be avoided.
 
-## Blueprint'ten Skill'e Terfi Kriterleri
+## Promotion Criteria: Blueprint to Skill
 
-Bir blueprint skill paketine terfi etmeye hazir kabul edilir eger:
+A blueprint is ready to become a skill package when:
 
-- tetikleyici kullanim sinyalleri tekrar eden bir kalip olusturuyorsa
-- workflow maddeler halinde aciklanabiliyorsa
-- giris ve cikis kontrati netlesmisse
-- gerekli yardimci klasor ihtiyaci belli ise
-- katalog ve bagimlilik kayitlari guncellenmeye hazirsa
-- cekirdek davranis tek bir provider veya runtime syntax'ina bagli degilse
+- trigger scenarios repeat in a recognizable pattern
+- the workflow can be explained as ordered steps
+- the input and output contract is clear
+- the required helper-folder structure is visible
+- catalogs and dependency records are ready to be updated
+- the core behavior is not tied to a single provider or runtime syntax
 
-## Tasinabilirlik Kurallari
+## Portability Rules
 
-- Cekirdek skill tanimi her zaman provider-agnostik kalir.
-- Ayni skill birden fazla adapter mapping'i tarafindan temsil edilebilir.
-- `portability: universal` veya benzeri isaretler cekirdek niyeti gosterir; runtime gerceklemesi adapterler tarafindan yapilir.
-- `runtime_dependencies` ve `tool_dependencies` alani varsa, bunlar cekirdek skill'in calisabilmesi icin gerekli genel kosullari aciklar; provider'a ozel komut listesi yazmak icin kullanilmaz.
-- Adapter'e ait ayar ornekleri veya task packet notlari skill paketinin parcasina degil, adapter katmanina aittir.
+- The core skill definition always stays provider-agnostic.
+- The same skill may be represented by multiple adapter mappings.
+- Markers such as `portability: universal` express core intent; adapters handle runtime realization.
+- If `runtime_dependencies` and `tool_dependencies` are present, they explain general conditions required by the core skill. They are not a place for provider-specific command lists.
+- Adapter settings examples or task-packet notes belong in the adapter layer, not inside the skill package.
 
-## Validation ile Uyumu
+## Validation Compatibility
 
-Depodaki hafif validation katmani asagidaki beklentileri dogrulayabilir:
+The lightweight validation layer in this repository can verify:
 
-- `skills/<skill-slug>/SKILL.md` dosyasinin varligi
-- `name` ve `description` frontmatter alanlari
-- eslesen `meta.yaml` dosyasi
-- `source_blueprint` baglantisinin cozulmesi
+- the existence of `skills/<skill-slug>/SKILL.md`
+- the `name` and `description` frontmatter fields
+- the matching `meta.yaml` file
+- the validity of the `source_blueprint` link
 
-## Provider-Specific Davranis Kurali
+## Provider-Specific Behavior Rule
 
-Provider-specific davranis cekirdek skill taniminda yasamaz.
+Provider-specific behavior must not live in the core skill definition.
 
-Asagidaki icerikler `SKILL.md` veya cekirdek `meta.yaml` icine konmamalidir:
+The following do not belong inside `SKILL.md` or core `meta.yaml`:
 
-- belirli bir runtime'a ait slash command isimleri
-- hook tanimlari
-- permission policy detaylari
-- agent wiring veya tool secim syntax'i
+- slash-command names for a specific runtime
+- hook definitions
+- permission-policy details
+- agent wiring or tool-selection syntax
 
-Bu bilgiler `adapters/<runtime>/mapping.md` veya ilgili adapter README'sinde tutulur.
+That information belongs in `adapters/<runtime>/mapping.md` or the relevant adapter README.

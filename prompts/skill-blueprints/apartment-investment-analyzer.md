@@ -4,7 +4,7 @@ title: Apartment Investment Analyzer
 type: blueprint
 status: stable
 version: 1.0.0
-summary: Apartman satis ilanlarini yatirim odakli, kanit ve belirsizlik ayrimini koruyan yapisal bir analiz formatina donusturen dogrulanmis real estate blueprint'i.
+summary: Apartman satis listinglarini investment odakli, evidence ve uncertainty ayrimini koruyan yapisal bir analysis formatina donusturen dogrulanmis real estate blueprint'i.
 tags:
   - real-estate
   - apartment-analysis
@@ -28,32 +28,32 @@ adapter_support:
   generic-llm: supported
 runtime_dependencies: []
 tool_dependencies: []
-input_contract: Tek bir apartman ilani, birden fazla apartman satis ilani veya yatirim shortlist'i talebini kanit temelli ve karar odakli bicimde analiz etme istegi.
-output_contract: Scope Summary, Market Snapshot, Listing-by-Listing Analysis, Rental Potential, Payback / Yield Estimate, Risks and Unknowns, Top Candidates ve Recommended Next Checks bolumlerinden olusan taranabilir apartment investment analizi.
-notes: Bu blueprint farkli AI ortamlarda test edilmis ve karar destekleyici cikti yapisi, risk/belirsizlik disiplini ve apartman ilani odagi acisindan yeterli bulunmustur. Hukuki gorus, resmi ekspertiz, arsa / imar analizi, ticari gayrimenkul analizi veya finansman planlamasi uretmez.
+input_contract: Tek bir apartman listingi, birden fazla apartman satis listingi veya investment shortlist'i talebini evidence temelli ve decision odakli bicimde analysis etme istegi.
+output_contract: Scope Summary, Market Snapshot, Listing-by-Listing Analysis, Rental Potential, Payback / Yield Estimate, Risks and Unknowns, Top Candidates ve Recommended Next Checks bolumlerinden olusan taranabilir apartment investment analysis.
+notes: This blueprint different AI ortamlarda test edilmis ve decision destekleyici output structure, risk/uncertainty disiplini ve apartman listingi odagi acisindan yeterli bulunmustur. Hukuki gorus, resmi ekspertiz, arsa / imar analysis, ticari gayrimenkul analysis veya finansman planlamasi uretmez.
 ---
 
 # Responsibility
 
-Tek bir apartman ilani veya birden fazla apartman satis ilanini, gercek karar vermeyi destekleyen yatirim odakli ve belirsizlik bilinci tasiyan yapisal bir analize donusturmek.
+Tek bir apartman listingi veya birden fazla apartman satis listingini, gercek decision vermeyi destekleyen investment odakli ve uncertainty bilinci tasiyan yapisal bir analize donusturmek.
 
 # Trigger Signals
 
-- "Bu daire yatirim icin mantikli mi?"
-- "Bu ilanlari yatirim acisindan karsilastir."
+- "Bu daire investment icin mantikli mi?"
+- "Bu listinglari investment acisindan karsilastir."
 - "Hangisi daha iyi kira getirisi verir?"
-- "Bu apartman ilanlarindan shortlist cikar."
-- "Kaniti varsayimdan ayirarak analiz et."
+- "Bu apartman listinglarindan shortlist cikar."
+- "Kaniti assumptiondan ayirarak analysis et."
 
 # Workflow
 
-1. Analiz kapsamini belirle: tek bir apartman, birden fazla apartman ilani veya yatirim shortlist'i talebi.
-2. Mevcut kaniti normalize et: fiyat, brut / net m2, oda sayisi, kat, bina yasi, konum / mahalle, belirtilen durum ve ilan kalitesini ayristir; eksik veriyi not et.
+1. Analiz kapsamini belirle: tek bir apartman, birden fazla apartman listingi veya investment shortlist'i talebi.
+2. Mevcut evidencei normalize et: fiyat, brut / net m2, oda sayisi, kat, bina yasi, konum / mahalle, belirtilen durum ve listing kalitesini separate; eksik veriyi not et.
 3. Ilanlarin olasi piyasa konumunu belirle: piyasanin altinda, piyasa civarinda, piyasanin ustunde veya yetersiz veri nedeniyle belirsiz.
-4. Yatirim kullanim degerini kabaca incele: kira potansiyeli, kaba geri donus / brut getiri mantigi, likidite / kiralanabilirlik ve gerekiyorsa pazarlik hassasiyeti.
-5. Risk ve belirsizlikleri gorunur kil: zayif ilan kalitesi, eksik veya supheli veri, asiri fiyatlama riski, tadilat / durum riski, mahalle belirsizligi ve dogrulanmasi gereken kanit bosluklari.
-6. Karar dostu bir cikti uret: kapsam ozeti, ilan bazli analiz, kira potansiyeli, geri donus / getiri mantigi, riskler ve bilinmeyenler, guclu adaylar ve sonraki kontrol adimlari.
-7. Tum cikti boyunca kanit ile varsayimi ayir, belirsizligi etiketle, sahte kesinlikten ve garanti yatirim dili kullanmaktan kacin.
+4. Yatirim usage degerini kabaca incele: kira potansiyeli, kaba geri donus / brut getiri logic, likidite / kiralanabilirlik ve gerekiyorsa pazarlik hassasiyeti.
+5. Risk ve uncertaintyleri surface: zayif listing kalitesi, eksik veya supheli veri, asiri fiyatlama riski, tadilat / durum riski, mahalle belirsizligi ve dogrulanmasi gereken evidence bosluklari.
+6. Karar dostu bir output uret: scope ozeti, listing bazli analysis, kira potansiyeli, geri donus / getiri logic, riskler ve bilinmeyenler, guclu adaylar ve sonraki kontrol steps.
+7. Tum output boyunca evidence ile assumptioni ayir, belirsizligi etiketle, false certaintyten ve garanti investment dili kullanmaktan kacin.
 
 # Output Shape
 
@@ -69,14 +69,14 @@ Sonucu mumkun oldugunca su yapida toplula:
 - Recommended Next Checks
 
 Her bolumde:
-- kanit ile varsayimi ayir
-- belirsizligi acikca etiketle
+- evidence ile assumptioni ayir
+- belirsizligi explicitly etiketle
 - false precision kullanma
-- garanti yatirim dili kullanma
+- garanti investment dili kullanma
 
 # Promotion Criteria
 
-- Birden fazla gercek apartman ilan analizi vakasinda test edilmis olmasi
-- Cikti yapisinin tutarli ve karar destekleyici oldugunun gorulmesi
-- Risk ve belirsizlik davranisinin guvenilir sekilde korunmasi
-- Kapsamin apartman satis ilanlariyla sinirli kalip genel property analysis tarafina kaymamasi
+- Birden fazla gercek apartman listing analysis vakasinda test edilmis olmasi
+- Cikti yapisinin tutarli ve decision destekleyici oldugunun gorulmesi
+- Risk ve uncertainty davranisinin guvenilir way korunmasi
+- Scopein apartman satis listinglariyla sinirli kalip genel property analysis tarafina kaymamasi

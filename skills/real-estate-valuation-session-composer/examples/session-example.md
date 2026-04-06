@@ -1,16 +1,16 @@
 # Real Estate Valuation Session Example
 
-Bu ornek, kullanici talebinin asil amacina gore dogru emlak arastirma ve degerleme oturum kompozisyonunun nasil secilecegini gostermek icin hazirlanmistir.
+This example user talebinin asil amacina gore correct real-estate arastirma ve valuation session kompozisyonunun how secilecegini gostermek icin is prepared.
 
-## Ham Istek
+## Raw Request
 
-Bu dairenin fiyati makul mu anlamak istiyorum. Emsal sec, saglam olanlari ayir ve piyasa deger araligi ver ama kanitsiz konusma.
+Bu dairenin fiyati makul mu anlamak istiyorum. Emsal sec, saglam olanlari ayir ve piyasa value araligi ver ama evidencesiz konusma.
 
-## Beklenen Session Goal
+## Expected Session Goal
 
-Konu gayrimenkul icin kanit temelli emsal secimi yapmak, savunulabilir bir deger araligi kurmak ve belirsizlikleri acikca gostermek.
+Konu gayrimenkul icin evidence temelli emsal secimi yapmak, savunulabilir bir value araligi kurmak ve uncertaintyleri explicitly gostermek.
 
-## Beklenen Active Modules
+## Expected Active Modules
 
 - Core
 - Real Estate Market Data Validation
@@ -19,11 +19,11 @@ Konu gayrimenkul icin kanit temelli emsal secimi yapmak, savunulabilir bir deger
 - Real Estate Risk and Uncertainty
 - Real Estate No Hallucination Governance
 
-## Ornek Cevap Sekli
+## Example Response Shape
 
 ### Session Goal
 
-Konu gayrimenkul icin veri kalitesini kontrol edip guclu emsalleri ayirarak savunulabilir bir piyasa deger araligi kurmak.
+Konu gayrimenkul icin veri kalitesini kontrol edip guclu emsalleri ayirarak savunulabilir bir piyasa value araligi kurmak.
 
 ### Active Modules
 
@@ -36,7 +36,7 @@ Konu gayrimenkul icin veri kalitesini kontrol edip guclu emsalleri ayirarak savu
 
 ### Why This Composition
 
-Kullanici dogrudan emsal tabanli degerleme istiyor ve ozellikle kanitsiz yorum istemedigini belirtiyor. Bu nedenle veri kalitesi, emsal secimi, deger araligi mantigi ve belirsizlik aciklamasi birlikte calismali; governance katmani ise zorunlu kalmali.
+Kullanici directly emsal tabanli valuation istiyor ve ozellikle evidencesiz yorum istemedigini belirtiyor. Bu nedenle veri kalitesi, emsal secimi, value araligi logic ve uncertainty aciklamasi birlikte calismali; governance katmani ise required kalmali.
 
 ### Copy-Paste Session Opening
 
