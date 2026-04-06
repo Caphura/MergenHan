@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import argparse
 import re
@@ -30,7 +30,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def markdown_files(content_root: Path) -> list[Path]:
-    files = [content_root / "README.md"]
+    files = [content_root / "README.md", content_root / "AGENTS.md"]
     for folder in ["catalog", "docs", "examples", "prompts", "skills", "templates", "adapters"]:
         files.extend((content_root / folder).rglob("*.md"))
     seen: set[Path] = set()
@@ -72,3 +72,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+

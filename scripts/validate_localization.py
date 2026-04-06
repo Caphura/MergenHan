@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import argparse
 import json
@@ -15,7 +15,7 @@ from script_common import (
     read_text,
 )
 
-SURFACE_DIRS = ["README.md", "catalog", "docs", "examples", "prompts", "skills", "adapters", "templates"]
+SURFACE_DIRS = ["AGENTS.md", "README.md", "catalog", "docs", "examples", "prompts", "skills", "adapters", "templates"]
 TRACKED_SUFFIXES = {".md", ".yaml", ".yml", ".json"}
 PROMPT_INVARIANTS = {
     "id",
@@ -208,3 +208,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+
