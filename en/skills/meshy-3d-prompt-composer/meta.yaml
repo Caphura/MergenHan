@@ -1,0 +1,26 @@
+id: mh-skill-meshy-3d-prompt-composer
+title: Meshy 3D Prompt Composer
+type: skill
+status: stable
+version: 1.0.0
+summary: Yari tanimli 3D asset fikirlerini short soru akisiyla netlestirip Meshy icin 800 karakteri asmayan kopyalanabilir promptlara donusturen paketlenmis beceri.
+tags:
+  - prompt-composition
+  - visual-direction
+  - workflow
+  - guidance
+depends_on:
+  - mh-blueprint-meshy-3d-prompt-composer
+last_reviewed: 2026-04-04
+source_blueprint: ../../prompts/skill-blueprints/meshy-3d-prompt-composer.md
+portability: universal
+adapter_support:
+  claude-code: supported
+  chatgpt: supported
+  codex: supported
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
+input_contract: Kullanici bir 3D asset, prop, silah, karakter, creature veya sahne objesi fikrini Meshy icin temiz, uygulanabilir ve 800 karakteri asmayan bir prompta cevirmek ister.
+output_contract: Gerekirse bir short netlestirme type, netlestirilmis asset ozeti, 800 karakter boundary icinde tek parca Meshy promptu ve gerekiyorsa short varyasyon yonleri.
+notes: Bu klasorde working talimatlari `SKILL.md` icinde, governance ve izlenebilirlik verisi bu dosyada tutulur. Davranis test package uzerinden dogrulanmis ve Meshy 800 karakter limiti guardrail olarak eklenmistir.

@@ -1,0 +1,26 @@
+id: mh-skill-real-estate-valuation-session-composer
+title: Real Estate Valuation Session Composer
+type: skill
+status: stable
+version: 1.0.0
+summary: Emlak piyasa arastirmasi ve valuation requestleri icin correct governance-first session composition'ini secen ve kopyalanabilir session acilisi ureten paketlenmis beceri.
+tags:
+  - real-estate
+  - valuation
+  - composition
+  - workflow
+depends_on:
+  - mh-blueprint-real-estate-valuation-session-composer
+last_reviewed: 2026-04-04
+source_blueprint: ../../prompts/skill-blueprints/real-estate-valuation-session-composer.md
+portability: universal
+adapter_support:
+  claude-code: supported
+  chatgpt: supported
+  codex: supported
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
+input_contract: Kullanicinin bir gayrimenkul, listing grubu veya bolge icin valuation ya da piyasa yorumu istemesi.
+output_contract: Dogru prompt kombinasyonu ve session acilisi icin kopyalanabilir instruction.
+notes: Bu klasorde working talimatlari `SKILL.md` icinde, governance ve izlenebilirlik verisi bu dosyada tutulur. Davranis test senaryolarinda governance disiplini ve composition secimi acisindan yeterli bulunmustur.

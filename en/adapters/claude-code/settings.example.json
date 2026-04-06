@@ -1,0 +1,23 @@
+{
+  "adapter": "claude-code",
+  "purpose": "Example adapter-layer settings for using MergenHan core content in Claude Code.",
+  "example_only": true,
+  "notes": [
+    "This file belongs to the adapter layer, not the core layer.",
+    "Core prompts and skills must remain usable without this file."
+  ],
+  "permissions": {
+    "allow": [
+      "Get-ChildItem",
+      "Get-Content",
+      "rg",
+      "git status"
+    ],
+    "deny": [
+      "Remove-Item",
+      "git reset --hard",
+      "git clean -fd",
+      "format"
+    ]
+  }
+}

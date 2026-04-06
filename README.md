@@ -1,5 +1,12 @@
 # MergenHan Prompt Library
 
+## Dil Secimi
+
+- Turkce canonical kaynak: [`README.md`](README.md)
+- English mirror: [`en/README.md`](en/README.md)
+
+Not: Repo koku Turkce canonical kaynaktir. `en/` altindaki icerik bakimi yapilan English aynadir; `scripts/` tek kopya ve locale-aware olarak kalir.
+
 MergenHan, tasinabilir bir AI prompt ve skill kutuphanesi olarak tasarlanmis; okunur, bakimi kolay ve buyumeye dayanikli bir calisma alanidir. Cekirdek icerik tek bir saglayiciya kilitlenmez; Claude Code, ChatGPT, Codex ve genel LLM ortamlari icin uyarlamalar `adapters/` katmaninda tutulur.
 
 ## Bu Repo Ne Icin Var?

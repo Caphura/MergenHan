@@ -1,4 +1,4 @@
-﻿# Yazi ve Yapi Kurallari
+# Yazi ve Yapi Kurallari
 
 Bu belge, prompt library icindeki dosyalarin nasil adlandirilacagini, hangi metadata alanlarini tasiyacagini ve ne zaman bir ust seviyeye terfi edecegini tanimlar. Cekirdek icerik AI-agnostik tutulur; runtime'a ozel esleme kurallari `adapters/` katmaninda yasatilir.
 
@@ -123,3 +123,10 @@ Bir `blueprint` skill paketine terfi ettirilmelidir eger:
 - Yeni etiket turetmeden once `catalog/taxonomy.md` kontrol edilir.
 - Bagimlilik ozeti elle degil uretilen katalog uzerinden takip edilir.
 - Skill paket standardi icin ayrintili kontrat `docs/skill-package-spec.md` icinde tutulur.
+
+## Lokalizasyon Mimarisi
+
+- Turkce repo koku canonical kaynaktir.
+- `en/` altindaki ayna ayni dosya yollarini, slug'lari ve kimlik zincirini koruyan English mirror olarak tutulur.
+- `id`, `type`, `status`, `version`, `depends_on`, `source_blueprint`, tag token'lari ve adapter support alanlari locale'ler arasinda degismeden kalir.
+- `scripts/` tek kopya olarak kalir ve locale-aware sekilde hem TR hem EN icerigi uzerinde calisir.
