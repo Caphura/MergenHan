@@ -172,3 +172,9 @@ Bu rehber mevcut skill'lerin kullanimina odaklanir. Yeni prompt, modul veya skil
 - Detayli kurallar: [`docs/conventions.md`](conventions.md)
 - Birlestirme ve terfi akisi: [`docs/composition-guide.md`](composition-guide.md)
 - Skill paket spesifikasyonu: [`docs/skill-package-spec.md`](skill-package-spec.md)
+
+## Dil ve Kaynak Notu
+
+- `README.md` ve repo koku Turkce canonical kaynaktir.
+- English kullanim aynasi `en/README.md` ve `en/docs/` altinda bulunur.
+- `scripts/` locale-aware olarak hem TR hem EN katalog ve dogrulama akisini destekler.

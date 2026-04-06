@@ -6,7 +6,8 @@ import sys
 from datetime import date
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+from script_common import ROOT, SUPPORTED_LOCALES, locale_root, read_text
+
 TEMPLATES = {
     "master": ROOT / "templates" / "master-prompt.md",
     "module": ROOT / "templates" / "module-prompt.md",
@@ -22,30 +23,36 @@ ID_PLACEHOLDERS = {
     "module": "mh-module-your-slug",
     "blueprint": "mh-blueprint-your-slug",
 }
-DEFAULT_DESTINATIONS = {
-    "master": ROOT / "prompts" / "masters" / "active",
-    "blueprint": ROOT / "prompts" / "skill-blueprints",
-}
 MODULE_CATEGORIES = {"capability", "domain", "tone", "constraints", "output"}
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+MIRROR_LOCALES = tuple(locale for locale in SUPPORTED_LOCALES if locale != "tr")
 
 
 def title_from_slug(slug: str) -> str:
     return " ".join(part.capitalize() for part in slug.split("-") if part)
 
 
-def destination(args: argparse.Namespace) -> Path:
+def destination(args: argparse.Namespace, *, locale: str = "tr") -> Path:
+    root = locale_root(locale)
     if args.kind == "module":
-        return ROOT / "prompts" / "modules" / args.category
-    return DEFAULT_DESTINATIONS[args.kind]
+        return root / "prompts" / "modules" / args.category
+    if args.kind == "master":
+        return root / "prompts" / "masters" / "active"
+    return root / "prompts" / "skill-blueprints"
 
 
-def target_path(args: argparse.Namespace) -> Path:
-    return destination(args) / f"{args.slug}.md"
+def target_path(args: argparse.Namespace, *, locale: str = "tr") -> Path:
+    return destination(args, locale=locale) / f"{args.slug}.md"
 
 
-def render_template(args: argparse.Namespace) -> str:
-    template = TEMPLATES[args.kind].read_text(encoding="utf-8-sig")
+def template_path(kind: str, *, locale: str = "tr") -> Path:
+    if locale == "tr":
+        return TEMPLATES[kind]
+    return locale_root(locale) / "templates" / TEMPLATES[kind].name
+
+
+def render_template(args: argparse.Namespace, *, locale: str = "tr") -> str:
+    template = read_text(template_path(args.kind, locale=locale))
     rendered = template.replace(ID_PLACEHOLDERS[args.kind], f"mh-{args.kind}-{args.slug}", 1)
     rendered = rendered.replace(TITLE_PLACEHOLDERS[args.kind], args.title, 1)
     rendered = rendered.replace("2026-04-03", args.review_date, 1)
@@ -71,6 +78,11 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("--force", action="store_true", help="Overwrite the file if it already exists.")
     parser.add_argument("--dry-run", action="store_true", help="Print the destination and file content without writing.")
+    parser.add_argument(
+        "--mirror-locale",
+        choices=MIRROR_LOCALES,
+        help="Also create a mirrored scaffold file in the selected locale tree.",
+    )
     return parser
 
 
@@ -89,27 +101,50 @@ def main() -> int:
     validate_args(args, parser)
     args.title = args.title or title_from_slug(args.slug)
 
-    path = target_path(args)
-    content = render_template(args)
+    primary_path = target_path(args, locale="tr")
+    primary_content = render_template(args, locale="tr")
+
+    mirror_path: Path | None = None
+    mirror_content = ""
+    if args.mirror_locale:
+        mirror_path = target_path(args, locale=args.mirror_locale)
+        mirror_content = render_template(args, locale=args.mirror_locale)
 
     if args.dry_run:
-        print(f"[dry-run] would create: {path.relative_to(ROOT)}")
+        print(f"[dry-run] would create: {primary_path.relative_to(ROOT)}")
         print("")
-        print(content)
+        print(primary_content)
+        if mirror_path is not None:
+            print("")
+            print(f"[dry-run] would create mirror: {mirror_path.relative_to(ROOT)}")
+            print("")
+            print(mirror_content)
         return 0
 
-    if path.exists() and not args.force:
-        print(f"File already exists: {path.relative_to(ROOT)}", file=sys.stderr)
-        print("Use --force to overwrite or choose a different slug.", file=sys.stderr)
-        return 1
+    paths_to_check = [primary_path]
+    if mirror_path is not None:
+        paths_to_check.append(mirror_path)
+    for path in paths_to_check:
+        if path.exists() and not args.force:
+            print(f"File already exists: {path.relative_to(ROOT)}", file=sys.stderr)
+            print("Use --force to overwrite or choose a different slug.", file=sys.stderr)
+            return 1
 
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(content, encoding="utf-8")
+    primary_path.parent.mkdir(parents=True, exist_ok=True)
+    primary_path.write_text(primary_content, encoding="utf-8")
 
-    print(f"Created: {path.relative_to(ROOT)}")
+    if mirror_path is not None:
+        mirror_path.parent.mkdir(parents=True, exist_ok=True)
+        mirror_path.write_text(mirror_content, encoding="utf-8")
+
+    print(f"Created: {primary_path.relative_to(ROOT)}")
+    if mirror_path is not None:
+        print(f"Created mirror: {mirror_path.relative_to(ROOT)}")
     print("Next steps:")
     print("- Fill in the prompt body.")
     print("- Run: python scripts/generate_catalog.py")
+    if mirror_path is not None:
+        print(f"- Run: python scripts/generate_catalog.py --locale {args.mirror_locale}")
     print("- Validate with: python scripts/validate_catalog.py")
     return 0
 

@@ -1,0 +1,26 @@
+id: mh-skill-adapter-mapper
+title: Adapter Mapper
+type: skill
+status: stable
+version: 1.0.0
+summary: Core prompt, blueprint, master veya skill icerigini adapter katmani icin portable bicimde eslemeye yardim eden beceri.
+tags:
+  - portability
+  - adapters
+  - mapping
+  - governance
+depends_on:
+  - mh-blueprint-adapter-mapper
+last_reviewed: 2026-04-03
+source_blueprint: ../../prompts/skill-blueprints/adapter-mapper.md
+portability: universal
+adapter_support:
+  claude-code: supported
+  chatgpt: supported
+  codex: supported
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
+input_contract: Bir core the asset hangi kisimlarinin core'da kalacagini ve hangi kisimlarinin adapter katmanina eslenecegini netlestirme istegi.
+output_contract: Core invariants, adapter needs, mapping recommendations ve next step basliklari altinda taranabilir bir adapter mapping ozeti.
+notes: This skill adapter mapping decision mantigini corete tutar; runtime'a specific uygulama detaylari adapter dosyalarinda is documented.

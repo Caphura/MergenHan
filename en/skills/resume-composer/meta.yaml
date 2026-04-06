@@ -1,0 +1,28 @@
+id: mh-skill-resume-composer
+title: Resume Composer
+type: skill
+status: stable
+version: 1.1.0
+summary: A packaged skill that reads existing resumes, raw career notes, or inspectable evidence, opens at most one short clarification round when needed, and produces ATS-friendly, evidence-only, role-aware English resume outputs, including one-page and export-review modes.
+tags:
+  - positioning
+  - guidance
+  - workflow
+  - readability
+  - evidence
+  - validation
+depends_on:
+  - mh-blueprint-resume-composer
+last_reviewed: 2026-04-04
+source_blueprint: ../../prompts/skill-blueprints/resume-composer.md
+portability: universal
+adapter_support:
+  claude-code: supported
+  chatgpt: supported
+  codex: supported
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
+input_contract: The user provides an existing resume or CV, raw career notes, screenshots, public profile or source links, local repo or document evidence, and optionally a job post, and wants an ATS-friendly, evidence-only, optionally tailored or one-page resume output.
+output_contract: At most one short clarification round when needed, followed by Candidate Summary, Target Role Fit, Resume Draft, Weak Spots / Missing Inputs, and Optional Tailoring Notes when helpful. Findings-first export review mode is also supported.
+notes: Working instructions live in `SKILL.md`; governance and traceability live in this file. Default behavior is EN-first. The skill uses inspectable evidence before asking questions, avoids generic white-collar flattening, and treats unsupported degrees, placeholder contact data, and invented ownership as red flags.

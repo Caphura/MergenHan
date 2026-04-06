@@ -1,15 +1,19 @@
 from __future__ import annotations
 
+import argparse
 import os
-import re
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-PROMPT_CATALOG = ROOT / "catalog" / "prompts.md"
-SKILL_CATALOG = ROOT / "catalog" / "skills.md"
-DEPENDENCY_CATALOG = ROOT / "catalog" / "dependencies.md"
-FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---(?:\n|$)", re.DOTALL)
+from script_common import (
+    add_locale_argument,
+    locale_root,
+    normalize_list,
+    normalize_mapping,
+    parse_frontmatter,
+    parse_meta_yaml,
+)
+
 STATUS_ORDER = {
     "active": 0,
     "stable": 1,
@@ -22,99 +26,82 @@ PROMPT_SECTION_ORDER = {
     "module": 1,
     "blueprint": 2,
 }
-PROMPT_SECTION_TITLES = {
-    "master": "Master Prompts",
-    "module": "Modules",
-    "blueprint": "Skill Blueprints",
+TEXT = {
+    "tr": {
+        "prompt_catalog_title": "Prompt Catalog",
+        "skill_catalog_title": "Skill Catalog",
+        "dependency_catalog_title": "Dependency Catalog",
+        "prompt_catalog_intro": "Bu katalog, repodaki aktif ve tarihsel prompt varliklarini insan-okunur bir indeks halinde listeler.",
+        "prompt_catalog_note": "Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir. Runtime'a ozel uyarlamalar `adapters/` katmaninda tutulur ve burada promptun kendisiyle karistirilmaz.",
+        "skill_catalog_intro": "Bu katalog, `skills/` altindaki paketlenmis ve tekrar kullanilabilir hale getirilmis becerileri listeler.",
+        "skill_catalog_note": "Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir.",
+        "dependency_catalog_intro": "Bu belge, cekirdek varliklar arasindaki bagimlilik iliskilerini ozetler. Adapter dosyalari bu katalogda cekirdek bagimlilik olarak sayilmaz; onlar uyumluluk katmanidir.",
+        "dependency_catalog_note": "Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir.",
+        "ownership_title": "Sahiplik Notu",
+        "ownership_notes": [
+            "Adapter mapping'leri cekirdek dependency sahipligini degistirmez.",
+            "Cekirdek ID'ler, blueprint kaynaklari ve `depends_on` zinciri `prompts/` ile `skills/` altinda sahiplenilmeye devam eder.",
+            "Adapterler bu cekirdek sahipligi referans alir; yeni runtime destegi eklemek cekirdekte yeni bagimlilik sahibi yaratmaz.",
+        ],
+        "skills_to_blueprints": "Skills -> Blueprints",
+        "blueprints_to_dependencies": "Blueprints -> Masters / Modules / Blueprints",
+        "masters_to_modules": "Masters -> Modules",
+        "modules_title": "Modules",
+        "modules_note": "Moduller su anda cekirdek katalogda bagimsiz destek birimleri olarak listelenir; kataloglanan moduller icin ikincil bir `depends_on` iliskisi bulunmamaktadir.",
+        "prompt_section_titles": {
+            "master": "Master Prompts",
+            "module": "Modules",
+            "blueprint": "Skill Blueprints",
+        },
+        "prompt_headers": ["ID", "Baslik", "Durum", "Surum", "Etiketler", "Bagimliliklar", "Yol"],
+        "skill_headers": ["ID", "Baslik", "Durum", "Surum", "Etiketler", "Kaynak Blueprint", "Adapter Support", "Dosyalar"],
+        "skill_dependency_headers": ["Skill", "Baglidir", "Not"],
+        "dependency_headers": ["Blueprint", "Bagimliliklar"],
+        "master_headers": ["Master", "Bagimliliklar"],
+        "packaged_skill_note": "Paketlenmis skill, kaynak blueprint bagini korur",
+        "generated_label": "Catalogs generated:",
+    },
+    "en": {
+        "prompt_catalog_title": "Prompt Catalog",
+        "skill_catalog_title": "Skill Catalog",
+        "dependency_catalog_title": "Dependency Catalog",
+        "prompt_catalog_intro": "This catalog lists active and historical prompt assets in the repository as a human-readable index.",
+        "prompt_catalog_note": "Note: This catalog is generated with `python scripts/generate_catalog.py`. Runtime-specific adaptations live in the `adapters/` layer and are not mixed with the prompt definition here.",
+        "skill_catalog_intro": "This catalog lists packaged, reusable skills under `skills/`.",
+        "skill_catalog_note": "Note: This catalog is generated with `python scripts/generate_catalog.py`.",
+        "dependency_catalog_intro": "This document summarizes dependency relationships between core assets. Adapter files are not treated as core dependencies in this catalog; they are compatibility-layer material.",
+        "dependency_catalog_note": "Note: This catalog is generated with `python scripts/generate_catalog.py`.",
+        "ownership_title": "Ownership Notes",
+        "ownership_notes": [
+            "Adapter mappings do not change core dependency ownership.",
+            "Core IDs, blueprint sources, and the `depends_on` chain continue to be owned under `prompts/` and `skills/`.",
+            "Adapters reference that core ownership; adding support for a new runtime does not create a new dependency owner in the core layer.",
+        ],
+        "skills_to_blueprints": "Skills -> Blueprints",
+        "blueprints_to_dependencies": "Blueprints -> Masters / Modules / Blueprints",
+        "masters_to_modules": "Masters -> Modules",
+        "modules_title": "Modules",
+        "modules_note": "Modules are currently listed in the core catalog as independent support units; cataloged modules do not have a secondary `depends_on` relationship at this time.",
+        "prompt_section_titles": {
+            "master": "Master Prompts",
+            "module": "Modules",
+            "blueprint": "Skill Blueprints",
+        },
+        "prompt_headers": ["ID", "Title", "Status", "Version", "Tags", "Dependencies", "Path"],
+        "skill_headers": ["ID", "Title", "Status", "Version", "Tags", "Source Blueprint", "Adapter Support", "Files"],
+        "skill_dependency_headers": ["Skill", "Depends On", "Notes"],
+        "dependency_headers": ["Blueprint", "Dependencies"],
+        "master_headers": ["Master", "Dependencies"],
+        "packaged_skill_note": "Packaged skill keeps its source blueprint link",
+        "generated_label": "Catalogs generated:",
+    },
 }
 
 
-def read_text(path: Path) -> str:
-    raw = path.read_bytes()
-    for encoding in ("utf-8-sig", "utf-8", "cp1254", "latin-1"):
-        try:
-            return raw.decode(encoding)
-        except UnicodeDecodeError:
-            continue
-    raise UnicodeDecodeError("unknown", raw, 0, 1, f"Could not decode {path}")
-
-
-def parse_simple_yaml_block(block: str) -> dict:
-    data: dict[str, object] = {}
-    current_list_key: str | None = None
-    current_map_key: str | None = None
-    for raw_line in block.splitlines():
-        line = raw_line.rstrip()
-        if not line or line.lstrip().startswith("#"):
-            continue
-        if line.startswith("  - ") and current_list_key:
-            data.setdefault(current_list_key, []).append(line[4:].strip())
-            continue
-        if line.startswith("  ") and current_map_key and ":" in line:
-            key, value = line.strip().split(":", 1)
-            current_value = data.get(current_map_key)
-            if not isinstance(current_value, dict):
-                current_value = {}
-                data[current_map_key] = current_value
-            current_value[key.strip()] = value.strip()
-            continue
-        if ":" not in line:
-            current_list_key = None
-            current_map_key = None
-            continue
-        key, value = line.split(":", 1)
-        key = key.strip()
-        value = value.strip()
-        if value == "[]":
-            data[key] = []
-            current_list_key = None
-            current_map_key = None
-            continue
-        if value == "{}":
-            data[key] = {}
-            current_list_key = None
-            current_map_key = None
-            continue
-        if not value:
-            current_list_key = key
-            current_map_key = key
-            if key not in data:
-                data[key] = []
-            continue
-        data[key] = value
-        current_list_key = None
-        current_map_key = None
-    return data
-
-
-def parse_frontmatter(path: Path) -> dict:
-    text = read_text(path).replace("\r\n", "\n")
-    match = FRONTMATTER_RE.match(text)
-    if not match:
-        return {}
-    return parse_simple_yaml_block(match.group(1))
-
-
-def parse_meta_yaml(path: Path) -> dict:
-    return parse_simple_yaml_block(read_text(path))
-
-
-def normalize_list(value: object) -> list[str]:
-    if isinstance(value, list):
-        return [item.strip() for item in value if isinstance(item, str) and item.strip()]
-    if isinstance(value, str) and value.strip():
-        return [value.strip()]
-    return []
-
-
-def normalize_mapping(value: object) -> dict[str, str]:
-    if isinstance(value, dict):
-        return {
-            str(key).strip(): str(raw_value).strip()
-            for key, raw_value in value.items()
-            if str(key).strip() and str(raw_value).strip()
-        }
-    return {}
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description="Generate prompt, skill, and dependency catalogs.")
+    add_locale_argument(parser)
+    return parser
 
 
 def relative_link(catalog_path: Path, target: Path) -> str:
@@ -127,9 +114,9 @@ def code_cell(items: list[str]) -> str:
     return ", ".join(f"`{item}`" for item in items)
 
 
-def format_path_link(catalog_path: Path, target: Path) -> str:
+def format_path_link(catalog_path: Path, target: Path, content_root: Path) -> str:
     rel = relative_link(catalog_path, target)
-    label = target.relative_to(ROOT).as_posix()
+    label = target.relative_to(content_root).as_posix()
     return f"[`{label}`]({rel})"
 
 
@@ -150,9 +137,9 @@ def skill_sort_key(record: dict) -> tuple[tuple[int, str], str]:
     return (status_sort_key(record.get("status")), str(record.get("title", "")).lower())
 
 
-def prompt_records() -> list[dict]:
+def prompt_records(content_root: Path) -> list[dict]:
     records: list[dict] = []
-    for path in sorted((ROOT / "prompts").rglob("*.md")):
+    for path in sorted((content_root / "prompts").rglob("*.md")):
         data = parse_frontmatter(path)
         if not data:
             continue
@@ -171,9 +158,9 @@ def prompt_records() -> list[dict]:
     return sorted(records, key=prompt_sort_key)
 
 
-def skill_records() -> list[dict]:
+def skill_records(content_root: Path) -> list[dict]:
     records: list[dict] = []
-    for meta_path in sorted((ROOT / "skills").rglob("meta.yaml")):
+    for meta_path in sorted((content_root / "skills").rglob("meta.yaml")):
         data = parse_meta_yaml(meta_path)
         source_blueprint = str(data.get("source_blueprint", "")).strip()
         source_path = (meta_path.parent / source_blueprint).resolve() if source_blueprint else None
@@ -209,16 +196,23 @@ def render_table(headers: list[str], rows: list[list[str]]) -> str:
 
 
 def write_catalog(path: Path, content: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(content.rstrip() + "\n", encoding="utf-8")
 
 
-def generate_prompt_catalog(records: list[dict]) -> str:
+def adapter_support_cell(adapter_support: dict[str, str]) -> str:
+    names = [name for name, state in adapter_support.items() if state and state.lower() != "unsupported"]
+    return code_cell(names)
+
+
+def generate_prompt_catalog(records: list[dict], content_root: Path, catalog_path: Path, locale: str) -> str:
+    text = TEXT[locale]
     lines = [
-        "# Prompt Catalog",
+        f"# {text['prompt_catalog_title']}",
         "",
-        "Bu katalog, repodaki aktif ve tarihsel prompt varliklarini insan-okunur bir indeks halinde listeler.",
+        text["prompt_catalog_intro"],
         "",
-        "Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir. Runtime'a ozel uyarlamalar `adapters/` katmaninda tutulur ve burada promptun kendisiyle karistirilmaz.",
+        text["prompt_catalog_note"],
     ]
     for prompt_type in ("master", "module", "blueprint"):
         rows = []
@@ -233,34 +227,27 @@ def generate_prompt_catalog(records: list[dict]) -> str:
                     f"`{record['version']}`" if record["version"] else "`-`",
                     code_cell(record["tags"]),
                     code_cell(record["depends_on"]),
-                    format_path_link(PROMPT_CATALOG, record["path"]),
+                    format_path_link(catalog_path, record["path"], content_root),
                 ]
             )
         lines.extend(
             [
                 "",
-                f"## {PROMPT_SECTION_TITLES[prompt_type]}",
+                f"## {text['prompt_section_titles'][prompt_type]}",
                 "",
-                render_table(
-                    ["ID", "Baslik", "Durum", "Surum", "Etiketler", "Bagimliliklar", "Yol"],
-                    rows,
-                ),
+                render_table(text["prompt_headers"], rows),
             ]
         )
     return "\n".join(lines)
 
 
-def adapter_support_cell(adapter_support: dict[str, str]) -> str:
-    names = [name for name, state in adapter_support.items() if state and state.lower() != "unsupported"]
-    return code_cell(names)
-
-
-def generate_skill_catalog(records: list[dict]) -> str:
+def generate_skill_catalog(records: list[dict], content_root: Path, catalog_path: Path, locale: str) -> str:
+    text = TEXT[locale]
     rows = []
     for record in records:
         source_cell = "`-`"
         if record["source_blueprint_path"]:
-            source_cell = format_path_link(SKILL_CATALOG, record["source_blueprint_path"])
+            source_cell = format_path_link(catalog_path, record["source_blueprint_path"], content_root)
         rows.append(
             [
                 f"`{record['id']}`",
@@ -272,29 +259,27 @@ def generate_skill_catalog(records: list[dict]) -> str:
                 adapter_support_cell(record["adapter_support"]),
                 ", ".join(
                     [
-                        format_path_link(SKILL_CATALOG, record["skill_path"]),
-                        format_path_link(SKILL_CATALOG, record["meta_path"]),
+                        format_path_link(catalog_path, record["skill_path"], content_root),
+                        format_path_link(catalog_path, record["meta_path"], content_root),
                     ]
                 ),
             ]
         )
     return "\n".join(
         [
-            "# Skill Catalog",
+            f"# {text['skill_catalog_title']}",
             "",
-            "Bu katalog, `skills/` altindaki paketlenmis ve tekrar kullanilabilir hale getirilmis becerileri listeler.",
+            text["skill_catalog_intro"],
             "",
-            "Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir.",
+            text["skill_catalog_note"],
             "",
-            render_table(
-                ["ID", "Baslik", "Durum", "Surum", "Etiketler", "Kaynak Blueprint", "Adapter Support", "Dosyalar"],
-                rows,
-            ),
+            render_table(text["skill_headers"], rows),
         ]
     )
 
 
-def generate_dependency_catalog(prompt_records_list: list[dict], skill_records_list: list[dict]) -> str:
+def generate_dependency_catalog(prompt_records_list: list[dict], skill_records_list: list[dict], locale: str) -> str:
+    text = TEXT[locale]
     master_rows = []
     blueprint_rows = []
     for record in prompt_records_list:
@@ -309,55 +294,59 @@ def generate_dependency_catalog(prompt_records_list: list[dict], skill_records_l
             [
                 f"`{record['id']}`",
                 f"`{record['source_blueprint_id']}`" if record["source_blueprint_id"] else "`-`",
-                "Paketlenmis skill, kaynak blueprint bagini korur" if record["source_blueprint_id"] else "-",
+                text["packaged_skill_note"] if record["source_blueprint_id"] else "-",
             ]
         )
 
     return "\n".join(
         [
-            "# Dependency Catalog",
+            f"# {text['dependency_catalog_title']}",
             "",
-            "Bu belge, cekirdek varliklar arasindaki bagimlilik iliskilerini ozetler. Adapter dosyalari bu katalogda cekirdek bagimlilik olarak sayilmaz; onlar uyumluluk katmanidir.",
+            text["dependency_catalog_intro"],
             "",
-            "Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir.",
+            text["dependency_catalog_note"],
             "",
-            "## Sahiplik Notu",
+            f"## {text['ownership_title']}",
             "",
-            "- Adapter mapping'leri cekirdek dependency sahipligini degistirmez.",
-            "- Cekirdek ID'ler, blueprint kaynaklari ve `depends_on` zinciri `prompts/` ile `skills/` altinda sahiplenilmeye devam eder.",
-            "- Adapterler bu cekirdek sahipligi referans alir; yeni runtime destegi eklemek cekirdekte yeni bagimlilik sahibi yaratmaz.",
+            *[f"- {item}" for item in text["ownership_notes"]],
             "",
-            "## Skills -> Blueprints",
+            f"## {text['skills_to_blueprints']}",
             "",
-            render_table(["Skill", "Baglidir", "Not"], skill_rows),
+            render_table(text["skill_dependency_headers"], skill_rows),
             "",
-            "## Blueprints -> Masters / Modules / Blueprints",
+            f"## {text['blueprints_to_dependencies']}",
             "",
-            render_table(["Blueprint", "Bagimliliklar"], blueprint_rows),
+            render_table(text["dependency_headers"], blueprint_rows),
             "",
-            "## Masters -> Modules",
+            f"## {text['masters_to_modules']}",
             "",
-            render_table(["Master", "Bagimliliklar"], master_rows),
+            render_table(text["master_headers"], master_rows),
             "",
-            "## Modules",
+            f"## {text['modules_title']}",
             "",
-            "Moduller su anda cekirdek katalogda bagimsiz destek birimleri olarak listelenir; kataloglanan moduller icin ikincil bir `depends_on` iliskisi bulunmamaktadir.",
+            text["modules_note"],
         ]
     )
 
 
 def main() -> int:
-    prompts = prompt_records()
-    skills = skill_records()
+    args = build_parser().parse_args()
+    content_root = locale_root(args.locale)
+    prompt_catalog = content_root / "catalog" / "prompts.md"
+    skill_catalog = content_root / "catalog" / "skills.md"
+    dependency_catalog = content_root / "catalog" / "dependencies.md"
 
-    write_catalog(PROMPT_CATALOG, generate_prompt_catalog(prompts))
-    write_catalog(SKILL_CATALOG, generate_skill_catalog(skills))
-    write_catalog(DEPENDENCY_CATALOG, generate_dependency_catalog(prompts, skills))
+    prompts = prompt_records(content_root)
+    skills = skill_records(content_root)
 
-    print("Catalogs generated:")
-    print(f"- {PROMPT_CATALOG.relative_to(ROOT)}")
-    print(f"- {SKILL_CATALOG.relative_to(ROOT)}")
-    print(f"- {DEPENDENCY_CATALOG.relative_to(ROOT)}")
+    write_catalog(prompt_catalog, generate_prompt_catalog(prompts, content_root, prompt_catalog, args.locale))
+    write_catalog(skill_catalog, generate_skill_catalog(skills, content_root, skill_catalog, args.locale))
+    write_catalog(dependency_catalog, generate_dependency_catalog(prompts, skills, args.locale))
+
+    print(TEXT[args.locale]["generated_label"])
+    print(f"- {prompt_catalog.relative_to(content_root)}")
+    print(f"- {skill_catalog.relative_to(content_root)}")
+    print(f"- {dependency_catalog.relative_to(content_root)}")
     return 0
 
 

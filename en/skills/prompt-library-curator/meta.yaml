@@ -1,0 +1,25 @@
+id: mh-skill-prompt-library-curator
+title: Prompt Library Curator
+type: skill
+status: stable
+version: 1.0.0
+summary: Prompt library editing, kataloglama ve blueprint'ten skill'e promotion decisionlarini yoneten paketlenmis beceri.
+tags:
+  - packaging
+  - documentation
+  - governance
+depends_on:
+  - mh-blueprint-prompt-library-curator
+last_reviewed: 2026-04-03
+source_blueprint: ../../prompts/skill-blueprints/prompt-library-curator.md
+portability: universal
+adapter_support:
+  claude-code: supported
+  chatgpt: supported
+  codex: supported
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
+input_contract: Prompt librarysi icindeki content editing, siniflandirma veya packaging requestleri.
+output_contract: Guncel repo structure, katalog kayitlari ve gerekiyorsa promotion edilmis skill package.
+notes: Bu klasorde working talimatlari `SKILL.md` icinde, governance ve izlenebilirlik verisi bu dosyada tutulur.
