@@ -84,6 +84,19 @@ The notation should make it easier to detect:
 | `x` | fail policy |
 | `=` | key-value binding |
 
+## Line Grammar
+
+In v1, Symbolism is line-oriented.
+
+- One clause should occupy one line.
+- Blank lines are allowed between clauses.
+- Leading and trailing whitespace may be trimmed.
+- Inline comments are not part of the v1 grammar; if commentary is needed, place it outside the Symbolism block.
+- The default clause shape is `symbol key=value`.
+- The shorthand forms `@=task` and `#=goal` remain canonical for the top-level task and goal lines.
+- Unknowns may appear either as `? field_name` or `? key=value`; use `? field_name` when the missing item is best expressed as a bare unresolved field.
+- Escaping is not part of the v1 spec. If a value would require embedded separators such as extra `=` or ambiguous commas, rewrite it into a simpler stable token instead of relying on escaping rules.
+
 ## Recommended Block Order
 
 The preferred block order is:
@@ -104,11 +117,13 @@ Not every block is required in every use case, but the order should stay stable 
 
 ## Minimum Valid Form
 
-A minimum useful Symbolism block should usually include:
+A minimum valid Symbolism block should include:
 
 - one task
 - one goal
 - at least one input or output expectation
+
+A block that has `@` and `#` but contains neither `>` nor `<` should be treated as invalid rather than merely weak.
 
 Example:
 
@@ -265,11 +280,63 @@ Example:
 
 ### List
 
-Use comma-separated values.
+Two list encodings are allowed, but they do not serve the same purpose.
+
+Canonical repeated-line form:
+
+```text
++ include=edge_cases
++ include=phase_transitions
+& check=missing_sections
+& check=contradictions
+```
+
+Use repeated lines as the canonical form for multi-value control targets such as:
+
+- `+ include=...`
+- `- exclude=...`
+- `& check=...`
+
+Comma-separated form:
 
 ```text
 < sections=overview,core_loop,edge_cases,ui_flow
 ```
+
+Use comma-separated values only when one field naturally owns an ordered list, such as:
+
+- `< sections=...`
+- `< outputs=...`
+- `> artifacts=...`
+
+Do not mix repeated-line and comma-separated encodings for the same field within the same block.
+
+### Repeated Keys
+
+Repeated keys are valid only when the field is intentionally multi-valued.
+
+Preferred valid examples:
+
+```text
++ include=edge_cases
++ include=dependencies
+& check=missing_sections
+& check=contradictions
+```
+
+Structurally weak example:
+
+```text
+! tone=direct
+! tone=playful
+```
+
+Guideline:
+
+- repeated `@` or `#` is always invalid
+- repeated `+ include`, `- exclude`, and `& check` is valid and canonical
+- repeated scalar-style fields under `>`, `<`, `!`, `~`, `?`, or `x` should be avoided unless the field is explicitly list-like
+- if the same scalar field is repeated with conflicting meanings, treat that as structural weakness or conflict
 
 ### Boolean-Like Values
 
@@ -306,6 +373,7 @@ A block should be considered invalid if:
 - `#` is missing
 - `@` appears more than once
 - `#` appears more than once
+- neither `>` nor `<` appears anywhere in the block
 - a symbol is used with no value
 - `=` binding is broken
 - `&` checks exist but failure handling is impossible or contradictory in context
