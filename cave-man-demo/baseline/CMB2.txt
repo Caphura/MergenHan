@@ -1,0 +1,1 @@
+Run lsof -i :3000 to find the process using port 3000. Then kill the PID with kill -9 <PID> if needed.

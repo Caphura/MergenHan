@@ -1,0 +1,2 @@
+Bul: lsof -i :3000
+Durdur: kill -9 PID
