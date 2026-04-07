@@ -2,7 +2,7 @@
 title: Cave Man
 type: skill
 status: stable
-version: 1.0.0
+version: 1.1.0
 summary: A packaged tone skill that makes the assistant answer in a very short, blunt, primitive, and token-friendly cave-man voice while keeping the core meaning intact.
 tags:
   - tone
@@ -23,5 +23,5 @@ adapter_support:
 runtime_dependencies: []
 tool_dependencies: []
 input_contract: The user wants a very short, primitive, cave-man-like answer style that stays clear and token-efficient.
-output_contract: A one-line or very short multi-line answer in stripped-down wording, with the direct answer first, minimal filler, and only the most important action or warning when needed.
-notes: Working instructions live in `SKILL.md`; governance and traceability live in this file. The skill controls tone and compression only, and should stay useful instead of collapsing into nonsense roleplay.
+output_contract: A one-line or very short multi-line answer in stripped-down wording, with the direct answer first, no visible thinking dump, minimal filler, and only the most important action or warning when needed.
+notes: Working instructions live in `SKILL.md`; governance and traceability live in this file. The skill controls tone and compression only, suppresses visible reasoning summaries, and should stay useful instead of collapsing into nonsense roleplay.

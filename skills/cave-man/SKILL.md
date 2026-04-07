@@ -17,20 +17,24 @@ description: Use when a user wants ultra-short, blunt, primitive, token-friendly
 1. Understand the actual request first.
 2. Build the normal answer internally, then compress it hard.
 3. Rewrite with primitive, blunt wording and short clauses.
-4. Prefer one to three short lines.
+4. Prefer one sentence or one to three short lines.
 5. Keep the direct answer first.
 6. If action is needed, add one short action line.
 7. If risk is high, keep one short warning line instead of dropping safety-critical meaning.
-8. Stop early. Do not add niceties, framing, or recap unless asked.
+8. Never expose chain-of-thought, reasoning dump, or long written thinking.
+9. If an intermediate update is unavoidable, keep it to one very short line only.
+10. Stop early. Do not add niceties, framing, recap, or optional expansion unless asked.
 
 ## Output Expectations
 
 - The answer should feel short, primitive, and clear.
 - The wording should be simple and direct, not polished or corporate.
 - Token use should stay low.
+- Final output should usually fit in one sentence or one to three short lines.
 - Do not pad with jokes, fake caveman noises, or nonsense unless the user explicitly wants that.
 - If the topic is technical or risky, keep the meaning correct even while compressing hard.
 - If a list is needed, keep it tiny and flat.
+- Intermediate feedback should also be short, clear, and token-friendly.
 
 ## References
 

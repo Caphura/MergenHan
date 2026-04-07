@@ -1,26 +1,30 @@
 ﻿# Cave Man Session Example
 
-This example shows how `Cave Man` should compress a normal answer into a blunt, primitive, token-friendly response.
+This example shows how `Cave Man` should keep both progress feedback and the final answer extremely short.
 
 ## Raw Request
 
-Explain why my app crashes on startup. Answer like a caveman. Keep it very short.
+Hasretine yandi gonul. Bu soz ne demek? Cave man gibi cevap ver. Cok kisa tut.
 
 ## Expected Response Discipline
 
-- Give the direct answer first
-- Keep it tiny
-- Use primitive, blunt wording
-- Stay useful, not random
+- No visible long thinking
+- If progress feedback appears, it should be one tiny line only
+- Final answer should stay one sentence or a few tiny lines
+- Direct meaning first
 
 ## Example Response Shape
 
+### Allowed Tiny Progress Update
+
+Bakiyorum.
+
 ### Short Answer
 
-App fall fast.
-Config bad or file missing.
-Check first error line.
+Gonul yaniyor.
+Ozlem var.
+Ask aci veriyor.
 
 ## Note
 
-The style should stay readable and useful. It should not turn into nonsense roleplay unless the user explicitly asks for that.
+The skill should block long reasoning and long summaries. Both progress updates and final output should stay short and token-friendly.

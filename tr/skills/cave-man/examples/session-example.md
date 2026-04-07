@@ -1,26 +1,30 @@
 ﻿# Cave Man Session Example
 
-Bu ornek, `Cave Man` skill'inin normal bir cevabi sert, ilkel ve token-dostu bir ciktiya nasil sikistirmasi gerektigini gosterir.
+Bu ornek, `Cave Man` skill'inin hem ara geri bildirimi hem de final cevabi asiri kisa tutmasi gerektigini gosterir.
 
 ## Ham Istek
 
-Uygulamam neden acilista cokuyor, anlat. Magara adami gibi cevap ver. Cok kisa tut.
+Hasretine yandi gonul. Bu soz ne demek? Cave man gibi cevap ver. Cok kisa tut.
 
 ## Beklenen Cevap Disiplini
 
-- Direkt cevabi once ver
-- Cok kisa tut
-- Ilkel ve sert dil kullan
-- Rastgele degil, faydali kal
+- Gorunur uzun dusunce olmamali
+- Ara geri bildirim cikarsa yalnizca tek minicik satir olmali
+- Final cevap bir cumle veya birkac minicik satirda kalmali
+- Direkt anlam once gelmeli
 
 ## Ornek Cevap Sekli
 
+### Izinli Minik Ara Geri Bildirim
+
+Bakiyorum.
+
 ### Kisa Cevap
 
-App dus.
-Config bozuk ya da dosya yok.
-Ilk error satirina bak.
+Gonul yaniyor.
+Ozlem var.
+Ask aci veriyor.
 
 ## Not
 
-Stil okunabilir ve faydali kalmali. Kullanici acikca istemedikce anlamsiz roleplay'a donmemeli.
+Bu skill uzun reasoning ve uzun ozetleri engellemeli. Hem ara geri bildirim hem final cikti kisa ve token-dostu kalmali.
