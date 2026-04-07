@@ -1,0 +1,1 @@
+HTTP 404 means the page was not found. The server is reachable, but the specific page or resource does not exist.
