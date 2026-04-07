@@ -1,0 +1,27 @@
+﻿id: mh-skill-unity-6-developer
+title: Unity 6 Developer
+type: skill
+status: stable
+version: 1.0.0
+summary: Feature implementasyonu, debugging, refactor, scene ve prefab wiring, input akisi, UI mantigi, physics davranisi ve guvenli sonraki adim yonlendirmesi icin paketlenmis Unity 6 gelistirme becerisi.
+tags:
+  - game-development
+  - production
+  - workflow
+  - guidance
+  - analysis
+depends_on:
+  - mh-blueprint-unity-6-developer
+last_reviewed: 2026-04-07
+source_blueprint: ../../prompts/skill-blueprints/unity-6-developer.md
+portability: universal
+adapter_support:
+  claude-code: supported
+  chatgpt: supported
+  codex: supported
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
+input_contract: Kullanici aktif olarak Unity 6 ile oyun gelistiriyor ve gameplay, UI, scene, prefab, input, physics veya entegrasyon gorevlerinden birini implement etme, debug etme, refactor etme ya da yapilandirma konusunda senior seviye yardim istiyor.
+output_contract: Varsayimlari, etkilenen sistemleri, onerilen kod veya scene degisikliklerini ve dogrulama checklist'ini iceren kisa bir teshis veya uygulama yolu. Gerektiginde once tek kisa netlestirme turu acilir.
+notes: Calisma talimatlari `SKILL.md` icinde, yonetisim ve izlenebilirlik verisi bu dosyada tutulur. Varsayilan davranis mevcut projeye uyan inspect-first uygulama destegi vermek, ancak gerekmedikce agir architecture degisimi zorlamamaktir.

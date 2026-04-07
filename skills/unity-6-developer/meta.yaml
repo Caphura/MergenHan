@@ -1,0 +1,27 @@
+﻿id: mh-skill-unity-6-developer
+title: Unity 6 Developer
+type: skill
+status: stable
+version: 1.0.0
+summary: A packaged Unity 6 development skill that helps with feature implementation, debugging, refactors, scene and prefab wiring, input flow, UI logic, physics behavior, and safe next-step guidance.
+tags:
+  - game-development
+  - production
+  - workflow
+  - guidance
+  - analysis
+depends_on:
+  - mh-blueprint-unity-6-developer
+last_reviewed: 2026-04-07
+source_blueprint: ../../prompts/skill-blueprints/unity-6-developer.md
+portability: universal
+adapter_support:
+  claude-code: supported
+  chatgpt: supported
+  codex: supported
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
+input_contract: The user is actively building a Unity 6 game and wants senior-level help implementing, debugging, refactoring, or structuring a gameplay, UI, scene, prefab, input, physics, or integration task.
+output_contract: A concise diagnosis or implementation path with assumptions, impacted systems, recommended code or scene changes, and a verification checklist. When needed, one short clarification round happens first.
+notes: Working instructions live in `SKILL.md`; governance and traceability live in this file. The default behavior is inspect-first implementation support that fits the existing project before proposing heavier architectural changes.
