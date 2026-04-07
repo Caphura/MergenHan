@@ -13,3 +13,6 @@ Desktop.ini
 *.tmp
 *.bak
 *.log
+
+# Local product workspaces
+Product/
