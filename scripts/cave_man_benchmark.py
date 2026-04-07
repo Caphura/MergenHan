@@ -19,6 +19,7 @@ TEXT = {
     "en": {
         "description": "Build a markdown-ready Cave Man benchmark summary from baseline and Cave Man outputs.",
         "missing_dir": "Directory not found: {path}",
+        "placeholder_hint": "The '/path/to/...' form is only a placeholder. Replace it with a real directory such as './baseline' or '/Users/name/run/baseline'.",
         "duplicate_case": "Duplicate case ID '{case_id}' in {directory}",
         "missing_pairs": "Missing matching case files: {details}",
         "no_cases": "No matching case files found.",
@@ -36,6 +37,7 @@ TEXT = {
     "tr": {
         "description": "Baseline ve Cave Man ciktilarindan markdown'a hazir bir benchmark ozeti olustur.",
         "missing_dir": "Dizin bulunamadi: {path}",
+        "placeholder_hint": "'/path/to/...' formu sadece yer tutucudur. Bunu './baseline' veya '/Users/name/run/baseline' gibi gercek bir dizinle degistir.",
         "duplicate_case": "Ayni case ID birden fazla kez bulundu: '{case_id}' in {directory}",
         "missing_pairs": "Eslesen case dosyalari eksik: {details}",
         "no_cases": "Eslesen case dosyasi bulunamadi.",
@@ -74,9 +76,17 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
+def is_placeholder_path(directory: Path) -> bool:
+    parts = directory.parts
+    return len(parts) >= 3 and parts[:3] == ("/", "path", "to")
+
+
 def discover_cases(directory: Path, text: dict[str, str]) -> dict[str, Path]:
     if not directory.is_dir():
-        raise ValueError(text["missing_dir"].format(path=directory))
+        message = text["missing_dir"].format(path=directory)
+        if is_placeholder_path(directory):
+            message = f"{message}\n{text['placeholder_hint']}"
+        raise ValueError(message)
 
     cases: dict[str, Path] = {}
     for path in sorted(directory.iterdir()):

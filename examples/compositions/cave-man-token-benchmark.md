@@ -71,9 +71,12 @@ If you store per-case outputs as files, you can prefill the token table with:
 
 ```text
 python3 scripts/cave_man_benchmark.py \
-  --baseline-dir /path/to/baseline \
-  --cave-man-dir /path/to/cave-man
+  --baseline-dir ./baseline \
+  --cave-man-dir ./cave-man
 ```
+
+The `./baseline` and `./cave-man` values above are examples.
+Use the real directories where you saved your outputs.
 
 Recommended file layout:
 

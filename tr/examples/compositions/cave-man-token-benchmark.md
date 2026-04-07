@@ -71,9 +71,12 @@ Case bazli output'lari dosya olarak tutuyorsan token tablosunu su komutla on-dol
 
 ```text
 python3 scripts/cave_man_benchmark.py \
-  --baseline-dir /path/to/baseline \
-  --cave-man-dir /path/to/cave-man
+  --baseline-dir ./baseline \
+  --cave-man-dir ./cave-man
 ```
+
+Buradaki `./baseline` ve `./cave-man` sadece ornektir.
+Kendi output'larini koydugun gercek dizinleri vermelisin.
 
 Onerilen dosya yapisi:
 
