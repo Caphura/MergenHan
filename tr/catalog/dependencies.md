@@ -17,6 +17,7 @@ Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir.
 | `mh-skill-adapter-mapper` | `mh-blueprint-adapter-mapper` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-apartment-investment-analyzer` | `mh-blueprint-apartment-investment-analyzer` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-catalog-validator` | `mh-blueprint-catalog-validator` | Paketlenmis skill, kaynak blueprint bagini korur |
+| `mh-skill-cave-man` | `mh-blueprint-cave-man` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-feature-spec-composer` | `mh-blueprint-feature-spec-composer` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-game-strategy-session-composer` | `mh-blueprint-game-strategy-session-composer` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-meshy-3d-prompt-composer` | `mh-blueprint-meshy-3d-prompt-composer` | Paketlenmis skill, kaynak blueprint bagini korur |
@@ -36,6 +37,7 @@ Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir.
 | `mh-blueprint-adapter-mapper` | `mh-module-context-audit`, `mh-module-repo-architecture`, `mh-module-action-summary` |
 | `mh-blueprint-apartment-investment-analyzer` | `mh-master-ultimate-real-estate-market-and-valuation-strategist-core`, `mh-module-real-estate-market-data-validation`, `mh-module-real-estate-comparable-analysis`, `mh-module-real-estate-valuation-logic`, `mh-module-real-estate-risk-and-uncertainty`, `mh-module-real-estate-investment-decision-support`, `mh-module-real-estate-no-hallucination-governance`, `mh-module-action-summary` |
 | `mh-blueprint-catalog-validator` | `mh-module-context-audit`, `mh-module-repo-architecture`, `mh-module-action-summary` |
+| `mh-blueprint-cave-man` | `-` |
 | `mh-blueprint-feature-spec-composer` | `mh-module-context-audit`, `mh-module-collaborative-guidance`, `mh-module-action-summary` |
 | `mh-blueprint-game-strategy-session-composer` | `mh-master-ultimate-game-development-strategist-core`, `mh-module-steam-market-validation`, `mh-module-mvp-scope-reduction`, `mh-module-production-risk-strategy`, `mh-module-full-concept-greenlight` |
 | `mh-blueprint-meshy-3d-prompt-composer` | `mh-module-collaborative-guidance`, `mh-module-action-summary` |
