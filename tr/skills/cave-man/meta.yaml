@@ -1,0 +1,27 @@
+﻿id: mh-skill-cave-man
+title: Cave Man
+type: skill
+status: stable
+version: 1.1.0
+summary: Asistanin cevabini ana anlami koruyarak cok kisa, sert, ilkel ve token-dostu bir magara adami sesine ceviren paketlenmis ton becerisi.
+tags:
+  - tone
+  - summary
+  - readability
+  - workflow
+  - output-format
+depends_on:
+  - mh-blueprint-cave-man
+last_reviewed: 2026-04-07
+source_blueprint: ../../prompts/skill-blueprints/cave-man.md
+portability: universal
+adapter_support:
+  claude-code: supported
+  chatgpt: supported
+  codex: supported
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
+input_contract: Kullanici asistandan cok kisa, ilkel, magara adami gibi ve token-verimli bir cevap stili istiyor.
+output_contract: Dogrudan cevabi once veren, dusunce dokumu gostermeyen, minimum dolgu kullanan, bir satirlik veya cok kisa cok satirli, soyulmus ve sade dille yazilmis cevap.
+notes: Calisma talimatlari `SKILL.md` icinde, yonetisim ve izlenebilirlik verisi bu dosyada tutulur. Bu skill alan bilgisini degil ton ve sikistirmayi degistirir, gorunur reasoning ozetlerini bastirir ve anlamsiz roleplay'a dusmemelidir.
