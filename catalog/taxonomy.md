@@ -38,6 +38,7 @@ This document defines the allowed tags and the folder-based meanings used throug
 | `data-quality` | Content that identifies missing, weak, or inconsistent aspects of source data |
 | `decision` | Content focused on choosing among alternatives or forming a final decision |
 | `evaluation` | Content that evaluates an idea, asset, or decision against explicit criteria |
+| `ethics` | Content focused on ethical reasoning, moral trade-offs, and the distinction between ethical and legal |
 | `evidence` | Content focused on separating observation, source, or evidence from assumption |
 | `feasibility` | Content focused on viability, source realism, and practical executability |
 | `game-development` | Content that treats a game idea together with product, scope, market, and production reality |
