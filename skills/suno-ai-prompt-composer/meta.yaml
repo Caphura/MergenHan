@@ -1,0 +1,27 @@
+id: mh-skill-suno-ai-prompt-composer
+title: Suno AI Prompt Composer
+type: skill
+status: stable
+version: 1.0.0
+summary: A packaged Suno AI prompt-writing skill that turns rough song, instrumental, lyric, and custom audio-sample ideas into copyable Suno prompt packages.
+tags:
+  - prompt-composition
+  - workflow
+  - guidance
+  - output-format
+  - safety
+depends_on:
+  - mh-blueprint-suno-ai-prompt-composer
+last_reviewed: 2026-04-13
+source_blueprint: ../../prompts/skill-blueprints/suno-ai-prompt-composer.md
+portability: universal
+adapter_support:
+  claude-code: supported
+  chatgpt: supported
+  codex: supported
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
+input_contract: The user has a rough musical, lyric, instrumental, or custom audio-sample idea and wants it turned into a Suno-ready prompt or Custom Mode field package.
+output_contract: A short clarification flow when needed, followed by a copyable Suno setup with mode, song or sound prompt, optional lyrics, style, exclude terms, title ideas, and concise iteration notes.
+notes: Working instructions live in `SKILL.md`; governance and traceability live in this file. The skill is based on official Suno Help Center and Suno-owned documentation reviewed on 2026-04-13.

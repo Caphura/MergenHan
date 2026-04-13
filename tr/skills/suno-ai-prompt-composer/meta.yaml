@@ -1,0 +1,27 @@
+id: mh-skill-suno-ai-prompt-composer
+title: Suno AI Prompt Composer
+type: skill
+status: stable
+version: 1.0.0
+summary: Ham sarki, instrumental, soz ve custom audio sample fikirlerini kopyalanabilir Suno prompt paketlerine donusturen paketlenmis Suno AI prompt yazma skill'i.
+tags:
+  - prompt-composition
+  - workflow
+  - guidance
+  - output-format
+  - safety
+depends_on:
+  - mh-blueprint-suno-ai-prompt-composer
+last_reviewed: 2026-04-13
+source_blueprint: ../../prompts/skill-blueprints/suno-ai-prompt-composer.md
+portability: universal
+adapter_support:
+  claude-code: supported
+  chatgpt: supported
+  codex: supported
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
+input_contract: Kullanici ham bir muzik, soz, instrumental veya custom audio sample fikrini Suno-ready prompt ya da Custom Mode alan paketine donusturmek ister.
+output_contract: Gerektiginde kisa netlestirme akisi, ardindan mode, sarki veya ses promptu, opsiyonel lyrics, style, exclude terimleri, baslik onerileri ve kisa iterasyon notlari iceren kopyalanabilir Suno kurulumu.
+notes: Working instructions `SKILL.md` icinde, governance ve izlenebilirlik bu dosyada tutulur. Skill, 2026-04-13 tarihinde incelenen resmi Suno Help Center ve Suno'ya ait dokumantasyona dayanir.
