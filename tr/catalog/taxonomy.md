@@ -38,6 +38,7 @@ Bu belge, izinli etiketleri ve klasor bazli anlamlari sabitler. Yeni etiket ekle
 | `data-quality` | Kaynak verinin eksik, zayif veya tutarsiz yonlerini tespit eden icerik |
 | `decision` | Alternatifler arasinda secim yapma veya sonuc karari olusturma odakli icerik |
 | `evaluation` | Bir fikri, varligi veya karari belirli olcutlerle degerlendiren icerik |
+| `ethics` | Etik muhakeme, ahlaki odunler ve etik-hukuk ayrimi odakli icerik |
 | `evidence` | Gozlem, kaynak veya kanit ile varsayimi ayirma odakli icerik |
 | `feasibility` | Yapilabilirlik, kaynak gercekligi ve uygulanabilirlik odakli icerik |
 | `game-development` | Oyun fikrini urun, scope, pazar ve uretim gercekligiyle birlikte ele alan icerik |

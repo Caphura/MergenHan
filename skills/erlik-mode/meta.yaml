@@ -1,0 +1,27 @@
+id: mh-skill-erlik-mode
+title: Erlik Mode
+type: skill
+status: draft
+version: 0.1.0
+summary: A reasoning framework skill that explores the gap between ethics and law. Presents the ethical default first, then surfaces alternative lawful-but-ethically-gray paths with structured risk assessment. Never includes anything unlawful.
+tags:
+  - logic
+  - ethics
+  - strategy
+  - workflow
+  - analysis
+depends_on:
+  - mh-blueprint-erlik-mode
+last_reviewed: 2026-04-09
+source_blueprint: ../../prompts/skill-blueprints/erlik-mode.md
+portability: universal
+adapter_support:
+  claude-code: supported
+  chatgpt: supported
+  codex: supported
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
+input_contract: The user presents a situation, decision, or strategy question where ethical and legal dimensions may diverge.
+output_contract: A structured analysis showing the ethical default path first, followed by alternative lawful-but-ethically-gray paths with clear risk assessments across legal, ethical, reputational, and practical dimensions. Never includes anything unlawful.
+notes: Working instructions live in `SKILL.md`; governance and traceability live in this file. The skill controls analytical framing and reasoning structure. The name references Erlik Han from Turkic mythology. All presented options must remain lawful — this is the hard guardrail.

@@ -27,7 +27,9 @@ Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir.
 | `mh-skill-real-estate-valuation-session-composer` | `mh-blueprint-real-estate-valuation-session-composer` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-resume-composer` | `mh-blueprint-resume-composer` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-skill-packager` | `mh-blueprint-skill-packager` | Paketlenmis skill, kaynak blueprint bagini korur |
+| `mh-skill-suno-ai-prompt-composer` | `mh-blueprint-suno-ai-prompt-composer` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-unity-6-developer` | `mh-blueprint-unity-6-developer` | Paketlenmis skill, kaynak blueprint bagini korur |
+| `mh-skill-erlik-mode` | `mh-blueprint-erlik-mode` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-used-car-scout` | `mh-blueprint-used-car-scout` | Paketlenmis skill, kaynak blueprint bagini korur |
 
 ## Blueprints -> Masters / Modules / Blueprints
@@ -47,7 +49,9 @@ Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir.
 | `mh-blueprint-real-estate-valuation-session-composer` | `mh-master-ultimate-real-estate-market-and-valuation-strategist-core`, `mh-module-real-estate-market-data-validation`, `mh-module-real-estate-comparable-analysis`, `mh-module-real-estate-valuation-logic`, `mh-module-real-estate-risk-and-uncertainty`, `mh-module-real-estate-investment-decision-support`, `mh-module-real-estate-no-hallucination-governance` |
 | `mh-blueprint-resume-composer` | `mh-module-context-audit`, `mh-module-collaborative-guidance`, `mh-module-action-summary` |
 | `mh-blueprint-skill-packager` | `mh-blueprint-prompt-library-curator`, `mh-module-repo-architecture`, `mh-module-action-summary` |
+| `mh-blueprint-suno-ai-prompt-composer` | `mh-module-collaborative-guidance`, `mh-module-action-summary` |
 | `mh-blueprint-unity-6-developer` | `mh-module-context-audit`, `mh-module-collaborative-guidance`, `mh-module-action-summary` |
+| `mh-blueprint-erlik-mode` | `-` |
 | `mh-blueprint-used-car-listing-risk-filter` | `mh-module-used-car-tramer-verification`, `mh-module-used-car-listing-red-flags`, `mh-module-used-car-no-hallucination-governance`, `mh-module-collaborative-guidance`, `mh-module-action-summary` |
 | `mh-blueprint-used-car-scout` | `mh-module-used-car-tramer-verification`, `mh-module-used-car-listing-red-flags`, `mh-module-used-car-pricing-logic`, `mh-module-used-car-no-hallucination-governance`, `mh-module-collaborative-guidance`, `mh-module-action-summary` |
 

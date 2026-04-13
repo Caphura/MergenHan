@@ -1,0 +1,27 @@
+id: mh-skill-erlik-mode
+title: Erlik Mode
+type: skill
+status: draft
+version: 0.1.0
+summary: Etik ile hukuk arasindaki gri alani arastiran dusunce cercevesi becerisi. Once etik varsayilani sunar, ardindan yapilandirilmis risk degerlendirmesiyle hukuka uygun ama etik olarak gri alandaki alternatifleri ortaya koyar. Hukuka aykiri hicbir secenek icermez.
+tags:
+  - logic
+  - ethics
+  - strategy
+  - workflow
+  - analysis
+depends_on:
+  - mh-blueprint-erlik-mode
+last_reviewed: 2026-04-09
+source_blueprint: ../../prompts/skill-blueprints/erlik-mode.md
+portability: universal
+adapter_support:
+  claude-code: supported
+  chatgpt: supported
+  codex: supported
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
+input_contract: Kullanici etik ve hukuki boyutlarin birbirinden ayrilabilecegi bir durum, karar veya strateji sorusu sunar.
+output_contract: Once etik varsayilan yolu, ardindan hukuka uygun ama etik olarak gri alandaki alternatifleri hukuki, etik, itibar ve pratik boyutlarda acik risk degerlendirmesiyle gosteren yapilandirilmis analiz. Hukuka aykiri hicbir secenek icermez.
+notes: Calisma talimatlari `SKILL.md` icinde, yonetisim ve izlenebilirlik verisi bu dosyada tutulur. Skill analitik cerceveleme ve dusunce yapisini yonetir. Ad Turk mitolojisinden Erlik Han'a referanstir. Sunulan tum secenekler hukuka uygun olmalidir — bu sert guardrail'dir.
