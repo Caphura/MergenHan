@@ -1,0 +1,28 @@
+id: mh-skill-instagram-post-composer
+title: Instagram Post Composer
+type: skill
+status: active
+version: 1.0.0
+summary: Profesyoneller icin Instagram postlarini bastan sona olusturan, Nano Banana ile gorsel prompt ureten, detayli Canva layout rehberi sunan, caption yazan ve en etkili yayinlama zamanini oneren paketlenmis beceri.
+tags:
+  - social-media
+  - instagram
+  - content-strategy
+  - image-generation
+  - copywriting
+  - workflow
+depends_on:
+  - mh-blueprint-instagram-post-composer
+last_reviewed: 2026-04-19
+source_blueprint: ../../prompts/skill-blueprints/instagram-post-composer.md
+portability: universal
+adapter_support:
+  claude-code: planned
+  chatgpt: planned
+  codex: planned
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
+input_contract: Kullanici bir profesyonelin niche'ini, post konusunu ve varsa format tercihini verir. Ornek niche'ler psikolog, fitness kocu, avukat, kisisel marka, gastronomi.
+output_contract: Nano Banana gorsel promptu, detayli Canva layout rehberi (sablon kategorisi, hex renk kodlari, font eslestirmesi, grid onerisi), caption (hook + govde + CTA), hashtag stratejisi (10-15 arasi) ve en etkili yayinlama zamani onerisi.
+notes: Bu klasorde calisma talimatlari `SKILL.md` icinde, yonetisim ve izlenebilirlik verisi bu dosyada tutulur. Gorsel prompt asamasinda mh-skill-nano-banana-image-prompt-composer referans alinir. Canva rehberi sablon kategorisi, renk paleti, tipografi ve grid onerilerini belirgin bicimde icerir.
