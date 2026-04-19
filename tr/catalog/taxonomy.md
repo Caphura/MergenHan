@@ -33,6 +33,8 @@ Bu belge, izinli etiketleri ve klasor bazli anlamlari sabitler. Yeni etiket ekle
 | `collaboration` | Isbirligi, eslik etme ve destekleyici iletisim |
 | `commercial-viability` | Bir fikrin pazarda satin alinabilir veya satilabilir olma sansini degerlendiren icerik |
 | `composition` | Modullerin birlestirilmesi veya orkestrasyonu |
+| `content-strategy` | Sosyal medya veya yayincilik akislari icin icerik planlama, zamanlama ve stratejik yon belirleme |
+| `copywriting` | Hedef kitleye yonelik ikna edici caption, baslik veya pazarlama metni yazma odakli icerik |
 | `comparables` | Emsal veri, benzer ornekler ve karsilastirmali fiyat mantigi etrafinda kurulan icerik |
 | `confidence` | Sonucun guven duzeyi ve belirsizlik katsayisini gorunur kilan icerik |
 | `data-quality` | Kaynak verinin eksik, zayif veya tutarsiz yonlerini tespit eden icerik |
@@ -48,9 +50,10 @@ Bu belge, izinli etiketleri ve klasor bazli anlamlari sabitler. Yeni etiket ekle
 | `feature-design` | Belirli bir oyun ozelligini tanimlama, kurallastirma ve spec haline getirme odakli icerik |
 | `game-design` | Oyun sistemleri, mekanikler ve oyuncu deneyimi tasarimi odakli icerik |
 | `governance` | Surum, durum, yasam dongusu ve bakim disiplini |
+| `image-generation` | Gorsel uretim modelleri, image prompt tasarimi veya gorsel ciktisi hedefleyen akislara ait icerik |
+| `instagram` | Instagram post olusturma, icerik stratejisi ve platforma ozel en iyi uygulamalar odakli icerik |
 | `greenlight` | Bir fikir veya konseptin devam etmeye deger olup olmadigini netlestiren icerik |
 | `guidance` | Kullaniciyi yonlendiren veya karar netlestiren icerik |
-| `image-generation` | Gorsel uretim modelleri, image prompt tasarimi veya gorsel ciktisi hedefleyen akislara ait icerik |
 | `legacy` | Yalnizca tarihsel referans icin saklanan icerik |
 | `library` | Prompt kutuphanesi ve ic organizasyonla ilgili icerik |
 | `listing-analysis` | Ilan inceleme, kirmizi bayrak tespiti, aciklama analizi ve firsat degerlendirme odakli icerik |
@@ -84,6 +87,7 @@ Bu belge, izinli etiketleri ve klasor bazli anlamlari sabitler. Yeni etiket ekle
 | `scope` | Kapsam siniri, is yukunu daraltma veya genisligi kontrol etme odakli icerik |
 | `scoring` | Fikirleri, adaylari veya secenekleri puanlayarak degerlendiren icerik |
 | `session` | Oturum acilisi, session setup veya analiz oturumu secimi odakli icerik |
+| `social-media` | Sosyal medya pazarlamasi, platform stratejisi ve kitle etkilesimiyle ilgili icerik |
 | `solo-dev` | Tek kisilik veya cok kucuk ekipli gelistirme gercekligine odakli icerik |
 | `steam` | Steam ekosistemi, oyuncu beklentisi ve pazar sinyalleriyle ilgili icerik |
 | `strategy` | Yuksek seviyeli secim, yon tayini ve ticari / urunsel planlama odakli icerik |

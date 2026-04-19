@@ -33,6 +33,8 @@ This document defines the allowed tags and the folder-based meanings used throug
 | `collaboration` | Collaboration, companionship, and supportive communication |
 | `commercial-viability` | Content that evaluates whether an idea is likely to be buyable or sellable in the market |
 | `composition` | Combining modules or orchestrating them together |
+| `content-strategy` | Content planning, scheduling, and strategic direction for social media or publishing workflows |
+| `copywriting` | Content focused on writing persuasive, audience-targeted captions, headlines, or marketing copy |
 | `comparables` | Content built around comparable data, similar examples, and comparison-based pricing logic |
 | `confidence` | Content that makes the confidence level and uncertainty factor visible |
 | `data-quality` | Content that identifies missing, weak, or inconsistent aspects of source data |
@@ -48,9 +50,10 @@ This document defines the allowed tags and the folder-based meanings used throug
 | `feature-design` | Content focused on defining a specific game feature, formalizing it, and turning it into a spec |
 | `game-design` | Content focused on game systems, mechanics, and player-experience design |
 | `governance` | Versioning, status, lifecycle, and maintenance discipline |
+| `image-generation` | Content for workflows that target image-generation models, image prompt design, or visual outputs |
+| `instagram` | Content focused on Instagram post creation, content strategy, and platform-specific best practices |
 | `greenlight` | Content that clarifies whether an idea or concept is worth continuing |
 | `guidance` | Content that guides the user or helps clarify a decision |
-| `image-generation` | Content for workflows that target image-generation models, image prompt design, or visual outputs |
 | `legacy` | Content kept only for historical reference |
 | `library` | Content related to the prompt library and its internal organization |
 | `listing-analysis` | Content focused on listing review, red-flag detection, description analysis, and opportunity evaluation |
@@ -84,6 +87,7 @@ This document defines the allowed tags and the folder-based meanings used throug
 | `scope` | Content focused on scope boundaries, workload narrowing, or breadth control |
 | `scoring` | Content that evaluates ideas, candidates, or options by scoring them |
 | `session` | Content focused on session opening, session setup, or choosing the right analysis session |
+| `social-media` | Content related to social media marketing, platform strategy, and audience engagement |
 | `solo-dev` | Content focused on the reality of solo or very small-team development |
 | `steam` | Content related to the Steam ecosystem, player expectations, and market signals |
 | `strategy` | Content focused on high-level choice, direction-setting, and commercial or product planning |

@@ -14,6 +14,7 @@ Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir.
 
 | Skill | Baglidir | Not |
 | --- | --- | --- |
+| `mh-skill-instagram-post-composer` | `mh-blueprint-instagram-post-composer` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-adapter-mapper` | `mh-blueprint-adapter-mapper` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-apartment-investment-analyzer` | `mh-blueprint-apartment-investment-analyzer` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-catalog-validator` | `mh-blueprint-catalog-validator` | Paketlenmis skill, kaynak blueprint bagini korur |
@@ -36,6 +37,7 @@ Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir.
 
 | Blueprint | Bagimliliklar |
 | --- | --- |
+| `mh-blueprint-instagram-post-composer` | `mh-skill-nano-banana-image-prompt-composer` |
 | `mh-blueprint-adapter-mapper` | `mh-module-context-audit`, `mh-module-repo-architecture`, `mh-module-action-summary` |
 | `mh-blueprint-apartment-investment-analyzer` | `mh-master-ultimate-real-estate-market-and-valuation-strategist-core`, `mh-module-real-estate-market-data-validation`, `mh-module-real-estate-comparable-analysis`, `mh-module-real-estate-valuation-logic`, `mh-module-real-estate-risk-and-uncertainty`, `mh-module-real-estate-investment-decision-support`, `mh-module-real-estate-no-hallucination-governance`, `mh-module-action-summary` |
 | `mh-blueprint-catalog-validator` | `mh-module-context-audit`, `mh-module-repo-architecture`, `mh-module-action-summary` |
