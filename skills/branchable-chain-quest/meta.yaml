@@ -1,0 +1,26 @@
+id: mh-skill-branchable-chain-quest
+title: Branchable Chain Quest
+type: skill
+status: stable
+version: 1.0.0
+summary: Produces implementation-oriented quest logic specs for branching quest chains, multi-task unlock gates, and daily quest activation after chain completion.
+tags:
+  - game-design
+  - feature-design
+  - logic
+  - workflow
+depends_on:
+  - mh-blueprint-branchable-chain-quest
+last_reviewed: 2026-04-30
+source_blueprint: ../../prompts/skill-blueprints/branchable-chain-quest.md
+portability: universal
+adapter_support:
+  claude-code: supported
+  chatgpt: supported
+  codex: supported
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
+input_contract: A request to design or clarify a quest system with branching tasks, multi-task unlock conditions, quest-chain progression, and daily quests unlocked after chain completion.
+output_contract: A quest logic specification with node definitions, branch maps, unlock gates, chain completion rules, daily quest activation rules, edge cases, open questions, and acceptance criteria.
+notes: Working instructions live in `SKILL.md`; governance and traceability live in this file. The skill stays engine-agnostic and focuses on quest graph logic rather than dialogue, localization, or code generation.

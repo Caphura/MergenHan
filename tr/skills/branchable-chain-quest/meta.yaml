@@ -1,0 +1,26 @@
+id: mh-skill-branchable-chain-quest
+title: Branchable Chain Quest
+type: skill
+status: stable
+version: 1.0.0
+summary: Branchlenen quest chain'ler, coklu gorev unlock gate'leri ve chain completion sonrasi daily quest activation icin implementation-oriented quest logic spec uretir.
+tags:
+  - game-design
+  - feature-design
+  - logic
+  - workflow
+depends_on:
+  - mh-blueprint-branchable-chain-quest
+last_reviewed: 2026-04-30
+source_blueprint: ../../prompts/skill-blueprints/branchable-chain-quest.md
+portability: universal
+adapter_support:
+  claude-code: supported
+  chatgpt: supported
+  codex: supported
+  generic-llm: supported
+runtime_dependencies: []
+tool_dependencies: []
+input_contract: Branching taskler, coklu gorev unlock kosullari, quest-chain progression ve chain completion sonrasi acilan daily questler iceren quest sistemi tasarlama veya netlestirme istegi.
+output_contract: Quest node tanimlari, branch map'leri, unlock gate'leri, chain completion rules, daily quest activation rules, edge case'ler, open questions ve acceptance criteria iceren quest logic specification.
+notes: Working talimatlari `SKILL.md` icinde, governance ve izlenebilirlik verisi bu dosyada tutulur. Skill engine-agnostic kalir ve dialogue, localization veya code generation yerine quest graph logic'e odaklanir.
