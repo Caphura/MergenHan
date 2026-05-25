@@ -1,0 +1,57 @@
+id: mh-skill-code-aware-horror-narrative-designer
+title: Code-Aware Horror Narrative Designer
+type: skill
+status: draft
+version: 0.1.0
+summary: Reads game code or system documentation, identifies implemented gameplay and interaction systems, and designs horror or psychological thriller narrative content that fits those systems without inventing unsupported mechanics.
+tags:
+  - game-design
+  - game-development
+  - feature-design
+  - analysis
+  - anti-hallucination
+  - workflow
+depends_on:
+  - mh-skill-feature-spec-composer
+  - mh-skill-unity-6-developer
+last_reviewed: 2026-05-25
+source_blueprint: ../../prompts/skill-blueprints/code-aware-horror-narrative-designer.md
+portability: universal
+adapter_support:
+  claude-code: planned
+  chatgpt: planned
+  codex: planned
+  generic-llm: planned
+runtime_dependencies:
+  - access to user-provided code, snippets, repository files, or system documentation when code-aware analysis is requested
+tool_dependencies:
+  - code or file inspection capability when used against a real repository
+input_contract:
+  required:
+    - project_context
+  optional:
+    - code_files
+    - system_docs
+    - scene_description
+    - genre_direction
+    - target_emotion
+    - existing_mechanics
+    - technical_constraints
+    - desired_output_format
+output_contract:
+  default:
+    - working_understanding
+    - code_system_reading_summary
+    - available_narrative_affordances
+    - horror_tension_opportunities
+    - system_compatible_narrative_design
+    - scene_beat_breakdown
+    - trigger_state_mapping
+    - player_facing_text
+    - environmental_storytelling_hooks
+    - new_dependencies
+    - risks_assumptions
+    - acceptance_criteria
+notes:
+  - The skill must distinguish implemented systems from proposed narrative dependencies.
+  - The skill should favor system-compatible psychological tension over unsupported generic horror set pieces.

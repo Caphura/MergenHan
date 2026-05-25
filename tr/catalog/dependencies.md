@@ -30,6 +30,7 @@ Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir.
 | `mh-skill-skill-packager` | `mh-blueprint-skill-packager` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-suno-ai-prompt-composer` | `mh-blueprint-suno-ai-prompt-composer` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-unity-6-developer` | `mh-blueprint-unity-6-developer` | Paketlenmis skill, kaynak blueprint bagini korur |
+| `mh-skill-code-aware-horror-narrative-designer` | `mh-blueprint-code-aware-horror-narrative-designer` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-erlik-mode` | `mh-blueprint-erlik-mode` | Paketlenmis skill, kaynak blueprint bagini korur |
 | `mh-skill-used-car-scout` | `mh-blueprint-used-car-scout` | Paketlenmis skill, kaynak blueprint bagini korur |
 
@@ -53,6 +54,7 @@ Not: Bu katalog `python scripts/generate_catalog.py` ile uretilir.
 | `mh-blueprint-skill-packager` | `mh-blueprint-prompt-library-curator`, `mh-module-repo-architecture`, `mh-module-action-summary` |
 | `mh-blueprint-suno-ai-prompt-composer` | `mh-module-collaborative-guidance`, `mh-module-action-summary` |
 | `mh-blueprint-unity-6-developer` | `mh-module-context-audit`, `mh-module-collaborative-guidance`, `mh-module-action-summary` |
+| `mh-blueprint-code-aware-horror-narrative-designer` | `mh-module-context-audit`, `mh-module-collaborative-guidance`, `mh-module-action-summary` |
 | `mh-blueprint-erlik-mode` | `-` |
 | `mh-blueprint-used-car-listing-risk-filter` | `mh-module-used-car-tramer-verification`, `mh-module-used-car-listing-red-flags`, `mh-module-used-car-no-hallucination-governance`, `mh-module-collaborative-guidance`, `mh-module-action-summary` |
 | `mh-blueprint-used-car-scout` | `mh-module-used-car-tramer-verification`, `mh-module-used-car-listing-red-flags`, `mh-module-used-car-pricing-logic`, `mh-module-used-car-no-hallucination-governance`, `mh-module-collaborative-guidance`, `mh-module-action-summary` |
