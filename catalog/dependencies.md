@@ -32,6 +32,7 @@ Note: This catalog is generated with `python scripts/generate_catalog.py`.
 | `mh-skill-unity-6-developer` | `mh-blueprint-unity-6-developer` | Packaged skill keeps its source blueprint link |
 | `mh-skill-code-aware-horror-narrative-designer` | `mh-blueprint-code-aware-horror-narrative-designer` | Packaged skill keeps its source blueprint link |
 | `mh-skill-erlik-mode` | `mh-blueprint-erlik-mode` | Packaged skill keeps its source blueprint link |
+| `mh-skill-pdai-block-c-mailroom-package-content-composer` | `mh-blueprint-pdai-block-c-mailroom-package-content-composer` | Packaged skill keeps its source blueprint link |
 | `mh-skill-used-car-scout` | `mh-blueprint-used-car-scout` | Packaged skill keeps its source blueprint link |
 
 ## Blueprints -> Masters / Modules / Blueprints
@@ -56,6 +57,7 @@ Note: This catalog is generated with `python scripts/generate_catalog.py`.
 | `mh-blueprint-unity-6-developer` | `mh-module-context-audit`, `mh-module-collaborative-guidance`, `mh-module-action-summary` |
 | `mh-blueprint-code-aware-horror-narrative-designer` | `mh-module-context-audit`, `mh-module-collaborative-guidance`, `mh-module-action-summary` |
 | `mh-blueprint-erlik-mode` | `-` |
+| `mh-blueprint-pdai-block-c-mailroom-package-content-composer` | `mh-module-context-audit`, `mh-module-collaborative-guidance`, `mh-module-action-summary` |
 | `mh-blueprint-used-car-listing-risk-filter` | `mh-module-used-car-tramer-verification`, `mh-module-used-car-listing-red-flags`, `mh-module-used-car-no-hallucination-governance`, `mh-module-collaborative-guidance`, `mh-module-action-summary` |
 | `mh-blueprint-used-car-scout` | `mh-module-used-car-tramer-verification`, `mh-module-used-car-listing-red-flags`, `mh-module-used-car-pricing-logic`, `mh-module-used-car-no-hallucination-governance`, `mh-module-collaborative-guidance`, `mh-module-action-summary` |
 
