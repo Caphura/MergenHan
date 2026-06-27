@@ -1,0 +1,49 @@
+id: mh-skill-pdai-block-c-mailroom-package-content-composer
+title: PDAI Block C Mailroom Package Content Composer
+type: skill
+status: draft
+version: 0.1.0
+summary: Existing PackageInspectionRecord schema, validator rule'lari, localization surface'leri ve PackIns prefab inventory icinde kalarak PDAI Block C Mailroom package inspection content yaratir, revize eder, validate eder ve localize eder.
+tags:
+  - game-development
+  - game-design
+  - workflow
+  - validation
+  - anti-hallucination
+depends_on:
+  - mh-skill-unity-6-developer
+  - mh-skill-code-aware-horror-narrative-designer
+last_reviewed: 2026-06-27
+source_blueprint: ../../prompts/skill-blueprints/pdai-block-c-mailroom-package-content-composer.md
+portability: universal
+adapter_support:
+  claude-code: planned
+  chatgpt: planned
+  codex: planned
+  generic-llm: planned
+runtime_dependencies:
+  - access to the PDAI Unity project or exported package inspection database when authoring content
+tool_dependencies:
+  - file inspection capability for schema, validator, prefab, record, and localization review
+  - Unity editor or equivalent project automation for JSON dry-run import validation before import
+input_contract:
+  required:
+    - package_content_goal
+  optional:
+    - package_ids
+    - package_count
+    - tone_intensity
+    - preserve_or_replace_existing_concepts
+    - localization_locale
+    - exported_database_json
+    - pdai_repository_path
+output_contract:
+  default:
+    - inspected_context_summary
+    - package_content_briefs
+    - json_ready_record_patches
+    - localization_key_value_drafts
+    - validation_checklist
+notes:
+  - Skill yalnizca content-authoring icindir; yeni gameplay system, script, runtime feature, editor tool veya prefab creation eklememelidir.
+  - Physical content once existing PackIns prefab asset path'lerini kullanmalidir; GUID'ler optional'dir ve yalnizca Unity veya AssetDatabase'den toplandiysa valid'dir.
