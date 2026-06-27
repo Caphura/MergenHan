@@ -67,7 +67,6 @@ Example draft shape:
 ```text
 Package.BCM_001.DeclaredContents = ...
 Package.BCM_001.ActualContents = ...
-Package.BCM_001.DecisionRationale = ...
 Package.BCM_001.InspectionInfo.Subtitle = ...
 Package.BCM_001.InspectionInfo.Body = ...
 ```
@@ -75,9 +74,11 @@ Package.BCM_001.InspectionInfo.Body = ...
 Rules:
 
 - Yeni draft eklemeden once existing localization key'lerini inspect et.
+- Yalnizca project localization layer tarafindan gercekten okunan field'lar icin localization key draft et.
 - Existing key style, casing, separator ve locale file format'ini koru.
 - Player-facing text'i requested tone intensity ile tutarli tut.
 - Current project zaten yapmiyorsa internal-only field'lari localize etme.
+- `DecisionRationale` JSON/data patch icinde kalabilir, ancak PDAI ileride bunun icin localization lookup eklemedikce localization draft icinde yer almamalidir.
 
 ## Validation Checklist Before Import
 
